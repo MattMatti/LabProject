@@ -1,0 +1,11 @@
+.\rvmdk\pwm.o: PWM.c
+.\rvmdk\pwm.o: PWM.h
+.\rvmdk\pwm.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\rvmdk\pwm.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\rvmdk\pwm.o: .\driverlib\sysctl.h
+.\rvmdk\pwm.o: .\inc\hw_memmap.h
+.\rvmdk\pwm.o: .\driverlib\adc.h
+.\rvmdk\pwm.o: .\driverlib\uart.h
+.\rvmdk\pwm.o: .\inc\tm4c123gh6pm.h
+.\rvmdk\pwm.o: .\inc\hw_gpio.h
+.\rvmdk\pwm.o: .\inc\hw_types.h
