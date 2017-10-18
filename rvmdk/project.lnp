@@ -3,7 +3,6 @@
 ".\rvmdk\startup_rvmdk.o"
 ".\inc\driverlib.lib"
 ".\rvmdk\example.o"
-".\rvmdk\uart_helper.o"
 ".\rvmdk\adc_helper.o"
 ".\rvmdk\gpio_helper.o"
 ".\rvmdk\pwm_helper.o"

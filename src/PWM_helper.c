@@ -11,22 +11,22 @@ void delayMS(int ms)
 {
 	unsigned long ulPeriod;
     //Set the clock
-   SysCtlClockSet(SYSCTL_SYSDIV_1 | SYSCTL_USE_OSC |	SYSCTL_OSC_MAIN | SYSCTL_XTAL_16MHZ);
+   //SysCtlClockSet(SYSCTL_SYSDIV_1 | SYSCTL_USE_OSC |	SYSCTL_OSC_MAIN | SYSCTL_XTAL_16MHZ);
 
    //Configure PWM Clock to match system
    SysCtlPWMClockSet(SYSCTL_PWMDIV_1);
-
+   
    // Enable the peripherals used by this program.
     SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOE);
     SysCtlPeripheralEnable(SYSCTL_PERIPH_PWM0);  //The Tiva Launchpad has two modules (0 and 1). 
     ulPeriod = SysCtlClockGet() / 200; //PWM frequency 200HZ
 
     //Configure PF1,PF2,PF3 Pins as PWM
-    GPIOPinConfigure(GPIO_PE5_M0PWM5); // pin1 port F is pwm5 of module 1 
+    GPIOPinConfigure(GPIO_PE5_M0PWM5); // pin1 port E is pwm5 of module 0 
     //GPIOPinConfigure(GPIO_PF2_M1PWM6);
     //GPIOPinConfigure(GPIO_PF3_M1PWM7);
     //GPIOPinTypePWM(GPIO_PORTF_BASE, GPIO_PIN_1 | GPIO_PIN_2 | GPIO_PIN_3);
-     GPIOPinTypePWM(GPIO_PORTE_BASE, GPIO_PIN_1);
+     GPIOPinTypePWM(GPIO_PORTE_BASE, GPIO_PIN_5);
     
 	//Configure PWM Options
     //PWM_GEN_2 Covers M1PWM4 and M1PWM5

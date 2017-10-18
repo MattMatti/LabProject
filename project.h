@@ -42,10 +42,10 @@
 
 #include "TM4C123.h"                    // Device header
 
-#include "./src/SysTick_helper.h"
+//#include "./src/SysTick_helper.h"
 #include "./src/GPIO_helper.h"
 #include "./src/PWM_helper.h"
-#include "./src/ADC_helper.h"
-#include "./src/uart_helper.h"
+//#include "./src/ADC_helper.h"
+//#include "./src/uart_helper.h"
 
 

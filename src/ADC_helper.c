@@ -77,7 +77,7 @@ void ADCReadChan()
 	string1 = (ADCSequenceDataGet(ADC0_BASE, 0, ADC_Values));
 	if (string1 >0x555 && string1 < 0xFFF) // less than or equal to this voltage range
 	{
-	 SetUp200Hz();
+
 	}
 	
 	

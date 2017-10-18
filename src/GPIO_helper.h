@@ -1,6 +1,8 @@
+#pragma once
+
 #include <stdbool.h>
 #include <stdint.h>
-//#include "sysctl.h"
+#include "sysctl.h"
 #include "hw_memmap.h"
 #include "adc.h"
 #include "uart.h"
@@ -11,7 +13,7 @@
 
 //#include "project.h"
 
-void UpdateMYButtons(void);
+void UpdateMyButtons(void);
 //1 = pushed down
 //0 = not pushed
 

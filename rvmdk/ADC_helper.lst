@@ -1,7 +1,10 @@
 L 1 "src\ADC_helper.c"
 N//Matthew Matti & Lakeysha Green
+N// I tried to initialize everything and set up the ADC pins and then try to correlate it to the photoresistor but I didn't get the chance and 
+N// sort of didn't know how.. I will try this weekend. sorry yo
 N#include "ADC_helper.h"
 L 1 "src\ADC_helper.h" 1
+N#pragma once
 N#include <stdbool.h>
 L 1 "C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h" 1
 N/* stdbool.h: ISO/IEC 9899:1999 (C99), section 7.16 */
@@ -31,7 +34,7 @@ N  #endif
 N
 N#endif /* __bool_true_false_are_defined */
 N
-L 2 "src\ADC_helper.h" 2
+L 3 "src\ADC_helper.h" 2
 N#include <stdint.h>
 L 1 "C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h" 1
 N/* Copyright (C) ARM Ltd., 1999,2014 */
@@ -363,7 +366,7 @@ N
 N#endif /* __stdint_h */
 N
 N/* end of stdint.h */
-L 3 "src\ADC_helper.h" 2
+L 4 "src\ADC_helper.h" 2
 N#include "sysctl.h"
 L 1 ".\driverlib\sysctl.h" 1
 N//*****************************************************************************
@@ -1035,7 +1038,7 @@ S}
 N#endif
 N
 N#endif // __DRIVERLIB_SYSCTL_H__
-L 4 "src\ADC_helper.h" 2
+L 5 "src\ADC_helper.h" 2
 N#include "hw_memmap.h"
 L 1 ".\inc\hw_memmap.h" 1
 N//*****************************************************************************
@@ -1189,7 +1192,7 @@ N#define NVIC_BASE               0xE000E000  // Nested Vectored Interrupt Ctrl
 N#define TPIU_BASE               0xE0040000  // Trace Port Interface Unit
 N
 N#endif // __HW_MEMMAP_H__
-L 5 "src\ADC_helper.h" 2
+L 6 "src\ADC_helper.h" 2
 N#include "adc.h"
 L 1 ".\driverlib\adc.h" 1
 N//*****************************************************************************
@@ -1535,7 +1538,7 @@ S}
 N#endif
 N
 N#endif // __DRIVERLIB_ADC_H__
-L 6 "src\ADC_helper.h" 2
+L 7 "src\ADC_helper.h" 2
 N#include "uart.h"
 L 1 ".\driverlib\uart.h" 1
 N//*****************************************************************************
@@ -1801,7 +1804,7 @@ S}
 N#endif
 N
 N#endif // __DRIVERLIB_UART_H__
-L 7 "src\ADC_helper.h" 2
+L 8 "src\ADC_helper.h" 2
 N#include "tm4c123gh6pm.h"
 L 1 ".\inc\tm4c123gh6pm.h" 1
 N//*****************************************************************************
@@ -14887,7 +14890,7 @@ N
 N#endif
 N
 N#endif // __TM4C123GH6PM_H__
-L 8 "src\ADC_helper.h" 2
+L 9 "src\ADC_helper.h" 2
 N#include "hw_gpio.h"
 L 1 ".\inc\hw_gpio.h" 1
 N//*****************************************************************************
@@ -15103,7 +15106,7 @@ N#define GPIO_PC_EDM2_S          4
 N#define GPIO_PC_EDM1_S          2
 N
 N#endif // __HW_GPIO_H__
-L 9 "src\ADC_helper.h" 2
+L 10 "src\ADC_helper.h" 2
 N#include "hw_types.h"
 L 1 ".\inc\hw_types.h" 1
 N//*****************************************************************************
@@ -15266,7 +15269,7 @@ N#define CLASS_IS_SNOWFLAKE CLASS_IS_TM4C123
 N#endif
 N
 N#endif // __HW_TYPES_H__
-L 10 "src\ADC_helper.h" 2
+L 11 "src\ADC_helper.h" 2
 N#include "gpio.h"
 L 1 ".\driverlib\gpio.h" 1
 N//*****************************************************************************
@@ -15474,44 +15477,43 @@ S}
 N#endif
 N
 N#endif // __DRIVERLIB_GPIO_H__
-L 11 "src\ADC_helper.h" 2
-Nextern uint32_t ADC_Values[13];
+L 12 "src\ADC_helper.h" 2
 N
-Nextern uint32_t photoresistor;
+Nextern uint32_t ADC_Values[2];
+N
+Nextern uint32_t string1;
 N	
-Nstruct ADC_Strings_FSRs
-N{
-N	uint32_t String1;
-N	uint32_t String2;
-N	uint32_t String3;
-N	uint32_t String4;
-N	uint32_t FSR1;
-N	uint32_t FSR2;
-N	uint32_t FSR3;
-N	uint32_t FSR4;
-N};
+N//struct ADC_Strings_FSRs
+N//{
+N//	uint32_t String1;
+N//	uint32_t String2;
+N//	uint32_t String3;
+N//	uint32_t String4;
+N//	uint32_t FSR1;
+N//	uint32_t FSR2;
+N//	uint32_t FSR3;
+N//	uint32_t FSR4;
+N//};
 N	
 N
+Nvoid SetupADCPins(void);
 Nvoid SetupADC(void);
 Nvoid ADCReadChan(void);  
 N
-W "src\ADC_helper.h" 31 52 last line of file ends without a newline
-Nextern struct ADC_Strings_FSRs StringAndFSR_values;
-L 3 "src\ADC_helper.c" 2
+W "src\ADC_helper.h" 34 54 last line of file ends without a newline
+N//extern struct ADC_Strings_FSRs StringAndFSR_values;
+L 5 "src\ADC_helper.c" 2
 N
-Nuint32_t ADC_Values[13];
+Nuint32_t ADC_Values[2];
 N
 N
-N
-Nvoid SetupADCPins(void);
-N
-N//set up for 2 pots and accelerometer + 1 extra
+N//set up for 1 soft pot "string1"
 Nvoid SetupADCPins()
 N{
-N	GPIOPinTypeADC(GPIO_PORTE_BASE,GPIO_PIN_3|GPIO_PIN_2|GPIO_PIN_1); // pin 3 is AIN0 pin 2 is AIN1 pin 1 is AIN2 (bit wise or 0b00000111)
-X	GPIOPinTypeADC(0x40024000,0x00000008|0x00000004|0x00000002); 
-N	GPIOPinTypeADC(GPIO_PORTD_BASE,GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3); //AIN7-pin 0, AIN6-pin 1, AIN5 - pin 2, AIN4- pin 3 (bit wise or 0b00001111)
-X	GPIOPinTypeADC(0x40007000,0x00000001|0x00000002|0x00000004|0x00000008); 
+N	GPIOPinTypeADC(GPIO_PORTE_BASE,GPIO_PIN_1);
+X	GPIOPinTypeADC(0x40024000,0x00000002);
+N//	GPIOPinTypeADC(GPIO_PORTE_BASE,GPIO_PIN_3|GPIO_PIN_2|GPIO_PIN_1); // pin 3 is AIN0 pin 2 is AIN1 pin 1 is AIN2 (bit wise or 0b00000111)
+N//GPIOPinTypeADC(GPIO_PORTD_BASE,GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3); //AIN7-pin 0, AIN6-pin 1, AIN5 - pin 2, AIN4- pin 3 (bit wise or 0b00001111)
 N	//GPIOPinTypeADC(GPIO_PORTE_BASE,GPIO_PIN_2);
 N	
 N}
@@ -15544,7 +15546,6 @@ N	ADCSequenceDisable(ADC0_BASE,0);
 X	ADCSequenceDisable(0x40038000,0); 
 N	ADCSequenceConfigure(ADC0_BASE, 0, ADC_TRIGGER_PROCESSOR, 0); 
 X	ADCSequenceConfigure(0x40038000, 0, 0x00000000, 0); 
-N	//ADCSequenceStepConfigure(ADC0_BASE, 0, 0,	ADC_CTL_IE | ADC_CTL_END | ADC_CTL_CH1 | ADC_CTL_CH2| ADC_CTL_CH4| ADC_CTL_CH5| ADC_CTL_CH6| ADC_CTL_CH7);
 N	ADCSequenceStepConfigure(ADC0_BASE, 0, 0, ADC_CTL_CH0 );
 X	ADCSequenceStepConfigure(0x40038000, 0, 0, 0x00000000 );
 N  ADCSequenceStepConfigure(ADC0_BASE, 0, 1, ADC_CTL_CH1 );	
@@ -15572,7 +15573,7 @@ N}
 N
 Nvoid ADCReadChan()
 N{
-N	int32_t light;
+N	int32_t string1;
 N	//
 N	//
 N	ADCProcessorTrigger(ADC0_BASE, 0); // Trigger the sample sequence above (sequence 0)
@@ -15590,11 +15591,13 @@ N	//
 N	// Read the value from the ADC.
 N	//
 N	
-N	light = (ADCSequenceDataGet(ADC0_BASE, 0, ADC_Values));
-X	light = (ADCSequenceDataGet(0x40038000, 0, ADC_Values));
-N	if (light < 13)
+N	string1 = (ADCSequenceDataGet(ADC0_BASE, 0, ADC_Values));
+X	string1 = (ADCSequenceDataGet(0x40038000, 0, ADC_Values));
+N	if (string1 >0x555 && string1 < 0xFFF) // less than or equal to this voltage range
 N	{
-N		ADC_Values[12]=light; 
+N
 N	}
-W "src\ADC_helper.c" 83 2 last line of file ends without a newline
+N	
+N	
+W "src\ADC_helper.c" 84 2 last line of file ends without a newline
 N}

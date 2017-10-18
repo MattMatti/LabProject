@@ -1,5 +1,7 @@
 #line 1 "src\\PWM_helper.c"
 #line 1 "src\\PWM_helper.h"
+#pragma once
+
 #line 1 "C:\\Keil_v5\\ARM\\ARMCC\\Bin\\..\\include\\stdbool.h"
  
 
@@ -18,7 +20,7 @@
 
 
 
-#line 2 "src\\PWM_helper.h"
+#line 4 "src\\PWM_helper.h"
 #line 1 "C:\\Keil_v5\\ARM\\ARMCC\\Bin\\..\\include\\stdint.h"
  
  
@@ -275,7 +277,7 @@ typedef unsigned     long long uintmax_t;
 
 
  
-#line 3 "src\\PWM_helper.h"
+#line 5 "src\\PWM_helper.h"
 #line 1 ".\\driverlib\\sysctl.h"
 
 
@@ -569,7 +571,7 @@ extern _Bool SysCtlVCOGet(uint32_t ui32Crystal, uint32_t *pui32VCOFrequency);
 
 
 
-#line 4 "src\\PWM_helper.h"
+#line 6 "src\\PWM_helper.h"
 #line 1 ".\\inc\\hw_memmap.h"
 
 
@@ -631,7 +633,7 @@ extern _Bool SysCtlVCOGet(uint32_t ui32Crystal, uint32_t *pui32VCOFrequency);
                                             
 #line 150 ".\\inc\\hw_memmap.h"
 
-#line 5 "src\\PWM_helper.h"
+#line 7 "src\\PWM_helper.h"
 #line 1 ".\\driverlib\\adc.h"
 
 
@@ -842,7 +844,7 @@ extern uint32_t ADCSampleRateGet(uint32_t ui32Base);
 
 
 
-#line 6 "src\\PWM_helper.h"
+#line 8 "src\\PWM_helper.h"
 #line 1 ".\\driverlib\\uart.h"
 
 
@@ -1073,7 +1075,7 @@ extern void UARTLoopbackEnable(uint32_t ui32Base);
 
 
 
-#line 7 "src\\PWM_helper.h"
+#line 9 "src\\PWM_helper.h"
 #line 1 ".\\inc\\tm4c123gh6pm.h"
 
 
@@ -9133,7 +9135,7 @@ extern void UARTLoopbackEnable(uint32_t ui32Base);
 
 
 
-#line 8 "src\\PWM_helper.h"
+#line 10 "src\\PWM_helper.h"
 #line 1 ".\\inc\\hw_gpio.h"
 
 
@@ -9303,7 +9305,7 @@ extern void UARTLoopbackEnable(uint32_t ui32Base);
                                             
 #line 212 ".\\inc\\hw_gpio.h"
 
-#line 9 "src\\PWM_helper.h"
+#line 11 "src\\PWM_helper.h"
 #line 1 ".\\inc\\hw_types.h"
 
 
@@ -9437,7 +9439,7 @@ extern void UARTLoopbackEnable(uint32_t ui32Base);
 
 
 
-#line 10 "src\\PWM_helper.h"
+#line 12 "src\\PWM_helper.h"
 #line 1 ".\\driverlib\\pwm.h"
 
 
@@ -9688,7 +9690,7 @@ extern void PWMOutputUpdateMode(uint32_t ui32Base,
 
 
 
-#line 11 "src\\PWM_helper.h"
+#line 13 "src\\PWM_helper.h"
 #line 1 ".\\driverlib\\gpio.h"
 
 
@@ -9861,7 +9863,7 @@ extern void GPIOADCTriggerDisable(uint32_t ui32Port, uint8_t ui8Pins);
 
 
 
-#line 12 "src\\PWM_helper.h"
+#line 14 "src\\PWM_helper.h"
 #line 1 ".\\driverlib\\pin_map.h"
 
 
@@ -10551,72 +10553,79 @@ extern void GPIOADCTriggerDisable(uint32_t ui32Port, uint8_t ui8Pins);
 
 #line 20952 ".\\driverlib\\pin_map.h"
 
-#line 13 "src\\PWM_helper.h"
+#line 15 "src\\PWM_helper.h"
+
+void SetUpPWM200HZ(void);
 #line 2 "src\\PWM_helper.c"
+
+
 
 void delayMS(int ms) 
 	{
     SysCtlDelay( (SysCtlClockGet()/(3*1000))*ms );
 }
 
-int
-main(void)
+ void SetUpPWM200HZ()
 {
+	unsigned long ulPeriod;
     
-   SysCtlClockSet(0x07800000 | 0x00003800 |   0x00000000 | 0x00000540);
+   
 
    
    SysCtlPWMClockSet(0x00000000);
-
    
-    SysCtlPeripheralEnable(0xf0000805);
-    SysCtlPeripheralEnable(0xf0004001);  
+   
+    SysCtlPeripheralEnable(0xf0000804);
+    SysCtlPeripheralEnable(0xf0004000);  
+    ulPeriod = SysCtlClockGet() / 200; 
 
     
-    GPIOPinConfigure(0x00050405);
-    GPIOPinConfigure(0x00050805);
-    GPIOPinConfigure(0x00050C05);
-    GPIOPinTypePWM(0x40025000, 0x00000002 | 0x00000004 | 0x00000008);
-
+    GPIOPinConfigure(0x00041404); 
     
+    
+    
+     GPIOPinTypePWM(0x40024000, 0x00000020);
+    
+	
     
     
     PWMGenConfigure(0x40029000, 0x000000C0, 0x00000000 | 0x00000000); 
     PWMGenConfigure(0x40029000, 0x00000100, 0x00000000 | 0x00000000); 
 
     
-    PWMGenPeriodSet(0x40029000, 0x000000C0, 320);
-    PWMGenPeriodSet(0x40029000, 0x00000100, 320);
+    PWMGenPeriodSet(0x40029000, 0x000000C0, ulPeriod);
+    PWMGenPeriodSet(0x40029000, 0x00000100, ulPeriod);
 
     
-    PWMPulseWidthSet(0x40029000, 0x000000C5,100);
-    PWMPulseWidthSet(0x40029000, 0x00000106,100);
-    PWMPulseWidthSet(0x40029000, 0x00000107,100);
+    PWMPulseWidthSet(0x40029000, 0x000000C5,ulPeriod);
+																											
+																											
 
     
     PWMGenEnable(0x40029000, 0x000000C0);
     PWMGenEnable(0x40029000, 0x00000100);
 
     
-    PWMOutputState(0x40029000, 0x00000020 | 0x00000040 | 0x00000080, 1);
+    PWMOutputState(0x40029000, 0x00000020, 1);
+    
+		
 
     
-    _Bool fadeUp = 1;
-    unsigned long increment = 10;
-    unsigned long pwmNow = 100;
-    while(1)
-    {
-        delayMS(20);
-        if (fadeUp) {
-            pwmNow += increment;
-            if (pwmNow >= 320) { fadeUp = 0; }
-        }
-        else {
-            pwmNow -= increment;
-            if (pwmNow <= 10) { fadeUp = 1; }
-        }
-        PWMPulseWidthSet(0x40029000, 0x000000C5,pwmNow);
-        PWMPulseWidthSet(0x40029000, 0x00000106,pwmNow);
-        PWMPulseWidthSet(0x40029000, 0x00000107,pwmNow);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        
     }
-}

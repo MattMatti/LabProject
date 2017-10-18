@@ -1,6 +1,9 @@
 #line 1 "src\\ADC_helper.c"
 
+
+
 #line 1 "src\\ADC_helper.h"
+#pragma once
 #line 1 "C:\\Keil_v5\\ARM\\ARMCC\\Bin\\..\\include\\stdbool.h"
  
 
@@ -19,7 +22,7 @@
 
 
 
-#line 2 "src\\ADC_helper.h"
+#line 3 "src\\ADC_helper.h"
 #line 1 "C:\\Keil_v5\\ARM\\ARMCC\\Bin\\..\\include\\stdint.h"
  
  
@@ -276,7 +279,7 @@ typedef unsigned     long long uintmax_t;
 
 
  
-#line 3 "src\\ADC_helper.h"
+#line 4 "src\\ADC_helper.h"
 #line 1 ".\\driverlib\\sysctl.h"
 
 
@@ -570,7 +573,7 @@ extern _Bool SysCtlVCOGet(uint32_t ui32Crystal, uint32_t *pui32VCOFrequency);
 
 
 
-#line 4 "src\\ADC_helper.h"
+#line 5 "src\\ADC_helper.h"
 #line 1 ".\\inc\\hw_memmap.h"
 
 
@@ -632,7 +635,7 @@ extern _Bool SysCtlVCOGet(uint32_t ui32Crystal, uint32_t *pui32VCOFrequency);
                                             
 #line 150 ".\\inc\\hw_memmap.h"
 
-#line 5 "src\\ADC_helper.h"
+#line 6 "src\\ADC_helper.h"
 #line 1 ".\\driverlib\\adc.h"
 
 
@@ -843,7 +846,7 @@ extern uint32_t ADCSampleRateGet(uint32_t ui32Base);
 
 
 
-#line 6 "src\\ADC_helper.h"
+#line 7 "src\\ADC_helper.h"
 #line 1 ".\\driverlib\\uart.h"
 
 
@@ -1074,7 +1077,7 @@ extern void UARTLoopbackEnable(uint32_t ui32Base);
 
 
 
-#line 7 "src\\ADC_helper.h"
+#line 8 "src\\ADC_helper.h"
 #line 1 ".\\inc\\tm4c123gh6pm.h"
 
 
@@ -9134,7 +9137,7 @@ extern void UARTLoopbackEnable(uint32_t ui32Base);
 
 
 
-#line 8 "src\\ADC_helper.h"
+#line 9 "src\\ADC_helper.h"
 #line 1 ".\\inc\\hw_gpio.h"
 
 
@@ -9304,7 +9307,7 @@ extern void UARTLoopbackEnable(uint32_t ui32Base);
                                             
 #line 212 ".\\inc\\hw_gpio.h"
 
-#line 9 "src\\ADC_helper.h"
+#line 10 "src\\ADC_helper.h"
 #line 1 ".\\inc\\hw_types.h"
 
 
@@ -9438,7 +9441,7 @@ extern void UARTLoopbackEnable(uint32_t ui32Base);
 
 
 
-#line 10 "src\\ADC_helper.h"
+#line 11 "src\\ADC_helper.h"
 #line 1 ".\\driverlib\\gpio.h"
 
 
@@ -9611,41 +9614,41 @@ extern void GPIOADCTriggerDisable(uint32_t ui32Port, uint8_t ui8Pins);
 
 
 
-#line 11 "src\\ADC_helper.h"
-extern uint32_t ADC_Values[13];
+#line 12 "src\\ADC_helper.h"
 
-extern uint32_t photoresistor;
-	
-struct ADC_Strings_FSRs
-{
-	uint32_t String1;
-	uint32_t String2;
-	uint32_t String3;
-	uint32_t String4;
-	uint32_t FSR1;
-	uint32_t FSR2;
-	uint32_t FSR3;
-	uint32_t FSR4;
-};
+extern uint32_t ADC_Values[2];
+
+extern uint32_t string1;
 	
 
+
+
+
+
+
+
+
+
+
+
+	
+
+void SetupADCPins(void);
 void SetupADC(void);
 void ADCReadChan(void);  
 
-extern struct ADC_Strings_FSRs StringAndFSR_values;
-#line 3 "src\\ADC_helper.c"
 
-uint32_t ADC_Values[13];
+#line 5 "src\\ADC_helper.c"
 
+uint32_t ADC_Values[2];
 
-
-void SetupADCPins(void);
 
 
 void SetupADCPins()
 {
-	GPIOPinTypeADC(0x40024000,0x00000008|0x00000004|0x00000002); 
-	GPIOPinTypeADC(0x40007000,0x00000001|0x00000002|0x00000004|0x00000008); 
+	GPIOPinTypeADC(0x40024000,0x00000002);
+
+
 	
 	
 }
@@ -9673,7 +9676,6 @@ void SetupADC()
 	
 	ADCSequenceDisable(0x40038000,0); 
 	ADCSequenceConfigure(0x40038000, 0, 0x00000000, 0); 
-	
 	ADCSequenceStepConfigure(0x40038000, 0, 0, 0x00000000 );
   ADCSequenceStepConfigure(0x40038000, 0, 1, 0x00000001 );	
   ADCSequenceStepConfigure(0x40038000, 0, 2, 0x00000002 );	
@@ -9693,7 +9695,7 @@ void SetupADC()
 
 void ADCReadChan()
 {
-	int32_t light;
+	int32_t string1;
 	
 	
 	ADCProcessorTrigger(0x40038000, 0); 
@@ -9709,9 +9711,11 @@ void ADCReadChan()
 	
 	
 	
-	light = (ADCSequenceDataGet(0x40038000, 0, ADC_Values));
-	if (light < 13)
+	string1 = (ADCSequenceDataGet(0x40038000, 0, ADC_Values));
+	if (string1 >0x555 && string1 < 0xFFF) 
 	{
-		ADC_Values[12]=light; 
+
 	}
+	
+	
 }

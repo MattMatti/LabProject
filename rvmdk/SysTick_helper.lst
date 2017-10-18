@@ -14516,7 +14516,7 @@ Nvoid SysTickWait10ms(unsigned long);
 L 2 "src\SysTick_helper.c" 2
 N#include "tm4c123gh6pm.h"
 N
-N//must be accurate.. for systick
+N//must be accurate.. for systick setss the systick timer for 10 ms but the set period is set to 14.7 ms
 N
 Nint SetPeriod = 0x0011FFFF;
 N

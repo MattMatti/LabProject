@@ -36896,7 +36896,7 @@ L 2 "src\uart_helper.c" 2
 N
 N//*****************************************************************************
 N//
-N// The error routine that is called if the driver library encounters an error.
+N// The error routine that is called if the driver library encounters an error. This code allows you to choose from 4 options and gives you different characters.
 N//
 N//*****************************************************************************
 N
@@ -36923,6 +36923,7 @@ N printf("\n                 :\n                  :\n                  ::\n     
 N}
 N
 Nvoid PutInUartVariable()
+N	
 N{
 Nuint8_t temp;
 N 
@@ -36980,5 +36981,5 @@ N
 N   }
 N   
 N    
-W "src\uart_helper.c" 85 3 last line of file ends without a newline
+W "src\uart_helper.c" 86 3 last line of file ends without a newline
 N }

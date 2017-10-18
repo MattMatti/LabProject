@@ -1,0 +1,12 @@
+.\rvmdk\adc_helper.o: src\ADC_helper.c
+.\rvmdk\adc_helper.o: src\ADC_helper.h
+.\rvmdk\adc_helper.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\rvmdk\adc_helper.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\rvmdk\adc_helper.o: .\driverlib\sysctl.h
+.\rvmdk\adc_helper.o: .\inc\hw_memmap.h
+.\rvmdk\adc_helper.o: .\driverlib\adc.h
+.\rvmdk\adc_helper.o: .\driverlib\uart.h
+.\rvmdk\adc_helper.o: .\inc\tm4c123gh6pm.h
+.\rvmdk\adc_helper.o: .\inc\hw_gpio.h
+.\rvmdk\adc_helper.o: .\inc\hw_types.h
+.\rvmdk\adc_helper.o: .\driverlib\gpio.h

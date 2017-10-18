@@ -21,8 +21,8 @@ Target DLL:      lmidk-agdi.dll V???
 Dialog DLL:      TCM.DLL V1.32.0.0
  
 <h2>Project:</h2>
-C:\Users\mmatti\Documents\GitHub\lab\project.uvprojx
-Project File Date:  10/04/2017
+C:\Users\mmatti\Documents\GitHub\LabProject\project.uvprojx
+Project File Date:  10/18/2017
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
@@ -40,26 +40,21 @@ src\example.c(6): warning:  #550-D: variable "j"  was set but never used
 src\example.c(6): warning:  #550-D: variable "k"  was set but never used
   	int i,j,k;
 src\example.c: 4 warnings, 0 errors
-creating preprocessor file for uart_helper.c...
 creating preprocessor file for ADC_helper.c...
-compiling uart_helper.c...
-src\uart_helper.c(85): warning:  #1-D: last line of file ends without a newline
-   }
-src\uart_helper.c: 1 warning, 0 errors
+creating preprocessor file for GPIO_helper.c...
 compiling ADC_helper.c...
-src\ADC_helper.h(31): warning:  #1-D: last line of file ends without a newline
-  extern struct ADC_Strings_FSRs StringAndFSR_values;
-src\ADC_helper.c(83): warning:  #1-D: last line of file ends without a newline
+src\ADC_helper.h(34): warning:  #1-D: last line of file ends without a newline
+  //extern struct ADC_Strings_FSRs StringAndFSR_values;
+src\ADC_helper.c(84): warning:  #1-D: last line of file ends without a newline
   }
 src\ADC_helper.c: 2 warnings, 0 errors
-creating preprocessor file for GPIO_helper.c...
-creating preprocessor file for PWM_helper.c...
 compiling GPIO_helper.c...
-src\GPIO_helper.h(28): warning:  #1-D: last line of file ends without a newline
+src\GPIO_helper.h(30): warning:  #1-D: last line of file ends without a newline
     void TurnOnLEDs2(void);
-src\GPIO_helper.c(200): warning:  #1-D: last line of file ends without a newline
+src\GPIO_helper.c(212): warning:  #1-D: last line of file ends without a newline
   			
 src\GPIO_helper.c: 2 warnings, 0 errors
+creating preprocessor file for PWM_helper.c...
 creating preprocessor file for SysTick_helper.c...
 compiling project.c...
 driverlib/hibernate.h(229): warning:  #231-D: declaration is not visible outside of function
@@ -171,31 +166,25 @@ C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(15
   #define SYSCTL_BASE                     0x400FE000UL
 C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(1600): warning:  #47-D: incompatible redefinition of macro "UDMA_BASE"  (declared at line 137 of "inc/hw_memmap.h")
   #define UDMA_BASE                       0x400FF000UL
-./src/GPIO_helper.h(28): warning:  #1-D: last line of file ends without a newline
+./src/GPIO_helper.h(30): warning:  #1-D: last line of file ends without a newline
     void TurnOnLEDs2(void);
-./src/PWM_helper.h(12): warning:  #1-D: last line of file ends without a newline
-  #include "pin_map.h"
-./src/ADC_helper.h(31): warning:  #1-D: last line of file ends without a newline
-  extern struct ADC_Strings_FSRs StringAndFSR_values;
-project.c(95): warning:  #1-D: last line of file ends without a newline
+./src/PWM_helper.h(16): warning:  #1-D: last line of file ends without a newline
+  void SetUpPWM200HZ(void);
+project.c(75): warning:  #1-D: last line of file ends without a newline
   		}
-project.c(30): warning:  #177-D: variable "temp"  was declared but never referenced
-  	  uint8_t temp;
-project.c: 58 warnings, 0 errors
+project.c: 56 warnings, 0 errors
 compiling PWM_helper.c...
-src\PWM_helper.h(12): warning:  #1-D: last line of file ends without a newline
-  #include "pin_map.h"
-src\PWM_helper.c(68): warning:  #1-D: last line of file ends without a newline
-  }
+src\PWM_helper.h(16): warning:  #1-D: last line of file ends without a newline
+  void SetUpPWM200HZ(void);
+src\PWM_helper.c(73): warning:  #1-D: last line of file ends without a newline
+      }
 src\PWM_helper.c: 2 warnings, 0 errors
 compiling SysTick_helper.c...
 linking...
-.\rvmdk\project.axf: Error: L6200E: Symbol __ARM_use_no_argv multiply defined (by pwm_helper.o and project.o).
-.\rvmdk\project.axf: Error: L6200E: Symbol main multiply defined (by pwm_helper.o and project.o).
-Not enough information to list image symbols.
-Not enough information to list load addresses in the image map.
-Finished: 2 information, 0 warning and 2 error messages.
-".\rvmdk\project.axf" - 2 Error(s), 69 Warning(s).
+Program Size: Code=2588 RO-data=1180 RW-data=4 ZI-data=260  
+FromELF: creating hex file...
+After Build - User command #1: fromelf --bin --output .\rvmdk\project.bin .\rvmdk\project.axf
+".\rvmdk\project.axf" - 0 Error(s), 66 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -218,8 +207,7 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.0.1
-Target not created.
-Build Time Elapsed:  00:00:04
+Build Time Elapsed:  00:00:03
 </pre>
 </body>
 </html>
