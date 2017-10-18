@@ -1,0 +1,12 @@
+.\rvmdk\gpio_helper.o: src\GPIO_helper.c
+.\rvmdk\gpio_helper.o: src\GPIO_helper.h
+.\rvmdk\gpio_helper.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\rvmdk\gpio_helper.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\rvmdk\gpio_helper.o: .\driverlib\sysctl.h
+.\rvmdk\gpio_helper.o: .\inc\hw_memmap.h
+.\rvmdk\gpio_helper.o: .\driverlib\adc.h
+.\rvmdk\gpio_helper.o: .\driverlib\uart.h
+.\rvmdk\gpio_helper.o: .\inc\tm4c123gh6pm.h
+.\rvmdk\gpio_helper.o: .\inc\hw_gpio.h
+.\rvmdk\gpio_helper.o: .\inc\hw_types.h
+.\rvmdk\gpio_helper.o: .\driverlib\gpio.h
