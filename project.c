@@ -43,36 +43,11 @@ int  main(void)
     {
 			SetUpPWM200HZ();
 		}			
-		else
+    else
 		{
-		}
+		} 
 	
 		
-// UART
-//			{
-//		  UARTCharPut(UART0_BASE, temp);
-//			printf("Type in a character \n");
-//			
-//			//printf("This is your character \n"); 
-//			 printf("Print a variable %c\n\r", temp);
-//			//printf("select an option \n");
-//			//printf("1: This is the first thing \n");
-//			//printf("2: This is the second thing \n");
-//			//printf("3: This is the third thing \n");
-//	 
-//	temp = getc(stdin);
-//	 }
-			//switch(temp)
-			//{
-				//case '1': print_chicken;
-				//break;
-				//case '2': print_something;
-				//break;
-				//case '3': print_somethingelse;
-				//break; 
-				
-				
-		//	}
 
 //GPIO
 	
@@ -100,5 +75,5 @@ int  main(void)
 //		
 //}
 //			
-//			}
+			}
 		}
