@@ -69708,7 +69708,42 @@ N
 W "./src/PWM_helper.h" 16 26 last line of file ends without a newline
 Nvoid SetUpPWM200HZ(void);
 L 48 "project.h" 2
-N//#include "./src/ADC_helper.h"
+N#include "./src/ADC_helper.h"
+L 1 "./src/ADC_helper.h" 1
+N#pragma once
+N#include <stdbool.h>
+N#include <stdint.h>
+N#include "sysctl.h"
+N#include "hw_memmap.h"
+N#include "adc.h"
+N#include "uart.h"
+N#include "tm4c123gh6pm.h"
+N#include "hw_gpio.h"
+N#include "hw_types.h"
+N#include "gpio.h"
+N
+N
+N	
+N//struct ADC_Strings_FSRs
+N//{
+N//	uint32_t String1;
+N//	uint32_t String2;
+N//	uint32_t String3;
+N//	uint32_t String4;
+N//	uint32_t FSR1;
+N//	uint32_t FSR2;
+N//	uint32_t FSR3;
+N//	uint32_t FSR4;
+N//};
+N	
+N
+Nvoid SetupADCPins(void);
+Nvoid SetupADC(void);
+Nvoid ADCReadChan(void);  
+N
+W "./src/ADC_helper.h" 32 54 last line of file ends without a newline
+N//extern struct ADC_Strings_FSRs StringAndFSR_values;
+L 49 "project.h" 2
 N//#include "./src/uart_helper.h"
 N
 N
@@ -69737,60 +69772,33 @@ N    SysCtlPeripheralEnable(SYSCTL_PERIPH_ADC0); //enables ADC module 0
 X    SysCtlPeripheralEnable(0xf0003800); 
 N    SysCtlPeripheralReset(SYSCTL_PERIPH_ADC0); // resets ADC module 0 
 X    SysCtlPeripheralReset(0xf0003800); 
-N	 GPIOSetup();
+N	 //GPIOSetup();
 N		// Check if the peripheral access is enabled.
-N    while(!SysCtlPeripheralReady(SYSCTL_PERIPH_GPIOF))
-X    while(!SysCtlPeripheralReady(0xf0000805))
+N    while(!SysCtlPeripheralReady(SYSCTL_PERIPH_GPIOE))
+X    while(!SysCtlPeripheralReady(0xf0000804))
 N    {
 N    
 N		}
-N    
+N    	SetupADCPins();
+N		SetupADC();
 N    while(1)
 N		{
-N		//if (string1 < 0xFFF);
-N	
-N  UpdateMyButtons();
-N//	
-N		if(GPIOPinRead(GPIO_PORTF_BASE,GPIO_PIN_0) == 0)
-X		if(GPIOPinRead(0x40025000,0x00000001) == 0)
-N				{
-N					GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_3,GPIO_PIN_3);
-X					GPIOPinWrite(0x40025000,0x00000008,0x00000008);
-N				}
-N				else {
-N		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_3,0);					
-X		GPIOPinWrite(0x40025000,0x00000008,0);					
-N			SetUpPWM200HZ();
-N  		
 N		
-N				}
-N
-N//GPIO
 N	
-N
-N//	GPIOSetup();
+N  //UpdateMyButtons();
 N//	
-N//  UpdateMYButtons();
-N//	
-N//	if(MyButtons.SW1==0)
-N//				{
-N//				}
-N//				else
-N//				{				
-N//		
-N//			TurnOnLEDs();
-N//	
-N//	}
-N//	if(MyButtons.SW2==0)
-N//				{
-N//				}
-N//				else
-N//				{	
-N
-N//				TurnOnLEDs2();
-N//		
-N//}
-N//			
+N		//if(GPIOPinRead(GPIO_PORTF_BASE,GPIO_PIN_0) == 0)
+N			//	{
+N			//		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_3,GPIO_PIN_3);
+N				//}
+N			//	else {
+N		//GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_3,0);					
+N		//	SetUpPWM200HZ();
+N  		
+N	
+N		ADCReadChan();
+N			
+N				
 N			}
-W "project.c" 75 4 last line of file ends without a newline
+W "project.c" 51 4 last line of file ends without a newline
 N		}

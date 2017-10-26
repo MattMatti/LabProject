@@ -21,55 +21,31 @@ int  main(void)
 	
     SysCtlPeripheralEnable(SYSCTL_PERIPH_ADC0); //enables ADC module 0
     SysCtlPeripheralReset(SYSCTL_PERIPH_ADC0); // resets ADC module 0 
-	 GPIOSetup();
+	 //GPIOSetup();
 		// Check if the peripheral access is enabled.
-    while(!SysCtlPeripheralReady(SYSCTL_PERIPH_GPIOF))
+    while(!SysCtlPeripheralReady(SYSCTL_PERIPH_GPIOE))
     {
     
 		}
-    
+    	SetupADCPins();
+		SetupADC();
     while(1)
 		{
-		//if (string1 < 0xFFF);
-	
-  UpdateMyButtons();
-//	
-		if(GPIOPinRead(GPIO_PORTF_BASE,GPIO_PIN_0) == 0)
-				{
-					GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_3,GPIO_PIN_3);
-				}
-				else {
-		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_3,0);					
-			SetUpPWM200HZ();
-  		
 		
-				}
-
-//GPIO
 	
-
-//	GPIOSetup();
+  //UpdateMyButtons();
 //	
-//  UpdateMYButtons();
-//	
-//	if(MyButtons.SW1==0)
-//				{
-//				}
-//				else
-//				{				
-//		
-//			TurnOnLEDs();
-//	
-//	}
-//	if(MyButtons.SW2==0)
-//				{
-//				}
-//				else
-//				{	
-
-//				TurnOnLEDs2();
-//		
-//}
-//			
+		//if(GPIOPinRead(GPIO_PORTF_BASE,GPIO_PIN_0) == 0)
+			//	{
+			//		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_3,GPIO_PIN_3);
+				//}
+			//	else {
+		//GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_3,0);					
+		//	SetUpPWM200HZ();
+  		
+	
+		ADCReadChan();
+			
+				
 			}
 		}

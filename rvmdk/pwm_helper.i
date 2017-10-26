@@ -10560,14 +10560,10 @@ void SetUpPWM200HZ(void);
 
 
 
-void delayMS(int ms) 
-	{
-    SysCtlDelay( (SysCtlClockGet()/(3*1000))*ms );
-}
 
  void SetUpPWM200HZ()
 {
-	unsigned long ulPeriod;
+
     
    
 
@@ -10577,55 +10573,35 @@ void delayMS(int ms)
    
     SysCtlPeripheralEnable(0xf0000804);
     SysCtlPeripheralEnable(0xf0004000);  
-    ulPeriod = SysCtlClockGet() / 200; 
-
+    while(!SysCtlPeripheralReady(0xf0004000))
+		{
+		}
     
     GPIOPinConfigure(0x00041404); 
+	
     
-    
-    
-     GPIOPinTypePWM(0x40024000, 0x00000020);
+     GPIOPinTypePWM(0x40024000, 0x00000020); 
     
 	
     
     
-    PWMGenConfigure(0x40029000, 0x000000C0, 0x00000000 | 0x00000000); 
-    PWMGenConfigure(0x40029000, 0x00000100, 0x00000000 | 0x00000000); 
+   
+    PWMGenConfigure(0x40028000, 0x000000C0, 0x00000000 | 0x00000000); 
 
     
-    PWMGenPeriodSet(0x40029000, 0x000000C0, ulPeriod);
-    PWMGenPeriodSet(0x40029000, 0x00000100, ulPeriod);
+    PWMGenPeriodSet(0x40028000, 0x000000C0, 200);
+    
 
     
-    PWMPulseWidthSet(0x40029000, 0x000000C5,ulPeriod);
-																											
-																											
+    
+		PWMPulseWidthSet(0x40028000, 0x000000C5,100);																									
 
     
-    PWMGenEnable(0x40029000, 0x000000C0);
-    PWMGenEnable(0x40029000, 0x00000100);
+    PWMGenEnable(0x40028000, 0x000000C0);
 
     
-    PWMOutputState(0x40029000, 0x00000020, 1);
-    
-		
-
+    PWMOutputState(0x40028000, 0x00000020, 1);
     
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-        
     }

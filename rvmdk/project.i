@@ -21568,7 +21568,40 @@ void UpdateMyButtons(void);
 
 void SetUpPWM200HZ(void);
 #line 48 "project.h"
+#line 1 "./src/ADC_helper.h"
+#pragma once
+#line 3 "./src/ADC_helper.h"
+#line 4 "./src/ADC_helper.h"
+#line 5 "./src/ADC_helper.h"
+#line 6 "./src/ADC_helper.h"
+#line 7 "./src/ADC_helper.h"
+#line 8 "./src/ADC_helper.h"
+#line 9 "./src/ADC_helper.h"
+#line 10 "./src/ADC_helper.h"
+#line 11 "./src/ADC_helper.h"
+#line 12 "./src/ADC_helper.h"
 
+
+	
+
+
+
+
+
+
+
+
+
+
+
+	
+
+void SetupADCPins(void);
+void SetupADC(void);
+void ADCReadChan(void);  
+
+
+#line 49 "project.h"
 
 
 
@@ -21589,55 +21622,31 @@ int  main(void)
 	
     SysCtlPeripheralEnable(0xf0003800); 
     SysCtlPeripheralReset(0xf0003800); 
-	 GPIOSetup();
+	 
 		
-    while(!SysCtlPeripheralReady(0xf0000805))
+    while(!SysCtlPeripheralReady(0xf0000804))
     {
     
 		}
-    
+    	SetupADCPins();
+		SetupADC();
     while(1)
 		{
 		
 	
-  UpdateMyButtons();
+  
 
-		if(GPIOPinRead(0x40025000,0x00000001) == 0)
-				{
-					GPIOPinWrite(0x40025000,0x00000008,0x00000008);
-				}
-				else {
-		GPIOPinWrite(0x40025000,0x00000008,0);					
-			SetUpPWM200HZ();
-  		
 		
-				}
-
-
+			
+			
+				
+			
+		
+		
+  		
 	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		ADCReadChan();
+			
+				
 			}
 		}

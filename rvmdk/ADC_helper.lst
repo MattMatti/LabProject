@@ -15479,9 +15479,7 @@ N
 N#endif // __DRIVERLIB_GPIO_H__
 L 12 "src\ADC_helper.h" 2
 N
-Nextern uint32_t ADC_Values[2];
 N
-Nextern uint32_t string1;
 N	
 N//struct ADC_Strings_FSRs
 N//{
@@ -15500,11 +15498,11 @@ Nvoid SetupADCPins(void);
 Nvoid SetupADC(void);
 Nvoid ADCReadChan(void);  
 N
-W "src\ADC_helper.h" 34 54 last line of file ends without a newline
+W "src\ADC_helper.h" 32 54 last line of file ends without a newline
 N//extern struct ADC_Strings_FSRs StringAndFSR_values;
 L 5 "src\ADC_helper.c" 2
 N
-Nuint32_t ADC_Values[2];
+Nuint32_t ADC_Values;
 N
 N
 N//set up for 1 soft pot "string1"
@@ -15512,10 +15510,6 @@ Nvoid SetupADCPins()
 N{
 N	GPIOPinTypeADC(GPIO_PORTE_BASE,GPIO_PIN_1);
 X	GPIOPinTypeADC(0x40024000,0x00000002);
-N//	GPIOPinTypeADC(GPIO_PORTE_BASE,GPIO_PIN_3|GPIO_PIN_2|GPIO_PIN_1); // pin 3 is AIN0 pin 2 is AIN1 pin 1 is AIN2 (bit wise or 0b00000111)
-N//GPIOPinTypeADC(GPIO_PORTD_BASE,GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3); //AIN7-pin 0, AIN6-pin 1, AIN5 - pin 2, AIN4- pin 3 (bit wise or 0b00001111)
-N	//GPIOPinTypeADC(GPIO_PORTE_BASE,GPIO_PIN_2);
-N	
 N}
 N
 Nvoid SetupADC()
@@ -15536,9 +15530,9 @@ X	while(!SysCtlPeripheralReady(0xf0003800))
 N	{
 N	}
 N	
-N	ADCReferenceSet(ADC0_BASE, ADC_REF_EXT_3V); //for reference so a 3 V supply must be given to the AVREF pin
-X	ADCReferenceSet(0x40038000, 0x00000001); 
-N	//
+N	ADCReferenceSet(ADC0_BASE, ADC_REF_INT); //for reference so a 3 V supply must be given to the AVREF pin
+X	ADCReferenceSet(0x40038000, 0x00000000); 
+N	//but for now we are using the interior voltage
 N	// Enable the first sample sequencer to capture the value of channel 0 when
 N	// the processor trigger occurs.
 N	//
@@ -15546,20 +15540,14 @@ N	ADCSequenceDisable(ADC0_BASE,0);
 X	ADCSequenceDisable(0x40038000,0); 
 N	ADCSequenceConfigure(ADC0_BASE, 0, ADC_TRIGGER_PROCESSOR, 0); 
 X	ADCSequenceConfigure(0x40038000, 0, 0x00000000, 0); 
-N	ADCSequenceStepConfigure(ADC0_BASE, 0, 0, ADC_CTL_CH0 );
-X	ADCSequenceStepConfigure(0x40038000, 0, 0, 0x00000000 );
-N  ADCSequenceStepConfigure(ADC0_BASE, 0, 1, ADC_CTL_CH1 );	
-X  ADCSequenceStepConfigure(0x40038000, 0, 1, 0x00000001 );	
-N  ADCSequenceStepConfigure(ADC0_BASE, 0, 2, ADC_CTL_CH2 );	
-X  ADCSequenceStepConfigure(0x40038000, 0, 2, 0x00000002 );	
-N	ADCSequenceStepConfigure(ADC0_BASE, 0, 3, ADC_CTL_CH4 );	
-X	ADCSequenceStepConfigure(0x40038000, 0, 3, 0x00000004 );	
-N	ADCSequenceStepConfigure(ADC0_BASE, 0, 4, ADC_CTL_CH5 );	
-X	ADCSequenceStepConfigure(0x40038000, 0, 4, 0x00000005 );	
-N	ADCSequenceStepConfigure(ADC0_BASE, 0, 5, ADC_CTL_CH6 );	
-X	ADCSequenceStepConfigure(0x40038000, 0, 5, 0x00000006 );	
-N	ADCSequenceStepConfigure(ADC0_BASE, 0, 6, ADC_CTL_CH7 | ADC_CTL_END);	
-X	ADCSequenceStepConfigure(0x40038000, 0, 6, 0x00000007 | 0x00000020);	
+N	ADCSequenceStepConfigure(ADC0_BASE, 0, 0, ADC_CTL_CH0 | ADC_CTL_END);
+X	ADCSequenceStepConfigure(0x40038000, 0, 0, 0x00000000 | 0x00000020);
+N//  ADCSequenceStepConfigure(ADC0_BASE, 0, 1, ADC_CTL_CH1 );	
+N//  ADCSequenceStepConfigure(ADC0_BASE, 0, 2, ADC_CTL_CH2 );	
+N//	ADCSequenceStepConfigure(ADC0_BASE, 0, 3, ADC_CTL_CH4 );	
+N//	ADCSequenceStepConfigure(ADC0_BASE, 0, 4, ADC_CTL_CH5 );	
+N//	ADCSequenceStepConfigure(ADC0_BASE, 0, 5, ADC_CTL_CH6 );	
+N//	ADCSequenceStepConfigure(ADC0_BASE, 0, 6, ADC_CTL_CH7 	
 N	
 N	
 N	//ADCSequenceStepConfigure(ADC0_BASE, 0, 0,	ADC_CTL_IE | ADC_CTL_END | ADC_CTL_CH1 );
@@ -15573,7 +15561,7 @@ N}
 N
 Nvoid ADCReadChan()
 N{
-N	int32_t string1;
+N	uint32_t string1;
 N	//
 N	//
 N	ADCProcessorTrigger(ADC0_BASE, 0); // Trigger the sample sequence above (sequence 0)
@@ -15591,13 +15579,15 @@ N	//
 N	// Read the value from the ADC.
 N	//
 N	
-N	string1 = (ADCSequenceDataGet(ADC0_BASE, 0, ADC_Values));
-X	string1 = (ADCSequenceDataGet(0x40038000, 0, ADC_Values));
-N	if (string1 >0x555 && string1 < 0xFFF) // less than or equal to this voltage range
-N	{
+N	string1 = ADCSequenceDataGet(ADC0_BASE, 0, &ADC_Values);
+X	string1 = ADCSequenceDataGet(0x40038000, 0, &ADC_Values);
+N	
+N		if (string1 >0x555 && string1 < 0xFFF) // less than or equal to this voltage range
+N	      {
+W "src\ADC_helper.c" 77 11 function "SetUpPWM200HZ" declared implicitly
+N	         SetUpPWM200HZ(); 	
+N				}
+N	
 N
 N	}
 N	
-N	
-W "src\ADC_helper.c" 84 2 last line of file ends without a newline
-N}

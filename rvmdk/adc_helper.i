@@ -9616,9 +9616,7 @@ extern void GPIOADCTriggerDisable(uint32_t ui32Port, uint8_t ui8Pins);
 
 #line 12 "src\\ADC_helper.h"
 
-extern uint32_t ADC_Values[2];
 
-extern uint32_t string1;
 	
 
 
@@ -9640,17 +9638,13 @@ void ADCReadChan(void);
 
 #line 5 "src\\ADC_helper.c"
 
-uint32_t ADC_Values[2];
+uint32_t ADC_Values;
 
 
 
 void SetupADCPins()
 {
 	GPIOPinTypeADC(0x40024000,0x00000002);
-
-
-	
-	
 }
 
 void SetupADC()
@@ -9669,20 +9663,20 @@ void SetupADC()
 	{
 	}
 	
-	ADCReferenceSet(0x40038000, 0x00000001); 
+	ADCReferenceSet(0x40038000, 0x00000000); 
 	
 	
 	
 	
 	ADCSequenceDisable(0x40038000,0); 
 	ADCSequenceConfigure(0x40038000, 0, 0x00000000, 0); 
-	ADCSequenceStepConfigure(0x40038000, 0, 0, 0x00000000 );
-  ADCSequenceStepConfigure(0x40038000, 0, 1, 0x00000001 );	
-  ADCSequenceStepConfigure(0x40038000, 0, 2, 0x00000002 );	
-	ADCSequenceStepConfigure(0x40038000, 0, 3, 0x00000004 );	
-	ADCSequenceStepConfigure(0x40038000, 0, 4, 0x00000005 );	
-	ADCSequenceStepConfigure(0x40038000, 0, 5, 0x00000006 );	
-	ADCSequenceStepConfigure(0x40038000, 0, 6, 0x00000007 | 0x00000020);	
+	ADCSequenceStepConfigure(0x40038000, 0, 0, 0x00000000 | 0x00000020);
+
+
+
+
+
+
 	
 	
 	
@@ -9695,7 +9689,7 @@ void SetupADC()
 
 void ADCReadChan()
 {
-	int32_t string1;
+	uint32_t string1;
 	
 	
 	ADCProcessorTrigger(0x40038000, 0); 
@@ -9711,11 +9705,13 @@ void ADCReadChan()
 	
 	
 	
-	string1 = (ADCSequenceDataGet(0x40038000, 0, ADC_Values));
-	if (string1 >0x555 && string1 < 0xFFF) 
-	{
+	string1 = ADCSequenceDataGet(0x40038000, 0, &ADC_Values);
+	
+		if (string1 >0x555 && string1 < 0xFFF) 
+	      {
+	         SetUpPWM200HZ(); 	
+				}
+	
 
 	}
 	
-	
-}

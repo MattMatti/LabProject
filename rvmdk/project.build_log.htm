@@ -43,10 +43,10 @@ src\example.c: 4 warnings, 0 errors
 creating preprocessor file for ADC_helper.c...
 creating preprocessor file for GPIO_helper.c...
 compiling ADC_helper.c...
-src\ADC_helper.h(34): warning:  #1-D: last line of file ends without a newline
+src\ADC_helper.h(32): warning:  #1-D: last line of file ends without a newline
   //extern struct ADC_Strings_FSRs StringAndFSR_values;
-src\ADC_helper.c(84): warning:  #1-D: last line of file ends without a newline
-  }
+src\ADC_helper.c(77): warning:  #223-D: function "SetUpPWM200HZ" declared implicitly
+  	         SetUpPWM200HZ(); 	
 src\ADC_helper.c: 2 warnings, 0 errors
 compiling GPIO_helper.c...
 src\GPIO_helper.h(30): warning:  #1-D: last line of file ends without a newline
@@ -56,6 +56,13 @@ src\GPIO_helper.c(212): warning:  #1-D: last line of file ends without a newline
 src\GPIO_helper.c: 2 warnings, 0 errors
 creating preprocessor file for PWM_helper.c...
 creating preprocessor file for SysTick_helper.c...
+compiling PWM_helper.c...
+src\PWM_helper.h(16): warning:  #1-D: last line of file ends without a newline
+  void SetUpPWM200HZ(void);
+src\PWM_helper.c(49): warning:  #1-D: last line of file ends without a newline
+      }
+src\PWM_helper.c: 2 warnings, 0 errors
+compiling SysTick_helper.c...
 compiling project.c...
 driverlib/hibernate.h(229): warning:  #231-D: declaration is not visible outside of function
   extern void HibernateCalendarSet(struct tm *psTime);
@@ -170,21 +177,16 @@ C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(16
     void TurnOnLEDs2(void);
 ./src/PWM_helper.h(16): warning:  #1-D: last line of file ends without a newline
   void SetUpPWM200HZ(void);
-project.c(75): warning:  #1-D: last line of file ends without a newline
+./src/ADC_helper.h(32): warning:  #1-D: last line of file ends without a newline
+  //extern struct ADC_Strings_FSRs StringAndFSR_values;
+project.c(51): warning:  #1-D: last line of file ends without a newline
   		}
-project.c: 56 warnings, 0 errors
-compiling PWM_helper.c...
-src\PWM_helper.h(16): warning:  #1-D: last line of file ends without a newline
-  void SetUpPWM200HZ(void);
-src\PWM_helper.c(73): warning:  #1-D: last line of file ends without a newline
-      }
-src\PWM_helper.c: 2 warnings, 0 errors
-compiling SysTick_helper.c...
+project.c: 57 warnings, 0 errors
 linking...
-Program Size: Code=2588 RO-data=1180 RW-data=4 ZI-data=260  
+Program Size: Code=2496 RO-data=584 RW-data=4 ZI-data=260  
 FromELF: creating hex file...
 After Build - User command #1: fromelf --bin --output .\rvmdk\project.bin .\rvmdk\project.axf
-".\rvmdk\project.axf" - 0 Error(s), 66 Warning(s).
+".\rvmdk\project.axf" - 0 Error(s), 67 Warning(s).
 
 <h2>Software Packages used:</h2>
 

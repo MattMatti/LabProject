@@ -10,9 +10,7 @@
 #include "hw_types.h"
 #include "gpio.h"
 
-extern uint32_t ADC_Values[2];
 
-extern uint32_t string1;
 	
 //struct ADC_Strings_FSRs
 //{
@@ -29,6 +27,10 @@ extern uint32_t string1;
 
 void SetupADCPins(void);
 void SetupADC(void);
-void ADCReadChan(void);  
+void ADCReadString1(void);  
+void ADCReadString2(void);  
+void ADCReadString3(void);  
+void ADCReadString4(void);  
+
 
 //extern struct ADC_Strings_FSRs StringAndFSR_values;
