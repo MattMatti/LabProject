@@ -22,47 +22,37 @@ Dialog DLL:      TCM.DLL V1.32.0.0
  
 <h2>Project:</h2>
 C:\Users\mmatti\Documents\GitHub\LabProject\project.uvprojx
-Project File Date:  10/18/2017
+Project File Date:  11/01/2017
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Rebuild target 'project'
 creating preprocessor file for project.c...
 assembling startup_rvmdk.S...
-creating preprocessor file for example.c...
-compiling example.c...
-src\example.h(5): warning:  #1-D: last line of file ends without a newline
-  void my_function(void);
-src\example.c(6): warning:  #550-D: variable "i"  was set but never used
-  	int i,j,k;
-src\example.c(6): warning:  #550-D: variable "j"  was set but never used
-  	int i,j,k;
-src\example.c(6): warning:  #550-D: variable "k"  was set but never used
-  	int i,j,k;
-src\example.c: 4 warnings, 0 errors
 creating preprocessor file for ADC_helper.c...
 creating preprocessor file for GPIO_helper.c...
 compiling ADC_helper.c...
-src\ADC_helper.h(32): warning:  #1-D: last line of file ends without a newline
+src\ADC_helper.h(36): warning:  #1-D: last line of file ends without a newline
   //extern struct ADC_Strings_FSRs StringAndFSR_values;
-src\ADC_helper.c(77): warning:  #223-D: function "SetUpPWM200HZ" declared implicitly
-  	         SetUpPWM200HZ(); 	
-src\ADC_helper.c: 2 warnings, 0 errors
+src\ADC_helper.c(78): warning:  #223-D: function "printf" declared implicitly
+     printf("This is the value of string1 %d\n\r", test2);
+src\ADC_helper.c(83): warning:  #223-D: function "SetUpPWM200HZ" declared implicitly
+  					SetUpPWM200HZ();
+src\ADC_helper.c(101): warning:  #223-D: function "SetUpPWM200HZ" declared implicitly
+  					SetUpPWM200HZ();
+src\ADC_helper.c(118): warning:  #223-D: function "SetUpPWM200HZ" declared implicitly
+  					SetUpPWM200HZ();
+src\ADC_helper.c: 5 warnings, 0 errors
 compiling GPIO_helper.c...
 src\GPIO_helper.h(30): warning:  #1-D: last line of file ends without a newline
     void TurnOnLEDs2(void);
-src\GPIO_helper.c(212): warning:  #1-D: last line of file ends without a newline
+src\GPIO_helper.c(213): warning:  #1-D: last line of file ends without a newline
   			
 src\GPIO_helper.c: 2 warnings, 0 errors
 creating preprocessor file for PWM_helper.c...
-creating preprocessor file for SysTick_helper.c...
-compiling PWM_helper.c...
-src\PWM_helper.h(16): warning:  #1-D: last line of file ends without a newline
-  void SetUpPWM200HZ(void);
-src\PWM_helper.c(49): warning:  #1-D: last line of file ends without a newline
-      }
-src\PWM_helper.c: 2 warnings, 0 errors
-compiling SysTick_helper.c...
+creating preprocessor file for FSR2I2C.c...
+compiling FSR2I2C.c...
+creating preprocessor file for uart_helper.c...
 compiling project.c...
 driverlib/hibernate.h(229): warning:  #231-D: declaration is not visible outside of function
   extern void HibernateCalendarSet(struct tm *psTime);
@@ -72,121 +62,26 @@ driverlib/hibernate.h(231): warning:  #231-D: declaration is not visible outside
   extern void HibernateCalendarMatchSet(uint32_t ui32Index, struct tm *psTime);
 driverlib/hibernate.h(232): warning:  #231-D: declaration is not visible outside of function
   extern void HibernateCalendarMatchGet(uint32_t ui32Index, struct tm *psTime);
-C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm4.h(1545): warning:  #47-D: incompatible redefinition of macro "ITM_BASE"  (declared at line 145 of "inc/hw_memmap.h")
-  #define ITM_BASE            (0xE0000000UL)                            
-*!< ITM Base Address */
-C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm4.h(1546): warning:  #47-D: incompatible redefinition of macro "DWT_BASE"  (declared at line 146 of "inc/hw_memmap.h")
-  #define DWT_BASE            (0xE0001000UL)                            
-*!< DWT Base Address */
-C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm4.h(1550): warning:  #47-D: incompatible redefinition of macro "NVIC_BASE"  (declared at line 148 of "inc/hw_memmap.h")
-  #define NVIC_BASE           (SCS_BASE +  0x0100UL)                    
-*!< NVIC Base Address */
-C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(1543): warning:  #47-D: incompatible redefinition of macro "WATCHDOG0_BASE"  (declared at line 51 of "inc/hw_memmap.h")
-  #define WATCHDOG0_BASE                  0x40000000UL
-C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(1544): warning:  #47-D: incompatible redefinition of macro "WATCHDOG1_BASE"  (declared at line 52 of "inc/hw_memmap.h")
-  #define WATCHDOG1_BASE                  0x40001000UL
-C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(1549): warning:  #47-D: incompatible redefinition of macro "SSI0_BASE"  (declared at line 57 of "inc/hw_memmap.h")
-  #define SSI0_BASE                       0x40008000UL
-C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(1550): warning:  #47-D: incompatible redefinition of macro "SSI1_BASE"  (declared at line 58 of "inc/hw_memmap.h")
-  #define SSI1_BASE                       0x40009000UL
-C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(1551): warning:  #47-D: incompatible redefinition of macro "SSI2_BASE"  (declared at line 59 of "inc/hw_memmap.h")
-  #define SSI2_BASE                       0x4000A000UL
-C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(1552): warning:  #47-D: incompatible redefinition of macro "SSI3_BASE"  (declared at line 60 of "inc/hw_memmap.h")
-  #define SSI3_BASE                       0x4000B000UL
-C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(1553): warning:  #47-D: incompatible redefinition of macro "UART0_BASE"  (declared at line 61 of "inc/hw_memmap.h")
-  #define UART0_BASE                      0x4000C000UL
-C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(1554): warning:  #47-D: incompatible redefinition of macro "UART1_BASE"  (declared at line 62 of "inc/hw_memmap.h")
-  #define UART1_BASE                      0x4000D000UL
-C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(1555): warning:  #47-D: incompatible redefinition of macro "UART2_BASE"  (declared at line 63 of "inc/hw_memmap.h")
-  #define UART2_BASE                      0x4000E000UL
-C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(1556): warning:  #47-D: incompatible redefinition of macro "UART3_BASE"  (declared at line 64 of "inc/hw_memmap.h")
-  #define UART3_BASE                      0x4000F000UL
-C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(1557): warning:  #47-D: incompatible redefinition of macro "UART4_BASE"  (declared at line 65 of "inc/hw_memmap.h")
-  #define UART4_BASE                      0x40010000UL
-C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(1558): warning:  #47-D: incompatible redefinition of macro "UART5_BASE"  (declared at line 66 of "inc/hw_memmap.h")
-  #define UART5_BASE                      0x40011000UL
-C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(1559): warning:  #47-D: incompatible redefinition of macro "UART6_BASE"  (declared at line 67 of "inc/hw_memmap.h")
-  #define UART6_BASE                      0x40012000UL
-C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(1560): warning:  #47-D: incompatible redefinition of macro "UART7_BASE"  (declared at line 68 of "inc/hw_memmap.h")
-  #define UART7_BASE                      0x40013000UL
-C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(1561): warning:  #47-D: incompatible redefinition of macro "I2C0_BASE"  (declared at line 69 of "inc/hw_memmap.h")
-  #define I2C0_BASE                       0x40020000UL
-C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(1562): warning:  #47-D: incompatible redefinition of macro "I2C1_BASE"  (declared at line 70 of "inc/hw_memmap.h")
-  #define I2C1_BASE                       0x40021000UL
-C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(1563): warning:  #47-D: incompatible redefinition of macro "I2C2_BASE"  (declared at line 71 of "inc/hw_memmap.h")
-  #define I2C2_BASE                       0x40022000UL
-C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(1564): warning:  #47-D: incompatible redefinition of macro "I2C3_BASE"  (declared at line 72 of "inc/hw_memmap.h")
-  #define I2C3_BASE                       0x40023000UL
-C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(1567): warning:  #47-D: incompatible redefinition of macro "PWM0_BASE"  (declared at line 77 of "inc/hw_memmap.h")
-  #define PWM0_BASE                       0x40028000UL
-C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(1568): warning:  #47-D: incompatible redefinition of macro "PWM1_BASE"  (declared at line 78 of "inc/hw_memmap.h")
-  #define PWM1_BASE                       0x40029000UL
-C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(1569): warning:  #47-D: incompatible redefinition of macro "QEI0_BASE"  (declared at line 79 of "inc/hw_memmap.h")
-  #define QEI0_BASE                       0x4002C000UL
-C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(1570): warning:  #47-D: incompatible redefinition of macro "QEI1_BASE"  (declared at line 80 of "inc/hw_memmap.h")
-  #define QEI1_BASE                       0x4002D000UL
-C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(1571): warning:  #47-D: incompatible redefinition of macro "TIMER0_BASE"  (declared at line 81 of "inc/hw_memmap.h")
-  #define TIMER0_BASE                     0x40030000UL
-C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(1572): warning:  #47-D: incompatible redefinition of macro "TIMER1_BASE"  (declared at line 82 of "inc/hw_memmap.h")
-  #define TIMER1_BASE                     0x40031000UL
-C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(1573): warning:  #47-D: incompatible redefinition of macro "TIMER2_BASE"  (declared at line 83 of "inc/hw_memmap.h")
-  #define TIMER2_BASE                     0x40032000UL
-C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(1574): warning:  #47-D: incompatible redefinition of macro "TIMER3_BASE"  (declared at line 84 of "inc/hw_memmap.h")
-  #define TIMER3_BASE                     0x40033000UL
-C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(1575): warning:  #47-D: incompatible redefinition of macro "TIMER4_BASE"  (declared at line 85 of "inc/hw_memmap.h")
-  #define TIMER4_BASE                     0x40034000UL
-C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(1576): warning:  #47-D: incompatible redefinition of macro "TIMER5_BASE"  (declared at line 86 of "inc/hw_memmap.h")
-  #define TIMER5_BASE                     0x40035000UL
-C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(1577): warning:  #47-D: incompatible redefinition of macro "WTIMER0_BASE"  (declared at line 87 of "inc/hw_memmap.h")
-  #define WTIMER0_BASE                    0x40036000UL
-C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(1578): warning:  #47-D: incompatible redefinition of macro "WTIMER1_BASE"  (declared at line 88 of "inc/hw_memmap.h")
-  #define WTIMER1_BASE                    0x40037000UL
-C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(1579): warning:  #47-D: incompatible redefinition of macro "ADC0_BASE"  (declared at line 89 of "inc/hw_memmap.h")
-  #define ADC0_BASE                       0x40038000UL
-C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(1580): warning:  #47-D: incompatible redefinition of macro "ADC1_BASE"  (declared at line 90 of "inc/hw_memmap.h")
-  #define ADC1_BASE                       0x40039000UL
-C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(1581): warning:  #47-D: incompatible redefinition of macro "COMP_BASE"  (declared at line 91 of "inc/hw_memmap.h")
-  #define COMP_BASE                       0x4003C000UL
-C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(1582): warning:  #47-D: incompatible redefinition of macro "CAN0_BASE"  (declared at line 93 of "inc/hw_memmap.h")
-  #define CAN0_BASE                       0x40040000UL
-C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(1583): warning:  #47-D: incompatible redefinition of macro "CAN1_BASE"  (declared at line 94 of "inc/hw_memmap.h")
-  #define CAN1_BASE                       0x40041000UL
-C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(1584): warning:  #47-D: incompatible redefinition of macro "WTIMER2_BASE"  (declared at line 95 of "inc/hw_memmap.h")
-  #define WTIMER2_BASE                    0x4004C000UL
-C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(1585): warning:  #47-D: incompatible redefinition of macro "WTIMER3_BASE"  (declared at line 96 of "inc/hw_memmap.h")
-  #define WTIMER3_BASE                    0x4004D000UL
-C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(1586): warning:  #47-D: incompatible redefinition of macro "WTIMER4_BASE"  (declared at line 97 of "inc/hw_memmap.h")
-  #define WTIMER4_BASE                    0x4004E000UL
-C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(1587): warning:  #47-D: incompatible redefinition of macro "WTIMER5_BASE"  (declared at line 98 of "inc/hw_memmap.h")
-  #define WTIMER5_BASE                    0x4004F000UL
-C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(1588): warning:  #47-D: incompatible redefinition of macro "USB0_BASE"  (declared at line 99 of "inc/hw_memmap.h")
-  #define USB0_BASE                       0x40050000UL
-C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(1595): warning:  #47-D: incompatible redefinition of macro "EEPROM_BASE"  (declared at line 121 of "inc/hw_memmap.h")
-  #define EEPROM_BASE                     0x400AF000UL
-C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(1596): warning:  #47-D: incompatible redefinition of macro "SYSEXC_BASE"  (declared at line 133 of "inc/hw_memmap.h")
-  #define SYSEXC_BASE                     0x400F9000UL
-C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(1597): warning:  #47-D: incompatible redefinition of macro "HIB_BASE"  (declared at line 134 of "inc/hw_memmap.h")
-  #define HIB_BASE                        0x400FC000UL
-C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(1598): warning:  #47-D: incompatible redefinition of macro "FLASH_CTRL_BASE"  (declared at line 135 of "inc/hw_memmap.h")
-  #define FLASH_CTRL_BASE                 0x400FD000UL
-C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(1599): warning:  #47-D: incompatible redefinition of macro "SYSCTL_BASE"  (declared at line 136 of "inc/hw_memmap.h")
-  #define SYSCTL_BASE                     0x400FE000UL
-C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h(1600): warning:  #47-D: incompatible redefinition of macro "UDMA_BASE"  (declared at line 137 of "inc/hw_memmap.h")
-  #define UDMA_BASE                       0x400FF000UL
 ./src/GPIO_helper.h(30): warning:  #1-D: last line of file ends without a newline
     void TurnOnLEDs2(void);
-./src/PWM_helper.h(16): warning:  #1-D: last line of file ends without a newline
-  void SetUpPWM200HZ(void);
-./src/ADC_helper.h(32): warning:  #1-D: last line of file ends without a newline
+./src/ADC_helper.h(36): warning:  #1-D: last line of file ends without a newline
   //extern struct ADC_Strings_FSRs StringAndFSR_values;
-project.c(51): warning:  #1-D: last line of file ends without a newline
+project.c(38): warning:  #1-D: last line of file ends without a newline
   		}
-project.c: 57 warnings, 0 errors
+project.c: 7 warnings, 0 errors
+compiling PWM_helper.c...
+src\PWM_helper.c(359): warning:  #1-D: last line of file ends without a newline
+      }
+src\PWM_helper.c: 1 warning, 0 errors
+compiling uart_helper.c...
+src\uart_helper.c(123): warning:  #1-D: last line of file ends without a newline
+  }
+src\uart_helper.c: 1 warning, 0 errors
 linking...
-Program Size: Code=2496 RO-data=584 RW-data=4 ZI-data=260  
+Program Size: Code=4104 RO-data=1180 RW-data=4 ZI-data=260  
 FromELF: creating hex file...
 After Build - User command #1: fromelf --bin --output .\rvmdk\project.bin .\rvmdk\project.axf
-".\rvmdk\project.axf" - 0 Error(s), 67 Warning(s).
+".\rvmdk\project.axf" - 0 Error(s), 16 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -209,7 +104,7 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.0.1
-Build Time Elapsed:  00:00:03
+Build Time Elapsed:  00:00:04
 </pre>
 </body>
 </html>

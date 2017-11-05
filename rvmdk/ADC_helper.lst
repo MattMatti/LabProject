@@ -1,7 +1,5 @@
 L 1 "src\ADC_helper.c"
-N//Matthew Matti & Lakeysha Green
-N// I tried to initialize everything and set up the ADC pins and then try to correlate it to the photoresistor but I didn't get the chance and 
-N// sort of didn't know how.. I will try this weekend. sorry yo
+N//Matthew Matti
 N#include "ADC_helper.h"
 L 1 "src\ADC_helper.h" 1
 N#pragma once
@@ -15492,29 +15490,36 @@ N//	uint32_t FSR2;
 N//	uint32_t FSR3;
 N//	uint32_t FSR4;
 N//};
-N	
+N
 N
 Nvoid SetupADCPins(void);
 Nvoid SetupADC(void);
-Nvoid ADCReadChan(void);  
+Nvoid ADCReadString1(void);  
+Nvoid ADCReadString2(void);  
+Nvoid ADCReadString3(void);  
+Nvoid ADCReadString4(void);  
 N
-W "src\ADC_helper.h" 32 54 last line of file ends without a newline
+Nextern struct ADC_info adcinfo;
+W "src\ADC_helper.h" 36 54 last line of file ends without a newline
 N//extern struct ADC_Strings_FSRs StringAndFSR_values;
-L 5 "src\ADC_helper.c" 2
+L 3 "src\ADC_helper.c" 2
 N
-Nuint32_t ADC_Values;
+Nuint32_t ADC_Values[13];
+N//uint32_t ADC_ValuesString2;
+N//uint32_t ADC_ValuesString3;
+N//uint32_t ADC_ValuesString4;
 N
 N
-N//set up for 1 soft pot "string1"
+N//set up for 1 soft pot "string1" SET UP ADC PINS ANDSETUP ADC FOR EVERY STRING...
 Nvoid SetupADCPins()
 N{
-N	GPIOPinTypeADC(GPIO_PORTE_BASE,GPIO_PIN_1);
-X	GPIOPinTypeADC(0x40024000,0x00000002);
+N	GPIOPinTypeADC(GPIO_PORTE_BASE,GPIO_PIN_1);  
+X	GPIOPinTypeADC(0x40024000,0x00000002);  
 N}
 N
 Nvoid SetupADC()
 N{
-N	
+N
 N	SetupADCPins(); //setup the GPIO
 N	
 N	//
@@ -15540,8 +15545,8 @@ N	ADCSequenceDisable(ADC0_BASE,0);
 X	ADCSequenceDisable(0x40038000,0); 
 N	ADCSequenceConfigure(ADC0_BASE, 0, ADC_TRIGGER_PROCESSOR, 0); 
 X	ADCSequenceConfigure(0x40038000, 0, 0x00000000, 0); 
-N	ADCSequenceStepConfigure(ADC0_BASE, 0, 0, ADC_CTL_CH0 | ADC_CTL_END);
-X	ADCSequenceStepConfigure(0x40038000, 0, 0, 0x00000000 | 0x00000020);
+N	ADCSequenceStepConfigure(ADC0_BASE, 0, 0, ADC_CTL_CH2 | ADC_CTL_END);
+X	ADCSequenceStepConfigure(0x40038000, 0, 0, 0x00000002 | 0x00000020);
 N//  ADCSequenceStepConfigure(ADC0_BASE, 0, 1, ADC_CTL_CH1 );	
 N//  ADCSequenceStepConfigure(ADC0_BASE, 0, 2, ADC_CTL_CH2 );	
 N//	ADCSequenceStepConfigure(ADC0_BASE, 0, 3, ADC_CTL_CH4 );	
@@ -15552,42 +15557,241 @@ N
 N	
 N	//ADCSequenceStepConfigure(ADC0_BASE, 0, 0,	ADC_CTL_IE | ADC_CTL_END | ADC_CTL_CH1 );
 N	
-N	
+N	 __nop();
+N	__nop();
+N	__nop();
 N	ADCSequenceEnable(ADC0_BASE, 0); //enables the sequence 0
 X	ADCSequenceEnable(0x40038000, 0); 
-N
+N  __nop();
+N	__nop();
+N	__nop();
 N		
 N}
 N
-Nvoid ADCReadChan()
+Nvoid ADCReadString1()
 N{
-N	uint32_t string1;
-N	//
-N	//
+N	uint32_t test2;
+N	volatile uint32_t ui32Loop;
+N	
 N	ADCProcessorTrigger(ADC0_BASE, 0); // Trigger the sample sequence above (sequence 0)
 X	ADCProcessorTrigger(0x40038000, 0); 
 N
 N	//
 N	// Wait until the sample sequence has completed.
 N	//
-N	while(ADCBusy(ADC0_BASE)){};
-X	while(ADCBusy(0x40038000)){};
+N	while(ADCBusy(ADC0_BASE));
+X	while(ADCBusy(0x40038000));
 N	//while(!ADCIntStatus(ADC0_BASE, 0, false))
-N	{
-N	}
+N	
 N	//
 N	// Read the value from the ADC.
 N	//
+N   ADCSequenceDataGet(ADC0_BASE, 0, &test2);
+X   ADCSequenceDataGet(0x40038000, 0, &test2);
+N	//ADCSequenceDataGet(ADC0_BASE, 0, &ADC_Values);// reads number of channels read
+W "src\ADC_helper.c" 78 4 function "printf" declared implicitly
+N   printf("This is the value of string1 %d\n\r", test2);
+N			//printf("This is the value of string1 %d\n\r", test2);
 N	
-N	string1 = ADCSequenceDataGet(ADC0_BASE, 0, &ADC_Values);
-X	string1 = ADCSequenceDataGet(0x40038000, 0, &ADC_Values);
-N	
-N		if (string1 >0x555 && string1 < 0xFFF) // less than or equal to this voltage range
+N	if ((test2 > 0x500) && (test2 < 0x600)) // less than or equal to this voltage range
 N	      {
-W "src\ADC_helper.c" 77 11 function "SetUpPWM200HZ" declared implicitly
-N	         SetUpPWM200HZ(); 	
+W "src\ADC_helper.c" 83 6 function "SetUpPWM200HZ" declared implicitly
+N					SetUpPWM200HZ();
+N					GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_3, 0xF);         	
+X					GPIOPinWrite(0x40025000,0x00000008, 0xF);         	
 N				}
+N   else
+N	 {
+N	       // TurnOffPWM();
+N 	   			GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_3, 0x0);     
+X 	   			GPIOPinWrite(0x40025000,0x00000008, 0x0);     
+N 	   			GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_2, 0x0);         	
+X 	   			GPIOPinWrite(0x40025000,0x00000004, 0x0);         	
+N 	   			GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1, 0x0);         	
+X 	   			GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
+N		 
+N          for(ui32Loop = 0; ui32Loop < 1000; ui32Loop++);
+N		     {
+N				 }
+N
+N	 }
+N 
+N	 if ((test2 > 0x600) && (test2 < 0x900)) // less than or equal to this voltage range
+N	      {
+W "src\ADC_helper.c" 101 6 function "SetUpPWM200HZ" declared implicitly
+N					SetUpPWM200HZ();
+N					GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_2, 0xF);         	
+X					GPIOPinWrite(0x40025000,0x00000004, 0xF);         	
+N				}
+N   else
+N	 {
+N	       // TurnOffPWM();
+N 	   			GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_2, 0x0);  
+X 	   			GPIOPinWrite(0x40025000,0x00000004, 0x0);  
+N 	   			GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_3, 0x0);         	
+X 	   			GPIOPinWrite(0x40025000,0x00000008, 0x0);         	
+N 	   			GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1, 0x0);         	
+X 	   			GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
+N		 
+N          for(ui32Loop = 0; ui32Loop < 1000; ui32Loop++);
+N		     {
+N				 }
+N
+N	 }
+N	 if ((test2 > 0x900) && (test2 < 0xCFF)) // less than or equal to this voltage range
+N	      {
+W "src\ADC_helper.c" 118 6 function "SetUpPWM200HZ" declared implicitly
+N					SetUpPWM200HZ();
+N					GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1, 0xF);         	
+X					GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
+N				}
+N   else
+N	 {
+N	       // TurnOffPWM();
+N 	   			GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1, 0x0);
+X 	   			GPIOPinWrite(0x40025000,0x00000002, 0x0);
+N 	   			GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_2, 0x0);         	
+X 	   			GPIOPinWrite(0x40025000,0x00000004, 0x0);         	
+N 	   			GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_3, 0x0);         	
+X 	   			GPIOPinWrite(0x40025000,0x00000008, 0x0);         	
+N		 
+N          for(ui32Loop = 0; ui32Loop < 1000; ui32Loop++);
+N		     {
+N				 }
+N
+N	 }
+N }
+N//	 if((test2 > 0x200) && (test2 < 0x300)) // less than or equal to this voltage range
+N//	      {
+N//					SetUpPWM300HZ();
+N//					GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_2, 0xF);
+N//  			}
+N//		
+N//	    else
+N//			{		 
+N//			 	        TurnOffPWM();
+N// 	   			GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_2, 0x0);         	
+N
+N//			}
+N//				if((test2 > 0x300) && (test2 < 0x400)) // less than or equal to this voltage range
+N//	        {
+N//					SetUpPWM400HZ();
+N//					GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1, 0xF);         	
+N//				}
+N//				
+N//			else
+N//	{
+N//		TurnOffPWM();
+N// 	   			GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1, 0x0);         	
+N//	
+N//	}		
+N//		  if((test2 > 0x300) && (test2 < 0x400)) // less than or equal to this voltage range
+N//	      {
+N//					SetUpPWM200HZ();
+N//					GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_3, 0xF);
+N//         GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_2, 0xF);  	
+N//				}
+N//			
+N//	else 
+N//	{
+N//        TurnOffPWM();
+N// 	   			GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_3, 0x0);         	
+N// 	   			GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_2, 0x0);         	
+N
+N//	}
+N//		if (test2 > 0x7FF) // less than or equal to this voltage range
+N//	      {
+N//					SetUpPWM200HZ();
+N//					GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_3, 0xF);
+N//         GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1, 0xF);
+N//				} 	
+N//	
+N//			else
+N//				{
+N//					GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_3, 0x0);
+N//					GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1, 0x0);
+N//	        TurnOffPWM();
+N
+N//				}
+N// void ADCReadString2()
+N//{
+N//	uint32_t string2;
+N//	//
+N//	//
+N//	ADCProcessorTrigger(ADC0_BASE, 0); // Trigger the sample sequence above (sequence 0)
+N
+N//	//
+N//	// Wait until the sample sequence has completed.
+N//	//
+N//	while(ADCBusy(ADC0_BASE)){};
+N//	//while(!ADCIntStatus(ADC0_BASE, 0, false))
+N//	{
+N//	}
+N//	//
+N//	// Read the value from the ADC.
+N//	//
+N//	
+N//	string2 = ADCSequenceDataGet(ADC0_BASE, 0, &ADC_ValuesString2);
+N//	
+N//		if (string2 >0x555 && string2 < 0xFFF) // less than or equal to this voltage range
+N//	      {
+N//	         SetUpPWM200HZ(); 	
+N//				}
+N//	
+N
+N//	}
+N
+N//void ADCReadString3()
+N//{
+N//	uint32_t string3;
+N//	//
+N//	//
+N//	ADCProcessorTrigger(ADC0_BASE, 0); // Trigger the sample sequence above (sequence 0)
+N
+N//	//
+N//	// Wait until the sample sequence has completed.
+N//	//
+N//	while(ADCBusy(ADC0_BASE)){};
+N//	//while(!ADCIntStatus(ADC0_BASE, 0, false))
+N//	{
+N//	}
+N//	//
+N//	// Read the value from the ADC.
+N//	//
+N//	
+N//	string3 = ADCSequenceDataGet(ADC0_BASE, 0, &ADC_Values);
+N//	
+N//		if (string3 >0x555 && string3 < 0xFFF) // less than or equal to this voltage range
+N//	      {
+N//	         SetUpPWM200HZ(); 	
+N//				}
+N//	
+N
+N//	}
+N//void ADCReadString4()
+N//{
+N//	uint32_t string4;
+N//	//
+N//	//
+N//	ADCProcessorTrigger(ADC0_BASE, 0); // Trigger the sample sequence above (sequence 0)
+N
+N//	//
+N//	// Wait until the sample sequence has completed.
+N//	//
+N//	while(ADCBusy(ADC0_BASE)){};
+N//	//while(!ADCIntStatus(ADC0_BASE, 0, false))
+N//	{
+N//	}
+N//	//
+N//	// Read the value from the ADC.
+N//	//
+N//	
+N//	string4 = ADCSequenceDataGet(ADC0_BASE, 0, &ADC_Values);
+N//	
+N//		if (string4 >0x555 && string4 < 0xFFF) // less than or equal to this voltage range
+N//	      {
+N//	         SetUpPWM200HZ(); 	
+N//				}
 N	
 N
-N	}
-N	
+N	// }

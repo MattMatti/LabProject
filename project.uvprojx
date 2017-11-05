@@ -311,7 +311,7 @@
           </ArmAdsMisc>
           <Cads>
             <interw>0</interw>
-            <Optim>3</Optim>
+            <Optim>1</Optim>
             <oTime>0</oTime>
             <SplitLS>0</SplitLS>
             <OneElfS>1</OneElfS>
@@ -414,11 +414,6 @@
           <GroupName>src</GroupName>
           <Files>
             <File>
-              <FileName>example.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\example.c</FilePath>
-            </File>
-            <File>
               <FileName>ADC_helper.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\src\ADC_helper.c</FilePath>
@@ -434,9 +429,19 @@
               <FilePath>.\src\PWM_helper.c</FilePath>
             </File>
             <File>
-              <FileName>SysTick_helper.c</FileName>
+              <FileName>FSR2I2C.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\src\SysTick_helper.c</FilePath>
+              <FilePath>.\FSR2I2C.c</FilePath>
+            </File>
+            <File>
+              <FileName>FSR2I2C.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\FSR2I2C.h</FilePath>
+            </File>
+            <File>
+              <FileName>uart_helper.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\uart_helper.c</FilePath>
             </File>
           </Files>
         </Group>

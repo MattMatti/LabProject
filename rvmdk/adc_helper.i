@@ -1,7 +1,5 @@
 #line 1 "src\\ADC_helper.c"
 
-
-
 #line 1 "src\\ADC_helper.h"
 #pragma once
 #line 1 "C:\\Keil_v5\\ARM\\ARMCC\\Bin\\..\\include\\stdbool.h"
@@ -9629,27 +9627,34 @@ extern void GPIOADCTriggerDisable(uint32_t ui32Port, uint8_t ui8Pins);
 
 
 
-	
+
 
 void SetupADCPins(void);
 void SetupADC(void);
-void ADCReadChan(void);  
+void ADCReadString1(void);  
+void ADCReadString2(void);  
+void ADCReadString3(void);  
+void ADCReadString4(void);  
+
+extern struct ADC_info adcinfo;
+
+#line 3 "src\\ADC_helper.c"
+
+uint32_t ADC_Values[13];
 
 
-#line 5 "src\\ADC_helper.c"
 
-uint32_t ADC_Values;
 
 
 
 void SetupADCPins()
 {
-	GPIOPinTypeADC(0x40024000,0x00000002);
+	GPIOPinTypeADC(0x40024000,0x00000002);  
 }
 
 void SetupADC()
 {
-	
+
 	SetupADCPins(); 
 	
 	
@@ -9670,7 +9675,7 @@ void SetupADC()
 	
 	ADCSequenceDisable(0x40038000,0); 
 	ADCSequenceConfigure(0x40038000, 0, 0x00000000, 0); 
-	ADCSequenceStepConfigure(0x40038000, 0, 0, 0x00000000 | 0x00000020);
+	ADCSequenceStepConfigure(0x40038000, 0, 0, 0x00000002 | 0x00000020);
 
 
 
@@ -9681,37 +9686,221 @@ void SetupADC()
 	
 	
 	
-	
+	 __nop();
+	__nop();
+	__nop();
 	ADCSequenceEnable(0x40038000, 0); 
-
+  __nop();
+	__nop();
+	__nop();
 		
 }
 
-void ADCReadChan()
+void ADCReadString1()
 {
-	uint32_t string1;
-	
+	uint32_t test2;
+	volatile uint32_t ui32Loop;
 	
 	ADCProcessorTrigger(0x40038000, 0); 
 
 	
 	
 	
-	while(ADCBusy(0x40038000)){};
-	
-	{
-	}
+	while(ADCBusy(0x40038000));
 	
 	
 	
 	
-	string1 = ADCSequenceDataGet(0x40038000, 0, &ADC_Values);
 	
-		if (string1 >0x555 && string1 < 0xFFF) 
+   ADCSequenceDataGet(0x40038000, 0, &test2);
+	
+   printf("This is the value of string1 %d\n\r", test2);
+			
+	
+	if ((test2 > 0x500) && (test2 < 0x600)) 
 	      {
-	         SetUpPWM200HZ(); 	
+					SetUpPWM200HZ();
+					GPIOPinWrite(0x40025000,0x00000008, 0xF);         	
 				}
+   else
+	 {
+	       
+ 	   			GPIOPinWrite(0x40025000,0x00000008, 0x0);     
+ 	   			GPIOPinWrite(0x40025000,0x00000004, 0x0);         	
+ 	   			GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
+		 
+          for(ui32Loop = 0; ui32Loop < 1000; ui32Loop++);
+		     {
+				 }
+
+	 }
+ 
+	 if ((test2 > 0x600) && (test2 < 0x900)) 
+	      {
+					SetUpPWM200HZ();
+					GPIOPinWrite(0x40025000,0x00000004, 0xF);         	
+				}
+   else
+	 {
+	       
+ 	   			GPIOPinWrite(0x40025000,0x00000004, 0x0);  
+ 	   			GPIOPinWrite(0x40025000,0x00000008, 0x0);         	
+ 	   			GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
+		 
+          for(ui32Loop = 0; ui32Loop < 1000; ui32Loop++);
+		     {
+				 }
+
+	 }
+	 if ((test2 > 0x900) && (test2 < 0xCFF)) 
+	      {
+					SetUpPWM200HZ();
+					GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
+				}
+   else
+	 {
+	       
+ 	   			GPIOPinWrite(0x40025000,0x00000002, 0x0);
+ 	   			GPIOPinWrite(0x40025000,0x00000004, 0x0);         	
+ 	   			GPIOPinWrite(0x40025000,0x00000008, 0x0);         	
+		 
+          for(ui32Loop = 0; ui32Loop < 1000; ui32Loop++);
+		     {
+				 }
+
+	 }
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
 
-	}
 	

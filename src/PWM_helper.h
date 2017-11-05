@@ -21,3 +21,4 @@ void SetUpPWM600HZ(void);
 void SetUpPWM700HZ(void);
 void SetUpPWM800HZ(void);
 void SetUpPWM900HZ(void);
+void TurnOffPWM(void);

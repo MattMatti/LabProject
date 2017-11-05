@@ -23,7 +23,7 @@
 //	uint32_t FSR3;
 //	uint32_t FSR4;
 //};
-	
+
 
 void SetupADCPins(void);
 void SetupADC(void);
@@ -32,5 +32,5 @@ void ADCReadString2(void);
 void ADCReadString3(void);  
 void ADCReadString4(void);  
 
-
+extern struct ADC_info adcinfo;
 //extern struct ADC_Strings_FSRs StringAndFSR_values;

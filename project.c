@@ -21,31 +21,18 @@ int  main(void)
 	
     SysCtlPeripheralEnable(SYSCTL_PERIPH_ADC0); //enables ADC module 0
     SysCtlPeripheralReset(SYSCTL_PERIPH_ADC0); // resets ADC module 0 
-	 //GPIOSetup();
+	  
+	  GPIOSetup();
+		UART_setup();
+	  SetupADCPins();
+		SetupADC();
 		// Check if the peripheral access is enabled.
     while(!SysCtlPeripheralReady(SYSCTL_PERIPH_GPIOE))
     {
-    
-		}
-    	SetupADCPins();
-		SetupADC();
+		}   
     while(1)
-		{
-		
-	
-  //UpdateMyButtons();
-//	
-		//if(GPIOPinRead(GPIO_PORTF_BASE,GPIO_PIN_0) == 0)
-			//	{
-			//		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_3,GPIO_PIN_3);
-				//}
-			//	else {
-		//GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_3,0);					
-		//	SetUpPWM200HZ();
-  		
-	
-		ADCReadChan();
+		{	
+		ADCReadString1();
 			
-				
 			}
 		}

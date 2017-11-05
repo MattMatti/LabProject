@@ -1,6 +1,6 @@
 #include <stdbool.h>
 #include <stdint.h>
-#include "inc/hw_memmap.h"
+//#include "inc/hw_memmap.h"
 
 #include "driverlib/adc.h"
 #include "driverlib/aes.h"
@@ -40,12 +40,12 @@
 #include "driverlib/usb.h"
 #include "driverlib/watchdog.h"
 
-#include "TM4C123.h"                    // Device header
+//#include "TM4C123.h"                    // Device header
 
 //#include "./src/SysTick_helper.h"
 #include "./src/GPIO_helper.h"
 #include "./src/PWM_helper.h"
 #include "./src/ADC_helper.h"
-//#include "./src/uart_helper.h"
+#include "./src/uart_helper.h"
 
 

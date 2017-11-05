@@ -10556,15 +10556,333 @@ extern void GPIOADCTriggerDisable(uint32_t ui32Port, uint8_t ui8Pins);
 #line 15 "src\\PWM_helper.h"
 
 void SetUpPWM200HZ(void);
+void SetUpPWM300HZ(void);
+void SetUpPWM400HZ(void);
+void SetUpPWM500HZ(void);
+void SetUpPWM600HZ(void);
+void SetUpPWM700HZ(void);
+void SetUpPWM800HZ(void);
+void SetUpPWM900HZ(void);
+void TurnOffPWM(void);
 #line 2 "src\\PWM_helper.c"
 
 
 
-
+void TurnOffPWM()
+{
+	PWMGenDisable(0x40028000, 0x000000C0);
+}
  void SetUpPWM200HZ()
 {
 
     
+   
+
+   
+   SysCtlPWMClockSet(0x00000000);
+   
+   
+    SysCtlPeripheralEnable(0xf0000804);
+    SysCtlPeripheralEnable(0xf0004000);  
+    while(!SysCtlPeripheralReady(0xf0004000))
+		{
+		}
+    
+    GPIOPinConfigure(0x00041404); 
+	
+    
+     GPIOPinTypePWM(0x40024000, 0x00000020); 
+    
+	
+    
+    
+   
+    PWMGenConfigure(0x40028000, 0x000000C0, 0x00000000 | 0x00000000); 
+
+    
+    PWMGenPeriodSet(0x40028000, 0x000000C0, 1000);
+    
+
+    
+    
+		PWMPulseWidthSet(0x40028000, 0x000000C5,100);																									
+
+    
+    PWMGenEnable(0x40028000, 0x000000C0);
+
+    
+    PWMOutputState(0x40028000, 0x00000020, 1);
+    
+
+
+    }
+ void SetUpPWM300HZ()
+{
+
+    
+   
+
+   
+   SysCtlPWMClockSet(0x00000000);
+   
+   
+    SysCtlPeripheralEnable(0xf0000804);
+    SysCtlPeripheralEnable(0xf0004000);  
+    while(!SysCtlPeripheralReady(0xf0004000))
+		{
+		}
+    
+    GPIOPinConfigure(0x00041404); 
+	
+    
+     GPIOPinTypePWM(0x40024000, 0x00000020); 
+    
+	
+    
+    
+   
+    PWMGenConfigure(0x40028000, 0x000000C0, 0x00000000 | 0x00000000); 
+
+    
+    PWMGenPeriodSet(0x40028000, 0x000000C0, 300);
+    
+
+    
+    
+		PWMPulseWidthSet(0x40028000, 0x000000C5,100);																									
+
+    
+    PWMGenEnable(0x40028000, 0x000000C0);
+
+    
+    PWMOutputState(0x40028000, 0x00000020, 1);
+    
+
+
+    }
+ void SetUpPWM400HZ()
+{
+
+    
+   
+
+   
+   SysCtlPWMClockSet(0x00000000);
+   
+   
+    SysCtlPeripheralEnable(0xf0000804);
+    SysCtlPeripheralEnable(0xf0004000);  
+    while(!SysCtlPeripheralReady(0xf0004000))
+		{
+		}
+    
+    GPIOPinConfigure(0x00041404); 
+	
+    
+     GPIOPinTypePWM(0x40024000, 0x00000020); 
+    
+	
+    
+    
+   
+    PWMGenConfigure(0x40028000, 0x000000C0, 0x00000000 | 0x00000000); 
+
+    
+    PWMGenPeriodSet(0x40028000, 0x000000C0, 400);
+    
+
+    
+    
+		PWMPulseWidthSet(0x40028000, 0x000000C5,100);																									
+
+    
+    PWMGenEnable(0x40028000, 0x000000C0);
+
+    
+    PWMOutputState(0x40028000, 0x00000020, 1);
+    
+
+
+    }
+ void SetUpPWM500HZ()
+{
+
+    
+   
+
+   
+   SysCtlPWMClockSet(0x00000000);
+   
+   
+    SysCtlPeripheralEnable(0xf0000804);
+    SysCtlPeripheralEnable(0xf0004000);  
+    while(!SysCtlPeripheralReady(0xf0004000))
+		{
+		}
+    
+    GPIOPinConfigure(0x00041404); 
+	
+    
+     GPIOPinTypePWM(0x40024000, 0x00000020); 
+    
+	
+    
+    
+   
+    PWMGenConfigure(0x40028000, 0x000000C0, 0x00000000 | 0x00000000); 
+
+    
+    PWMGenPeriodSet(0x40028000, 0x000000C0, 200);
+    
+
+    
+    
+		PWMPulseWidthSet(0x40028000, 0x000000C5,100);																									
+
+    
+    PWMGenEnable(0x40028000, 0x000000C0);
+
+    
+    PWMOutputState(0x40028000, 0x00000020, 1);
+    
+
+
+    }
+ void SetUpPWM600HZ()
+{
+
+    
+   
+
+   
+   SysCtlPWMClockSet(0x00000000);
+   
+   
+    SysCtlPeripheralEnable(0xf0000804);
+    SysCtlPeripheralEnable(0xf0004000);  
+    while(!SysCtlPeripheralReady(0xf0004000))
+		{
+		}
+    
+    GPIOPinConfigure(0x00041404); 
+	
+    
+     GPIOPinTypePWM(0x40024000, 0x00000020); 
+    
+	
+    
+    
+   
+    PWMGenConfigure(0x40028000, 0x000000C0, 0x00000000 | 0x00000000); 
+
+    
+    PWMGenPeriodSet(0x40028000, 0x000000C0, 200);
+    
+
+    
+    
+		PWMPulseWidthSet(0x40028000, 0x000000C5,100);																									
+
+    
+    PWMGenEnable(0x40028000, 0x000000C0);
+
+    
+    PWMOutputState(0x40028000, 0x00000020, 1);
+    
+
+
+    }
+ void SetUpPWM700HZ()
+{
+
+    
+   
+
+   
+   SysCtlPWMClockSet(0x00000000);
+   
+   
+    SysCtlPeripheralEnable(0xf0000804);
+    SysCtlPeripheralEnable(0xf0004000);  
+    while(!SysCtlPeripheralReady(0xf0004000))
+		{
+		}
+    
+    GPIOPinConfigure(0x00041404); 
+	
+    
+     GPIOPinTypePWM(0x40024000, 0x00000020); 
+    
+	
+    
+    
+   
+    PWMGenConfigure(0x40028000, 0x000000C0, 0x00000000 | 0x00000000); 
+
+    
+    PWMGenPeriodSet(0x40028000, 0x000000C0, 200);
+    
+
+    
+    
+		PWMPulseWidthSet(0x40028000, 0x000000C5,100);																									
+
+    
+    PWMGenEnable(0x40028000, 0x000000C0);
+
+    
+    PWMOutputState(0x40028000, 0x00000020, 1);
+    
+
+
+    }
+ void SetUpPWM800HZ()
+{
+
+    
+   
+
+   
+   SysCtlPWMClockSet(0x00000000);
+   
+   
+    SysCtlPeripheralEnable(0xf0000804);
+    SysCtlPeripheralEnable(0xf0004000);  
+    while(!SysCtlPeripheralReady(0xf0004000))
+		{
+		}
+    
+    GPIOPinConfigure(0x00041404); 
+	
+    
+     GPIOPinTypePWM(0x40024000, 0x00000020); 
+    
+	
+    
+    
+   
+    PWMGenConfigure(0x40028000, 0x000000C0, 0x00000000 | 0x00000000); 
+
+    
+    PWMGenPeriodSet(0x40028000, 0x000000C0, 200);
+    
+
+    
+    
+		PWMPulseWidthSet(0x40028000, 0x000000C5,100);																									
+
+    
+    PWMGenEnable(0x40028000, 0x000000C0);
+
+    
+    PWMOutputState(0x40028000, 0x00000020, 1);
+    
+
+
+    }
+ void SetUpPWM900HZ()
+		{
+			
    
 
    

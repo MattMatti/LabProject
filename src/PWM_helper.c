@@ -2,7 +2,10 @@
 
 // this code initializes the pins as pwm and sets the clock cycle to 16 MHZ. It also makes a 50% duty cycle. It then enables the PWM generator 2.
 // 
-
+void TurnOffPWM()
+{
+	PWMGenDisable(PWM0_BASE, PWM_GEN_2);
+}
  void SetUpPWM200HZ()
 {
 
@@ -19,7 +22,7 @@
 		{
 		}
     //Configure PF1 Pin as PWM
-    GPIOPinConfigure(GPIO_PE5_M0PWM5); // pin1 port F is pwm5 of module 1 
+    GPIOPinConfigure(GPIO_PE5_M0PWM5); // pin1 port E is pwm5 of module 0 
 	
     //GPIOPinTypePWM(GPIO_PORTF_BASE, GPIO_PIN_1 | GPIO_PIN_2 | GPIO_PIN_3);
      GPIOPinTypePWM(GPIO_PORTE_BASE, GPIO_PIN_5); //makes pin to PWM
@@ -31,7 +34,7 @@
     PWMGenConfigure(PWM0_BASE, PWM_GEN_2, PWM_GEN_MODE_DOWN | PWM_GEN_MODE_NO_SYNC); 
 
     //this Sets the Period (expressed in clock ticks)
-    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 200);
+    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 1000);
     //PWMGenPeriodSet(PWM1_BASE, PWM_GEN_5, 200);
 
     // this is setting the PWM duty-50% (Period /2)
@@ -75,7 +78,7 @@
     PWMGenConfigure(PWM0_BASE, PWM_GEN_2, PWM_GEN_MODE_DOWN | PWM_GEN_MODE_NO_SYNC); 
 
     //this Sets the Period (expressed in clock ticks)
-    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 200);
+    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 300);
     //PWMGenPeriodSet(PWM1_BASE, PWM_GEN_5, 200);
 
     // this is setting the PWM duty-50% (Period /2)
@@ -107,7 +110,7 @@
 		{
 		}
     //Configure PF1 Pin as PWM
-    GPIOPinConfigure(GPIO_PE5_M0PWM5); // pin1 port F is pwm5 of module 1 
+    GPIOPinConfigure(GPIO_PE5_M0PWM5); // pin1 port E is pwm5 of module 0 
 	
     //GPIOPinTypePWM(GPIO_PORTF_BASE, GPIO_PIN_1 | GPIO_PIN_2 | GPIO_PIN_3);
      GPIOPinTypePWM(GPIO_PORTE_BASE, GPIO_PIN_5); //makes pin to PWM
@@ -119,7 +122,7 @@
     PWMGenConfigure(PWM0_BASE, PWM_GEN_2, PWM_GEN_MODE_DOWN | PWM_GEN_MODE_NO_SYNC); 
 
     //this Sets the Period (expressed in clock ticks)
-    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 200);
+    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 400);
     //PWMGenPeriodSet(PWM1_BASE, PWM_GEN_5, 200);
 
     // this is setting the PWM duty-50% (Period /2)

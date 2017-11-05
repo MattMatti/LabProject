@@ -9656,7 +9656,8 @@ void UpdateMyButtons()
 	void GPIOSetup()
 	{
 		SysCtlPeripheralEnable(0xf0000805);
-		
+		SysCtlPeripheralEnable(0xf0000804);
+		SysCtlPeripheralEnable(0xf0000800);
 	{
 	}
 	

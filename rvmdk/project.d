@@ -2,7 +2,6 @@
 .\rvmdk\project.o: project.h
 .\rvmdk\project.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\rvmdk\project.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-.\rvmdk\project.o: inc/hw_memmap.h
 .\rvmdk\project.o: driverlib/adc.h
 .\rvmdk\project.o: driverlib/aes.h
 .\rvmdk\project.o: driverlib/can.h
@@ -40,15 +39,12 @@
 .\rvmdk\project.o: driverlib/udma.h
 .\rvmdk\project.o: driverlib/usb.h
 .\rvmdk\project.o: driverlib/watchdog.h
-.\rvmdk\project.o: C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123.h
-.\rvmdk\project.o: C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h
-.\rvmdk\project.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm4.h
-.\rvmdk\project.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h
-.\rvmdk\project.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h
-.\rvmdk\project.o: C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\system_TM4C123.h
 .\rvmdk\project.o: ./src/GPIO_helper.h
+.\rvmdk\project.o: .\inc\hw_memmap.h
 .\rvmdk\project.o: .\inc\tm4c123gh6pm.h
 .\rvmdk\project.o: .\inc\hw_gpio.h
 .\rvmdk\project.o: .\inc\hw_types.h
 .\rvmdk\project.o: ./src/PWM_helper.h
 .\rvmdk\project.o: ./src/ADC_helper.h
+.\rvmdk\project.o: ./src/uart_helper.h
+.\rvmdk\project.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

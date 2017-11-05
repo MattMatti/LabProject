@@ -23,7 +23,8 @@ void UpdateMyButtons()
 	void GPIOSetup()
 	{
 		SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOF);
-		
+		SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOE);
+		SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOA);
 	{
 	}
 	

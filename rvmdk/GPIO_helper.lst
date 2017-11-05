@@ -15523,7 +15523,10 @@ N	void GPIOSetup()
 N	{
 N		SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOF);
 X		SysCtlPeripheralEnable(0xf0000805);
-N		
+N		SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOE);
+X		SysCtlPeripheralEnable(0xf0000804);
+N		SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOA);
+X		SysCtlPeripheralEnable(0xf0000800);
 N	{
 N	}
 N	
@@ -15761,5 +15764,5 @@ N
 N        {
 N        }
 N			}
-W "src\GPIO_helper.c" 212 4 last line of file ends without a newline
+W "src\GPIO_helper.c" 213 4 last line of file ends without a newline
 N			
