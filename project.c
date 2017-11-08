@@ -26,6 +26,7 @@ int  main(void)
 		UART_setup();
 	  SetupADCPins();
 		SetupADC();
+	  SetupPWM();
 		// Check if the peripheral access is enabled.
     while(!SysCtlPeripheralReady(SYSCTL_PERIPH_GPIOE))
     {

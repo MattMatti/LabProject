@@ -75,63 +75,48 @@ void ADCReadString1()
 	//
    ADCSequenceDataGet(ADC0_BASE, 0, &test2);
 	//ADCSequenceDataGet(ADC0_BASE, 0, &ADC_Values);// reads number of channels read
-   printf("This is the value of string1 %d\n\r", test2);
+//   printf("This is the value of string1 %d\n\r", test2);
 			//printf("This is the value of string1 %d\n\r", test2);
+  if ((test2 > 0x000) && (test2 < 0x200)) // less than or equal to this voltage range
+	{
+		SetUpPWM0HZ();
+	}
+  else
+	{
+		         	
+	}
 	
-	if (test2 > 0x200) // less than or equal to this voltage range
-	      
-	      {
-					SetUpPWM200HZ();
-					GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_3, 0xF);         	
-				}
-   else if ((test2 > 0x600) && (test2 < 0x900)) // less than or equal to this voltage range
-	      {
-					SetUpPWM200HZ();
-					GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_2, 0xF);         	
-				}
-	 {
-	       // TurnOffPWM();
- 	   			GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_3, 0x0);     
- 	   			GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_2, 0x0);         	
- 	   			GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1, 0x0);         	
-		 
-          for(ui32Loop = 0; ui32Loop < 1000; ui32Loop++);
-		     {
-				 }
+	if ((test2 > 0x200) && (test2 < 0x600)) // less than or equal to this voltage range
+	{
+		SetUpPWM200HZ();
+		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_3, 0xF);         	
+	}
+  else
+	{
+		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_3, 0x0);         	
+	}
 
-	 }
- 
-	 
-   else
-	 {
-	       // TurnOffPWM();
- 	   			GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_2, 0x0);  
- 	   			GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_3, 0x0);         	
- 	   			GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1, 0x0);         	
-		 
-          for(ui32Loop = 0; ui32Loop < 1000; ui32Loop++);
-		     {
-				 }
+	if ((test2 > 0x600) && (test2 < 0xAFF)) // less than or equal to this voltage range
+	{
+		SetUpPWM300HZ();
+		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_2, 0xF);         	
+	}
+  else
+	{
 
-	 }
-	 if ((test2 > 0x900) && (test2 < 0xCFF)) // less than or equal to this voltage range
-	      {
-					SetUpPWM200HZ();
-					GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1, 0xF);         	
-				}
-   else
-	 {
-	       // TurnOffPWM();
- 	   			GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1, 0x0);
- 	   			GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_2, 0x0);         	
- 	   			GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_3, 0x0);         	
-		 
-          for(ui32Loop = 0; ui32Loop < 1000; ui32Loop++);
-		     {
-				 }
-
-	 }
- }
+		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_2, 0x0);         	
+	}
+	 	
+	if ((test2 > 0xAFF) && (test2 < 0xFFF)) // less than or equal to this voltage range
+	{
+		SetUpPWM400HZ();
+		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1, 0xF);         	
+	}
+  else
+	{
+		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1, 0x0);         	
+	}
+}
 //	 if((test2 > 0x200) && (test2 < 0x300)) // less than or equal to this voltage range
 //	      {
 //					SetUpPWM300HZ();

@@ -9714,62 +9714,48 @@ void ADCReadString1()
 	
    ADCSequenceDataGet(0x40038000, 0, &test2);
 	
-   printf("This is the value of string1 %d\n\r", test2);
+
 			
+  if ((test2 > 0x000) && (test2 < 0x200)) 
+	{
+		SetUpPWM0HZ();
+	}
+  else
+	{
+		         	
+	}
 	
-	if ((test2 > 0x500) && (test2 < 0x600)) 
-	      {
-					SetUpPWM200HZ();
-					GPIOPinWrite(0x40025000,0x00000008, 0xF);         	
-				}
-   else
-	 {
-	       
- 	   			GPIOPinWrite(0x40025000,0x00000008, 0x0);     
- 	   			GPIOPinWrite(0x40025000,0x00000004, 0x0);         	
- 	   			GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
-		 
-          for(ui32Loop = 0; ui32Loop < 1000; ui32Loop++);
-		     {
-				 }
+	if ((test2 > 0x200) && (test2 < 0x600)) 
+	{
+		SetUpPWM200HZ();
+		GPIOPinWrite(0x40025000,0x00000008, 0xF);         	
+	}
+  else
+	{
+		GPIOPinWrite(0x40025000,0x00000008, 0x0);         	
+	}
 
-	 }
- 
-	 if ((test2 > 0x600) && (test2 < 0x900)) 
-	      {
-					SetUpPWM200HZ();
-					GPIOPinWrite(0x40025000,0x00000004, 0xF);         	
-				}
-   else
-	 {
-	       
- 	   			GPIOPinWrite(0x40025000,0x00000004, 0x0);  
- 	   			GPIOPinWrite(0x40025000,0x00000008, 0x0);         	
- 	   			GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
-		 
-          for(ui32Loop = 0; ui32Loop < 1000; ui32Loop++);
-		     {
-				 }
+	if ((test2 > 0x600) && (test2 < 0xAFF)) 
+	{
+		SetUpPWM300HZ();
+		GPIOPinWrite(0x40025000,0x00000004, 0xF);         	
+	}
+  else
+	{
 
-	 }
-	 if ((test2 > 0x900) && (test2 < 0xCFF)) 
-	      {
-					SetUpPWM200HZ();
-					GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
-				}
-   else
-	 {
-	       
- 	   			GPIOPinWrite(0x40025000,0x00000002, 0x0);
- 	   			GPIOPinWrite(0x40025000,0x00000004, 0x0);         	
- 	   			GPIOPinWrite(0x40025000,0x00000008, 0x0);         	
-		 
-          for(ui32Loop = 0; ui32Loop < 1000; ui32Loop++);
-		     {
-				 }
-
-	 }
- }
+		GPIOPinWrite(0x40025000,0x00000004, 0x0);         	
+	}
+	 	
+	if ((test2 > 0xAFF) && (test2 < 0xFFF)) 
+	{
+		SetUpPWM400HZ();
+		GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
+	}
+  else
+	{
+		GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
+	}
+}
 
 
 

@@ -17255,6 +17255,7 @@ void UpdateMyButtons(void);
 #line 14 "./src/PWM_helper.h"
 #line 15 "./src/PWM_helper.h"
 
+void SetUpPWM0HZ(void);
 void SetUpPWM200HZ(void);
 void SetUpPWM300HZ(void);
 void SetUpPWM400HZ(void);
@@ -17263,7 +17264,7 @@ void SetUpPWM600HZ(void);
 void SetUpPWM700HZ(void);
 void SetUpPWM800HZ(void);
 void SetUpPWM900HZ(void);
-void TurnOffPWM(void);
+void SetupPWM(void);
 #line 48 "project.h"
 #line 1 "./src/ADC_helper.h"
 #pragma once
@@ -18250,6 +18251,7 @@ int  main(void)
 		UART_setup();
 	  SetupADCPins();
 		SetupADC();
+	  SetupPWM();
 		
     while(!SysCtlPeripheralReady(0xf0000804))
     {

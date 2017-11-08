@@ -34,14 +34,14 @@ creating preprocessor file for GPIO_helper.c...
 compiling ADC_helper.c...
 src\ADC_helper.h(36): warning:  #1-D: last line of file ends without a newline
   //extern struct ADC_Strings_FSRs StringAndFSR_values;
-src\ADC_helper.c(78): warning:  #223-D: function "printf" declared implicitly
-     printf("This is the value of string1 %d\n\r", test2);
-src\ADC_helper.c(83): warning:  #223-D: function "SetUpPWM200HZ" declared implicitly
-  					SetUpPWM200HZ();
-src\ADC_helper.c(101): warning:  #223-D: function "SetUpPWM200HZ" declared implicitly
-  					SetUpPWM200HZ();
-src\ADC_helper.c(118): warning:  #223-D: function "SetUpPWM200HZ" declared implicitly
-  					SetUpPWM200HZ();
+src\ADC_helper.c(82): warning:  #223-D: function "SetUpPWM0HZ" declared implicitly
+  		SetUpPWM0HZ();
+src\ADC_helper.c(91): warning:  #223-D: function "SetUpPWM200HZ" declared implicitly
+  		SetUpPWM200HZ();
+src\ADC_helper.c(101): warning:  #223-D: function "SetUpPWM300HZ" declared implicitly
+  		SetUpPWM300HZ();
+src\ADC_helper.c(112): warning:  #223-D: function "SetUpPWM400HZ" declared implicitly
+  		SetUpPWM400HZ();
 src\ADC_helper.c: 5 warnings, 0 errors
 compiling GPIO_helper.c...
 src\GPIO_helper.h(30): warning:  #1-D: last line of file ends without a newline
@@ -52,7 +52,6 @@ src\GPIO_helper.c: 2 warnings, 0 errors
 creating preprocessor file for PWM_helper.c...
 creating preprocessor file for FSR2I2C.c...
 compiling FSR2I2C.c...
-creating preprocessor file for uart_helper.c...
 compiling project.c...
 driverlib/hibernate.h(229): warning:  #231-D: declaration is not visible outside of function
   extern void HibernateCalendarSet(struct tm *psTime);
@@ -66,11 +65,12 @@ driverlib/hibernate.h(232): warning:  #231-D: declaration is not visible outside
     void TurnOnLEDs2(void);
 ./src/ADC_helper.h(36): warning:  #1-D: last line of file ends without a newline
   //extern struct ADC_Strings_FSRs StringAndFSR_values;
-project.c(38): warning:  #1-D: last line of file ends without a newline
+project.c(39): warning:  #1-D: last line of file ends without a newline
   		}
 project.c: 7 warnings, 0 errors
+creating preprocessor file for uart_helper.c...
 compiling PWM_helper.c...
-src\PWM_helper.c(359): warning:  #1-D: last line of file ends without a newline
+src\PWM_helper.c(299): warning:  #1-D: last line of file ends without a newline
       }
 src\PWM_helper.c: 1 warning, 0 errors
 compiling uart_helper.c...
@@ -78,7 +78,7 @@ src\uart_helper.c(123): warning:  #1-D: last line of file ends without a newline
   }
 src\uart_helper.c: 1 warning, 0 errors
 linking...
-Program Size: Code=4104 RO-data=1180 RW-data=4 ZI-data=260  
+Program Size: Code=3488 RO-data=1164 RW-data=0 ZI-data=256  
 FromELF: creating hex file...
 After Build - User command #1: fromelf --bin --output .\rvmdk\project.bin .\rvmdk\project.axf
 ".\rvmdk\project.axf" - 0 Error(s), 16 Warning(s).
@@ -104,7 +104,7 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.0.1
-Build Time Elapsed:  00:00:04
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>

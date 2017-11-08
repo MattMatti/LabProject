@@ -15589,78 +15589,58 @@ N	//
 N   ADCSequenceDataGet(ADC0_BASE, 0, &test2);
 X   ADCSequenceDataGet(0x40038000, 0, &test2);
 N	//ADCSequenceDataGet(ADC0_BASE, 0, &ADC_Values);// reads number of channels read
-W "src\ADC_helper.c" 78 4 function "printf" declared implicitly
-N   printf("This is the value of string1 %d\n\r", test2);
+N//   printf("This is the value of string1 %d\n\r", test2);
 N			//printf("This is the value of string1 %d\n\r", test2);
+N  if ((test2 > 0x000) && (test2 < 0x200)) // less than or equal to this voltage range
+N	{
+W "src\ADC_helper.c" 82 3 function "SetUpPWM0HZ" declared implicitly
+N		SetUpPWM0HZ();
+N	}
+N  else
+N	{
+N		         	
+N	}
 N	
-N	if ((test2 > 0x500) && (test2 < 0x600)) // less than or equal to this voltage range
-N	      {
-W "src\ADC_helper.c" 83 6 function "SetUpPWM200HZ" declared implicitly
-N					SetUpPWM200HZ();
-N					GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_3, 0xF);         	
-X					GPIOPinWrite(0x40025000,0x00000008, 0xF);         	
-N				}
-N   else
-N	 {
-N	       // TurnOffPWM();
-N 	   			GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_3, 0x0);     
-X 	   			GPIOPinWrite(0x40025000,0x00000008, 0x0);     
-N 	   			GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_2, 0x0);         	
-X 	   			GPIOPinWrite(0x40025000,0x00000004, 0x0);         	
-N 	   			GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1, 0x0);         	
-X 	   			GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
-N		 
-N          for(ui32Loop = 0; ui32Loop < 1000; ui32Loop++);
-N		     {
-N				 }
+N	if ((test2 > 0x200) && (test2 < 0x600)) // less than or equal to this voltage range
+N	{
+W "src\ADC_helper.c" 91 3 function "SetUpPWM200HZ" declared implicitly
+N		SetUpPWM200HZ();
+N		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_3, 0xF);         	
+X		GPIOPinWrite(0x40025000,0x00000008, 0xF);         	
+N	}
+N  else
+N	{
+N		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_3, 0x0);         	
+X		GPIOPinWrite(0x40025000,0x00000008, 0x0);         	
+N	}
 N
-N	 }
-N 
-N	 if ((test2 > 0x600) && (test2 < 0x900)) // less than or equal to this voltage range
-N	      {
-W "src\ADC_helper.c" 101 6 function "SetUpPWM200HZ" declared implicitly
-N					SetUpPWM200HZ();
-N					GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_2, 0xF);         	
-X					GPIOPinWrite(0x40025000,0x00000004, 0xF);         	
-N				}
-N   else
-N	 {
-N	       // TurnOffPWM();
-N 	   			GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_2, 0x0);  
-X 	   			GPIOPinWrite(0x40025000,0x00000004, 0x0);  
-N 	   			GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_3, 0x0);         	
-X 	   			GPIOPinWrite(0x40025000,0x00000008, 0x0);         	
-N 	   			GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1, 0x0);         	
-X 	   			GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
-N		 
-N          for(ui32Loop = 0; ui32Loop < 1000; ui32Loop++);
-N		     {
-N				 }
+N	if ((test2 > 0x600) && (test2 < 0xAFF)) // less than or equal to this voltage range
+N	{
+W "src\ADC_helper.c" 101 3 function "SetUpPWM300HZ" declared implicitly
+N		SetUpPWM300HZ();
+N		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_2, 0xF);         	
+X		GPIOPinWrite(0x40025000,0x00000004, 0xF);         	
+N	}
+N  else
+N	{
 N
-N	 }
-N	 if ((test2 > 0x900) && (test2 < 0xCFF)) // less than or equal to this voltage range
-N	      {
-W "src\ADC_helper.c" 118 6 function "SetUpPWM200HZ" declared implicitly
-N					SetUpPWM200HZ();
-N					GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1, 0xF);         	
-X					GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
-N				}
-N   else
-N	 {
-N	       // TurnOffPWM();
-N 	   			GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1, 0x0);
-X 	   			GPIOPinWrite(0x40025000,0x00000002, 0x0);
-N 	   			GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_2, 0x0);         	
-X 	   			GPIOPinWrite(0x40025000,0x00000004, 0x0);         	
-N 	   			GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_3, 0x0);         	
-X 	   			GPIOPinWrite(0x40025000,0x00000008, 0x0);         	
-N		 
-N          for(ui32Loop = 0; ui32Loop < 1000; ui32Loop++);
-N		     {
-N				 }
-N
-N	 }
-N }
+N		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_2, 0x0);         	
+X		GPIOPinWrite(0x40025000,0x00000004, 0x0);         	
+N	}
+N	 	
+N	if ((test2 > 0xAFF) && (test2 < 0xFFF)) // less than or equal to this voltage range
+N	{
+W "src\ADC_helper.c" 112 3 function "SetUpPWM400HZ" declared implicitly
+N		SetUpPWM400HZ();
+N		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1, 0xF);         	
+X		GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
+N	}
+N  else
+N	{
+N		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1, 0x0);         	
+X		GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
+N	}
+N}
 N//	 if((test2 > 0x200) && (test2 < 0x300)) // less than or equal to this voltage range
 N//	      {
 N//					SetUpPWM300HZ();

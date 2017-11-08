@@ -13,6 +13,7 @@
 #include "gpio.h"
 #include "pin_map.h"
 
+void SetUpPWM0HZ(void);
 void SetUpPWM200HZ(void);
 void SetUpPWM300HZ(void);
 void SetUpPWM400HZ(void);
@@ -21,4 +22,4 @@ void SetUpPWM600HZ(void);
 void SetUpPWM700HZ(void);
 void SetUpPWM800HZ(void);
 void SetUpPWM900HZ(void);
-void TurnOffPWM(void);
+void SetupPWM(void);

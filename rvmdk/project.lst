@@ -63419,6 +63419,7 @@ N#include "pwm.h"
 N#include "gpio.h"
 N#include "pin_map.h"
 N
+Nvoid SetUpPWM0HZ(void);
 Nvoid SetUpPWM200HZ(void);
 Nvoid SetUpPWM300HZ(void);
 Nvoid SetUpPWM400HZ(void);
@@ -63427,7 +63428,7 @@ Nvoid SetUpPWM600HZ(void);
 Nvoid SetUpPWM700HZ(void);
 Nvoid SetUpPWM800HZ(void);
 Nvoid SetUpPWM900HZ(void);
-Nvoid TurnOffPWM(void);
+Nvoid SetupPWM(void);
 L 48 "project.h" 2
 N#include "./src/ADC_helper.h"
 L 1 "./src/ADC_helper.h" 1
@@ -64638,6 +64639,7 @@ N	  GPIOSetup();
 N		UART_setup();
 N	  SetupADCPins();
 N		SetupADC();
+N	  SetupPWM();
 N		// Check if the peripheral access is enabled.
 N    while(!SysCtlPeripheralReady(SYSCTL_PERIPH_GPIOE))
 X    while(!SysCtlPeripheralReady(0xf0000804))
@@ -64648,5 +64650,5 @@ N		{
 N		ADCReadString1();
 N			
 N			}
-W "project.c" 38 4 last line of file ends without a newline
+W "project.c" 39 4 last line of file ends without a newline
 N		}
