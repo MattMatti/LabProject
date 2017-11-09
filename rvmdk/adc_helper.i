@@ -9698,7 +9698,7 @@ void SetupADC()
 
 void ADCReadString1()
 {
-	uint32_t test2;
+	uint32_t string1;
 	volatile uint32_t ui32Loop;
 	
 	ADCProcessorTrigger(0x40038000, 0); 
@@ -9712,11 +9712,11 @@ void ADCReadString1()
 	
 	
 	
-   ADCSequenceDataGet(0x40038000, 0, &test2);
+   ADCSequenceDataGet(0x40038000, 0, &string1);
 	
 
 			
-  if ((test2 > 0x000) && (test2 < 0x200)) 
+  if ((string1 > 0x000) && (string1 < 0x200)) 
 	{
 		SetUpPWM0HZ();
 	}
@@ -9725,9 +9725,9 @@ void ADCReadString1()
 		         	
 	}
 	
-	if ((test2 > 0x200) && (test2 < 0x600)) 
+	if ((string1 > 0x200) && (string1 < 0x2EE)) 
 	{
-		SetUpPWM200HZ();
+		SetUpPWM82HZ();
 		GPIOPinWrite(0x40025000,0x00000008, 0xF);         	
 	}
   else
@@ -9735,9 +9735,9 @@ void ADCReadString1()
 		GPIOPinWrite(0x40025000,0x00000008, 0x0);         	
 	}
 
-	if ((test2 > 0x600) && (test2 < 0xAFF)) 
+	if ((string1 > 0x2EE) && (string1 < 0x3DC)) 
 	{
-		SetUpPWM300HZ();
+		SetUpPWM87HZ();
 		GPIOPinWrite(0x40025000,0x00000004, 0xF);         	
 	}
   else
@@ -9746,9 +9746,117 @@ void ADCReadString1()
 		GPIOPinWrite(0x40025000,0x00000004, 0x0);         	
 	}
 	 	
-	if ((test2 > 0xAFF) && (test2 < 0xFFF)) 
+	if ((string1 > 0x3DC) && (string1 < 0x4CA)) 
 	{
-		SetUpPWM400HZ();
+		SetUpPWM92HZ();
+		GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
+	}
+  else
+	{
+		GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
+	}
+	if ((string1 > 0x4CA) && (string1 < 0x5B8)) 
+	{
+		SetUpPWM98HZ();
+		GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
+	}
+  else
+	{
+		GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
+	}
+	if ((string1 > 0x5B8) && (string1 < 0x6A6)) 
+	{
+		SetUpPWM104HZ();
+		GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
+	}
+  else
+	{
+		GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
+	}
+	if ((string1 > 0x6A6) && (string1 < 0x794)) 
+	{
+		SetUpPWM110HZ();
+		GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
+	}
+  else
+	{
+		GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
+	}
+	if ((string1 > 0x794) && (string1 < 0x882)) 
+	{
+		SetUpPWM117HZ();
+		GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
+	}
+  else
+	{
+		GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
+	}
+	if ((string1 > 0x882) && (string1 < 0x970)) 
+	{
+		SetUpPWM123HZ();
+		GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
+	}
+  else
+	{
+		GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
+	}
+	if ((string1 > 0x970) && (string1 < 0xA5E)) 
+	{
+		SetUpPWM131HZ();
+		GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
+	}
+  else
+	{
+		GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
+	}
+	if ((string1 > 0xA5E) && (string1 < 0xB4C)) 
+	{
+		SetUpPWM139HZ();
+		GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
+	}
+  else
+	{
+		GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
+	}
+	if ((string1 > 0xB4C) && (string1 < 0xC3A)) 
+	{
+		SetUpPWM147HZ();
+		GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
+	}
+  else
+	{
+		GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
+	}
+	if ((string1 > 0xC3A) && (string1 < 0xD28)) 
+	{
+		SetUpPWM156HZ();
+		GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
+	}
+  else
+	{
+		GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
+	}
+	if ((string1 > 0xD28) && (string1 < 0xE16)) 
+	{
+		SetUpPWM165HZ();
+		GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
+	}
+  else
+	{
+		GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
+	}
+	if ((string1 > 0xE16) && (string1 < 0xF04)) 
+	{
+		SetUpPWM175HZ();
+		GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
+	}
+  else
+	{
+		GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
+	}
+	if ((string1 > 0xF04) && (string1 < 0xFFF)) 
+	{
+		SetUpPWM185HZ();
 		GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
 	}
   else
@@ -9756,57 +9864,6 @@ void ADCReadString1()
 		GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

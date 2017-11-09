@@ -36781,7 +36781,23 @@ N#endif // __DRIVERLIB_PIN_MAP_H__
 L 15 "src\PWM_helper.h" 2
 N
 Nvoid SetUpPWM0HZ(void);
-Nvoid SetUpPWM200HZ(void);
+Nvoid SetUpPWM82HZ(void);
+Nvoid SetUpPWM87HZ(void);
+Nvoid SetUpPWM92HZ(void);
+Nvoid SetUpPWM98HZ(void);
+Nvoid SetUpPWM104HZ(void);
+Nvoid SetUpPWM110HZ(void);
+Nvoid SetUpPWM117HZ(void);
+Nvoid SetUpPWM123HZ(void);
+Nvoid SetUpPWM131HZ(void);
+Nvoid SetUpPWM139HZ(void);
+Nvoid SetUpPWM147HZ(void);
+Nvoid SetUpPWM156HZ(void);
+Nvoid SetUpPWM165HZ(void);
+Nvoid SetUpPWM175HZ(void);
+Nvoid SetUpPWM185HZ(void);
+Nvoid SetUpPWM196HZ(void);
+Nvoid SetUpPWM208HZ(void);
 Nvoid SetUpPWM300HZ(void);
 Nvoid SetUpPWM400HZ(void);
 Nvoid SetUpPWM500HZ(void);
@@ -36849,18 +36865,206 @@ N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,125000);
 X		PWMPulseWidthSet(0x40028000, 0x000000C5,125000);																									
 N
 N}
-N 
-N void SetUpPWM200HZ()
+Nvoid SetUpPWM82HZ()
+N{
+N    //this Sets the Period (expressed in clock ticks 250,000 Hz / Freq = period)
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 3048);
+X    PWMGenPeriodSet(0x40028000, 0x000000C0, 3048);
+N    
+N    // this is setting the PWM duty-50% (Period /2)
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5, 1524);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5, 1524);																									
+N
+N}
+Nvoid SetUpPWM87HZ()
+N{
+N    //this Sets the Period (expressed in clock ticks 250,000 Hz / Freq = period)
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 2874);
+X    PWMGenPeriodSet(0x40028000, 0x000000C0, 2874);
+N    
+N    // this is setting the PWM duty-50% (Period /2)
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5, 1437);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5, 1437);																									
+N
+N}
+Nvoid SetUpPWM92HZ()
+N{
+N    //this Sets the Period (expressed in clock ticks 250,000 Hz / Freq = period)
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 2718);
+X    PWMGenPeriodSet(0x40028000, 0x000000C0, 2718);
+N    
+N    // this is setting the PWM duty-50% (Period /2)
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5, 1359);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5, 1359);																									
+N
+N}
+N void SetUpPWM98HZ()
 N{
 N    //this Sets the Period (expressed in clock ticks)
-N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 1250);
-X    PWMGenPeriodSet(0x40028000, 0x000000C0, 1250);
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 2552);
+X    PWMGenPeriodSet(0x40028000, 0x000000C0, 2552);
+N    
+N
+N    // this is setting the PWM duty-50% (Period /2)
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,1276);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5,1276);																									
+N
+N} 
+N void SetUpPWM104HZ()
+N{
+N    //this Sets the Period (expressed in clock ticks)
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 2404);
+X    PWMGenPeriodSet(0x40028000, 0x000000C0, 2404);
+N    
+N
+N    // this is setting the PWM duty-50% (Period /2)
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,1202);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5,1202);																									
+N
+N}
+Nvoid SetUpPWM110HZ()
+N{
+N    //this Sets the Period (expressed in clock ticks)
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 2272);
+X    PWMGenPeriodSet(0x40028000, 0x000000C0, 2272);
+N    
+N
+N    // this is setting the PWM duty-50% (Period /2)
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,1136);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5,1136);																									
+N
+N}
+Nvoid SetUpPWM117HZ()
+N{
+N    //this Sets the Period (expressed in clock ticks)
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 2136);
+X    PWMGenPeriodSet(0x40028000, 0x000000C0, 2136);
+N    
+N
+N    // this is setting the PWM duty-50% (Period /2)
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5, 1068);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5, 1068);																									
+N
+N}
+Nvoid SetUpPWM123HZ()
+N{
+N    //this Sets the Period (expressed in clock ticks)
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 2032);
+X    PWMGenPeriodSet(0x40028000, 0x000000C0, 2032);
+N    
+N
+N    // this is setting the PWM duty-50% (Period /2)
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,1016);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5,1016);																									
+N
+N}
+Nvoid SetUpPWM131HZ()
+N{
+N    //this Sets the Period (expressed in clock ticks)
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 1908);
+X    PWMGenPeriodSet(0x40028000, 0x000000C0, 1908);
+N    
+N
+N    // this is setting the PWM duty-50% (Period /2)
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5, 954);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5, 954);																									
+N
+N}
+Nvoid SetUpPWM139HZ()
+N{
+N    //this Sets the Period (expressed in clock ticks)
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 1798);
+X    PWMGenPeriodSet(0x40028000, 0x000000C0, 1798);
+N    
+N
+N    // this is setting the PWM duty-50% (Period /2)
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,899);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5,899);																									
+N
+N}
+Nvoid SetUpPWM147HZ()
+N{
+N    //this Sets the Period (expressed in clock ticks)
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 1700);
+X    PWMGenPeriodSet(0x40028000, 0x000000C0, 1700);
+N    
+N
+N    // this is setting the PWM duty-50% (Period /2)
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,850);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5,850);																									
+N
+N}
+Nvoid SetUpPWM156HZ()
+N{
+N    //this Sets the Period (expressed in clock ticks)
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 1602);
+X    PWMGenPeriodSet(0x40028000, 0x000000C0, 1602);
+N    
+N
+N    // this is setting the PWM duty-50% (Period /2)
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,801);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5,801);																									
+N
+N}
+Nvoid SetUpPWM165HZ()
+N{
+N    //this Sets the Period (expressed in clock ticks)
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 1516);
+X    PWMGenPeriodSet(0x40028000, 0x000000C0, 1516);
+N    
+N
+N    // this is setting the PWM duty-50% (Period /2)
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,758);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5,758);																									
+N
+N}
+Nvoid SetUpPWM175HZ()
+N{
+N    //this Sets the Period (expressed in clock ticks)
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 1428);
+X    PWMGenPeriodSet(0x40028000, 0x000000C0, 1428);
+N    
+N
+N    // this is setting the PWM duty-50% (Period /2)
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,714);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5,714);																									
+N
+N}
+Nvoid SetUpPWM185HZ()
+N{
+N    //this Sets the Period (expressed in clock ticks)
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 1352);
+X    PWMGenPeriodSet(0x40028000, 0x000000C0, 1352);
+N    
+N
+N    // this is setting the PWM duty-50% (Period /2)
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,676);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5,676);																									
+N
+N}
+Nvoid SetUpPWM196HZ()
+N{
+N    //this Sets the Period (expressed in clock ticks)
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 1276);
+X    PWMGenPeriodSet(0x40028000, 0x000000C0, 1276);
+N    
+N
+N    // this is setting the PWM duty-50% (Period /2)
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,638);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5,638);																									
+N
+N}
+Nvoid SetUpPWM208HZ()
+N{
+N    //this Sets the Period (expressed in clock ticks)
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 1202);
+X    PWMGenPeriodSet(0x40028000, 0x000000C0, 1202);
 N    
 N
 N    // this is setting the PWM duty-50% (Period /2)
 N    //PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0,100);
-N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,625);																									
-X		PWMPulseWidthSet(0x40028000, 0x000000C5,625);																									
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,601);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5,601);																									
 N
 N}
 N void SetUpPWM300HZ()
@@ -36887,278 +37091,15 @@ N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5, 313);
 X		PWMPulseWidthSet(0x40028000, 0x000000C5, 313);																									
 N
 N}
+N
 N void SetUpPWM500HZ()
 N{
-N
-N    //Set the clock
-N   //SysCtlClockSet(SYSCTL_SYSDIV_1 | SYSCTL_USE_OSC |	SYSCTL_OSC_MAIN | SYSCTL_XTAL_16MHZ);
-N
-N   //Configure PWM Clock to match system
-N   SysCtlPWMClockSet(SYSCTL_PWMDIV_1);
-X   SysCtlPWMClockSet(0x00000000);
-N   
-N   // Enable the peripherals used by this program.
-N    SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOE);
-X    SysCtlPeripheralEnable(0xf0000804);
-N    SysCtlPeripheralEnable(SYSCTL_PERIPH_PWM0);  //The Tiva Launchpad has two modules (0 and 1). 
-X    SysCtlPeripheralEnable(0xf0004000);  
-N    while(!SysCtlPeripheralReady(SYSCTL_PERIPH_PWM0))
-X    while(!SysCtlPeripheralReady(0xf0004000))
-N		{
-N		}
-N    //Configure PF1 Pin as PWM
-N    GPIOPinConfigure(GPIO_PE5_M0PWM5); // pin1 port F is pwm5 of module 1 
-X    GPIOPinConfigure(0x00041404); 
-N	
-N    //GPIOPinTypePWM(GPIO_PORTF_BASE, GPIO_PIN_1 | GPIO_PIN_2 | GPIO_PIN_3);
-N     GPIOPinTypePWM(GPIO_PORTE_BASE, GPIO_PIN_5); //makes pin to PWM
-X     GPIOPinTypePWM(0x40024000, 0x00000020); 
-N    
-N	//Configure PWM Options
-N    //PWM_GEN_2 Covers M1PWM4 and M1PWM5
-N    //PWM_GEN_3 Covers M1PWM6 and M1PWM7 See page 207 4/11/13 DriverLib doc
-N   // PWMGenConfigure(PWM1_BASE, PWM_GEN_2, PWM_GEN_MODE_DOWN | PWM_GEN_MODE_NO_SYNC); 
-N    PWMGenConfigure(PWM0_BASE, PWM_GEN_2, PWM_GEN_MODE_DOWN | PWM_GEN_MODE_NO_SYNC); 
-X    PWMGenConfigure(0x40028000, 0x000000C0, 0x00000000 | 0x00000000); 
-N
 N    //this Sets the Period (expressed in clock ticks)
-N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 200);
-X    PWMGenPeriodSet(0x40028000, 0x000000C0, 200);
-N    //PWMGenPeriodSet(PWM1_BASE, PWM_GEN_5, 200);
-N
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 626);
+X    PWMGenPeriodSet(0x40028000, 0x000000C0, 626);
+N    
 N    // this is setting the PWM duty-50% (Period /2)
-N    //PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0,100);
-N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,100);																									
-X		PWMPulseWidthSet(0x40028000, 0x000000C5,100);																									
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5, 313);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5, 313);																									
 N
-N    // Enable the PWM generator
-N    PWMGenEnable(PWM0_BASE, PWM_GEN_2);
-X    PWMGenEnable(0x40028000, 0x000000C0);
-N
-N    // Turn on the Output pins
-N    PWMOutputState(PWM0_BASE, PWM_OUT_5_BIT, true);
-X    PWMOutputState(0x40028000, 0x00000020, 1);
-N    
-N
-N
-N    }
-N void SetUpPWM600HZ()
-N{
-N
-N    //Set the clock
-N   //SysCtlClockSet(SYSCTL_SYSDIV_1 | SYSCTL_USE_OSC |	SYSCTL_OSC_MAIN | SYSCTL_XTAL_16MHZ);
-N
-N   //Configure PWM Clock to match system
-N   SysCtlPWMClockSet(SYSCTL_PWMDIV_1);
-X   SysCtlPWMClockSet(0x00000000);
-N   
-N   // Enable the peripherals used by this program.
-N    SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOE);
-X    SysCtlPeripheralEnable(0xf0000804);
-N    SysCtlPeripheralEnable(SYSCTL_PERIPH_PWM0);  //The Tiva Launchpad has two modules (0 and 1). 
-X    SysCtlPeripheralEnable(0xf0004000);  
-N    while(!SysCtlPeripheralReady(SYSCTL_PERIPH_PWM0))
-X    while(!SysCtlPeripheralReady(0xf0004000))
-N		{
-N		}
-N    //Configure PF1 Pin as PWM
-N    GPIOPinConfigure(GPIO_PE5_M0PWM5); // pin1 port F is pwm5 of module 1 
-X    GPIOPinConfigure(0x00041404); 
-N	
-N    //GPIOPinTypePWM(GPIO_PORTF_BASE, GPIO_PIN_1 | GPIO_PIN_2 | GPIO_PIN_3);
-N     GPIOPinTypePWM(GPIO_PORTE_BASE, GPIO_PIN_5); //makes pin to PWM
-X     GPIOPinTypePWM(0x40024000, 0x00000020); 
-N    
-N	//Configure PWM Options
-N    //PWM_GEN_2 Covers M1PWM4 and M1PWM5
-N    //PWM_GEN_3 Covers M1PWM6 and M1PWM7 See page 207 4/11/13 DriverLib doc
-N   // PWMGenConfigure(PWM1_BASE, PWM_GEN_2, PWM_GEN_MODE_DOWN | PWM_GEN_MODE_NO_SYNC); 
-N    PWMGenConfigure(PWM0_BASE, PWM_GEN_2, PWM_GEN_MODE_DOWN | PWM_GEN_MODE_NO_SYNC); 
-X    PWMGenConfigure(0x40028000, 0x000000C0, 0x00000000 | 0x00000000); 
-N
-N    //this Sets the Period (expressed in clock ticks)
-N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 200);
-X    PWMGenPeriodSet(0x40028000, 0x000000C0, 200);
-N    //PWMGenPeriodSet(PWM1_BASE, PWM_GEN_5, 200);
-N
-N    // this is setting the PWM duty-50% (Period /2)
-N    //PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0,100);
-N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,100);																									
-X		PWMPulseWidthSet(0x40028000, 0x000000C5,100);																									
-N
-N    // Enable the PWM generator
-N    PWMGenEnable(PWM0_BASE, PWM_GEN_2);
-X    PWMGenEnable(0x40028000, 0x000000C0);
-N
-N    // Turn on the Output pins
-N    PWMOutputState(PWM0_BASE, PWM_OUT_5_BIT, true);
-X    PWMOutputState(0x40028000, 0x00000020, 1);
-N    
-N
-N
-N    }
-N void SetUpPWM700HZ()
-N{
-N
-N    //Set the clock
-N   //SysCtlClockSet(SYSCTL_SYSDIV_1 | SYSCTL_USE_OSC |	SYSCTL_OSC_MAIN | SYSCTL_XTAL_16MHZ);
-N
-N   //Configure PWM Clock to match system
-N   SysCtlPWMClockSet(SYSCTL_PWMDIV_1);
-X   SysCtlPWMClockSet(0x00000000);
-N   
-N   // Enable the peripherals used by this program.
-N    SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOE);
-X    SysCtlPeripheralEnable(0xf0000804);
-N    SysCtlPeripheralEnable(SYSCTL_PERIPH_PWM0);  //The Tiva Launchpad has two modules (0 and 1). 
-X    SysCtlPeripheralEnable(0xf0004000);  
-N    while(!SysCtlPeripheralReady(SYSCTL_PERIPH_PWM0))
-X    while(!SysCtlPeripheralReady(0xf0004000))
-N		{
-N		}
-N    //Configure PF1 Pin as PWM
-N    GPIOPinConfigure(GPIO_PE5_M0PWM5); // pin1 port F is pwm5 of module 1 
-X    GPIOPinConfigure(0x00041404); 
-N	
-N    //GPIOPinTypePWM(GPIO_PORTF_BASE, GPIO_PIN_1 | GPIO_PIN_2 | GPIO_PIN_3);
-N     GPIOPinTypePWM(GPIO_PORTE_BASE, GPIO_PIN_5); //makes pin to PWM
-X     GPIOPinTypePWM(0x40024000, 0x00000020); 
-N    
-N	//Configure PWM Options
-N    //PWM_GEN_2 Covers M1PWM4 and M1PWM5
-N    //PWM_GEN_3 Covers M1PWM6 and M1PWM7 See page 207 4/11/13 DriverLib doc
-N   // PWMGenConfigure(PWM1_BASE, PWM_GEN_2, PWM_GEN_MODE_DOWN | PWM_GEN_MODE_NO_SYNC); 
-N    PWMGenConfigure(PWM0_BASE, PWM_GEN_2, PWM_GEN_MODE_DOWN | PWM_GEN_MODE_NO_SYNC); 
-X    PWMGenConfigure(0x40028000, 0x000000C0, 0x00000000 | 0x00000000); 
-N
-N    //this Sets the Period (expressed in clock ticks)
-N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 200);
-X    PWMGenPeriodSet(0x40028000, 0x000000C0, 200);
-N    //PWMGenPeriodSet(PWM1_BASE, PWM_GEN_5, 200);
-N
-N    // this is setting the PWM duty-50% (Period /2)
-N    //PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0,100);
-N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,100);																									
-X		PWMPulseWidthSet(0x40028000, 0x000000C5,100);																									
-N
-N    // Enable the PWM generator
-N    PWMGenEnable(PWM0_BASE, PWM_GEN_2);
-X    PWMGenEnable(0x40028000, 0x000000C0);
-N
-N    // Turn on the Output pins
-N    PWMOutputState(PWM0_BASE, PWM_OUT_5_BIT, true);
-X    PWMOutputState(0x40028000, 0x00000020, 1);
-N    
-N
-N
-N    }
-N void SetUpPWM800HZ()
-N{
-N
-N    //Set the clock
-N   //SysCtlClockSet(SYSCTL_SYSDIV_1 | SYSCTL_USE_OSC |	SYSCTL_OSC_MAIN | SYSCTL_XTAL_16MHZ);
-N
-N   //Configure PWM Clock to match system
-N   SysCtlPWMClockSet(SYSCTL_PWMDIV_1);
-X   SysCtlPWMClockSet(0x00000000);
-N   
-N   // Enable the peripherals used by this program.
-N    SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOE);
-X    SysCtlPeripheralEnable(0xf0000804);
-N    SysCtlPeripheralEnable(SYSCTL_PERIPH_PWM0);  //The Tiva Launchpad has two modules (0 and 1). 
-X    SysCtlPeripheralEnable(0xf0004000);  
-N    while(!SysCtlPeripheralReady(SYSCTL_PERIPH_PWM0))
-X    while(!SysCtlPeripheralReady(0xf0004000))
-N		{
-N		}
-N    //Configure PF1 Pin as PWM
-N    GPIOPinConfigure(GPIO_PE5_M0PWM5); // pin1 port F is pwm5 of module 1 
-X    GPIOPinConfigure(0x00041404); 
-N	
-N    //GPIOPinTypePWM(GPIO_PORTF_BASE, GPIO_PIN_1 | GPIO_PIN_2 | GPIO_PIN_3);
-N     GPIOPinTypePWM(GPIO_PORTE_BASE, GPIO_PIN_5); //makes pin to PWM
-X     GPIOPinTypePWM(0x40024000, 0x00000020); 
-N    
-N	//Configure PWM Options
-N    //PWM_GEN_2 Covers M1PWM4 and M1PWM5
-N    //PWM_GEN_3 Covers M1PWM6 and M1PWM7 See page 207 4/11/13 DriverLib doc
-N   // PWMGenConfigure(PWM1_BASE, PWM_GEN_2, PWM_GEN_MODE_DOWN | PWM_GEN_MODE_NO_SYNC); 
-N    PWMGenConfigure(PWM0_BASE, PWM_GEN_2, PWM_GEN_MODE_DOWN | PWM_GEN_MODE_NO_SYNC); 
-X    PWMGenConfigure(0x40028000, 0x000000C0, 0x00000000 | 0x00000000); 
-N
-N    //this Sets the Period (expressed in clock ticks)
-N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 200);
-X    PWMGenPeriodSet(0x40028000, 0x000000C0, 200);
-N    //PWMGenPeriodSet(PWM1_BASE, PWM_GEN_5, 200);
-N
-N    // this is setting the PWM duty-50% (Period /2)
-N    //PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0,100);
-N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,100);																									
-X		PWMPulseWidthSet(0x40028000, 0x000000C5,100);																									
-N
-N    // Enable the PWM generator
-N    PWMGenEnable(PWM0_BASE, PWM_GEN_2);
-X    PWMGenEnable(0x40028000, 0x000000C0);
-N
-N    // Turn on the Output pins
-N    PWMOutputState(PWM0_BASE, PWM_OUT_5_BIT, true);
-X    PWMOutputState(0x40028000, 0x00000020, 1);
-N    
-N
-N
-N    }
-N void SetUpPWM900HZ()
-N		{
-N			//Set the clock
-N   //SysCtlClockSet(SYSCTL_SYSDIV_1 | SYSCTL_USE_OSC |	SYSCTL_OSC_MAIN | SYSCTL_XTAL_16MHZ);
-N
-N   //Configure PWM Clock to match system
-N   SysCtlPWMClockSet(SYSCTL_PWMDIV_1);
-X   SysCtlPWMClockSet(0x00000000);
-N   
-N   // Enable the peripherals used by this program.
-N    SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOE);
-X    SysCtlPeripheralEnable(0xf0000804);
-N    SysCtlPeripheralEnable(SYSCTL_PERIPH_PWM0);  //The Tiva Launchpad has two modules (0 and 1). 
-X    SysCtlPeripheralEnable(0xf0004000);  
-N    while(!SysCtlPeripheralReady(SYSCTL_PERIPH_PWM0))
-X    while(!SysCtlPeripheralReady(0xf0004000))
-N		{
-N		}
-N    //Configure PF1 Pin as PWM
-N    GPIOPinConfigure(GPIO_PE5_M0PWM5); // pin1 port F is pwm5 of module 1 
-X    GPIOPinConfigure(0x00041404); 
-N	
-N    //GPIOPinTypePWM(GPIO_PORTF_BASE, GPIO_PIN_1 | GPIO_PIN_2 | GPIO_PIN_3);
-N     GPIOPinTypePWM(GPIO_PORTE_BASE, GPIO_PIN_5); //makes pin to PWM
-X     GPIOPinTypePWM(0x40024000, 0x00000020); 
-N    
-N	//Configure PWM Options
-N    //PWM_GEN_2 Covers M1PWM4 and M1PWM5
-N    //PWM_GEN_3 Covers M1PWM6 and M1PWM7 See page 207 4/11/13 DriverLib doc
-N   // PWMGenConfigure(PWM1_BASE, PWM_GEN_2, PWM_GEN_MODE_DOWN | PWM_GEN_MODE_NO_SYNC); 
-N    PWMGenConfigure(PWM0_BASE, PWM_GEN_2, PWM_GEN_MODE_DOWN | PWM_GEN_MODE_NO_SYNC); 
-X    PWMGenConfigure(0x40028000, 0x000000C0, 0x00000000 | 0x00000000); 
-N
-N    //this Sets the Period (expressed in clock ticks)
-N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 200);
-X    PWMGenPeriodSet(0x40028000, 0x000000C0, 200);
-N    //PWMGenPeriodSet(PWM1_BASE, PWM_GEN_5, 200);
-N
-N    // this is setting the PWM duty-50% (Period /2)
-N    //PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0,100);
-N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,100);																									
-X		PWMPulseWidthSet(0x40028000, 0x000000C5,100);																									
-N
-N    // Enable the PWM generator
-N    PWMGenEnable(PWM0_BASE, PWM_GEN_2);
-X    PWMGenEnable(0x40028000, 0x000000C0);
-N
-N    // Turn on the Output pins
-N    PWMOutputState(PWM0_BASE, PWM_OUT_5_BIT, true);
-X    PWMOutputState(0x40028000, 0x00000020, 1);
-N    
-N
-N
-W "src\PWM_helper.c" 299 6 last line of file ends without a newline
-N    }
+N}

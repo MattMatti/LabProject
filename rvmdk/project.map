@@ -20,10 +20,22 @@ Section Cross References
     adc_helper.o(i.ADCReadString1) refers to adc.o(i.ADCBusy) for ADCBusy
     adc_helper.o(i.ADCReadString1) refers to adc.o(i.ADCSequenceDataGet) for ADCSequenceDataGet
     adc_helper.o(i.ADCReadString1) refers to pwm_helper.o(i.SetUpPWM0HZ) for SetUpPWM0HZ
-    adc_helper.o(i.ADCReadString1) refers to pwm_helper.o(i.SetUpPWM200HZ) for SetUpPWM200HZ
+    adc_helper.o(i.ADCReadString1) refers to pwm_helper.o(i.SetUpPWM82HZ) for SetUpPWM82HZ
     adc_helper.o(i.ADCReadString1) refers to gpio.o(i.GPIOPinWrite) for GPIOPinWrite
-    adc_helper.o(i.ADCReadString1) refers to pwm_helper.o(i.SetUpPWM300HZ) for SetUpPWM300HZ
-    adc_helper.o(i.ADCReadString1) refers to pwm_helper.o(i.SetUpPWM400HZ) for SetUpPWM400HZ
+    adc_helper.o(i.ADCReadString1) refers to pwm_helper.o(i.SetUpPWM87HZ) for SetUpPWM87HZ
+    adc_helper.o(i.ADCReadString1) refers to pwm_helper.o(i.SetUpPWM92HZ) for SetUpPWM92HZ
+    adc_helper.o(i.ADCReadString1) refers to pwm_helper.o(i.SetUpPWM98HZ) for SetUpPWM98HZ
+    adc_helper.o(i.ADCReadString1) refers to pwm_helper.o(i.SetUpPWM104HZ) for SetUpPWM104HZ
+    adc_helper.o(i.ADCReadString1) refers to pwm_helper.o(i.SetUpPWM110HZ) for SetUpPWM110HZ
+    adc_helper.o(i.ADCReadString1) refers to pwm_helper.o(i.SetUpPWM117HZ) for SetUpPWM117HZ
+    adc_helper.o(i.ADCReadString1) refers to pwm_helper.o(i.SetUpPWM123HZ) for SetUpPWM123HZ
+    adc_helper.o(i.ADCReadString1) refers to pwm_helper.o(i.SetUpPWM131HZ) for SetUpPWM131HZ
+    adc_helper.o(i.ADCReadString1) refers to pwm_helper.o(i.SetUpPWM139HZ) for SetUpPWM139HZ
+    adc_helper.o(i.ADCReadString1) refers to pwm_helper.o(i.SetUpPWM147HZ) for SetUpPWM147HZ
+    adc_helper.o(i.ADCReadString1) refers to pwm_helper.o(i.SetUpPWM156HZ) for SetUpPWM156HZ
+    adc_helper.o(i.ADCReadString1) refers to pwm_helper.o(i.SetUpPWM165HZ) for SetUpPWM165HZ
+    adc_helper.o(i.ADCReadString1) refers to pwm_helper.o(i.SetUpPWM175HZ) for SetUpPWM175HZ
+    adc_helper.o(i.ADCReadString1) refers to pwm_helper.o(i.SetUpPWM185HZ) for SetUpPWM185HZ
     adc_helper.o(i.SetupADC) refers to adc_helper.o(i.SetupADCPins) for SetupADCPins
     adc_helper.o(i.SetupADC) refers to sysctl.o(i.SysCtlPeripheralEnable) for SysCtlPeripheralEnable
     adc_helper.o(i.SetupADC) refers to sysctl.o(i.SysCtlPeripheralReady) for SysCtlPeripheralReady
@@ -44,62 +56,46 @@ Section Cross References
     gpio_helper.o(i.UpdateMyButtons) refers to gpio_helper.o(.data) for MyButtons
     pwm_helper.o(i.SetUpPWM0HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
     pwm_helper.o(i.SetUpPWM0HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
-    pwm_helper.o(i.SetUpPWM200HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
-    pwm_helper.o(i.SetUpPWM200HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM104HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
+    pwm_helper.o(i.SetUpPWM104HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM110HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
+    pwm_helper.o(i.SetUpPWM110HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM117HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
+    pwm_helper.o(i.SetUpPWM117HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM123HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
+    pwm_helper.o(i.SetUpPWM123HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM131HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
+    pwm_helper.o(i.SetUpPWM131HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM139HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
+    pwm_helper.o(i.SetUpPWM139HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM147HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
+    pwm_helper.o(i.SetUpPWM147HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM156HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
+    pwm_helper.o(i.SetUpPWM156HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM165HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
+    pwm_helper.o(i.SetUpPWM165HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM175HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
+    pwm_helper.o(i.SetUpPWM175HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM185HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
+    pwm_helper.o(i.SetUpPWM185HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM196HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
+    pwm_helper.o(i.SetUpPWM196HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM208HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
+    pwm_helper.o(i.SetUpPWM208HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
     pwm_helper.o(i.SetUpPWM300HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
     pwm_helper.o(i.SetUpPWM300HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
     pwm_helper.o(i.SetUpPWM400HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
     pwm_helper.o(i.SetUpPWM400HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
-    pwm_helper.o(i.SetUpPWM500HZ) refers to sysctl.o(i.SysCtlPWMClockSet) for SysCtlPWMClockSet
-    pwm_helper.o(i.SetUpPWM500HZ) refers to sysctl.o(i.SysCtlPeripheralEnable) for SysCtlPeripheralEnable
-    pwm_helper.o(i.SetUpPWM500HZ) refers to sysctl.o(i.SysCtlPeripheralReady) for SysCtlPeripheralReady
-    pwm_helper.o(i.SetUpPWM500HZ) refers to gpio.o(i.GPIOPinConfigure) for GPIOPinConfigure
-    pwm_helper.o(i.SetUpPWM500HZ) refers to gpio.o(i.GPIOPinTypePWM) for GPIOPinTypePWM
-    pwm_helper.o(i.SetUpPWM500HZ) refers to pwm.o(i.PWMGenConfigure) for PWMGenConfigure
     pwm_helper.o(i.SetUpPWM500HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
     pwm_helper.o(i.SetUpPWM500HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
-    pwm_helper.o(i.SetUpPWM500HZ) refers to pwm.o(i.PWMGenEnable) for PWMGenEnable
-    pwm_helper.o(i.SetUpPWM500HZ) refers to pwm.o(i.PWMOutputState) for PWMOutputState
-    pwm_helper.o(i.SetUpPWM600HZ) refers to sysctl.o(i.SysCtlPWMClockSet) for SysCtlPWMClockSet
-    pwm_helper.o(i.SetUpPWM600HZ) refers to sysctl.o(i.SysCtlPeripheralEnable) for SysCtlPeripheralEnable
-    pwm_helper.o(i.SetUpPWM600HZ) refers to sysctl.o(i.SysCtlPeripheralReady) for SysCtlPeripheralReady
-    pwm_helper.o(i.SetUpPWM600HZ) refers to gpio.o(i.GPIOPinConfigure) for GPIOPinConfigure
-    pwm_helper.o(i.SetUpPWM600HZ) refers to gpio.o(i.GPIOPinTypePWM) for GPIOPinTypePWM
-    pwm_helper.o(i.SetUpPWM600HZ) refers to pwm.o(i.PWMGenConfigure) for PWMGenConfigure
-    pwm_helper.o(i.SetUpPWM600HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
-    pwm_helper.o(i.SetUpPWM600HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
-    pwm_helper.o(i.SetUpPWM600HZ) refers to pwm.o(i.PWMGenEnable) for PWMGenEnable
-    pwm_helper.o(i.SetUpPWM600HZ) refers to pwm.o(i.PWMOutputState) for PWMOutputState
-    pwm_helper.o(i.SetUpPWM700HZ) refers to sysctl.o(i.SysCtlPWMClockSet) for SysCtlPWMClockSet
-    pwm_helper.o(i.SetUpPWM700HZ) refers to sysctl.o(i.SysCtlPeripheralEnable) for SysCtlPeripheralEnable
-    pwm_helper.o(i.SetUpPWM700HZ) refers to sysctl.o(i.SysCtlPeripheralReady) for SysCtlPeripheralReady
-    pwm_helper.o(i.SetUpPWM700HZ) refers to gpio.o(i.GPIOPinConfigure) for GPIOPinConfigure
-    pwm_helper.o(i.SetUpPWM700HZ) refers to gpio.o(i.GPIOPinTypePWM) for GPIOPinTypePWM
-    pwm_helper.o(i.SetUpPWM700HZ) refers to pwm.o(i.PWMGenConfigure) for PWMGenConfigure
-    pwm_helper.o(i.SetUpPWM700HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
-    pwm_helper.o(i.SetUpPWM700HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
-    pwm_helper.o(i.SetUpPWM700HZ) refers to pwm.o(i.PWMGenEnable) for PWMGenEnable
-    pwm_helper.o(i.SetUpPWM700HZ) refers to pwm.o(i.PWMOutputState) for PWMOutputState
-    pwm_helper.o(i.SetUpPWM800HZ) refers to sysctl.o(i.SysCtlPWMClockSet) for SysCtlPWMClockSet
-    pwm_helper.o(i.SetUpPWM800HZ) refers to sysctl.o(i.SysCtlPeripheralEnable) for SysCtlPeripheralEnable
-    pwm_helper.o(i.SetUpPWM800HZ) refers to sysctl.o(i.SysCtlPeripheralReady) for SysCtlPeripheralReady
-    pwm_helper.o(i.SetUpPWM800HZ) refers to gpio.o(i.GPIOPinConfigure) for GPIOPinConfigure
-    pwm_helper.o(i.SetUpPWM800HZ) refers to gpio.o(i.GPIOPinTypePWM) for GPIOPinTypePWM
-    pwm_helper.o(i.SetUpPWM800HZ) refers to pwm.o(i.PWMGenConfigure) for PWMGenConfigure
-    pwm_helper.o(i.SetUpPWM800HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
-    pwm_helper.o(i.SetUpPWM800HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
-    pwm_helper.o(i.SetUpPWM800HZ) refers to pwm.o(i.PWMGenEnable) for PWMGenEnable
-    pwm_helper.o(i.SetUpPWM800HZ) refers to pwm.o(i.PWMOutputState) for PWMOutputState
-    pwm_helper.o(i.SetUpPWM900HZ) refers to sysctl.o(i.SysCtlPWMClockSet) for SysCtlPWMClockSet
-    pwm_helper.o(i.SetUpPWM900HZ) refers to sysctl.o(i.SysCtlPeripheralEnable) for SysCtlPeripheralEnable
-    pwm_helper.o(i.SetUpPWM900HZ) refers to sysctl.o(i.SysCtlPeripheralReady) for SysCtlPeripheralReady
-    pwm_helper.o(i.SetUpPWM900HZ) refers to gpio.o(i.GPIOPinConfigure) for GPIOPinConfigure
-    pwm_helper.o(i.SetUpPWM900HZ) refers to gpio.o(i.GPIOPinTypePWM) for GPIOPinTypePWM
-    pwm_helper.o(i.SetUpPWM900HZ) refers to pwm.o(i.PWMGenConfigure) for PWMGenConfigure
-    pwm_helper.o(i.SetUpPWM900HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
-    pwm_helper.o(i.SetUpPWM900HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
-    pwm_helper.o(i.SetUpPWM900HZ) refers to pwm.o(i.PWMGenEnable) for PWMGenEnable
-    pwm_helper.o(i.SetUpPWM900HZ) refers to pwm.o(i.PWMOutputState) for PWMOutputState
+    pwm_helper.o(i.SetUpPWM82HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
+    pwm_helper.o(i.SetUpPWM82HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM87HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
+    pwm_helper.o(i.SetUpPWM87HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM92HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
+    pwm_helper.o(i.SetUpPWM92HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM98HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
+    pwm_helper.o(i.SetUpPWM98HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
     pwm_helper.o(i.SetupPWM) refers to sysctl.o(i.SysCtlPWMClockSet) for SysCtlPWMClockSet
     pwm_helper.o(i.SetupPWM) refers to sysctl.o(i.SysCtlPeripheralEnable) for SysCtlPeripheralEnable
     pwm_helper.o(i.SetupPWM) refers to sysctl.o(i.SysCtlPeripheralReady) for SysCtlPeripheralReady
@@ -508,11 +504,11 @@ Removing Unused input sections from the image.
     Removing gpio_helper.o(i.TurnOnLEDs2), (352 bytes).
     Removing gpio_helper.o(i.UpdateMyButtons), (64 bytes).
     Removing gpio_helper.o(.data), (2 bytes).
-    Removing pwm_helper.o(i.SetUpPWM500HZ), (116 bytes).
-    Removing pwm_helper.o(i.SetUpPWM600HZ), (116 bytes).
-    Removing pwm_helper.o(i.SetUpPWM700HZ), (116 bytes).
-    Removing pwm_helper.o(i.SetUpPWM800HZ), (116 bytes).
-    Removing pwm_helper.o(i.SetUpPWM900HZ), (116 bytes).
+    Removing pwm_helper.o(i.SetUpPWM196HZ), (32 bytes).
+    Removing pwm_helper.o(i.SetUpPWM208HZ), (32 bytes).
+    Removing pwm_helper.o(i.SetUpPWM300HZ), (32 bytes).
+    Removing pwm_helper.o(i.SetUpPWM400HZ), (32 bytes).
+    Removing pwm_helper.o(i.SetUpPWM500HZ), (32 bytes).
     Removing uart_helper.o(i.Mander), (28 bytes).
     Removing uart_helper.o(i.UART_OutChar), (24 bytes).
     Removing uart_helper.o(i.ferror), (6 bytes).
@@ -748,7 +744,7 @@ Removing Unused input sections from the image.
     Removing cdrcmple.o(.text), (48 bytes).
     Removing depilogue.o(.text), (186 bytes).
 
-246 unused section(s) (total 10578 bytes) removed from the image.
+246 unused section(s) (total 10158 bytes) removed from the image.
 
 ==============================================================================
 
@@ -761,33 +757,33 @@ Image Symbol Table
     RESET                                    0x00000000   Section      648  startup_rvmdk.o(RESET)
     ../clib/microlib/division.c              0x00000000   Number         0  uidiv.o ABSOLUTE
     ../clib/microlib/division.c              0x00000000   Number         0  uldiv.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
-    ../clib/microlib/longlong.c              0x00000000   Number         0  llshl.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llsshr.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
+    ../clib/microlib/longlong.c              0x00000000   Number         0  llshl.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfa.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf8.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf7.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf6.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf2.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf4.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfb.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf0.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf5.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf1.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf3.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf4.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf2.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf5.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf6.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf7.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf8.o ABSOLUTE
     ../clib/microlib/printf/stubs.s          0x00000000   Number         0  stubs.o ABSOLUTE
     ../clib/microlib/stdio/streams.c         0x00000000   Number         0  stdout.o ABSOLUTE
     ../clib/microlib/stubs.s                 0x00000000   Number         0  iusefp.o ABSOLUTE
@@ -797,6 +793,7 @@ Image Symbol Table
     ../fplib/microlib/fpfix.c                0x00000000   Number         0  dfixul.o ABSOLUTE
     ../fplib/microlib/fpmul.c                0x00000000   Number         0  dmul.o ABSOLUTE
     FSR2I2C.c                                0x00000000   Number         0  fsr2i2c.o ABSOLUTE
+    I2C_helper.c                             0x00000000   Number         0  i2c_helper.o ABSOLUTE
     adc.c                                    0x00000000   Number         0  adc.o ABSOLUTE
     cdrcmple.s                               0x00000000   Number         0  cdrcmple.o ABSOLUTE
     cpu.c                                    0x00000000   Number         0  cpu.o ABSOLUTE
@@ -836,55 +833,67 @@ Image Symbol Table
     i.ADCBusy                                0x000002c8   Section        0  adc.o(i.ADCBusy)
     i.ADCProcessorTrigger                    0x000002d0   Section        0  adc.o(i.ADCProcessorTrigger)
     i.ADCReadString1                         0x000002ec   Section        0  adc_helper.o(i.ADCReadString1)
-    i.ADCReferenceSet                        0x000003a8   Section        0  adc.o(i.ADCReferenceSet)
-    i.ADCSequenceConfigure                   0x000003b4   Section        0  adc.o(i.ADCSequenceConfigure)
-    i.ADCSequenceDataGet                     0x00000414   Section        0  adc.o(i.ADCSequenceDataGet)
-    i.ADCSequenceDisable                     0x00000438   Section        0  adc.o(i.ADCSequenceDisable)
-    i.ADCSequenceEnable                      0x00000448   Section        0  adc.o(i.ADCSequenceEnable)
-    i.ADCSequenceStepConfigure               0x00000456   Section        0  adc.o(i.ADCSequenceStepConfigure)
-    i.GPIODirModeSet                         0x000004f0   Section        0  gpio.o(i.GPIODirModeSet)
-    i.GPIOPadConfigSet                       0x00000518   Section        0  gpio.o(i.GPIOPadConfigSet)
-    i.GPIOPinConfigure                       0x00000650   Section        0  gpio.o(i.GPIOPinConfigure)
-    i.GPIOPinTypeADC                         0x00000694   Section        0  gpio.o(i.GPIOPinTypeADC)
-    i.GPIOPinTypeGPIOInput                   0x000006b0   Section        0  gpio.o(i.GPIOPinTypeGPIOInput)
-    i.GPIOPinTypeGPIOOutput                  0x000006cc   Section        0  gpio.o(i.GPIOPinTypeGPIOOutput)
-    i.GPIOPinTypePWM                         0x000006e8   Section        0  gpio.o(i.GPIOPinTypePWM)
-    i.GPIOPinTypeUART                        0x00000704   Section        0  gpio.o(i.GPIOPinTypeUART)
-    i.GPIOPinWrite                           0x00000720   Section        0  gpio.o(i.GPIOPinWrite)
-    i.GPIOSetup                              0x00000728   Section        0  gpio_helper.o(i.GPIOSetup)
-    i.PWMGenConfigure                        0x000007a4   Section        0  pwm.o(i.PWMGenConfigure)
-    i.PWMGenEnable                           0x000007ca   Section        0  pwm.o(i.PWMGenEnable)
-    i.PWMGenPeriodSet                        0x000007d4   Section        0  pwm.o(i.PWMGenPeriodSet)
-    i.PWMOutputState                         0x000007e6   Section        0  pwm.o(i.PWMOutputState)
-    i.PWMPulseWidthSet                       0x000007f6   Section        0  pwm.o(i.PWMPulseWidthSet)
-    i.SetUpPWM0HZ                            0x00000818   Section        0  pwm_helper.o(i.SetUpPWM0HZ)
-    i.SetUpPWM200HZ                          0x0000083c   Section        0  pwm_helper.o(i.SetUpPWM200HZ)
-    i.SetUpPWM300HZ                          0x0000085c   Section        0  pwm_helper.o(i.SetUpPWM300HZ)
-    i.SetUpPWM400HZ                          0x0000087c   Section        0  pwm_helper.o(i.SetUpPWM400HZ)
-    i.SetupADC                               0x0000089c   Section        0  adc_helper.o(i.SetupADC)
-    i.SetupADCPins                           0x000008fc   Section        0  adc_helper.o(i.SetupADCPins)
-    i.SetupPWM                               0x0000090c   Section        0  pwm_helper.o(i.SetupPWM)
-    i.SysCtlClockGet                         0x00000970   Section        0  sysctl.o(i.SysCtlClockGet)
-    i.SysCtlClockSet                         0x00000ac4   Section        0  sysctl.o(i.SysCtlClockSet)
-    i.SysCtlPWMClockSet                      0x00000be4   Section        0  sysctl.o(i.SysCtlPWMClockSet)
-    i.SysCtlPeripheralEnable                 0x00000bf8   Section        0  sysctl.o(i.SysCtlPeripheralEnable)
-    i.SysCtlPeripheralReady                  0x00000c20   Section        0  sysctl.o(i.SysCtlPeripheralReady)
-    i.SysCtlPeripheralReset                  0x00000c4c   Section        0  sysctl.o(i.SysCtlPeripheralReset)
-    i.UARTConfigSetExpClk                    0x00000c88   Section        0  uart.o(i.UARTConfigSetExpClk)
-    i.UART_setup                             0x00000cf8   Section        0  uart_helper.o(i.UART_setup)
-    i.__scatterload_copy                     0x00000d38   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x00000d46   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x00000d48   Section       14  handlers.o(i.__scatterload_zeroinit)
-    i.main                                   0x00000d58   Section        0  project.o(i.main)
-    .constdata                               0x00000da0   Section      552  gpio.o(.constdata)
-    g_ppui32GPIOIntMapBlizzard               0x00000da0   Data         192  gpio.o(.constdata)
-    g_ppui32GPIOIntMapSnowflake              0x00000e60   Data         216  gpio.o(.constdata)
-    g_pui32GPIOBaseAddrs                     0x00000f38   Data         144  gpio.o(.constdata)
-    .constdata                               0x00000fc8   Section      596  sysctl.o(.constdata)
-    g_pui32VCOFrequencies                    0x00000fc8   Data           8  sysctl.o(.constdata)
-    g_pui32Xtals                             0x00000fd0   Data         108  sysctl.o(.constdata)
-    g_pppui32XTALtoVCO                       0x0000103c   Data         432  sysctl.o(.constdata)
-    g_sXTALtoMEMTIM                          0x000011ec   Data          48  sysctl.o(.constdata)
+    i.ADCReferenceSet                        0x000005cc   Section        0  adc.o(i.ADCReferenceSet)
+    i.ADCSequenceConfigure                   0x000005d8   Section        0  adc.o(i.ADCSequenceConfigure)
+    i.ADCSequenceDataGet                     0x00000638   Section        0  adc.o(i.ADCSequenceDataGet)
+    i.ADCSequenceDisable                     0x0000065c   Section        0  adc.o(i.ADCSequenceDisable)
+    i.ADCSequenceEnable                      0x0000066c   Section        0  adc.o(i.ADCSequenceEnable)
+    i.ADCSequenceStepConfigure               0x0000067a   Section        0  adc.o(i.ADCSequenceStepConfigure)
+    i.GPIODirModeSet                         0x00000714   Section        0  gpio.o(i.GPIODirModeSet)
+    i.GPIOPadConfigSet                       0x0000073c   Section        0  gpio.o(i.GPIOPadConfigSet)
+    i.GPIOPinConfigure                       0x00000874   Section        0  gpio.o(i.GPIOPinConfigure)
+    i.GPIOPinTypeADC                         0x000008b8   Section        0  gpio.o(i.GPIOPinTypeADC)
+    i.GPIOPinTypeGPIOInput                   0x000008d4   Section        0  gpio.o(i.GPIOPinTypeGPIOInput)
+    i.GPIOPinTypeGPIOOutput                  0x000008f0   Section        0  gpio.o(i.GPIOPinTypeGPIOOutput)
+    i.GPIOPinTypePWM                         0x0000090c   Section        0  gpio.o(i.GPIOPinTypePWM)
+    i.GPIOPinTypeUART                        0x00000928   Section        0  gpio.o(i.GPIOPinTypeUART)
+    i.GPIOPinWrite                           0x00000944   Section        0  gpio.o(i.GPIOPinWrite)
+    i.GPIOSetup                              0x0000094c   Section        0  gpio_helper.o(i.GPIOSetup)
+    i.PWMGenConfigure                        0x000009c8   Section        0  pwm.o(i.PWMGenConfigure)
+    i.PWMGenEnable                           0x000009ee   Section        0  pwm.o(i.PWMGenEnable)
+    i.PWMGenPeriodSet                        0x000009f8   Section        0  pwm.o(i.PWMGenPeriodSet)
+    i.PWMOutputState                         0x00000a0a   Section        0  pwm.o(i.PWMOutputState)
+    i.PWMPulseWidthSet                       0x00000a1a   Section        0  pwm.o(i.PWMPulseWidthSet)
+    i.SetUpPWM0HZ                            0x00000a3c   Section        0  pwm_helper.o(i.SetUpPWM0HZ)
+    i.SetUpPWM104HZ                          0x00000a60   Section        0  pwm_helper.o(i.SetUpPWM104HZ)
+    i.SetUpPWM110HZ                          0x00000a80   Section        0  pwm_helper.o(i.SetUpPWM110HZ)
+    i.SetUpPWM117HZ                          0x00000aa0   Section        0  pwm_helper.o(i.SetUpPWM117HZ)
+    i.SetUpPWM123HZ                          0x00000ac0   Section        0  pwm_helper.o(i.SetUpPWM123HZ)
+    i.SetUpPWM131HZ                          0x00000ae0   Section        0  pwm_helper.o(i.SetUpPWM131HZ)
+    i.SetUpPWM139HZ                          0x00000b00   Section        0  pwm_helper.o(i.SetUpPWM139HZ)
+    i.SetUpPWM147HZ                          0x00000b20   Section        0  pwm_helper.o(i.SetUpPWM147HZ)
+    i.SetUpPWM156HZ                          0x00000b40   Section        0  pwm_helper.o(i.SetUpPWM156HZ)
+    i.SetUpPWM165HZ                          0x00000b60   Section        0  pwm_helper.o(i.SetUpPWM165HZ)
+    i.SetUpPWM175HZ                          0x00000b80   Section        0  pwm_helper.o(i.SetUpPWM175HZ)
+    i.SetUpPWM185HZ                          0x00000ba0   Section        0  pwm_helper.o(i.SetUpPWM185HZ)
+    i.SetUpPWM82HZ                           0x00000bc0   Section        0  pwm_helper.o(i.SetUpPWM82HZ)
+    i.SetUpPWM87HZ                           0x00000be0   Section        0  pwm_helper.o(i.SetUpPWM87HZ)
+    i.SetUpPWM92HZ                           0x00000c00   Section        0  pwm_helper.o(i.SetUpPWM92HZ)
+    i.SetUpPWM98HZ                           0x00000c20   Section        0  pwm_helper.o(i.SetUpPWM98HZ)
+    i.SetupADC                               0x00000c40   Section        0  adc_helper.o(i.SetupADC)
+    i.SetupADCPins                           0x00000ca0   Section        0  adc_helper.o(i.SetupADCPins)
+    i.SetupPWM                               0x00000cb0   Section        0  pwm_helper.o(i.SetupPWM)
+    i.SysCtlClockGet                         0x00000d14   Section        0  sysctl.o(i.SysCtlClockGet)
+    i.SysCtlClockSet                         0x00000e68   Section        0  sysctl.o(i.SysCtlClockSet)
+    i.SysCtlPWMClockSet                      0x00000f88   Section        0  sysctl.o(i.SysCtlPWMClockSet)
+    i.SysCtlPeripheralEnable                 0x00000f9c   Section        0  sysctl.o(i.SysCtlPeripheralEnable)
+    i.SysCtlPeripheralReady                  0x00000fc4   Section        0  sysctl.o(i.SysCtlPeripheralReady)
+    i.SysCtlPeripheralReset                  0x00000ff0   Section        0  sysctl.o(i.SysCtlPeripheralReset)
+    i.UARTConfigSetExpClk                    0x0000102c   Section        0  uart.o(i.UARTConfigSetExpClk)
+    i.UART_setup                             0x0000109c   Section        0  uart_helper.o(i.UART_setup)
+    i.__scatterload_copy                     0x000010dc   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x000010ea   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x000010ec   Section       14  handlers.o(i.__scatterload_zeroinit)
+    i.main                                   0x000010fc   Section        0  project.o(i.main)
+    .constdata                               0x00001144   Section      552  gpio.o(.constdata)
+    g_ppui32GPIOIntMapBlizzard               0x00001144   Data         192  gpio.o(.constdata)
+    g_ppui32GPIOIntMapSnowflake              0x00001204   Data         216  gpio.o(.constdata)
+    g_pui32GPIOBaseAddrs                     0x000012dc   Data         144  gpio.o(.constdata)
+    .constdata                               0x0000136c   Section      596  sysctl.o(.constdata)
+    g_pui32VCOFrequencies                    0x0000136c   Data           8  sysctl.o(.constdata)
+    g_pui32Xtals                             0x00001374   Data         108  sysctl.o(.constdata)
+    g_pppui32XTALtoVCO                       0x000013e0   Data         432  sysctl.o(.constdata)
+    g_sXTALtoMEMTIM                          0x00001590   Data          48  sysctl.o(.constdata)
     STACK                                    0x20000000   Section      256  startup_rvmdk.o(STACK)
     StackMem                                 0x20000000   Data           0  startup_rvmdk.o(STACK)
 
@@ -956,49 +965,61 @@ Image Symbol Table
     __scatterload_rt2                        0x000002a5   Thumb Code     0  init.o(.text)
     ADCBusy                                  0x000002c9   Thumb Code     8  adc.o(i.ADCBusy)
     ADCProcessorTrigger                      0x000002d1   Thumb Code    26  adc.o(i.ADCProcessorTrigger)
-    ADCReadString1                           0x000002ed   Thumb Code   180  adc_helper.o(i.ADCReadString1)
-    ADCReferenceSet                          0x000003a9   Thumb Code    12  adc.o(i.ADCReferenceSet)
-    ADCSequenceConfigure                     0x000003b5   Thumb Code    96  adc.o(i.ADCSequenceConfigure)
-    ADCSequenceDataGet                       0x00000415   Thumb Code    36  adc.o(i.ADCSequenceDataGet)
-    ADCSequenceDisable                       0x00000439   Thumb Code    16  adc.o(i.ADCSequenceDisable)
-    ADCSequenceEnable                        0x00000449   Thumb Code    14  adc.o(i.ADCSequenceEnable)
-    ADCSequenceStepConfigure                 0x00000457   Thumb Code   154  adc.o(i.ADCSequenceStepConfigure)
-    GPIODirModeSet                           0x000004f1   Thumb Code    40  gpio.o(i.GPIODirModeSet)
-    GPIOPadConfigSet                         0x00000519   Thumb Code   312  gpio.o(i.GPIOPadConfigSet)
-    GPIOPinConfigure                         0x00000651   Thumb Code    60  gpio.o(i.GPIOPinConfigure)
-    GPIOPinTypeADC                           0x00000695   Thumb Code    28  gpio.o(i.GPIOPinTypeADC)
-    GPIOPinTypeGPIOInput                     0x000006b1   Thumb Code    28  gpio.o(i.GPIOPinTypeGPIOInput)
-    GPIOPinTypeGPIOOutput                    0x000006cd   Thumb Code    28  gpio.o(i.GPIOPinTypeGPIOOutput)
-    GPIOPinTypePWM                           0x000006e9   Thumb Code    28  gpio.o(i.GPIOPinTypePWM)
-    GPIOPinTypeUART                          0x00000705   Thumb Code    28  gpio.o(i.GPIOPinTypeUART)
-    GPIOPinWrite                             0x00000721   Thumb Code     6  gpio.o(i.GPIOPinWrite)
-    GPIOSetup                                0x00000729   Thumb Code   106  gpio_helper.o(i.GPIOSetup)
-    PWMGenConfigure                          0x000007a5   Thumb Code    38  pwm.o(i.PWMGenConfigure)
-    PWMGenEnable                             0x000007cb   Thumb Code    10  pwm.o(i.PWMGenEnable)
-    PWMGenPeriodSet                          0x000007d5   Thumb Code    18  pwm.o(i.PWMGenPeriodSet)
-    PWMOutputState                           0x000007e7   Thumb Code    16  pwm.o(i.PWMOutputState)
-    PWMPulseWidthSet                         0x000007f7   Thumb Code    32  pwm.o(i.PWMPulseWidthSet)
-    SetUpPWM0HZ                              0x00000819   Thumb Code    24  pwm_helper.o(i.SetUpPWM0HZ)
-    SetUpPWM200HZ                            0x0000083d   Thumb Code    28  pwm_helper.o(i.SetUpPWM200HZ)
-    SetUpPWM300HZ                            0x0000085d   Thumb Code    28  pwm_helper.o(i.SetUpPWM300HZ)
-    SetUpPWM400HZ                            0x0000087d   Thumb Code    28  pwm_helper.o(i.SetUpPWM400HZ)
-    SetupADC                                 0x0000089d   Thumb Code    86  adc_helper.o(i.SetupADC)
-    SetupADCPins                             0x000008fd   Thumb Code    12  adc_helper.o(i.SetupADCPins)
-    SetupPWM                                 0x0000090d   Thumb Code    78  pwm_helper.o(i.SetupPWM)
-    SysCtlClockGet                           0x00000971   Thumb Code   304  sysctl.o(i.SysCtlClockGet)
-    SysCtlClockSet                           0x00000ac5   Thumb Code   270  sysctl.o(i.SysCtlClockSet)
-    SysCtlPWMClockSet                        0x00000be5   Thumb Code    14  sysctl.o(i.SysCtlPWMClockSet)
-    SysCtlPeripheralEnable                   0x00000bf9   Thumb Code    36  sysctl.o(i.SysCtlPeripheralEnable)
-    SysCtlPeripheralReady                    0x00000c21   Thumb Code    40  sysctl.o(i.SysCtlPeripheralReady)
-    SysCtlPeripheralReset                    0x00000c4d   Thumb Code    56  sysctl.o(i.SysCtlPeripheralReset)
-    UARTConfigSetExpClk                      0x00000c89   Thumb Code   110  uart.o(i.UARTConfigSetExpClk)
-    UART_setup                               0x00000cf9   Thumb Code    54  uart_helper.o(i.UART_setup)
-    __scatterload_copy                       0x00000d39   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x00000d47   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x00000d49   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    main                                     0x00000d59   Thumb Code    58  project.o(i.main)
-    Region$$Table$$Base                      0x0000121c   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x0000122c   Number         0  anon$$obj.o(Region$$Table)
+    ADCReadString1                           0x000002ed   Thumb Code   726  adc_helper.o(i.ADCReadString1)
+    ADCReferenceSet                          0x000005cd   Thumb Code    12  adc.o(i.ADCReferenceSet)
+    ADCSequenceConfigure                     0x000005d9   Thumb Code    96  adc.o(i.ADCSequenceConfigure)
+    ADCSequenceDataGet                       0x00000639   Thumb Code    36  adc.o(i.ADCSequenceDataGet)
+    ADCSequenceDisable                       0x0000065d   Thumb Code    16  adc.o(i.ADCSequenceDisable)
+    ADCSequenceEnable                        0x0000066d   Thumb Code    14  adc.o(i.ADCSequenceEnable)
+    ADCSequenceStepConfigure                 0x0000067b   Thumb Code   154  adc.o(i.ADCSequenceStepConfigure)
+    GPIODirModeSet                           0x00000715   Thumb Code    40  gpio.o(i.GPIODirModeSet)
+    GPIOPadConfigSet                         0x0000073d   Thumb Code   312  gpio.o(i.GPIOPadConfigSet)
+    GPIOPinConfigure                         0x00000875   Thumb Code    60  gpio.o(i.GPIOPinConfigure)
+    GPIOPinTypeADC                           0x000008b9   Thumb Code    28  gpio.o(i.GPIOPinTypeADC)
+    GPIOPinTypeGPIOInput                     0x000008d5   Thumb Code    28  gpio.o(i.GPIOPinTypeGPIOInput)
+    GPIOPinTypeGPIOOutput                    0x000008f1   Thumb Code    28  gpio.o(i.GPIOPinTypeGPIOOutput)
+    GPIOPinTypePWM                           0x0000090d   Thumb Code    28  gpio.o(i.GPIOPinTypePWM)
+    GPIOPinTypeUART                          0x00000929   Thumb Code    28  gpio.o(i.GPIOPinTypeUART)
+    GPIOPinWrite                             0x00000945   Thumb Code     6  gpio.o(i.GPIOPinWrite)
+    GPIOSetup                                0x0000094d   Thumb Code   106  gpio_helper.o(i.GPIOSetup)
+    PWMGenConfigure                          0x000009c9   Thumb Code    38  pwm.o(i.PWMGenConfigure)
+    PWMGenEnable                             0x000009ef   Thumb Code    10  pwm.o(i.PWMGenEnable)
+    PWMGenPeriodSet                          0x000009f9   Thumb Code    18  pwm.o(i.PWMGenPeriodSet)
+    PWMOutputState                           0x00000a0b   Thumb Code    16  pwm.o(i.PWMOutputState)
+    PWMPulseWidthSet                         0x00000a1b   Thumb Code    32  pwm.o(i.PWMPulseWidthSet)
+    SetUpPWM0HZ                              0x00000a3d   Thumb Code    24  pwm_helper.o(i.SetUpPWM0HZ)
+    SetUpPWM104HZ                            0x00000a61   Thumb Code    28  pwm_helper.o(i.SetUpPWM104HZ)
+    SetUpPWM110HZ                            0x00000a81   Thumb Code    28  pwm_helper.o(i.SetUpPWM110HZ)
+    SetUpPWM117HZ                            0x00000aa1   Thumb Code    28  pwm_helper.o(i.SetUpPWM117HZ)
+    SetUpPWM123HZ                            0x00000ac1   Thumb Code    28  pwm_helper.o(i.SetUpPWM123HZ)
+    SetUpPWM131HZ                            0x00000ae1   Thumb Code    28  pwm_helper.o(i.SetUpPWM131HZ)
+    SetUpPWM139HZ                            0x00000b01   Thumb Code    28  pwm_helper.o(i.SetUpPWM139HZ)
+    SetUpPWM147HZ                            0x00000b21   Thumb Code    28  pwm_helper.o(i.SetUpPWM147HZ)
+    SetUpPWM156HZ                            0x00000b41   Thumb Code    28  pwm_helper.o(i.SetUpPWM156HZ)
+    SetUpPWM165HZ                            0x00000b61   Thumb Code    28  pwm_helper.o(i.SetUpPWM165HZ)
+    SetUpPWM175HZ                            0x00000b81   Thumb Code    28  pwm_helper.o(i.SetUpPWM175HZ)
+    SetUpPWM185HZ                            0x00000ba1   Thumb Code    28  pwm_helper.o(i.SetUpPWM185HZ)
+    SetUpPWM82HZ                             0x00000bc1   Thumb Code    28  pwm_helper.o(i.SetUpPWM82HZ)
+    SetUpPWM87HZ                             0x00000be1   Thumb Code    28  pwm_helper.o(i.SetUpPWM87HZ)
+    SetUpPWM92HZ                             0x00000c01   Thumb Code    28  pwm_helper.o(i.SetUpPWM92HZ)
+    SetUpPWM98HZ                             0x00000c21   Thumb Code    28  pwm_helper.o(i.SetUpPWM98HZ)
+    SetupADC                                 0x00000c41   Thumb Code    86  adc_helper.o(i.SetupADC)
+    SetupADCPins                             0x00000ca1   Thumb Code    12  adc_helper.o(i.SetupADCPins)
+    SetupPWM                                 0x00000cb1   Thumb Code    78  pwm_helper.o(i.SetupPWM)
+    SysCtlClockGet                           0x00000d15   Thumb Code   304  sysctl.o(i.SysCtlClockGet)
+    SysCtlClockSet                           0x00000e69   Thumb Code   270  sysctl.o(i.SysCtlClockSet)
+    SysCtlPWMClockSet                        0x00000f89   Thumb Code    14  sysctl.o(i.SysCtlPWMClockSet)
+    SysCtlPeripheralEnable                   0x00000f9d   Thumb Code    36  sysctl.o(i.SysCtlPeripheralEnable)
+    SysCtlPeripheralReady                    0x00000fc5   Thumb Code    40  sysctl.o(i.SysCtlPeripheralReady)
+    SysCtlPeripheralReset                    0x00000ff1   Thumb Code    56  sysctl.o(i.SysCtlPeripheralReset)
+    UARTConfigSetExpClk                      0x0000102d   Thumb Code   110  uart.o(i.UARTConfigSetExpClk)
+    UART_setup                               0x0000109d   Thumb Code    54  uart_helper.o(i.UART_setup)
+    __scatterload_copy                       0x000010dd   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x000010eb   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x000010ed   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    main                                     0x000010fd   Thumb Code    58  project.o(i.main)
+    Region$$Table$$Base                      0x000015c0   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x000015d0   Number         0  anon$$obj.o(Region$$Table)
     __initial_sp                             0x20000100   Data           0  startup_rvmdk.o(STACK)
 
 
@@ -1009,79 +1030,91 @@ Memory Map of the image
 
   Image Entry point : 0x0000026d
 
-  Load Region LR_IROM (Base: 0x00000000, Size: 0x0000122c, Max: 0x00040000, ABSOLUTE)
+  Load Region LR_IROM (Base: 0x00000000, Size: 0x000015d0, Max: 0x00040000, ABSOLUTE)
 
-    Execution Region ER_IROM (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x0000122c, Max: 0x00040000, ABSOLUTE)
+    Execution Region ER_IROM (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x000015d0, Max: 0x00040000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x00000000   0x00000000   0x00000288   Code   RO          168  * RESET               startup_rvmdk.o
-    0x00000288   0x00000288   0x00000000   Code   RO         1980  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
-    0x00000288   0x00000288   0x00000004   Code   RO         2244    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
-    0x0000028c   0x0000028c   0x00000004   Code   RO         2247    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
-    0x00000290   0x00000290   0x00000000   Code   RO         2249    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
-    0x00000290   0x00000290   0x00000000   Code   RO         2251    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
-    0x00000290   0x00000290   0x00000008   Code   RO         2252    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
-    0x00000298   0x00000298   0x00000000   Code   RO         2254    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
-    0x00000298   0x00000298   0x00000000   Code   RO         2256    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
-    0x00000298   0x00000298   0x00000004   Code   RO         2245    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
-    0x0000029c   0x0000029c   0x00000006   Code   RO         1211    .emb_text           driverlib.lib(sysctl.o)
+    0x00000288   0x00000288   0x00000000   Code   RO         2058  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
+    0x00000288   0x00000288   0x00000004   Code   RO         2322    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
+    0x0000028c   0x0000028c   0x00000004   Code   RO         2325    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
+    0x00000290   0x00000290   0x00000000   Code   RO         2327    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
+    0x00000290   0x00000290   0x00000000   Code   RO         2329    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
+    0x00000290   0x00000290   0x00000008   Code   RO         2330    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
+    0x00000298   0x00000298   0x00000000   Code   RO         2332    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
+    0x00000298   0x00000298   0x00000000   Code   RO         2334    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
+    0x00000298   0x00000298   0x00000004   Code   RO         2323    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
+    0x0000029c   0x0000029c   0x00000006   Code   RO         1289    .emb_text           driverlib.lib(sysctl.o)
     0x000002a2   0x000002a2   0x00000002   PAD
-    0x000002a4   0x000002a4   0x00000024   Code   RO         2274    .text               mc_w.l(init.o)
-    0x000002c8   0x000002c8   0x00000008   Code   RO          393    i.ADCBusy           driverlib.lib(adc.o)
-    0x000002d0   0x000002d0   0x0000001a   Code   RO          416    i.ADCProcessorTrigger  driverlib.lib(adc.o)
+    0x000002a4   0x000002a4   0x00000024   Code   RO         2352    .text               mc_w.l(init.o)
+    0x000002c8   0x000002c8   0x00000008   Code   RO          471    i.ADCBusy           driverlib.lib(adc.o)
+    0x000002d0   0x000002d0   0x0000001a   Code   RO          494    i.ADCProcessorTrigger  driverlib.lib(adc.o)
     0x000002ea   0x000002ea   0x00000002   PAD
-    0x000002ec   0x000002ec   0x000000bc   Code   RO          173    i.ADCReadString1    adc_helper.o
-    0x000003a8   0x000003a8   0x0000000c   Code   RO          418    i.ADCReferenceSet   driverlib.lib(adc.o)
-    0x000003b4   0x000003b4   0x00000060   Code   RO          419    i.ADCSequenceConfigure  driverlib.lib(adc.o)
-    0x00000414   0x00000414   0x00000024   Code   RO          422    i.ADCSequenceDataGet  driverlib.lib(adc.o)
-    0x00000438   0x00000438   0x00000010   Code   RO          423    i.ADCSequenceDisable  driverlib.lib(adc.o)
-    0x00000448   0x00000448   0x0000000e   Code   RO          424    i.ADCSequenceEnable  driverlib.lib(adc.o)
-    0x00000456   0x00000456   0x0000009a   Code   RO          427    i.ADCSequenceStepConfigure  driverlib.lib(adc.o)
-    0x000004f0   0x000004f0   0x00000028   Code   RO          676    i.GPIODirModeSet    driverlib.lib(gpio.o)
-    0x00000518   0x00000518   0x00000138   Code   RO          688    i.GPIOPadConfigSet  driverlib.lib(gpio.o)
-    0x00000650   0x00000650   0x00000044   Code   RO          689    i.GPIOPinConfigure  driverlib.lib(gpio.o)
-    0x00000694   0x00000694   0x0000001c   Code   RO          691    i.GPIOPinTypeADC    driverlib.lib(gpio.o)
-    0x000006b0   0x000006b0   0x0000001c   Code   RO          699    i.GPIOPinTypeGPIOInput  driverlib.lib(gpio.o)
-    0x000006cc   0x000006cc   0x0000001c   Code   RO          700    i.GPIOPinTypeGPIOOutput  driverlib.lib(gpio.o)
-    0x000006e8   0x000006e8   0x0000001c   Code   RO          707    i.GPIOPinTypePWM    driverlib.lib(gpio.o)
-    0x00000704   0x00000704   0x0000001c   Code   RO          712    i.GPIOPinTypeUART   driverlib.lib(gpio.o)
-    0x00000720   0x00000720   0x00000006   Code   RO          718    i.GPIOPinWrite      driverlib.lib(gpio.o)
-    0x00000726   0x00000726   0x00000002   PAD
-    0x00000728   0x00000728   0x0000007c   Code   RO          216    i.GPIOSetup         gpio_helper.o
-    0x000007a4   0x000007a4   0x00000026   Code   RO          986    i.PWMGenConfigure   driverlib.lib(pwm.o)
-    0x000007ca   0x000007ca   0x0000000a   Code   RO          988    i.PWMGenEnable      driverlib.lib(pwm.o)
-    0x000007d4   0x000007d4   0x00000012   Code   RO         1001    i.PWMGenPeriodSet   driverlib.lib(pwm.o)
-    0x000007e6   0x000007e6   0x00000010   Code   RO         1008    i.PWMOutputState    driverlib.lib(pwm.o)
-    0x000007f6   0x000007f6   0x00000020   Code   RO         1011    i.PWMPulseWidthSet  driverlib.lib(pwm.o)
-    0x00000816   0x00000816   0x00000002   PAD
-    0x00000818   0x00000818   0x00000024   Code   RO          252    i.SetUpPWM0HZ       pwm_helper.o
-    0x0000083c   0x0000083c   0x00000020   Code   RO          253    i.SetUpPWM200HZ     pwm_helper.o
-    0x0000085c   0x0000085c   0x00000020   Code   RO          254    i.SetUpPWM300HZ     pwm_helper.o
-    0x0000087c   0x0000087c   0x00000020   Code   RO          255    i.SetUpPWM400HZ     pwm_helper.o
-    0x0000089c   0x0000089c   0x00000060   Code   RO          174    i.SetupADC          adc_helper.o
-    0x000008fc   0x000008fc   0x00000010   Code   RO          175    i.SetupADCPins      adc_helper.o
-    0x0000090c   0x0000090c   0x00000064   Code   RO          261    i.SetupPWM          pwm_helper.o
-    0x00000970   0x00000970   0x00000154   Code   RO         1214    i.SysCtlClockGet    driverlib.lib(sysctl.o)
-    0x00000ac4   0x00000ac4   0x00000120   Code   RO         1216    i.SysCtlClockSet    driverlib.lib(sysctl.o)
-    0x00000be4   0x00000be4   0x00000014   Code   RO         1240    i.SysCtlPWMClockSet  driverlib.lib(sysctl.o)
-    0x00000bf8   0x00000bf8   0x00000028   Code   RO         1245    i.SysCtlPeripheralEnable  driverlib.lib(sysctl.o)
-    0x00000c20   0x00000c20   0x0000002c   Code   RO         1249    i.SysCtlPeripheralReady  driverlib.lib(sysctl.o)
-    0x00000c4c   0x00000c4c   0x0000003c   Code   RO         1250    i.SysCtlPeripheralReset  driverlib.lib(sysctl.o)
-    0x00000c88   0x00000c88   0x0000006e   Code   RO         1579    i.UARTConfigSetExpClk  driverlib.lib(uart.o)
-    0x00000cf6   0x00000cf6   0x00000002   PAD
-    0x00000cf8   0x00000cf8   0x00000040   Code   RO          335    i.UART_setup        uart_helper.o
-    0x00000d38   0x00000d38   0x0000000e   Code   RO         2286    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x00000d46   0x00000d46   0x00000002   Code   RO         2287    i.__scatterload_null  mc_w.l(handlers.o)
-    0x00000d48   0x00000d48   0x0000000e   Code   RO         2288    i.__scatterload_zeroinit  mc_w.l(handlers.o)
-    0x00000d56   0x00000d56   0x00000002   PAD
-    0x00000d58   0x00000d58   0x00000048   Code   RO            1    i.main              project.o
-    0x00000da0   0x00000da0   0x00000228   Data   RO          720    .constdata          driverlib.lib(gpio.o)
-    0x00000fc8   0x00000fc8   0x00000254   Data   RO         1267    .constdata          driverlib.lib(sysctl.o)
-    0x0000121c   0x0000121c   0x00000010   Data   RO         2284    Region$$Table       anon$$obj.o
+    0x000002ec   0x000002ec   0x000002e0   Code   RO          173    i.ADCReadString1    adc_helper.o
+    0x000005cc   0x000005cc   0x0000000c   Code   RO          496    i.ADCReferenceSet   driverlib.lib(adc.o)
+    0x000005d8   0x000005d8   0x00000060   Code   RO          497    i.ADCSequenceConfigure  driverlib.lib(adc.o)
+    0x00000638   0x00000638   0x00000024   Code   RO          500    i.ADCSequenceDataGet  driverlib.lib(adc.o)
+    0x0000065c   0x0000065c   0x00000010   Code   RO          501    i.ADCSequenceDisable  driverlib.lib(adc.o)
+    0x0000066c   0x0000066c   0x0000000e   Code   RO          502    i.ADCSequenceEnable  driverlib.lib(adc.o)
+    0x0000067a   0x0000067a   0x0000009a   Code   RO          505    i.ADCSequenceStepConfigure  driverlib.lib(adc.o)
+    0x00000714   0x00000714   0x00000028   Code   RO          754    i.GPIODirModeSet    driverlib.lib(gpio.o)
+    0x0000073c   0x0000073c   0x00000138   Code   RO          766    i.GPIOPadConfigSet  driverlib.lib(gpio.o)
+    0x00000874   0x00000874   0x00000044   Code   RO          767    i.GPIOPinConfigure  driverlib.lib(gpio.o)
+    0x000008b8   0x000008b8   0x0000001c   Code   RO          769    i.GPIOPinTypeADC    driverlib.lib(gpio.o)
+    0x000008d4   0x000008d4   0x0000001c   Code   RO          777    i.GPIOPinTypeGPIOInput  driverlib.lib(gpio.o)
+    0x000008f0   0x000008f0   0x0000001c   Code   RO          778    i.GPIOPinTypeGPIOOutput  driverlib.lib(gpio.o)
+    0x0000090c   0x0000090c   0x0000001c   Code   RO          785    i.GPIOPinTypePWM    driverlib.lib(gpio.o)
+    0x00000928   0x00000928   0x0000001c   Code   RO          790    i.GPIOPinTypeUART   driverlib.lib(gpio.o)
+    0x00000944   0x00000944   0x00000006   Code   RO          796    i.GPIOPinWrite      driverlib.lib(gpio.o)
+    0x0000094a   0x0000094a   0x00000002   PAD
+    0x0000094c   0x0000094c   0x0000007c   Code   RO          216    i.GPIOSetup         gpio_helper.o
+    0x000009c8   0x000009c8   0x00000026   Code   RO         1064    i.PWMGenConfigure   driverlib.lib(pwm.o)
+    0x000009ee   0x000009ee   0x0000000a   Code   RO         1066    i.PWMGenEnable      driverlib.lib(pwm.o)
+    0x000009f8   0x000009f8   0x00000012   Code   RO         1079    i.PWMGenPeriodSet   driverlib.lib(pwm.o)
+    0x00000a0a   0x00000a0a   0x00000010   Code   RO         1086    i.PWMOutputState    driverlib.lib(pwm.o)
+    0x00000a1a   0x00000a1a   0x00000020   Code   RO         1089    i.PWMPulseWidthSet  driverlib.lib(pwm.o)
+    0x00000a3a   0x00000a3a   0x00000002   PAD
+    0x00000a3c   0x00000a3c   0x00000024   Code   RO          252    i.SetUpPWM0HZ       pwm_helper.o
+    0x00000a60   0x00000a60   0x00000020   Code   RO          253    i.SetUpPWM104HZ     pwm_helper.o
+    0x00000a80   0x00000a80   0x00000020   Code   RO          254    i.SetUpPWM110HZ     pwm_helper.o
+    0x00000aa0   0x00000aa0   0x00000020   Code   RO          255    i.SetUpPWM117HZ     pwm_helper.o
+    0x00000ac0   0x00000ac0   0x00000020   Code   RO          256    i.SetUpPWM123HZ     pwm_helper.o
+    0x00000ae0   0x00000ae0   0x00000020   Code   RO          257    i.SetUpPWM131HZ     pwm_helper.o
+    0x00000b00   0x00000b00   0x00000020   Code   RO          258    i.SetUpPWM139HZ     pwm_helper.o
+    0x00000b20   0x00000b20   0x00000020   Code   RO          259    i.SetUpPWM147HZ     pwm_helper.o
+    0x00000b40   0x00000b40   0x00000020   Code   RO          260    i.SetUpPWM156HZ     pwm_helper.o
+    0x00000b60   0x00000b60   0x00000020   Code   RO          261    i.SetUpPWM165HZ     pwm_helper.o
+    0x00000b80   0x00000b80   0x00000020   Code   RO          262    i.SetUpPWM175HZ     pwm_helper.o
+    0x00000ba0   0x00000ba0   0x00000020   Code   RO          263    i.SetUpPWM185HZ     pwm_helper.o
+    0x00000bc0   0x00000bc0   0x00000020   Code   RO          269    i.SetUpPWM82HZ      pwm_helper.o
+    0x00000be0   0x00000be0   0x00000020   Code   RO          270    i.SetUpPWM87HZ      pwm_helper.o
+    0x00000c00   0x00000c00   0x00000020   Code   RO          271    i.SetUpPWM92HZ      pwm_helper.o
+    0x00000c20   0x00000c20   0x00000020   Code   RO          272    i.SetUpPWM98HZ      pwm_helper.o
+    0x00000c40   0x00000c40   0x00000060   Code   RO          174    i.SetupADC          adc_helper.o
+    0x00000ca0   0x00000ca0   0x00000010   Code   RO          175    i.SetupADCPins      adc_helper.o
+    0x00000cb0   0x00000cb0   0x00000064   Code   RO          273    i.SetupPWM          pwm_helper.o
+    0x00000d14   0x00000d14   0x00000154   Code   RO         1292    i.SysCtlClockGet    driverlib.lib(sysctl.o)
+    0x00000e68   0x00000e68   0x00000120   Code   RO         1294    i.SysCtlClockSet    driverlib.lib(sysctl.o)
+    0x00000f88   0x00000f88   0x00000014   Code   RO         1318    i.SysCtlPWMClockSet  driverlib.lib(sysctl.o)
+    0x00000f9c   0x00000f9c   0x00000028   Code   RO         1323    i.SysCtlPeripheralEnable  driverlib.lib(sysctl.o)
+    0x00000fc4   0x00000fc4   0x0000002c   Code   RO         1327    i.SysCtlPeripheralReady  driverlib.lib(sysctl.o)
+    0x00000ff0   0x00000ff0   0x0000003c   Code   RO         1328    i.SysCtlPeripheralReset  driverlib.lib(sysctl.o)
+    0x0000102c   0x0000102c   0x0000006e   Code   RO         1657    i.UARTConfigSetExpClk  driverlib.lib(uart.o)
+    0x0000109a   0x0000109a   0x00000002   PAD
+    0x0000109c   0x0000109c   0x00000040   Code   RO          407    i.UART_setup        uart_helper.o
+    0x000010dc   0x000010dc   0x0000000e   Code   RO         2364    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x000010ea   0x000010ea   0x00000002   Code   RO         2365    i.__scatterload_null  mc_w.l(handlers.o)
+    0x000010ec   0x000010ec   0x0000000e   Code   RO         2366    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x000010fa   0x000010fa   0x00000002   PAD
+    0x000010fc   0x000010fc   0x00000048   Code   RO            1    i.main              project.o
+    0x00001144   0x00001144   0x00000228   Data   RO          798    .constdata          driverlib.lib(gpio.o)
+    0x0000136c   0x0000136c   0x00000254   Data   RO         1345    .constdata          driverlib.lib(sysctl.o)
+    0x000015c0   0x000015c0   0x00000010   Data   RO         2362    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM (Exec base: 0x20000000, Load base: 0x0000122c, Size: 0x00000100, Max: 0x00008000, ABSOLUTE)
+    Execution Region RW_IRAM (Exec base: 0x20000000, Load base: 0x000015d0, Size: 0x00000100, Max: 0x00008000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -1095,15 +1128,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       300         22          0          0          0       1851   adc_helper.o
+       848         24          0          0          0       2163   adc_helper.o
        124         18          0          0          0        512   gpio_helper.o
         72         14          0          0          0       5007   project.o
-       232         46          0          0          0       2385   pwm_helper.o
+       616         94          0          0          0       8045   pwm_helper.o
        648        622          0          0        256        272   startup_rvmdk.o
         64         10          0          0          0        477   uart_helper.o
 
     ----------------------------------------------------------------------
-      1440        732         16          0        256      10504   Object Totals
+      2372        782         16          0        256      16476   Object Totals
          0          0         16          0          0          0   (incl. Generated)
          0          0          0          0          0          0   (incl. Padding)
 
@@ -1148,15 +1181,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      3488        828       1164          0        256      33452   Grand Totals
-      3488        828       1164          0        256      33452   ELF Image Totals
-      3488        828       1164          0          0          0   ROM Totals
+      4420        878       1164          0        256      38224   Grand Totals
+      4420        878       1164          0        256      38224   ELF Image Totals
+      4420        878       1164          0          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 4652 (   4.54kB)
+    Total RO  Size (Code + RO Data)                 5584 (   5.45kB)
     Total RW  Size (RW Data + ZI Data)               256 (   0.25kB)
-    Total ROM Size (Code + RO Data + RW Data)       4652 (   4.54kB)
+    Total ROM Size (Code + RO Data + RW Data)       5584 (   5.45kB)
 
 ==============================================================================
 

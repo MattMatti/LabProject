@@ -14,7 +14,23 @@
 #include "pin_map.h"
 
 void SetUpPWM0HZ(void);
-void SetUpPWM200HZ(void);
+void SetUpPWM82HZ(void);
+void SetUpPWM87HZ(void);
+void SetUpPWM92HZ(void);
+void SetUpPWM98HZ(void);
+void SetUpPWM104HZ(void);
+void SetUpPWM110HZ(void);
+void SetUpPWM117HZ(void);
+void SetUpPWM123HZ(void);
+void SetUpPWM131HZ(void);
+void SetUpPWM139HZ(void);
+void SetUpPWM147HZ(void);
+void SetUpPWM156HZ(void);
+void SetUpPWM165HZ(void);
+void SetUpPWM175HZ(void);
+void SetUpPWM185HZ(void);
+void SetUpPWM196HZ(void);
+void SetUpPWM208HZ(void);
 void SetUpPWM300HZ(void);
 void SetUpPWM400HZ(void);
 void SetUpPWM500HZ(void);

@@ -63420,7 +63420,23 @@ N#include "gpio.h"
 N#include "pin_map.h"
 N
 Nvoid SetUpPWM0HZ(void);
-Nvoid SetUpPWM200HZ(void);
+Nvoid SetUpPWM82HZ(void);
+Nvoid SetUpPWM87HZ(void);
+Nvoid SetUpPWM92HZ(void);
+Nvoid SetUpPWM98HZ(void);
+Nvoid SetUpPWM104HZ(void);
+Nvoid SetUpPWM110HZ(void);
+Nvoid SetUpPWM117HZ(void);
+Nvoid SetUpPWM123HZ(void);
+Nvoid SetUpPWM131HZ(void);
+Nvoid SetUpPWM139HZ(void);
+Nvoid SetUpPWM147HZ(void);
+Nvoid SetUpPWM156HZ(void);
+Nvoid SetUpPWM165HZ(void);
+Nvoid SetUpPWM175HZ(void);
+Nvoid SetUpPWM185HZ(void);
+Nvoid SetUpPWM196HZ(void);
+Nvoid SetUpPWM208HZ(void);
 Nvoid SetUpPWM300HZ(void);
 Nvoid SetUpPWM400HZ(void);
 Nvoid SetUpPWM500HZ(void);
