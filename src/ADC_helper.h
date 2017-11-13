@@ -24,7 +24,8 @@
 //	uint32_t FSR4;
 //};
 
-
+extern uint32_t DutyCycle;
+extern uint32_t DutyValue;
 void SetupADCPins(void);
 void SetupADC(void);
 void ADCReadString1(void);  

@@ -1,7 +1,27 @@
 #include "PWM_helper.h"
+#include "ADC_helper.h"
 
 // this code initializes the pins as pwm and sets the clock cycle to 16 MHZ. It also makes a 50% duty cycle. It then enables the PWM generator 2.
 // 
+#define Note_E2 3048
+#define Note_F2 2874
+#define Note_Gb2 2718
+#define Note_G2 2552
+#define Note_Ab2 2404
+#define Note_A3 2272
+#define Note_Bb3 2136
+#define Note_B3 2032
+#define Note_C3 1908
+#define Note_Db3 1798
+#define Note_Eb3 1700
+#define Note_E3 1602
+#define Note_F3 1516
+#define Note_Gb3 1428
+#define Note_G3 1352
+#define Note_Ab4 1276
+
+extern uint32_t DutyCycle; 
+
 
  void SetupPWM()
  { 
@@ -49,19 +69,19 @@
 void SetUpPWM82HZ()
 {
     //this Sets the Period (expressed in clock ticks 250,000 Hz / Freq = period)
-    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 3048);
+    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, Note_E2);
     
     // this is setting the PWM duty-50% (Period /2)
-		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5, 1524);																									
+		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5, Note_E2/DutyCycle);																									
 
 }
 void SetUpPWM87HZ()
 {
     //this Sets the Period (expressed in clock ticks 250,000 Hz / Freq = period)
-    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 2874);
+    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, Note_F2);
     
     // this is setting the PWM duty-50% (Period /2)
-		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5, 1437);																									
+		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5, Note_F2/DutyCycle);																									
 
 }
 void SetUpPWM92HZ()

@@ -12,3 +12,4 @@
 .\rvmdk\pwm_helper.o: .\driverlib\pwm.h
 .\rvmdk\pwm_helper.o: .\driverlib\gpio.h
 .\rvmdk\pwm_helper.o: .\driverlib\pin_map.h
+.\rvmdk\pwm_helper.o: src\ADC_Helper.h

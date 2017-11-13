@@ -45,6 +45,6 @@
 .\rvmdk\project.o: .\inc\hw_gpio.h
 .\rvmdk\project.o: .\inc\hw_types.h
 .\rvmdk\project.o: ./src/PWM_helper.h
-.\rvmdk\project.o: ./src/ADC_helper.h
+.\rvmdk\project.o: ./src/ADC_Helper.h
 .\rvmdk\project.o: ./src/uart_helper.h
 .\rvmdk\project.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

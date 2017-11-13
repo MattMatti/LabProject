@@ -33,6 +33,7 @@ int  main(void)
 		}   
     while(1)
 		{	
+		
 		ADCReadString1();
 			
 			}

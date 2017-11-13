@@ -12,6 +12,7 @@
 #include "pwm.h"
 #include "gpio.h"
 #include "pin_map.h"
+#include "ADC_Helper.h"
 
 void SetUpPWM0HZ(void);
 void SetUpPWM82HZ(void);

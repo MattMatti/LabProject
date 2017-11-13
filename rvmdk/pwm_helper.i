@@ -10554,6 +10554,45 @@ extern void GPIOADCTriggerDisable(uint32_t ui32Port, uint8_t ui8Pins);
 #line 20952 ".\\driverlib\\pin_map.h"
 
 #line 15 "src\\PWM_helper.h"
+#line 1 "src\\ADC_Helper.h"
+#pragma once
+#line 3 "src\\ADC_Helper.h"
+#line 4 "src\\ADC_Helper.h"
+#line 5 "src\\ADC_Helper.h"
+#line 6 "src\\ADC_Helper.h"
+#line 7 "src\\ADC_Helper.h"
+#line 8 "src\\ADC_Helper.h"
+#line 9 "src\\ADC_Helper.h"
+#line 10 "src\\ADC_Helper.h"
+#line 11 "src\\ADC_Helper.h"
+#line 12 "src\\ADC_Helper.h"
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+extern uint32_t DutyCycle;
+extern uint32_t DutyValue;
+void SetupADCPins(void);
+void SetupADC(void);
+void ADCReadString1(void);  
+void ADCReadString2(void);  
+void ADCReadString3(void);  
+void ADCReadString4(void);  
+
+extern struct ADC_info adcinfo;
+
+#line 16 "src\\PWM_helper.h"
 
 void SetUpPWM0HZ(void);
 void SetUpPWM82HZ(void);
@@ -10582,8 +10621,13 @@ void SetUpPWM800HZ(void);
 void SetUpPWM900HZ(void);
 void SetupPWM(void);
 #line 2 "src\\PWM_helper.c"
+#line 3 "src\\PWM_helper.c"
 
 
+
+#line 22 "src\\PWM_helper.c"
+
+extern uint32_t DutyCycle; 
 
 
  void SetupPWM()
@@ -10635,7 +10679,7 @@ void SetUpPWM82HZ()
     PWMGenPeriodSet(0x40028000, 0x000000C0, 3048);
     
     
-		PWMPulseWidthSet(0x40028000, 0x000000C5, 1524);																									
+		PWMPulseWidthSet(0x40028000, 0x000000C5, 3048/DutyCycle);																									
 
 }
 void SetUpPWM87HZ()
@@ -10644,7 +10688,7 @@ void SetUpPWM87HZ()
     PWMGenPeriodSet(0x40028000, 0x000000C0, 2874);
     
     
-		PWMPulseWidthSet(0x40028000, 0x000000C5, 1437);																									
+		PWMPulseWidthSet(0x40028000, 0x000000C5, 2874/DutyCycle);																									
 
 }
 void SetUpPWM92HZ()

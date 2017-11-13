@@ -10,7 +10,8 @@ uint32_t ADC_Values[13];
 //set up for 1 soft pot "string1" SET UP ADC PINS ANDSETUP ADC FOR EVERY STRING...
 void SetupADCPins()
 {
-	GPIOPinTypeADC(GPIO_PORTE_BASE,GPIO_PIN_1);  
+	GPIOPinTypeADC(GPIO_PORTE_BASE,GPIO_PIN_1); 
+  GPIOPinTypeADC(GPIO_PORTE_BASE,GPIO_PIN_3);	
 }
 
 void SetupADC()
@@ -27,8 +28,7 @@ void SetupADC()
 	//
 	while(!SysCtlPeripheralReady(SYSCTL_PERIPH_ADC0)) 
 	{
-	}
-	
+	}	
 	ADCReferenceSet(ADC0_BASE, ADC_REF_INT); //for reference so a 3 V supply must be given to the AVREF pin
 	//but for now we are using the interior voltage
 	// Enable the first sample sequencer to capture the value of channel 0 when
@@ -36,9 +36,9 @@ void SetupADC()
 	//
 	ADCSequenceDisable(ADC0_BASE,0); 
 	ADCSequenceConfigure(ADC0_BASE, 0, ADC_TRIGGER_PROCESSOR, 0); 
-	ADCSequenceStepConfigure(ADC0_BASE, 0, 0, ADC_CTL_CH2 | ADC_CTL_END);
-//  ADCSequenceStepConfigure(ADC0_BASE, 0, 1, ADC_CTL_CH1 );	
-//  ADCSequenceStepConfigure(ADC0_BASE, 0, 2, ADC_CTL_CH2 );	
+	ADCSequenceStepConfigure(ADC0_BASE, 0, 0, ADC_CTL_CH2); //string 1
+  ADCSequenceStepConfigure(ADC0_BASE, 0, 1, ADC_CTL_CH0 | ADC_CTL_END);	//duty cycle pot
+//  ADCSequenceStepConfigure(ADC0_BASE, 0, 2, ADC_CTL_CH2 ); // FSR 1
 //	ADCSequenceStepConfigure(ADC0_BASE, 0, 3, ADC_CTL_CH4 );	
 //	ADCSequenceStepConfigure(ADC0_BASE, 0, 4, ADC_CTL_CH5 );	
 //	ADCSequenceStepConfigure(ADC0_BASE, 0, 5, ADC_CTL_CH6 );	
@@ -56,7 +56,56 @@ void SetupADC()
 	__nop();
 		
 }
+void ReadDutyKnob()
+	
+{ 
+	uint32_t DutyCycle;
+	uint32_t DutyValue;
+	
+	ADCProcessorTrigger(ADC0_BASE, 1);
+	
+	while(ADCBusy(ADC0_BASE));
+	
+  ADCSequenceDataGet(ADC0_BASE, 1, &DutyValue);
 
+	if ((DutyValue > 0x000) && (DutyValue < 0x333))
+	{
+		(DutyCycle = 1);
+	}
+  else 
+	{
+	}
+	
+	if ((DutyValue > 0x333) && (DutyValue < 0x666))
+	{
+		(DutyCycle = 2);
+	}
+  else
+	{
+	}
+	if ((DutyValue > 0x666) && (DutyValue < 0x999))
+	{
+		(DutyCycle = 4);
+	}
+  else
+	{
+	}
+	if ((DutyValue > 0x999) && (DutyValue < 0xC02))
+	{
+		(DutyCycle = 6);
+	}
+  else
+	{
+	}
+	if ((DutyValue > 0xC02) && (DutyValue < 0xFFF))
+	{
+		(DutyCycle = 8);
+	}
+  else
+	{
+	}
+
+}
 void ADCReadString1()
 {
 	uint32_t string1;
@@ -64,26 +113,22 @@ void ADCReadString1()
 	
 	ADCProcessorTrigger(ADC0_BASE, 0); // Trigger the sample sequence above (sequence 0)
 
-	//
 	// Wait until the sample sequence has completed.
-	//
 	while(ADCBusy(ADC0_BASE));
 	//while(!ADCIntStatus(ADC0_BASE, 0, false))
 	
-	//
 	// Read the value from the ADC.
-	//
    ADCSequenceDataGet(ADC0_BASE, 0, &string1);
 	//ADCSequenceDataGet(ADC0_BASE, 0, &ADC_Values);// reads number of channels read
-//   printf("This is the value of string1 %d\n\r", string1);
-			//printf("This is the value of string1 %d\n\r", string1);
+  // printf("This is the value of string1 %d\n\r", string1);
+	//printf("This is the value of string1 %d\n\r", string1);
   if ((string1 > 0x000) && (string1 < 0x200)) // less than or equal to this voltage range
 	{
 		SetUpPWM0HZ();
 	}
   else
-	{
-		         	
+			
+	{	         	
 	}
 	
 	if ((string1 > 0x200) && (string1 < 0x2EE)) // less than or equal to this voltage range
@@ -228,6 +273,7 @@ void ADCReadString1()
 
 // void ADCReadString2()
 //{
+	
 //	uint32_t string2;
 //	//
 //	//
@@ -252,7 +298,7 @@ void ADCReadString1()
 //				}
 //	
 
-//	}
+//}
 
 //void ADCReadString3()
 //{
@@ -307,4 +353,4 @@ void ADCReadString1()
 //				}
 	
 
-	// }
+//}

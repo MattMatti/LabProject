@@ -9628,7 +9628,8 @@ extern void GPIOADCTriggerDisable(uint32_t ui32Port, uint8_t ui8Pins);
 
 
 
-
+extern uint32_t DutyCycle;
+extern uint32_t DutyValue;
 void SetupADCPins(void);
 void SetupADC(void);
 void ADCReadString1(void);  
@@ -9649,7 +9650,8 @@ uint32_t ADC_Values[13];
 
 void SetupADCPins()
 {
-	GPIOPinTypeADC(0x40024000,0x00000002);  
+	GPIOPinTypeADC(0x40024000,0x00000002); 
+  GPIOPinTypeADC(0x40024000,0x00000008);	
 }
 
 void SetupADC()
@@ -9666,8 +9668,7 @@ void SetupADC()
 	
 	while(!SysCtlPeripheralReady(0xf0003800)) 
 	{
-	}
-	
+	}	
 	ADCReferenceSet(0x40038000, 0x00000000); 
 	
 	
@@ -9675,8 +9676,8 @@ void SetupADC()
 	
 	ADCSequenceDisable(0x40038000,0); 
 	ADCSequenceConfigure(0x40038000, 0, 0x00000000, 0); 
-	ADCSequenceStepConfigure(0x40038000, 0, 0, 0x00000002 | 0x00000020);
-
+	ADCSequenceStepConfigure(0x40038000, 0, 0, 0x00000002); 
+  ADCSequenceStepConfigure(0x40038000, 0, 1, 0x00000000 | 0x00000020);	
 
 
 
@@ -9695,7 +9696,56 @@ void SetupADC()
 	__nop();
 		
 }
+void ReadDutyKnob()
+	
+{ 
+	uint32_t DutyCycle;
+	uint32_t DutyValue;
+	
+	ADCProcessorTrigger(0x40038000, 1);
+	
+	while(ADCBusy(0x40038000));
+	
+  ADCSequenceDataGet(0x40038000, 1, &DutyValue);
 
+	if ((DutyValue > 0x000) && (DutyValue < 0x333))
+	{
+		(DutyCycle = 1);
+	}
+  else 
+	{
+	}
+	
+	if ((DutyValue > 0x333) && (DutyValue < 0x666))
+	{
+		(DutyCycle = 2);
+	}
+  else
+	{
+	}
+	if ((DutyValue > 0x666) && (DutyValue < 0x999))
+	{
+		(DutyCycle = 4);
+	}
+  else
+	{
+	}
+	if ((DutyValue > 0x999) && (DutyValue < 0xC02))
+	{
+		(DutyCycle = 6);
+	}
+  else
+	{
+	}
+	if ((DutyValue > 0xC02) && (DutyValue < 0xFFF))
+	{
+		(DutyCycle = 8);
+	}
+  else
+	{
+	}
+
+}
 void ADCReadString1()
 {
 	uint32_t string1;
@@ -9704,25 +9754,21 @@ void ADCReadString1()
 	ADCProcessorTrigger(0x40038000, 0); 
 
 	
-	
-	
 	while(ADCBusy(0x40038000));
-	
-	
 	
 	
 	
    ADCSequenceDataGet(0x40038000, 0, &string1);
 	
-
-			
+  
+	
   if ((string1 > 0x000) && (string1 < 0x200)) 
 	{
 		SetUpPWM0HZ();
 	}
   else
-	{
-		         	
+			
+	{	         	
 	}
 	
 	if ((string1 > 0x200) && (string1 < 0x2EE)) 
@@ -9867,6 +9913,7 @@ void ADCReadString1()
 
 
 
+	
 
 
 
@@ -9946,4 +9993,4 @@ void ADCReadString1()
 
 	
 
-	
+

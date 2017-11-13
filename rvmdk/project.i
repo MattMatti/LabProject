@@ -17254,6 +17254,45 @@ void UpdateMyButtons(void);
 #line 13 "./src/PWM_helper.h"
 #line 14 "./src/PWM_helper.h"
 #line 15 "./src/PWM_helper.h"
+#line 1 "./src/ADC_Helper.h"
+#pragma once
+#line 3 "./src/ADC_Helper.h"
+#line 4 "./src/ADC_Helper.h"
+#line 5 "./src/ADC_Helper.h"
+#line 6 "./src/ADC_Helper.h"
+#line 7 "./src/ADC_Helper.h"
+#line 8 "./src/ADC_Helper.h"
+#line 9 "./src/ADC_Helper.h"
+#line 10 "./src/ADC_Helper.h"
+#line 11 "./src/ADC_Helper.h"
+#line 12 "./src/ADC_Helper.h"
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+extern uint32_t DutyCycle;
+extern uint32_t DutyValue;
+void SetupADCPins(void);
+void SetupADC(void);
+void ADCReadString1(void);  
+void ADCReadString2(void);  
+void ADCReadString3(void);  
+void ADCReadString4(void);  
+
+extern struct ADC_info adcinfo;
+
+#line 16 "./src/PWM_helper.h"
 
 void SetUpPWM0HZ(void);
 void SetUpPWM82HZ(void);
@@ -17282,43 +17321,6 @@ void SetUpPWM800HZ(void);
 void SetUpPWM900HZ(void);
 void SetupPWM(void);
 #line 48 "project.h"
-#line 1 "./src/ADC_helper.h"
-#pragma once
-#line 3 "./src/ADC_helper.h"
-#line 4 "./src/ADC_helper.h"
-#line 5 "./src/ADC_helper.h"
-#line 6 "./src/ADC_helper.h"
-#line 7 "./src/ADC_helper.h"
-#line 8 "./src/ADC_helper.h"
-#line 9 "./src/ADC_helper.h"
-#line 10 "./src/ADC_helper.h"
-#line 11 "./src/ADC_helper.h"
-#line 12 "./src/ADC_helper.h"
-
-
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-void SetupADCPins(void);
-void SetupADC(void);
-void ADCReadString1(void);  
-void ADCReadString2(void);  
-void ADCReadString3(void);  
-void ADCReadString4(void);  
-
-extern struct ADC_info adcinfo;
-
 #line 49 "project.h"
 #line 1 "./src/uart_helper.h"
 #line 2 "./src/uart_helper.h"
@@ -18274,6 +18276,7 @@ int  main(void)
 		}   
     while(1)
 		{	
+		
 		ADCReadString1();
 			
 			}

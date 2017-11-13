@@ -63418,6 +63418,47 @@ N#include "hw_types.h"
 N#include "pwm.h"
 N#include "gpio.h"
 N#include "pin_map.h"
+N#include "ADC_Helper.h"
+L 1 "./src/ADC_Helper.h" 1
+N#pragma once
+N#include <stdbool.h>
+N#include <stdint.h>
+N#include "sysctl.h"
+N#include "hw_memmap.h"
+N#include "adc.h"
+N#include "uart.h"
+N#include "tm4c123gh6pm.h"
+N#include "hw_gpio.h"
+N#include "hw_types.h"
+N#include "gpio.h"
+N
+N
+N	
+N//struct ADC_Strings_FSRs
+N//{
+N//	uint32_t String1;
+N//	uint32_t String2;
+N//	uint32_t String3;
+N//	uint32_t String4;
+N//	uint32_t FSR1;
+N//	uint32_t FSR2;
+N//	uint32_t FSR3;
+N//	uint32_t FSR4;
+N//};
+N
+Nextern uint32_t DutyCycle;
+Nextern uint32_t DutyValue;
+Nvoid SetupADCPins(void);
+Nvoid SetupADC(void);
+Nvoid ADCReadString1(void);  
+Nvoid ADCReadString2(void);  
+Nvoid ADCReadString3(void);  
+Nvoid ADCReadString4(void);  
+N
+Nextern struct ADC_info adcinfo;
+W "./src/ADC_Helper.h" 37 54 last line of file ends without a newline
+N//extern struct ADC_Strings_FSRs StringAndFSR_values;
+L 16 "./src/PWM_helper.h" 2
 N
 Nvoid SetUpPWM0HZ(void);
 Nvoid SetUpPWM82HZ(void);
@@ -63447,45 +63488,6 @@ Nvoid SetUpPWM900HZ(void);
 Nvoid SetupPWM(void);
 L 48 "project.h" 2
 N#include "./src/ADC_helper.h"
-L 1 "./src/ADC_helper.h" 1
-N#pragma once
-N#include <stdbool.h>
-N#include <stdint.h>
-N#include "sysctl.h"
-N#include "hw_memmap.h"
-N#include "adc.h"
-N#include "uart.h"
-N#include "tm4c123gh6pm.h"
-N#include "hw_gpio.h"
-N#include "hw_types.h"
-N#include "gpio.h"
-N
-N
-N	
-N//struct ADC_Strings_FSRs
-N//{
-N//	uint32_t String1;
-N//	uint32_t String2;
-N//	uint32_t String3;
-N//	uint32_t String4;
-N//	uint32_t FSR1;
-N//	uint32_t FSR2;
-N//	uint32_t FSR3;
-N//	uint32_t FSR4;
-N//};
-N
-N
-Nvoid SetupADCPins(void);
-Nvoid SetupADC(void);
-Nvoid ADCReadString1(void);  
-Nvoid ADCReadString2(void);  
-Nvoid ADCReadString3(void);  
-Nvoid ADCReadString4(void);  
-N
-Nextern struct ADC_info adcinfo;
-W "./src/ADC_helper.h" 36 54 last line of file ends without a newline
-N//extern struct ADC_Strings_FSRs StringAndFSR_values;
-L 49 "project.h" 2
 N#include "./src/uart_helper.h"
 L 1 "./src/uart_helper.h" 1
 N#include <stdbool.h>
@@ -64663,8 +64665,9 @@ N    {
 N		}   
 N    while(1)
 N		{	
+N		
 N		ADCReadString1();
 N			
 N			}
-W "project.c" 39 4 last line of file ends without a newline
+W "project.c" 40 4 last line of file ends without a newline
 N		}
