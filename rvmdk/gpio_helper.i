@@ -1,5 +1,7 @@
 #line 1 "src\\GPIO_helper.c"
 #line 1 "src\\GPIO_helper.h"
+#pragma once
+
 #line 1 "C:\\Keil_v5\\ARM\\ARMCC\\Bin\\..\\include\\stdbool.h"
  
 
@@ -18,7 +20,7 @@
 
 
 
-#line 2 "src\\GPIO_helper.h"
+#line 4 "src\\GPIO_helper.h"
 #line 1 "C:\\Keil_v5\\ARM\\ARMCC\\Bin\\..\\include\\stdint.h"
  
  
@@ -275,7 +277,7 @@ typedef unsigned     long long uintmax_t;
 
 
  
-#line 3 "src\\GPIO_helper.h"
+#line 5 "src\\GPIO_helper.h"
 #line 1 ".\\driverlib\\sysctl.h"
 
 
@@ -569,7 +571,7 @@ extern _Bool SysCtlVCOGet(uint32_t ui32Crystal, uint32_t *pui32VCOFrequency);
 
 
 
-#line 4 "src\\GPIO_helper.h"
+#line 6 "src\\GPIO_helper.h"
 #line 1 ".\\inc\\hw_memmap.h"
 
 
@@ -631,7 +633,7 @@ extern _Bool SysCtlVCOGet(uint32_t ui32Crystal, uint32_t *pui32VCOFrequency);
                                             
 #line 150 ".\\inc\\hw_memmap.h"
 
-#line 5 "src\\GPIO_helper.h"
+#line 7 "src\\GPIO_helper.h"
 #line 1 ".\\driverlib\\adc.h"
 
 
@@ -842,7 +844,7 @@ extern uint32_t ADCSampleRateGet(uint32_t ui32Base);
 
 
 
-#line 6 "src\\GPIO_helper.h"
+#line 8 "src\\GPIO_helper.h"
 #line 1 ".\\driverlib\\uart.h"
 
 
@@ -1073,7 +1075,7 @@ extern void UARTLoopbackEnable(uint32_t ui32Base);
 
 
 
-#line 7 "src\\GPIO_helper.h"
+#line 9 "src\\GPIO_helper.h"
 #line 1 ".\\inc\\tm4c123gh6pm.h"
 
 
@@ -9133,7 +9135,7 @@ extern void UARTLoopbackEnable(uint32_t ui32Base);
 
 
 
-#line 8 "src\\GPIO_helper.h"
+#line 10 "src\\GPIO_helper.h"
 #line 1 ".\\inc\\hw_gpio.h"
 
 
@@ -9303,7 +9305,7 @@ extern void UARTLoopbackEnable(uint32_t ui32Base);
                                             
 #line 212 ".\\inc\\hw_gpio.h"
 
-#line 9 "src\\GPIO_helper.h"
+#line 11 "src\\GPIO_helper.h"
 #line 1 ".\\inc\\hw_types.h"
 
 
@@ -9437,7 +9439,7 @@ extern void UARTLoopbackEnable(uint32_t ui32Base);
 
 
 
-#line 10 "src\\GPIO_helper.h"
+#line 12 "src\\GPIO_helper.h"
 #line 1 ".\\driverlib\\gpio.h"
 
 
@@ -9610,11 +9612,11 @@ extern void GPIOADCTriggerDisable(uint32_t ui32Port, uint8_t ui8Pins);
 
 
 
-#line 11 "src\\GPIO_helper.h"
+#line 13 "src\\GPIO_helper.h"
 
 
 
-void UpdateMYButtons(void);
+void UpdateMyButtons(void);
 
 
 
@@ -9631,33 +9633,46 @@ void UpdateMYButtons(void);
   void TurnOnLEDs2(void);
 #line 2 "src\\GPIO_helper.c"
 
-void UpdateMYbuttons()
+struct MyButtons MyButtons;
+void UpdateMyButtons()
 	{
 		uint8_t WorkingMode;
 		
 		WorkingMode= GPIOPinRead(0x40025000,0x00000010);
 		
-		if (WorkingMode !=0) MyButtons.SW1=0;
-		else MyButtons.SW1 = 1;
+		if (WorkingMode !=0) 
+		{
+			MyButtons.SW1=0;
+		}
+		else {MyButtons.SW1 = 1;}
 
 		WorkingMode= GPIOPinRead(0x40025000,0x00000001);
 		
-		if (WorkingMode!=0) MyButtons.SW2=0;
-		else MyButtons.SW2 = 1;
+		if (WorkingMode!=0){ MyButtons.SW2=0;}
+		else { MyButtons.SW2 = 1;}
 
 		
 	}
 	void GPIOSetup()
 	{
 		SysCtlPeripheralEnable(0xf0000805);
-		
+		SysCtlPeripheralEnable(0xf0000804);
+		SysCtlPeripheralEnable(0xf0000800);
 	{
 	}
 	
 		GPIOPinTypeGPIOOutput(0x40025000, 0x00000002);
 		GPIOPinTypeGPIOOutput(0x40025000, 0x00000004);
     GPIOPinTypeGPIOOutput(0x40025000, 0x00000008);
-		
+	  GPIOPinTypeGPIOInput(0x40025000, 0x00000001);
+    GPIOPinTypeGPIOInput(0x40025000, 0x00000010);
+
+	(*((volatile uint32_t *)(0x40025000 + 0x00000520))) = 0x4C4F434B;
+	(*((volatile uint32_t *)(0x40025000 + 0x00000524))) = 0X01;
+	(*((volatile uint32_t *)(0x40025000 + 0x00000520))) = 0;
+	
+	GPIODirModeSet(0x40025000, 0x00000010|0x00000001, 0x00000000);
+	GPIOPadConfigSet(0x40025000,0x00000010|0x00000001,0x00000001,0x0000000A);
 	}
 	void TurnOnLEDs()
 	{		

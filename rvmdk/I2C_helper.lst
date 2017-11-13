@@ -1,6 +1,7 @@
-L 1 "project.c"
-N//Matthew Matti & Lakeysha Green 
-N#include "project.h"
+L 1 "I2C_helper.c"
+N#include "I2C_helper.h"
+L 1 "I2C_helper.h" 1
+N#include "project.h" 
 L 1 "project.h" 1
 N#include <stdbool.h>
 L 1 "C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h" 1
@@ -64627,47 +64628,39 @@ N
 L 50 "project.h" 2
 N
 N
-L 3 "project.c" 2
+L 2 "I2C_helper.h" 2
 N
-N//*****************************************************************************
-N//
-N// 10/18 Starting lab project
-N//
-N//*****************************************************************************
+W "I2C_helper.h" 3 22 last line of file ends without a newline
+Nvoid I2C_Setup(void);
+L 2 "I2C_helper.c" 2
 N
-N#ifdef DEBUG
-Svoid
-S__error__(char *pcFilename, uint32_t ui32Line)
-S{
-S}
-N#endif
-N
-N
-Nint  main(void)
+Nvoid I2C_Setup(void)
 N{
-N	 SysCtlClockSet(SYSCTL_SYSDIV_1 | SYSCTL_USE_OSC | SYSCTL_OSC_MAIN | SYSCTL_XTAL_16MHZ); //set clock speed to 16 MHZ
-X	 SysCtlClockSet(0x07800000 | 0x00003800 | 0x00000000 | 0x00000540); 
-N	
-N    SysCtlPeripheralEnable(SYSCTL_PERIPH_ADC0); //enables ADC module 0
-X    SysCtlPeripheralEnable(0xf0003800); 
-N    SysCtlPeripheralReset(SYSCTL_PERIPH_ADC0); // resets ADC module 0 
-X    SysCtlPeripheralReset(0xf0003800); 
-N	  
-N	  GPIOSetup();
-N		UART_setup();
-N	  SetupADCPins();
-N		SetupADC();
-N	  SetupPWM();
-N		// Check if the peripheral access is enabled.
-N    while(!SysCtlPeripheralReady(SYSCTL_PERIPH_GPIOE))
-X    while(!SysCtlPeripheralReady(0xf0000804))
-N    {
-N		}   
-N    while(1)
-N		{	
+N
+N	SYSCTL_RCGCI2C_R |= (1<<0); // Using I2C0 module
+X	(*((volatile uint32_t *)0x400FE620)) |= (1<<0); 
+N	SYSCTL_RCGCGPIO_R |= (1<<1); // Enable clock to PortB
+X	(*((volatile uint32_t *)0x400FE608)) |= (1<<1); 
+N	GPIO_PORTB_AFSEL_R |= (0x06<<1); //enable alt function on pins 2 and 3
+X	(*((volatile uint32_t *)0x40005420)) |= (0x06<<1); 
 N		
-N		ADCReadString1();
-N			
-N			}
-W "project.c" 40 4 last line of file ends without a newline
-N		}
+N	GPIO_PORTB_AFSEL_R |= (0x06<<1); //enable alt function on pins 2 and 3
+X	(*((volatile uint32_t *)0x40005420)) |= (0x06<<1); 
+N	
+N	
+N	GPIO_PORTB_ODR_R |= (1<<3); // Open drain on pb3
+X	(*((volatile uint32_t *)0x4000550C)) |= (1<<3); 
+N	GPIO_PORTB_PCTL_R |= GPIO_PCTL_PB2_I2C0SCL; //PIN 2 is now serial clock 
+X	(*((volatile uint32_t *)0x4000552C)) |= 0x00000300; 
+N	GPIO_PORTB_PCTL_R |= GPIO_PCTL_PB3_I2C0SDA; //PIN 3 is now serial data
+X	(*((volatile uint32_t *)0x4000552C)) |= 0x00003000; 
+N	GPIO_PORTB_CR_R |= (0x06<<1);
+X	(*((volatile uint32_t *)0x40005524)) |= (0x06<<1);
+N	I2CMasterEnable(I2C0_BASE);  //Initialize master to do work and stuff
+X	I2CMasterEnable(0x40020000);  
+N   
+N	I2C0_MTPR_R = 0x07; //Correct clock speed for normal speed
+X	(*((volatile uint32_t *)0x4002000C)) = 0x07; 
+N
+W "I2C_helper.c" 21 2 last line of file ends without a newline
+N}

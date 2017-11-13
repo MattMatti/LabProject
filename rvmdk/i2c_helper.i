@@ -1,5 +1,5 @@
-#line 1 "project.c"
-
+#line 1 "I2C_helper.c"
+#line 1 "I2C_helper.h"
 #line 1 "project.h"
 #line 1 "C:\\Keil_v5\\ARM\\ARMCC\\Bin\\..\\include\\stdbool.h"
  
@@ -18247,37 +18247,27 @@ int fgetc(FILE *f);
 #line 50 "project.h"
 
 
-#line 3 "project.c"
+#line 2 "I2C_helper.h"
 
+void I2C_Setup(void);
+#line 2 "I2C_helper.c"
 
-
-
-
-
-
-#line 16 "project.c"
-
-
-int  main(void)
+void I2C_Setup(void)
 {
-	 SysCtlClockSet(0x07800000 | 0x00003800 | 0x00000000 | 0x00000540); 
+
+	(*((volatile uint32_t *)0x400FE620)) |= (1<<0); 
+	(*((volatile uint32_t *)0x400FE608)) |= (1<<1); 
+	(*((volatile uint32_t *)0x40005420)) |= (0x06<<1); 
+		
+	(*((volatile uint32_t *)0x40005420)) |= (0x06<<1); 
 	
-    SysCtlPeripheralEnable(0xf0003800); 
-    SysCtlPeripheralReset(0xf0003800); 
-	  
-	  GPIOSetup();
-		UART_setup();
-	  SetupADCPins();
-		SetupADC();
-	  SetupPWM();
-		
-    while(!SysCtlPeripheralReady(0xf0000804))
-    {
-		}   
-    while(1)
-		{	
-		
-		ADCReadString1();
-			
-			}
-		}
+	
+	(*((volatile uint32_t *)0x4000550C)) |= (1<<3); 
+	(*((volatile uint32_t *)0x4000552C)) |= 0x00000300; 
+	(*((volatile uint32_t *)0x4000552C)) |= 0x00003000; 
+	(*((volatile uint32_t *)0x40005524)) |= (0x06<<1);
+	I2CMasterEnable(0x40020000);  
+   
+	(*((volatile uint32_t *)0x4002000C)) = 0x07; 
+
+}

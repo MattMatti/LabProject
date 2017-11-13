@@ -1,6 +1,8 @@
 L 1 "src\PWM_helper.c"
 N#include "PWM_helper.h"
 L 1 "src\PWM_helper.h" 1
+N#pragma once
+N
 N#include <stdbool.h>
 L 1 "C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h" 1
 N/* stdbool.h: ISO/IEC 9899:1999 (C99), section 7.16 */
@@ -30,7 +32,7 @@ N  #endif
 N
 N#endif /* __bool_true_false_are_defined */
 N
-L 2 "src\PWM_helper.h" 2
+L 4 "src\PWM_helper.h" 2
 N#include <stdint.h>
 L 1 "C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h" 1
 N/* Copyright (C) ARM Ltd., 1999,2014 */
@@ -362,7 +364,7 @@ N
 N#endif /* __stdint_h */
 N
 N/* end of stdint.h */
-L 3 "src\PWM_helper.h" 2
+L 5 "src\PWM_helper.h" 2
 N#include "sysctl.h"
 L 1 ".\driverlib\sysctl.h" 1
 N//*****************************************************************************
@@ -1034,7 +1036,7 @@ S}
 N#endif
 N
 N#endif // __DRIVERLIB_SYSCTL_H__
-L 4 "src\PWM_helper.h" 2
+L 6 "src\PWM_helper.h" 2
 N#include "hw_memmap.h"
 L 1 ".\inc\hw_memmap.h" 1
 N//*****************************************************************************
@@ -1188,7 +1190,7 @@ N#define NVIC_BASE               0xE000E000  // Nested Vectored Interrupt Ctrl
 N#define TPIU_BASE               0xE0040000  // Trace Port Interface Unit
 N
 N#endif // __HW_MEMMAP_H__
-L 5 "src\PWM_helper.h" 2
+L 7 "src\PWM_helper.h" 2
 N#include "adc.h"
 L 1 ".\driverlib\adc.h" 1
 N//*****************************************************************************
@@ -1534,7 +1536,7 @@ S}
 N#endif
 N
 N#endif // __DRIVERLIB_ADC_H__
-L 6 "src\PWM_helper.h" 2
+L 8 "src\PWM_helper.h" 2
 N#include "uart.h"
 L 1 ".\driverlib\uart.h" 1
 N//*****************************************************************************
@@ -1800,7 +1802,7 @@ S}
 N#endif
 N
 N#endif // __DRIVERLIB_UART_H__
-L 7 "src\PWM_helper.h" 2
+L 9 "src\PWM_helper.h" 2
 N#include "tm4c123gh6pm.h"
 L 1 ".\inc\tm4c123gh6pm.h" 1
 N//*****************************************************************************
@@ -14886,7 +14888,7 @@ N
 N#endif
 N
 N#endif // __TM4C123GH6PM_H__
-L 8 "src\PWM_helper.h" 2
+L 10 "src\PWM_helper.h" 2
 N#include "hw_gpio.h"
 L 1 ".\inc\hw_gpio.h" 1
 N//*****************************************************************************
@@ -15102,7 +15104,7 @@ N#define GPIO_PC_EDM2_S          4
 N#define GPIO_PC_EDM1_S          2
 N
 N#endif // __HW_GPIO_H__
-L 9 "src\PWM_helper.h" 2
+L 11 "src\PWM_helper.h" 2
 N#include "hw_types.h"
 L 1 ".\inc\hw_types.h" 1
 N//*****************************************************************************
@@ -15265,7 +15267,7 @@ N#define CLASS_IS_SNOWFLAKE CLASS_IS_TM4C123
 N#endif
 N
 N#endif // __HW_TYPES_H__
-L 10 "src\PWM_helper.h" 2
+L 12 "src\PWM_helper.h" 2
 N#include "pwm.h"
 L 1 ".\driverlib\pwm.h" 1
 N//*****************************************************************************
@@ -15612,7 +15614,7 @@ S}
 N#endif
 N
 N#endif // __DRIVERLIB_PWM_H__
-L 11 "src\PWM_helper.h" 2
+L 13 "src\PWM_helper.h" 2
 N#include "gpio.h"
 L 1 ".\driverlib\gpio.h" 1
 N//*****************************************************************************
@@ -15820,8 +15822,7 @@ S}
 N#endif
 N
 N#endif // __DRIVERLIB_GPIO_H__
-L 12 "src\PWM_helper.h" 2
-W "src\PWM_helper.h" 12 21 last line of file ends without a newline
+L 14 "src\PWM_helper.h" 2
 N#include "pin_map.h"
 L 1 ".\driverlib\pin_map.h" 1
 N//*****************************************************************************
@@ -36777,97 +36778,389 @@ S
 N#endif // PART_TM4C129XNCZAD
 N
 N#endif // __DRIVERLIB_PIN_MAP_H__
-L 13 "src\PWM_helper.h" 2
+L 15 "src\PWM_helper.h" 2
+N#include "ADC_Helper.h"
+L 1 "src\ADC_Helper.h" 1
+N#pragma once
+N#include <stdbool.h>
+N#include <stdint.h>
+N#include "sysctl.h"
+N#include "hw_memmap.h"
+N#include "adc.h"
+N#include "uart.h"
+N#include "tm4c123gh6pm.h"
+N#include "hw_gpio.h"
+N#include "hw_types.h"
+N#include "gpio.h"
+N
+N
+N	
+N//struct ADC_Strings_FSRs
+N//{
+N//	uint32_t String1;
+N//	uint32_t String2;
+N//	uint32_t String3;
+N//	uint32_t String4;
+N//	uint32_t FSR1;
+N//	uint32_t FSR2;
+N//	uint32_t FSR3;
+N//	uint32_t FSR4;
+N//};
+N
+Nextern uint32_t DutyCycle;
+Nextern uint32_t DutyValue;
+Nvoid SetupADCPins(void);
+Nvoid SetupADC(void);
+Nvoid ADCReadString1(void);  
+Nvoid ADCReadString2(void);  
+Nvoid ADCReadString3(void);  
+Nvoid ADCReadString4(void);  
+N
+Nextern struct ADC_info adcinfo;
+W "src\ADC_Helper.h" 37 54 last line of file ends without a newline
+N//extern struct ADC_Strings_FSRs StringAndFSR_values;
+L 16 "src\PWM_helper.h" 2
+N
+Nvoid SetUpPWM0HZ(void);
+Nvoid SetUpPWM82HZ(void);
+Nvoid SetUpPWM87HZ(void);
+Nvoid SetUpPWM92HZ(void);
+Nvoid SetUpPWM98HZ(void);
+Nvoid SetUpPWM104HZ(void);
+Nvoid SetUpPWM110HZ(void);
+Nvoid SetUpPWM117HZ(void);
+Nvoid SetUpPWM123HZ(void);
+Nvoid SetUpPWM131HZ(void);
+Nvoid SetUpPWM139HZ(void);
+Nvoid SetUpPWM147HZ(void);
+Nvoid SetUpPWM156HZ(void);
+Nvoid SetUpPWM165HZ(void);
+Nvoid SetUpPWM175HZ(void);
+Nvoid SetUpPWM185HZ(void);
+Nvoid SetUpPWM196HZ(void);
+Nvoid SetUpPWM208HZ(void);
+Nvoid SetUpPWM300HZ(void);
+Nvoid SetUpPWM400HZ(void);
+Nvoid SetUpPWM500HZ(void);
+Nvoid SetUpPWM600HZ(void);
+Nvoid SetUpPWM700HZ(void);
+Nvoid SetUpPWM800HZ(void);
+Nvoid SetUpPWM900HZ(void);
+Nvoid SetupPWM(void);
 L 2 "src\PWM_helper.c" 2
+N#include "ADC_helper.h"
 N
-Nvoid delayMS(int ms) 
-N	{
-N    SysCtlDelay( (SysCtlClockGet()/(3*1000))*ms );
-N}
+N// this code initializes the pins as pwm and sets the clock cycle to 16 MHZ. It also makes a 50% duty cycle. It then enables the PWM generator 2.
+N// 
+N#define Note_E2 3048
+N#define Note_F2 2874
+N#define Note_Gb2 2718
+N#define Note_G2 2552
+N#define Note_Ab2 2404
+N#define Note_A3 2272
+N#define Note_Bb3 2136
+N#define Note_B3 2032
+N#define Note_C3 1908
+N#define Note_Db3 1798
+N#define Note_Eb3 1700
+N#define Note_E3 1602
+N#define Note_F3 1516
+N#define Note_Gb3 1428
+N#define Note_G3 1352
+N#define Note_Ab4 1276
 N
-Nint
-Nmain(void)
-N{
-N    //Set the clock
-N   SysCtlClockSet(SYSCTL_SYSDIV_1 | SYSCTL_USE_OSC |   SYSCTL_OSC_MAIN | SYSCTL_XTAL_16MHZ);
-X   SysCtlClockSet(0x07800000 | 0x00003800 |   0x00000000 | 0x00000540);
+Nextern uint32_t DutyCycle; 
+N
+N
+N void SetupPWM()
+N { 
+N	 //Set the clock
+N   //SysCtlClockSet(SYSCTL_SYSDIV_1 | SYSCTL_USE_OSC |	SYSCTL_OSC_MAIN | SYSCTL_XTAL_16MHZ);
 N
 N   //Configure PWM Clock to match system
-N   SysCtlPWMClockSet(SYSCTL_PWMDIV_1);
-X   SysCtlPWMClockSet(0x00000000);
-N
+N   SysCtlPWMClockSet(SYSCTL_PWMDIV_64);
+X   SysCtlPWMClockSet(0x001A0000);
+N   
 N   // Enable the peripherals used by this program.
-N    SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOF);
-X    SysCtlPeripheralEnable(0xf0000805);
-N    SysCtlPeripheralEnable(SYSCTL_PERIPH_PWM1);  //The Tiva Launchpad has two modules (0 and 1). Module 1 covers the LED pins
-X    SysCtlPeripheralEnable(0xf0004001);  
-N
-N    //Configure PF1,PF2,PF3 Pins as PWM
-N    GPIOPinConfigure(GPIO_PF1_M1PWM5);
-X    GPIOPinConfigure(0x00050405);
-N    GPIOPinConfigure(GPIO_PF2_M1PWM6);
-X    GPIOPinConfigure(0x00050805);
-N    GPIOPinConfigure(GPIO_PF3_M1PWM7);
-X    GPIOPinConfigure(0x00050C05);
-N    GPIOPinTypePWM(GPIO_PORTF_BASE, GPIO_PIN_1 | GPIO_PIN_2 | GPIO_PIN_3);
-X    GPIOPinTypePWM(0x40025000, 0x00000002 | 0x00000004 | 0x00000008);
-N
-N    //Configure PWM Options
+N    SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOE);
+X    SysCtlPeripheralEnable(0xf0000804);
+N    SysCtlPeripheralEnable(SYSCTL_PERIPH_PWM0);  //The Tiva Launchpad has two modules (0 and 1). 
+X    SysCtlPeripheralEnable(0xf0004000);  
+N    while(!SysCtlPeripheralReady(SYSCTL_PERIPH_PWM0))
+X    while(!SysCtlPeripheralReady(0xf0004000))
+N		{
+N		}
+N    //Configure PF1 Pin as PWM
+N    GPIOPinConfigure(GPIO_PE5_M0PWM5); // pin1 port E is pwm5 of module 0 
+X    GPIOPinConfigure(0x00041404); 
+N	
+N    //GPIOPinTypePWM(GPIO_PORTF_BASE, GPIO_PIN_1 | GPIO_PIN_2 | GPIO_PIN_3);
+N     GPIOPinTypePWM(GPIO_PORTE_BASE, GPIO_PIN_5); //makes pin to PWM
+X     GPIOPinTypePWM(0x40024000, 0x00000020); 
+N    
+N	//Configure PWM Options
 N    //PWM_GEN_2 Covers M1PWM4 and M1PWM5
 N    //PWM_GEN_3 Covers M1PWM6 and M1PWM7 See page 207 4/11/13 DriverLib doc
-N    PWMGenConfigure(PWM1_BASE, PWM_GEN_2, PWM_GEN_MODE_DOWN | PWM_GEN_MODE_NO_SYNC); 
-X    PWMGenConfigure(0x40029000, 0x000000C0, 0x00000000 | 0x00000000); 
-N    PWMGenConfigure(PWM1_BASE, PWM_GEN_3, PWM_GEN_MODE_DOWN | PWM_GEN_MODE_NO_SYNC); 
-X    PWMGenConfigure(0x40029000, 0x00000100, 0x00000000 | 0x00000000); 
-N
-N    //Set the Period (expressed in clock ticks)
-N    PWMGenPeriodSet(PWM1_BASE, PWM_GEN_2, 320);
-X    PWMGenPeriodSet(0x40029000, 0x000000C0, 320);
-N    PWMGenPeriodSet(PWM1_BASE, PWM_GEN_3, 320);
-X    PWMGenPeriodSet(0x40029000, 0x00000100, 320);
-N
-N    //Set PWM duty-50% (Period /2)
-N    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_5,100);
-X    PWMPulseWidthSet(0x40029000, 0x000000C5,100);
-N    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_6,100);
-X    PWMPulseWidthSet(0x40029000, 0x00000106,100);
-N    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_7,100);
-X    PWMPulseWidthSet(0x40029000, 0x00000107,100);
+N   // PWMGenConfigure(PWM1_BASE, PWM_GEN_2, PWM_GEN_MODE_DOWN | PWM_GEN_MODE_NO_SYNC); 
+N    PWMGenConfigure(PWM0_BASE, PWM_GEN_2, PWM_GEN_MODE_DOWN | PWM_GEN_MODE_NO_SYNC); 	
+X    PWMGenConfigure(0x40028000, 0x000000C0, 0x00000000 | 0x00000000); 	
 N
 N    // Enable the PWM generator
-N    PWMGenEnable(PWM1_BASE, PWM_GEN_2);
-X    PWMGenEnable(0x40029000, 0x000000C0);
-N    PWMGenEnable(PWM1_BASE, PWM_GEN_3);
-X    PWMGenEnable(0x40029000, 0x00000100);
+N    PWMGenEnable(PWM0_BASE, PWM_GEN_2);
+X    PWMGenEnable(0x40028000, 0x000000C0);
 N
 N    // Turn on the Output pins
-N    PWMOutputState(PWM1_BASE, PWM_OUT_5_BIT | PWM_OUT_6_BIT | PWM_OUT_7_BIT, true);
-X    PWMOutputState(0x40029000, 0x00000020 | 0x00000040 | 0x00000080, 1);
+N    PWMOutputState(PWM0_BASE, PWM_OUT_5_BIT, true);
+X    PWMOutputState(0x40028000, 0x00000020, 1);
+N }
+N void SetUpPWM0HZ()
+N{
+N    //this Sets the Period (expressed in clock ticks)
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 250000);
+X    PWMGenPeriodSet(0x40028000, 0x000000C0, 250000);
+N    
 N
-N    //Fade
-N    bool fadeUp = true;
-X    _Bool fadeUp = 1;
-N    unsigned long increment = 10;
-N    unsigned long pwmNow = 100;
-N    while(1)
-N    {
-N        delayMS(20);
-N        if (fadeUp) {
-N            pwmNow += increment;
-N            if (pwmNow >= 320) { fadeUp = false; }
-X            if (pwmNow >= 320) { fadeUp = 0; }
-N        }
-N        else {
-N            pwmNow -= increment;
-N            if (pwmNow <= 10) { fadeUp = true; }
-X            if (pwmNow <= 10) { fadeUp = 1; }
-N        }
-N        PWMPulseWidthSet(PWM1_BASE, PWM_OUT_5,pwmNow);
-X        PWMPulseWidthSet(0x40029000, 0x000000C5,pwmNow);
-N        PWMPulseWidthSet(PWM1_BASE, PWM_OUT_6,pwmNow);
-X        PWMPulseWidthSet(0x40029000, 0x00000106,pwmNow);
-N        PWMPulseWidthSet(PWM1_BASE, PWM_OUT_7,pwmNow);
-X        PWMPulseWidthSet(0x40029000, 0x00000107,pwmNow);
+N    // this is setting the PWM duty-50% (Period /2)
+N    //PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0,100);
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,125000);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5,125000);																									
+N
+N}
+Nvoid SetUpPWM82HZ()
+N{
+N    //this Sets the Period (expressed in clock ticks 250,000 Hz / Freq = period)
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, Note_E2);
+X    PWMGenPeriodSet(0x40028000, 0x000000C0, 3048);
+N    
+N    // this is setting the PWM duty-50% (Period /2)
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5, Note_E2/DutyCycle);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5, 3048/DutyCycle);																									
+N
+N}
+Nvoid SetUpPWM87HZ()
+N{
+N    //this Sets the Period (expressed in clock ticks 250,000 Hz / Freq = period)
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, Note_F2);
+X    PWMGenPeriodSet(0x40028000, 0x000000C0, 2874);
+N    
+N    // this is setting the PWM duty-50% (Period /2)
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5, Note_F2/DutyCycle);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5, 2874/DutyCycle);																									
+N
+N}
+Nvoid SetUpPWM92HZ()
+N{
+N    //this Sets the Period (expressed in clock ticks 250,000 Hz / Freq = period)
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 2718);
+X    PWMGenPeriodSet(0x40028000, 0x000000C0, 2718);
+N    
+N    // this is setting the PWM duty-50% (Period /2)
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5, 1359);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5, 1359);																									
+N
+N}
+N void SetUpPWM98HZ()
+N{
+N    //this Sets the Period (expressed in clock ticks)
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 2552);
+X    PWMGenPeriodSet(0x40028000, 0x000000C0, 2552);
+N    
+N
+N    // this is setting the PWM duty-50% (Period /2)
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,1276);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5,1276);																									
+N
+N} 
+N void SetUpPWM104HZ()
+N{
+N    //this Sets the Period (expressed in clock ticks)
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 2404);
+X    PWMGenPeriodSet(0x40028000, 0x000000C0, 2404);
+N    
+N
+N    // this is setting the PWM duty-50% (Period /2)
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,1202);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5,1202);																									
+N
+N}
+Nvoid SetUpPWM110HZ()
+N{
+N    //this Sets the Period (expressed in clock ticks)
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 2272);
+X    PWMGenPeriodSet(0x40028000, 0x000000C0, 2272);
+N    
+N
+N    // this is setting the PWM duty-50% (Period /2)
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,1136);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5,1136);																									
+N
+N}
+Nvoid SetUpPWM117HZ()
+N{
+N    //this Sets the Period (expressed in clock ticks)
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 2136);
+X    PWMGenPeriodSet(0x40028000, 0x000000C0, 2136);
+N    
+N
+N    // this is setting the PWM duty-50% (Period /2)
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5, 1068);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5, 1068);																									
+N
+N}
+Nvoid SetUpPWM123HZ()
+N{
+N    //this Sets the Period (expressed in clock ticks)
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 2032);
+X    PWMGenPeriodSet(0x40028000, 0x000000C0, 2032);
+N    
+N
+N    // this is setting the PWM duty-50% (Period /2)
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,1016);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5,1016);																									
+N
+N}
+Nvoid SetUpPWM131HZ()
+N{
+N    //this Sets the Period (expressed in clock ticks)
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 1908);
+X    PWMGenPeriodSet(0x40028000, 0x000000C0, 1908);
+N    
+N
+N    // this is setting the PWM duty-50% (Period /2)
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5, 954);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5, 954);																									
+N
+N}
+Nvoid SetUpPWM139HZ()
+N{
+N    //this Sets the Period (expressed in clock ticks)
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 1798);
+X    PWMGenPeriodSet(0x40028000, 0x000000C0, 1798);
+N    
+N
+N    // this is setting the PWM duty-50% (Period /2)
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,899);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5,899);																									
+N
+N}
+Nvoid SetUpPWM147HZ()
+N{
+N    //this Sets the Period (expressed in clock ticks)
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 1700);
+X    PWMGenPeriodSet(0x40028000, 0x000000C0, 1700);
+N    
+N
+N    // this is setting the PWM duty-50% (Period /2)
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,850);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5,850);																									
+N
+N}
+Nvoid SetUpPWM156HZ()
+N{
+N    //this Sets the Period (expressed in clock ticks)
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 1602);
+X    PWMGenPeriodSet(0x40028000, 0x000000C0, 1602);
+N    
+N
+N    // this is setting the PWM duty-50% (Period /2)
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,801);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5,801);																									
+N
+N}
+Nvoid SetUpPWM165HZ()
+N{
+N    //this Sets the Period (expressed in clock ticks)
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 1516);
+X    PWMGenPeriodSet(0x40028000, 0x000000C0, 1516);
+N    
+N
+N    // this is setting the PWM duty-50% (Period /2)
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,758);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5,758);																									
+N
+N}
+Nvoid SetUpPWM175HZ()
+N{
+N    //this Sets the Period (expressed in clock ticks)
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 1428);
+X    PWMGenPeriodSet(0x40028000, 0x000000C0, 1428);
+N    
+N
+N    // this is setting the PWM duty-50% (Period /2)
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,714);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5,714);																									
+N
+N}
+Nvoid SetUpPWM185HZ()
+N{
+N    //this Sets the Period (expressed in clock ticks)
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 1352);
+X    PWMGenPeriodSet(0x40028000, 0x000000C0, 1352);
+N    
+N
+N    // this is setting the PWM duty-50% (Period /2)
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,676);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5,676);																									
+N
+N}
+Nvoid SetUpPWM196HZ()
+N{
+N    //this Sets the Period (expressed in clock ticks)
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 1276);
+X    PWMGenPeriodSet(0x40028000, 0x000000C0, 1276);
+N    
+N
+N    // this is setting the PWM duty-50% (Period /2)
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,638);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5,638);																									
+N
+N}
+Nvoid SetUpPWM208HZ()
+N{
+N    //this Sets the Period (expressed in clock ticks)
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 1202);
+X    PWMGenPeriodSet(0x40028000, 0x000000C0, 1202);
+N    
+N
+N    // this is setting the PWM duty-50% (Period /2)
+N    //PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0,100);
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,601);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5,601);																									
+N
+N}
+N void SetUpPWM300HZ()
+N{
+N    //this Sets the Period (expressed in clock ticks)
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 834);
+X    PWMGenPeriodSet(0x40028000, 0x000000C0, 834);
+N   
+N
+N    // this is setting the PWM duty-50% (Period /2)
+N    //PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0,100);
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,417);																								  
+X		PWMPulseWidthSet(0x40028000, 0x000000C5,417);																								  
+N
 N    }
-W "src\PWM_helper.c" 68 2 last line of file ends without a newline
+N void SetUpPWM400HZ()
+N{
+N    //this Sets the Period (expressed in clock ticks)
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 626);
+X    PWMGenPeriodSet(0x40028000, 0x000000C0, 626);
+N    
+N    // this is setting the PWM duty-50% (Period /2)
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5, 313);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5, 313);																									
+N
+N}
+N
+N void SetUpPWM500HZ()
+N{
+N    //this Sets the Period (expressed in clock ticks)
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 626);
+X    PWMGenPeriodSet(0x40028000, 0x000000C0, 626);
+N    
+N    // this is setting the PWM duty-50% (Period /2)
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5, 313);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5, 313);																									
+N
 N}

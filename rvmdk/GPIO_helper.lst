@@ -1,6 +1,8 @@
 L 1 "src\GPIO_helper.c"
 N#include "GPIO_helper.h"
 L 1 "src\GPIO_helper.h" 1
+N#pragma once
+N
 N#include <stdbool.h>
 L 1 "C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h" 1
 N/* stdbool.h: ISO/IEC 9899:1999 (C99), section 7.16 */
@@ -30,7 +32,7 @@ N  #endif
 N
 N#endif /* __bool_true_false_are_defined */
 N
-L 2 "src\GPIO_helper.h" 2
+L 4 "src\GPIO_helper.h" 2
 N#include <stdint.h>
 L 1 "C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h" 1
 N/* Copyright (C) ARM Ltd., 1999,2014 */
@@ -362,7 +364,7 @@ N
 N#endif /* __stdint_h */
 N
 N/* end of stdint.h */
-L 3 "src\GPIO_helper.h" 2
+L 5 "src\GPIO_helper.h" 2
 N#include "sysctl.h"
 L 1 ".\driverlib\sysctl.h" 1
 N//*****************************************************************************
@@ -1034,7 +1036,7 @@ S}
 N#endif
 N
 N#endif // __DRIVERLIB_SYSCTL_H__
-L 4 "src\GPIO_helper.h" 2
+L 6 "src\GPIO_helper.h" 2
 N#include "hw_memmap.h"
 L 1 ".\inc\hw_memmap.h" 1
 N//*****************************************************************************
@@ -1188,7 +1190,7 @@ N#define NVIC_BASE               0xE000E000  // Nested Vectored Interrupt Ctrl
 N#define TPIU_BASE               0xE0040000  // Trace Port Interface Unit
 N
 N#endif // __HW_MEMMAP_H__
-L 5 "src\GPIO_helper.h" 2
+L 7 "src\GPIO_helper.h" 2
 N#include "adc.h"
 L 1 ".\driverlib\adc.h" 1
 N//*****************************************************************************
@@ -1534,7 +1536,7 @@ S}
 N#endif
 N
 N#endif // __DRIVERLIB_ADC_H__
-L 6 "src\GPIO_helper.h" 2
+L 8 "src\GPIO_helper.h" 2
 N#include "uart.h"
 L 1 ".\driverlib\uart.h" 1
 N//*****************************************************************************
@@ -1800,7 +1802,7 @@ S}
 N#endif
 N
 N#endif // __DRIVERLIB_UART_H__
-L 7 "src\GPIO_helper.h" 2
+L 9 "src\GPIO_helper.h" 2
 N#include "tm4c123gh6pm.h"
 L 1 ".\inc\tm4c123gh6pm.h" 1
 N//*****************************************************************************
@@ -14886,7 +14888,7 @@ N
 N#endif
 N
 N#endif // __TM4C123GH6PM_H__
-L 8 "src\GPIO_helper.h" 2
+L 10 "src\GPIO_helper.h" 2
 N#include "hw_gpio.h"
 L 1 ".\inc\hw_gpio.h" 1
 N//*****************************************************************************
@@ -15102,7 +15104,7 @@ N#define GPIO_PC_EDM2_S          4
 N#define GPIO_PC_EDM1_S          2
 N
 N#endif // __HW_GPIO_H__
-L 9 "src\GPIO_helper.h" 2
+L 11 "src\GPIO_helper.h" 2
 N#include "hw_types.h"
 L 1 ".\inc\hw_types.h" 1
 N//*****************************************************************************
@@ -15265,7 +15267,7 @@ N#define CLASS_IS_SNOWFLAKE CLASS_IS_TM4C123
 N#endif
 N
 N#endif // __HW_TYPES_H__
-L 10 "src\GPIO_helper.h" 2
+L 12 "src\GPIO_helper.h" 2
 N#include "gpio.h"
 L 1 ".\driverlib\gpio.h" 1
 N//*****************************************************************************
@@ -15473,11 +15475,11 @@ S}
 N#endif
 N
 N#endif // __DRIVERLIB_GPIO_H__
-L 11 "src\GPIO_helper.h" 2
+L 13 "src\GPIO_helper.h" 2
 N
 N//#include "project.h"
 N
-Nvoid UpdateMYButtons(void);
+Nvoid UpdateMyButtons(void);
 N//1 = pushed down
 N//0 = not pushed
 N
@@ -15491,25 +15493,29 @@ N
 N  extern struct MyButtons MyButtons;
 N  void GPIOSetup(void);
 N  void TurnOnLEDs(void);
-W "src\GPIO_helper.h" 28 26 last line of file ends without a newline
+W "src\GPIO_helper.h" 30 26 last line of file ends without a newline
 N  void TurnOnLEDs2(void);
 L 2 "src\GPIO_helper.c" 2
 N
-Nvoid UpdateMYbuttons()
+Nstruct MyButtons MyButtons;
+Nvoid UpdateMyButtons()
 N	{
 N		uint8_t WorkingMode;
 N		
 N		WorkingMode= GPIOPinRead(GPIO_PORTF_BASE,GPIO_PIN_4);
 X		WorkingMode= GPIOPinRead(0x40025000,0x00000010);
 N		
-N		if (WorkingMode !=0) MyButtons.SW1=0;
-N		else MyButtons.SW1 = 1;
+N		if (WorkingMode !=0) 
+N		{
+N			MyButtons.SW1=0;
+N		}
+N		else {MyButtons.SW1 = 1;}
 N
 N		WorkingMode= GPIOPinRead(GPIO_PORTF_BASE,GPIO_PIN_0);
 X		WorkingMode= GPIOPinRead(0x40025000,0x00000001);
 N		
-N		if (WorkingMode!=0) MyButtons.SW2=0;
-N		else MyButtons.SW2 = 1;
+N		if (WorkingMode!=0){ MyButtons.SW2=0;}
+N		else { MyButtons.SW2 = 1;}
 N
 N		
 N	}
@@ -15517,7 +15523,10 @@ N	void GPIOSetup()
 N	{
 N		SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOF);
 X		SysCtlPeripheralEnable(0xf0000805);
-N		
+N		SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOE);
+X		SysCtlPeripheralEnable(0xf0000804);
+N		SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOA);
+X		SysCtlPeripheralEnable(0xf0000800);
 N	{
 N	}
 N	
@@ -15527,7 +15536,22 @@ N		GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_2);
 X		GPIOPinTypeGPIOOutput(0x40025000, 0x00000004);
 N    GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_3);
 X    GPIOPinTypeGPIOOutput(0x40025000, 0x00000008);
-N		
+N	  GPIOPinTypeGPIOInput(GPIO_PORTF_BASE, GPIO_PIN_0);
+X	  GPIOPinTypeGPIOInput(0x40025000, 0x00000001);
+N    GPIOPinTypeGPIOInput(GPIO_PORTF_BASE, GPIO_PIN_4);
+X    GPIOPinTypeGPIOInput(0x40025000, 0x00000010);
+N
+N	HWREG(GPIO_PORTF_BASE + GPIO_O_LOCK) = GPIO_LOCK_KEY;
+X	(*((volatile uint32_t *)(0x40025000 + 0x00000520))) = 0x4C4F434B;
+N	HWREG(GPIO_PORTF_BASE + GPIO_O_CR) = 0X01;
+X	(*((volatile uint32_t *)(0x40025000 + 0x00000524))) = 0X01;
+N	HWREG(GPIO_PORTF_BASE + GPIO_O_LOCK) = 0;
+X	(*((volatile uint32_t *)(0x40025000 + 0x00000520))) = 0;
+N	
+N	GPIODirModeSet(GPIO_PORTF_BASE, GPIO_PIN_4|GPIO_PIN_0, GPIO_DIR_MODE_IN);
+X	GPIODirModeSet(0x40025000, 0x00000010|0x00000001, 0x00000000);
+N	GPIOPadConfigSet(GPIO_PORTF_BASE,GPIO_PIN_4|GPIO_PIN_0,GPIO_STRENGTH_2MA,GPIO_PIN_TYPE_STD_WPU);
+X	GPIOPadConfigSet(0x40025000,0x00000010|0x00000001,0x00000001,0x0000000A);
 N	}
 N	void TurnOnLEDs()
 N	{		
@@ -15740,5 +15764,5 @@ N
 N        {
 N        }
 N			}
-W "src\GPIO_helper.c" 200 4 last line of file ends without a newline
+W "src\GPIO_helper.c" 213 4 last line of file ends without a newline
 N			

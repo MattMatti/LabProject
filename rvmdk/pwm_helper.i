@@ -1,5 +1,7 @@
 #line 1 "src\\PWM_helper.c"
 #line 1 "src\\PWM_helper.h"
+#pragma once
+
 #line 1 "C:\\Keil_v5\\ARM\\ARMCC\\Bin\\..\\include\\stdbool.h"
  
 
@@ -18,7 +20,7 @@
 
 
 
-#line 2 "src\\PWM_helper.h"
+#line 4 "src\\PWM_helper.h"
 #line 1 "C:\\Keil_v5\\ARM\\ARMCC\\Bin\\..\\include\\stdint.h"
  
  
@@ -275,7 +277,7 @@ typedef unsigned     long long uintmax_t;
 
 
  
-#line 3 "src\\PWM_helper.h"
+#line 5 "src\\PWM_helper.h"
 #line 1 ".\\driverlib\\sysctl.h"
 
 
@@ -569,7 +571,7 @@ extern _Bool SysCtlVCOGet(uint32_t ui32Crystal, uint32_t *pui32VCOFrequency);
 
 
 
-#line 4 "src\\PWM_helper.h"
+#line 6 "src\\PWM_helper.h"
 #line 1 ".\\inc\\hw_memmap.h"
 
 
@@ -631,7 +633,7 @@ extern _Bool SysCtlVCOGet(uint32_t ui32Crystal, uint32_t *pui32VCOFrequency);
                                             
 #line 150 ".\\inc\\hw_memmap.h"
 
-#line 5 "src\\PWM_helper.h"
+#line 7 "src\\PWM_helper.h"
 #line 1 ".\\driverlib\\adc.h"
 
 
@@ -842,7 +844,7 @@ extern uint32_t ADCSampleRateGet(uint32_t ui32Base);
 
 
 
-#line 6 "src\\PWM_helper.h"
+#line 8 "src\\PWM_helper.h"
 #line 1 ".\\driverlib\\uart.h"
 
 
@@ -1073,7 +1075,7 @@ extern void UARTLoopbackEnable(uint32_t ui32Base);
 
 
 
-#line 7 "src\\PWM_helper.h"
+#line 9 "src\\PWM_helper.h"
 #line 1 ".\\inc\\tm4c123gh6pm.h"
 
 
@@ -9133,7 +9135,7 @@ extern void UARTLoopbackEnable(uint32_t ui32Base);
 
 
 
-#line 8 "src\\PWM_helper.h"
+#line 10 "src\\PWM_helper.h"
 #line 1 ".\\inc\\hw_gpio.h"
 
 
@@ -9303,7 +9305,7 @@ extern void UARTLoopbackEnable(uint32_t ui32Base);
                                             
 #line 212 ".\\inc\\hw_gpio.h"
 
-#line 9 "src\\PWM_helper.h"
+#line 11 "src\\PWM_helper.h"
 #line 1 ".\\inc\\hw_types.h"
 
 
@@ -9437,7 +9439,7 @@ extern void UARTLoopbackEnable(uint32_t ui32Base);
 
 
 
-#line 10 "src\\PWM_helper.h"
+#line 12 "src\\PWM_helper.h"
 #line 1 ".\\driverlib\\pwm.h"
 
 
@@ -9688,7 +9690,7 @@ extern void PWMOutputUpdateMode(uint32_t ui32Base,
 
 
 
-#line 11 "src\\PWM_helper.h"
+#line 13 "src\\PWM_helper.h"
 #line 1 ".\\driverlib\\gpio.h"
 
 
@@ -9861,7 +9863,7 @@ extern void GPIOADCTriggerDisable(uint32_t ui32Port, uint8_t ui8Pins);
 
 
 
-#line 12 "src\\PWM_helper.h"
+#line 14 "src\\PWM_helper.h"
 #line 1 ".\\driverlib\\pin_map.h"
 
 
@@ -10551,72 +10553,321 @@ extern void GPIOADCTriggerDisable(uint32_t ui32Port, uint8_t ui8Pins);
 
 #line 20952 ".\\driverlib\\pin_map.h"
 
-#line 13 "src\\PWM_helper.h"
+#line 15 "src\\PWM_helper.h"
+#line 1 "src\\ADC_Helper.h"
+#pragma once
+#line 3 "src\\ADC_Helper.h"
+#line 4 "src\\ADC_Helper.h"
+#line 5 "src\\ADC_Helper.h"
+#line 6 "src\\ADC_Helper.h"
+#line 7 "src\\ADC_Helper.h"
+#line 8 "src\\ADC_Helper.h"
+#line 9 "src\\ADC_Helper.h"
+#line 10 "src\\ADC_Helper.h"
+#line 11 "src\\ADC_Helper.h"
+#line 12 "src\\ADC_Helper.h"
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+extern uint32_t DutyCycle;
+extern uint32_t DutyValue;
+void SetupADCPins(void);
+void SetupADC(void);
+void ADCReadString1(void);  
+void ADCReadString2(void);  
+void ADCReadString3(void);  
+void ADCReadString4(void);  
+
+extern struct ADC_info adcinfo;
+
+#line 16 "src\\PWM_helper.h"
+
+void SetUpPWM0HZ(void);
+void SetUpPWM82HZ(void);
+void SetUpPWM87HZ(void);
+void SetUpPWM92HZ(void);
+void SetUpPWM98HZ(void);
+void SetUpPWM104HZ(void);
+void SetUpPWM110HZ(void);
+void SetUpPWM117HZ(void);
+void SetUpPWM123HZ(void);
+void SetUpPWM131HZ(void);
+void SetUpPWM139HZ(void);
+void SetUpPWM147HZ(void);
+void SetUpPWM156HZ(void);
+void SetUpPWM165HZ(void);
+void SetUpPWM175HZ(void);
+void SetUpPWM185HZ(void);
+void SetUpPWM196HZ(void);
+void SetUpPWM208HZ(void);
+void SetUpPWM300HZ(void);
+void SetUpPWM400HZ(void);
+void SetUpPWM500HZ(void);
+void SetUpPWM600HZ(void);
+void SetUpPWM700HZ(void);
+void SetUpPWM800HZ(void);
+void SetUpPWM900HZ(void);
+void SetupPWM(void);
 #line 2 "src\\PWM_helper.c"
+#line 3 "src\\PWM_helper.c"
 
-void delayMS(int ms) 
-	{
-    SysCtlDelay( (SysCtlClockGet()/(3*1000))*ms );
-}
 
-int
-main(void)
+
+#line 22 "src\\PWM_helper.c"
+
+extern uint32_t DutyCycle; 
+
+
+ void SetupPWM()
+ { 
+	 
+   
+
+   
+   SysCtlPWMClockSet(0x001A0000);
+   
+   
+    SysCtlPeripheralEnable(0xf0000804);
+    SysCtlPeripheralEnable(0xf0004000);  
+    while(!SysCtlPeripheralReady(0xf0004000))
+		{
+		}
+    
+    GPIOPinConfigure(0x00041404); 
+	
+    
+     GPIOPinTypePWM(0x40024000, 0x00000020); 
+    
+	
+    
+    
+   
+    PWMGenConfigure(0x40028000, 0x000000C0, 0x00000000 | 0x00000000); 	
+
+    
+    PWMGenEnable(0x40028000, 0x000000C0);
+
+    
+    PWMOutputState(0x40028000, 0x00000020, 1);
+ }
+ void SetUpPWM0HZ()
 {
     
-   SysCtlClockSet(0x07800000 | 0x00003800 |   0x00000000 | 0x00000540);
+    PWMGenPeriodSet(0x40028000, 0x000000C0, 250000);
+    
 
+    
+    
+		PWMPulseWidthSet(0x40028000, 0x000000C5,125000);																									
+
+}
+void SetUpPWM82HZ()
+{
+    
+    PWMGenPeriodSet(0x40028000, 0x000000C0, 3048);
+    
+    
+		PWMPulseWidthSet(0x40028000, 0x000000C5, 3048/DutyCycle);																									
+
+}
+void SetUpPWM87HZ()
+{
+    
+    PWMGenPeriodSet(0x40028000, 0x000000C0, 2874);
+    
+    
+		PWMPulseWidthSet(0x40028000, 0x000000C5, 2874/DutyCycle);																									
+
+}
+void SetUpPWM92HZ()
+{
+    
+    PWMGenPeriodSet(0x40028000, 0x000000C0, 2718);
+    
+    
+		PWMPulseWidthSet(0x40028000, 0x000000C5, 1359);																									
+
+}
+ void SetUpPWM98HZ()
+{
+    
+    PWMGenPeriodSet(0x40028000, 0x000000C0, 2552);
+    
+
+    
+		PWMPulseWidthSet(0x40028000, 0x000000C5,1276);																									
+
+} 
+ void SetUpPWM104HZ()
+{
+    
+    PWMGenPeriodSet(0x40028000, 0x000000C0, 2404);
+    
+
+    
+		PWMPulseWidthSet(0x40028000, 0x000000C5,1202);																									
+
+}
+void SetUpPWM110HZ()
+{
+    
+    PWMGenPeriodSet(0x40028000, 0x000000C0, 2272);
+    
+
+    
+		PWMPulseWidthSet(0x40028000, 0x000000C5,1136);																									
+
+}
+void SetUpPWM117HZ()
+{
+    
+    PWMGenPeriodSet(0x40028000, 0x000000C0, 2136);
+    
+
+    
+		PWMPulseWidthSet(0x40028000, 0x000000C5, 1068);																									
+
+}
+void SetUpPWM123HZ()
+{
+    
+    PWMGenPeriodSet(0x40028000, 0x000000C0, 2032);
+    
+
+    
+		PWMPulseWidthSet(0x40028000, 0x000000C5,1016);																									
+
+}
+void SetUpPWM131HZ()
+{
+    
+    PWMGenPeriodSet(0x40028000, 0x000000C0, 1908);
+    
+
+    
+		PWMPulseWidthSet(0x40028000, 0x000000C5, 954);																									
+
+}
+void SetUpPWM139HZ()
+{
+    
+    PWMGenPeriodSet(0x40028000, 0x000000C0, 1798);
+    
+
+    
+		PWMPulseWidthSet(0x40028000, 0x000000C5,899);																									
+
+}
+void SetUpPWM147HZ()
+{
+    
+    PWMGenPeriodSet(0x40028000, 0x000000C0, 1700);
+    
+
+    
+		PWMPulseWidthSet(0x40028000, 0x000000C5,850);																									
+
+}
+void SetUpPWM156HZ()
+{
+    
+    PWMGenPeriodSet(0x40028000, 0x000000C0, 1602);
+    
+
+    
+		PWMPulseWidthSet(0x40028000, 0x000000C5,801);																									
+
+}
+void SetUpPWM165HZ()
+{
+    
+    PWMGenPeriodSet(0x40028000, 0x000000C0, 1516);
+    
+
+    
+		PWMPulseWidthSet(0x40028000, 0x000000C5,758);																									
+
+}
+void SetUpPWM175HZ()
+{
+    
+    PWMGenPeriodSet(0x40028000, 0x000000C0, 1428);
+    
+
+    
+		PWMPulseWidthSet(0x40028000, 0x000000C5,714);																									
+
+}
+void SetUpPWM185HZ()
+{
+    
+    PWMGenPeriodSet(0x40028000, 0x000000C0, 1352);
+    
+
+    
+		PWMPulseWidthSet(0x40028000, 0x000000C5,676);																									
+
+}
+void SetUpPWM196HZ()
+{
+    
+    PWMGenPeriodSet(0x40028000, 0x000000C0, 1276);
+    
+
+    
+		PWMPulseWidthSet(0x40028000, 0x000000C5,638);																									
+
+}
+void SetUpPWM208HZ()
+{
+    
+    PWMGenPeriodSet(0x40028000, 0x000000C0, 1202);
+    
+
+    
+    
+		PWMPulseWidthSet(0x40028000, 0x000000C5,601);																									
+
+}
+ void SetUpPWM300HZ()
+{
+    
+    PWMGenPeriodSet(0x40028000, 0x000000C0, 834);
    
-   SysCtlPWMClockSet(0x00000000);
-
-   
-    SysCtlPeripheralEnable(0xf0000805);
-    SysCtlPeripheralEnable(0xf0004001);  
-
-    
-    GPIOPinConfigure(0x00050405);
-    GPIOPinConfigure(0x00050805);
-    GPIOPinConfigure(0x00050C05);
-    GPIOPinTypePWM(0x40025000, 0x00000002 | 0x00000004 | 0x00000008);
 
     
     
-    
-    PWMGenConfigure(0x40029000, 0x000000C0, 0x00000000 | 0x00000000); 
-    PWMGenConfigure(0x40029000, 0x00000100, 0x00000000 | 0x00000000); 
+		PWMPulseWidthSet(0x40028000, 0x000000C5,417);																								  
 
-    
-    PWMGenPeriodSet(0x40029000, 0x000000C0, 320);
-    PWMGenPeriodSet(0x40029000, 0x00000100, 320);
-
-    
-    PWMPulseWidthSet(0x40029000, 0x000000C5,100);
-    PWMPulseWidthSet(0x40029000, 0x00000106,100);
-    PWMPulseWidthSet(0x40029000, 0x00000107,100);
-
-    
-    PWMGenEnable(0x40029000, 0x000000C0);
-    PWMGenEnable(0x40029000, 0x00000100);
-
-    
-    PWMOutputState(0x40029000, 0x00000020 | 0x00000040 | 0x00000080, 1);
-
-    
-    _Bool fadeUp = 1;
-    unsigned long increment = 10;
-    unsigned long pwmNow = 100;
-    while(1)
-    {
-        delayMS(20);
-        if (fadeUp) {
-            pwmNow += increment;
-            if (pwmNow >= 320) { fadeUp = 0; }
-        }
-        else {
-            pwmNow -= increment;
-            if (pwmNow <= 10) { fadeUp = 1; }
-        }
-        PWMPulseWidthSet(0x40029000, 0x000000C5,pwmNow);
-        PWMPulseWidthSet(0x40029000, 0x00000106,pwmNow);
-        PWMPulseWidthSet(0x40029000, 0x00000107,pwmNow);
     }
+ void SetUpPWM400HZ()
+{
+    
+    PWMGenPeriodSet(0x40028000, 0x000000C0, 626);
+    
+    
+		PWMPulseWidthSet(0x40028000, 0x000000C5, 313);																									
+
+}
+
+ void SetUpPWM500HZ()
+{
+    
+    PWMGenPeriodSet(0x40028000, 0x000000C0, 626);
+    
+    
+		PWMPulseWidthSet(0x40028000, 0x000000C5, 313);																									
+
 }

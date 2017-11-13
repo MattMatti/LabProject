@@ -3,7 +3,7 @@
 
 //*****************************************************************************
 //
-// Working on the ADC today 9/27/17
+// 10/18 Starting lab project
 //
 //*****************************************************************************
 
@@ -14,12 +14,6 @@ __error__(char *pcFilename, uint32_t ui32Line)
 }
 #endif
 
-//void (print_donkey)
-	
-//void SetupHardware()
-//{
-//       UartSetup();
-//}
 
 int  main(void)
 {
@@ -27,17 +21,18 @@ int  main(void)
 	
     SysCtlPeripheralEnable(SYSCTL_PERIPH_ADC0); //enables ADC module 0
     SysCtlPeripheralReset(SYSCTL_PERIPH_ADC0); // resets ADC module 0 
-	  //uint8_t temp;
-	
-    //SetupHardware();
-	
+	  
+	  GPIOSetup();
+		UART_setup();
+	  SetupADCPins();
+		SetupADC();
+	  SetupPWM();
 		// Check if the peripheral access is enabled.
-    while(!SysCtlPeripheralReady(SYSCTL_PERIPH_GPIOF))
+    while(!SysCtlPeripheralReady(SYSCTL_PERIPH_GPIOE))
     {
-    
-		}
-    
+		}   
     while(1)
+<<<<<<< HEAD
 		{
 		if (string1 < 0xFFF);
     {
@@ -75,5 +70,11 @@ int  main(void)
 //		
 //}
 //			
+=======
+		{	
+		
+		ADCReadString1();
+			
+>>>>>>> Matthew
 			}
 		}

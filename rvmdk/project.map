@@ -7,6 +7,7 @@ Section Cross References
     project.o(i.main) refers to sysctl.o(i.SysCtlClockSet) for SysCtlClockSet
     project.o(i.main) refers to sysctl.o(i.SysCtlPeripheralEnable) for SysCtlPeripheralEnable
     project.o(i.main) refers to sysctl.o(i.SysCtlPeripheralReset) for SysCtlPeripheralReset
+<<<<<<< HEAD
     project.o(i.main) refers to sysctl.o(i.SysCtlPeripheralReady) for SysCtlPeripheralReady
     project.o(i.main) refers to gpio_helper.o(i.GPIOSetup) for GPIOSetup
     project.o(i.main) refers to gpio_helper.o(i.TurnOnLEDs) for TurnOnLEDs
@@ -32,6 +33,40 @@ Section Cross References
     adc_helper.o(i.ADCReadChan) refers to adc.o(i.ADCBusy) for ADCBusy
     adc_helper.o(i.ADCReadChan) refers to adc.o(i.ADCSequenceDataGet) for ADCSequenceDataGet
     adc_helper.o(i.ADCReadChan) refers to adc_helper.o(.bss) for .bss
+=======
+    project.o(i.main) refers to gpio_helper.o(i.GPIOSetup) for GPIOSetup
+    project.o(i.main) refers to uart_helper.o(i.UART_setup) for UART_setup
+    project.o(i.main) refers to adc_helper.o(i.SetupADCPins) for SetupADCPins
+    project.o(i.main) refers to adc_helper.o(i.SetupADC) for SetupADC
+    project.o(i.main) refers to pwm_helper.o(i.SetupPWM) for SetupPWM
+    project.o(i.main) refers to sysctl.o(i.SysCtlPeripheralReady) for SysCtlPeripheralReady
+    project.o(i.main) refers to adc_helper.o(i.ADCReadString1) for ADCReadString1
+    startup_rvmdk.o(RESET) refers to startup_rvmdk.o(STACK) for StackMem
+    startup_rvmdk.o(RESET) refers to entry.o(.ARM.Collect$$$$00000000) for __main
+    adc_helper.o(i.ADCReadString1) refers to adc.o(i.ADCProcessorTrigger) for ADCProcessorTrigger
+    adc_helper.o(i.ADCReadString1) refers to adc.o(i.ADCBusy) for ADCBusy
+    adc_helper.o(i.ADCReadString1) refers to adc.o(i.ADCSequenceDataGet) for ADCSequenceDataGet
+    adc_helper.o(i.ADCReadString1) refers to pwm_helper.o(i.SetUpPWM0HZ) for SetUpPWM0HZ
+    adc_helper.o(i.ADCReadString1) refers to pwm_helper.o(i.SetUpPWM82HZ) for SetUpPWM82HZ
+    adc_helper.o(i.ADCReadString1) refers to gpio.o(i.GPIOPinWrite) for GPIOPinWrite
+    adc_helper.o(i.ADCReadString1) refers to pwm_helper.o(i.SetUpPWM87HZ) for SetUpPWM87HZ
+    adc_helper.o(i.ADCReadString1) refers to pwm_helper.o(i.SetUpPWM92HZ) for SetUpPWM92HZ
+    adc_helper.o(i.ADCReadString1) refers to pwm_helper.o(i.SetUpPWM98HZ) for SetUpPWM98HZ
+    adc_helper.o(i.ADCReadString1) refers to pwm_helper.o(i.SetUpPWM104HZ) for SetUpPWM104HZ
+    adc_helper.o(i.ADCReadString1) refers to pwm_helper.o(i.SetUpPWM110HZ) for SetUpPWM110HZ
+    adc_helper.o(i.ADCReadString1) refers to pwm_helper.o(i.SetUpPWM117HZ) for SetUpPWM117HZ
+    adc_helper.o(i.ADCReadString1) refers to pwm_helper.o(i.SetUpPWM123HZ) for SetUpPWM123HZ
+    adc_helper.o(i.ADCReadString1) refers to pwm_helper.o(i.SetUpPWM131HZ) for SetUpPWM131HZ
+    adc_helper.o(i.ADCReadString1) refers to pwm_helper.o(i.SetUpPWM139HZ) for SetUpPWM139HZ
+    adc_helper.o(i.ADCReadString1) refers to pwm_helper.o(i.SetUpPWM147HZ) for SetUpPWM147HZ
+    adc_helper.o(i.ADCReadString1) refers to pwm_helper.o(i.SetUpPWM156HZ) for SetUpPWM156HZ
+    adc_helper.o(i.ADCReadString1) refers to pwm_helper.o(i.SetUpPWM165HZ) for SetUpPWM165HZ
+    adc_helper.o(i.ADCReadString1) refers to pwm_helper.o(i.SetUpPWM175HZ) for SetUpPWM175HZ
+    adc_helper.o(i.ADCReadString1) refers to pwm_helper.o(i.SetUpPWM185HZ) for SetUpPWM185HZ
+    adc_helper.o(i.ReadDutyKnob) refers to adc.o(i.ADCProcessorTrigger) for ADCProcessorTrigger
+    adc_helper.o(i.ReadDutyKnob) refers to adc.o(i.ADCBusy) for ADCBusy
+    adc_helper.o(i.ReadDutyKnob) refers to adc.o(i.ADCSequenceDataGet) for ADCSequenceDataGet
+>>>>>>> Matthew
     adc_helper.o(i.SetupADC) refers to adc_helper.o(i.SetupADCPins) for SetupADCPins
     adc_helper.o(i.SetupADC) refers to sysctl.o(i.SysCtlPeripheralEnable) for SysCtlPeripheralEnable
     adc_helper.o(i.SetupADC) refers to sysctl.o(i.SysCtlPeripheralReady) for SysCtlPeripheralReady
@@ -43,6 +78,7 @@ Section Cross References
     adc_helper.o(i.SetupADCPins) refers to gpio.o(i.GPIOPinTypeADC) for GPIOPinTypeADC
     gpio_helper.o(i.GPIOSetup) refers to sysctl.o(i.SysCtlPeripheralEnable) for SysCtlPeripheralEnable
     gpio_helper.o(i.GPIOSetup) refers to gpio.o(i.GPIOPinTypeGPIOOutput) for GPIOPinTypeGPIOOutput
+<<<<<<< HEAD
     gpio_helper.o(i.TurnOnLEDs) refers to gpio.o(i.GPIOPinWrite) for GPIOPinWrite
     gpio_helper.o(i.TurnOnLEDs2) refers to gpio.o(i.GPIOPinWrite) for GPIOPinWrite
     gpio_helper.o(i.UpdateMYbuttons) refers to gpio.o(i.GPIOPinRead) for GPIOPinRead
@@ -63,6 +99,76 @@ Section Cross References
     systick_helper.o(i.SysTick_Setup) refers to systick.o(i.SysTickPeriodSet) for SysTickPeriodSet
     systick_helper.o(i.SysTick_Setup) refers to systick.o(i.SysTickEnable) for SysTickEnable
     systick_helper.o(i.SysTick_Setup) refers to systick_helper.o(.data) for .data
+=======
+    gpio_helper.o(i.GPIOSetup) refers to gpio.o(i.GPIOPinTypeGPIOInput) for GPIOPinTypeGPIOInput
+    gpio_helper.o(i.GPIOSetup) refers to gpio.o(i.GPIODirModeSet) for GPIODirModeSet
+    gpio_helper.o(i.GPIOSetup) refers to gpio.o(i.GPIOPadConfigSet) for GPIOPadConfigSet
+    gpio_helper.o(i.TurnOnLEDs) refers to gpio.o(i.GPIOPinWrite) for GPIOPinWrite
+    gpio_helper.o(i.TurnOnLEDs2) refers to gpio.o(i.GPIOPinWrite) for GPIOPinWrite
+    gpio_helper.o(i.UpdateMyButtons) refers to gpio.o(i.GPIOPinRead) for GPIOPinRead
+    gpio_helper.o(i.UpdateMyButtons) refers to gpio_helper.o(.data) for MyButtons
+    pwm_helper.o(i.SetUpPWM0HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
+    pwm_helper.o(i.SetUpPWM0HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM104HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
+    pwm_helper.o(i.SetUpPWM104HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM110HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
+    pwm_helper.o(i.SetUpPWM110HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM117HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
+    pwm_helper.o(i.SetUpPWM117HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM123HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
+    pwm_helper.o(i.SetUpPWM123HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM131HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
+    pwm_helper.o(i.SetUpPWM131HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM139HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
+    pwm_helper.o(i.SetUpPWM139HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM147HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
+    pwm_helper.o(i.SetUpPWM147HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM156HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
+    pwm_helper.o(i.SetUpPWM156HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM165HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
+    pwm_helper.o(i.SetUpPWM165HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM175HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
+    pwm_helper.o(i.SetUpPWM175HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM185HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
+    pwm_helper.o(i.SetUpPWM185HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM196HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
+    pwm_helper.o(i.SetUpPWM196HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM208HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
+    pwm_helper.o(i.SetUpPWM208HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM300HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
+    pwm_helper.o(i.SetUpPWM300HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM400HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
+    pwm_helper.o(i.SetUpPWM400HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM500HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
+    pwm_helper.o(i.SetUpPWM500HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM82HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
+    pwm_helper.o(i.SetUpPWM82HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM87HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
+    pwm_helper.o(i.SetUpPWM87HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM92HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
+    pwm_helper.o(i.SetUpPWM92HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM98HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
+    pwm_helper.o(i.SetUpPWM98HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetupPWM) refers to sysctl.o(i.SysCtlPWMClockSet) for SysCtlPWMClockSet
+    pwm_helper.o(i.SetupPWM) refers to sysctl.o(i.SysCtlPeripheralEnable) for SysCtlPeripheralEnable
+    pwm_helper.o(i.SetupPWM) refers to sysctl.o(i.SysCtlPeripheralReady) for SysCtlPeripheralReady
+    pwm_helper.o(i.SetupPWM) refers to gpio.o(i.GPIOPinConfigure) for GPIOPinConfigure
+    pwm_helper.o(i.SetupPWM) refers to gpio.o(i.GPIOPinTypePWM) for GPIOPinTypePWM
+    pwm_helper.o(i.SetupPWM) refers to pwm.o(i.PWMGenConfigure) for PWMGenConfigure
+    pwm_helper.o(i.SetupPWM) refers to pwm.o(i.PWMGenEnable) for PWMGenEnable
+    pwm_helper.o(i.SetupPWM) refers to pwm.o(i.PWMOutputState) for PWMOutputState
+    uart_helper.o(i.UART_setup) refers to sysctl.o(i.SysCtlPeripheralEnable) for SysCtlPeripheralEnable
+    uart_helper.o(i.UART_setup) refers to gpio.o(i.GPIOPinTypeUART) for GPIOPinTypeUART
+    uart_helper.o(i.UART_setup) refers to gpio.o(i.GPIOPinConfigure) for GPIOPinConfigure
+    uart_helper.o(i.UART_setup) refers to sysctl.o(i.SysCtlClockGet) for SysCtlClockGet
+    uart_helper.o(i.UART_setup) refers to uart.o(i.UARTConfigSetExpClk) for UARTConfigSetExpClk
+    uart_helper.o(i.fgetc) refers to uart_helper.o(i.Mander) for Mander
+    uart_helper.o(i.fputc) refers to uart_helper.o(i.UART_OutChar) for UART_OutChar
+    uart_helper.o(i.print_menu) refers to printf2.o(i.__0printf$2) for __2printf
+    uart_helper.o(i.process_UART) refers to uart.o(i.UARTCharGet) for UARTCharGet
+    uart_helper.o(i.process_UART) refers to printf2.o(i.__0printf$2) for __2printf
+    i2c_helper.o(i.I2C_Setup) refers to i2c.o(i.I2CMasterEnable) for I2CMasterEnable
+>>>>>>> Matthew
     adc.o(i.ADCIntRegister) refers to interrupt.o(i.IntRegister) for IntRegister
     adc.o(i.ADCIntRegister) refers to interrupt.o(i.IntEnable) for IntEnable
     adc.o(i.ADCIntUnregister) refers to interrupt.o(i.IntDisable) for IntDisable
@@ -136,6 +242,15 @@ Section Cross References
     gpio.o(i.GPIOPinTypeWakeLow) refers to gpio.o(i.GPIODirModeSet) for GPIODirModeSet
     gpio.o(i.GPIOPinTypeWakeLow) refers to gpio.o(i.GPIOPadConfigSet) for GPIOPadConfigSet
     gpio.o(i._GPIOIntNumberGet) refers to gpio.o(.constdata) for .constdata
+<<<<<<< HEAD
+=======
+    i2c.o(i.I2CIntRegister) refers to interrupt.o(i.IntRegister) for IntRegister
+    i2c.o(i.I2CIntRegister) refers to interrupt.o(i.IntEnable) for IntEnable
+    i2c.o(i.I2CIntRegister) refers to i2c.o(.constdata) for .constdata
+    i2c.o(i.I2CIntUnregister) refers to interrupt.o(i.IntDisable) for IntDisable
+    i2c.o(i.I2CIntUnregister) refers to interrupt.o(i.IntUnregister) for IntUnregister
+    i2c.o(i.I2CIntUnregister) refers to i2c.o(.constdata) for .constdata
+>>>>>>> Matthew
     pwm.o(i.PWMFaultIntRegister) refers to interrupt.o(i.IntRegister) for IntRegister
     pwm.o(i.PWMFaultIntRegister) refers to interrupt.o(i.IntEnable) for IntEnable
     pwm.o(i.PWMFaultIntUnregister) refers to interrupt.o(i.IntDisable) for IntDisable
@@ -156,8 +271,11 @@ Section Cross References
     sysctl.o(i.SysCtlIntUnregister) refers to interrupt.o(i.IntUnregister) for IntUnregister
     sysctl.o(i.SysCtlSleep) refers to cpu.o(.emb_text) for CPUwfi
     sysctl.o(i.SysCtlVCOGet) refers to sysctl.o(.constdata) for .constdata
+<<<<<<< HEAD
     systick.o(i.SysTickIntRegister) refers to interrupt.o(i.IntRegister) for IntRegister
     systick.o(i.SysTickIntUnregister) refers to interrupt.o(i.IntUnregister) for IntUnregister
+=======
+>>>>>>> Matthew
     uart.o(i.UARTIntRegister) refers to interrupt.o(i.IntRegister) for IntRegister
     uart.o(i.UARTIntRegister) refers to interrupt.o(i.IntEnable) for IntEnable
     uart.o(i.UARTIntRegister) refers to uart.o(.constdata) for .constdata
@@ -187,56 +305,93 @@ Section Cross References
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry9a.o(.ARM.Collect$$$$0000000B) for _main_init
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry5.o(.ARM.Collect$$$$00000004) for _main_scatterload
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry2.o(.ARM.Collect$$$$00000001) for _main_stk
+<<<<<<< HEAD
     getc.o(i.getc) refers to fgetc.o(.text) for fgetc
     printfb.o(i.__0fprintf$bare) refers to printfb.o(i._printf_core) for _printf_core
     printfb.o(i.__0fprintf$bare) refers to fputc.o(i.fputc) for fputc
     printfb.o(i.__0printf$bare) refers to printfb.o(i._printf_core) for _printf_core
     printfb.o(i.__0printf$bare) refers to fputc.o(i.fputc) for fputc
+=======
+    printfb.o(i.__0fprintf$bare) refers to printfb.o(i._printf_core) for _printf_core
+    printfb.o(i.__0fprintf$bare) refers to uart_helper.o(i.fputc) for fputc
+    printfb.o(i.__0printf$bare) refers to printfb.o(i._printf_core) for _printf_core
+    printfb.o(i.__0printf$bare) refers to uart_helper.o(i.fputc) for fputc
+>>>>>>> Matthew
     printfb.o(i.__0printf$bare) refers to stdout.o(.data) for __stdout
     printfb.o(i.__0snprintf$bare) refers to printfb.o(i._printf_core) for _printf_core
     printfb.o(i.__0snprintf$bare) refers to printfb.o(i._snputc) for _snputc
     printfb.o(i.__0sprintf$bare) refers to printfb.o(i._printf_core) for _printf_core
     printfb.o(i.__0sprintf$bare) refers to printfb.o(i._sputc) for _sputc
     printfb.o(i.__0vfprintf$bare) refers to printfb.o(i._printf_core) for _printf_core
+<<<<<<< HEAD
     printfb.o(i.__0vfprintf$bare) refers to fputc.o(i.fputc) for fputc
     printfb.o(i.__0vprintf$bare) refers to printfb.o(i._printf_core) for _printf_core
     printfb.o(i.__0vprintf$bare) refers to fputc.o(i.fputc) for fputc
+=======
+    printfb.o(i.__0vfprintf$bare) refers to uart_helper.o(i.fputc) for fputc
+    printfb.o(i.__0vprintf$bare) refers to printfb.o(i._printf_core) for _printf_core
+    printfb.o(i.__0vprintf$bare) refers to uart_helper.o(i.fputc) for fputc
+>>>>>>> Matthew
     printfb.o(i.__0vprintf$bare) refers to stdout.o(.data) for __stdout
     printfb.o(i.__0vsnprintf$bare) refers to printfb.o(i._printf_core) for _printf_core
     printfb.o(i.__0vsnprintf$bare) refers to printfb.o(i._snputc) for _snputc
     printfb.o(i.__0vsprintf$bare) refers to printfb.o(i._printf_core) for _printf_core
     printfb.o(i.__0vsprintf$bare) refers to printfb.o(i._sputc) for _sputc
     printf0.o(i.__0fprintf$0) refers to printf0.o(i._printf_core) for _printf_core
+<<<<<<< HEAD
     printf0.o(i.__0fprintf$0) refers to fputc.o(i.fputc) for fputc
     printf0.o(i.__0printf$0) refers to printf0.o(i._printf_core) for _printf_core
     printf0.o(i.__0printf$0) refers to fputc.o(i.fputc) for fputc
+=======
+    printf0.o(i.__0fprintf$0) refers to uart_helper.o(i.fputc) for fputc
+    printf0.o(i.__0printf$0) refers to printf0.o(i._printf_core) for _printf_core
+    printf0.o(i.__0printf$0) refers to uart_helper.o(i.fputc) for fputc
+>>>>>>> Matthew
     printf0.o(i.__0printf$0) refers to stdout.o(.data) for __stdout
     printf0.o(i.__0snprintf$0) refers to printf0.o(i._printf_core) for _printf_core
     printf0.o(i.__0snprintf$0) refers to printf0.o(i._snputc) for _snputc
     printf0.o(i.__0sprintf$0) refers to printf0.o(i._printf_core) for _printf_core
     printf0.o(i.__0sprintf$0) refers to printf0.o(i._sputc) for _sputc
     printf0.o(i.__0vfprintf$0) refers to printf0.o(i._printf_core) for _printf_core
+<<<<<<< HEAD
     printf0.o(i.__0vfprintf$0) refers to fputc.o(i.fputc) for fputc
     printf0.o(i.__0vprintf$0) refers to printf0.o(i._printf_core) for _printf_core
     printf0.o(i.__0vprintf$0) refers to fputc.o(i.fputc) for fputc
+=======
+    printf0.o(i.__0vfprintf$0) refers to uart_helper.o(i.fputc) for fputc
+    printf0.o(i.__0vprintf$0) refers to printf0.o(i._printf_core) for _printf_core
+    printf0.o(i.__0vprintf$0) refers to uart_helper.o(i.fputc) for fputc
+>>>>>>> Matthew
     printf0.o(i.__0vprintf$0) refers to stdout.o(.data) for __stdout
     printf0.o(i.__0vsnprintf$0) refers to printf0.o(i._printf_core) for _printf_core
     printf0.o(i.__0vsnprintf$0) refers to printf0.o(i._snputc) for _snputc
     printf0.o(i.__0vsprintf$0) refers to printf0.o(i._printf_core) for _printf_core
     printf0.o(i.__0vsprintf$0) refers to printf0.o(i._sputc) for _sputc
     printf1.o(i.__0fprintf$1) refers to printf1.o(i._printf_core) for _printf_core
+<<<<<<< HEAD
     printf1.o(i.__0fprintf$1) refers to fputc.o(i.fputc) for fputc
     printf1.o(i.__0printf$1) refers to printf1.o(i._printf_core) for _printf_core
     printf1.o(i.__0printf$1) refers to fputc.o(i.fputc) for fputc
+=======
+    printf1.o(i.__0fprintf$1) refers to uart_helper.o(i.fputc) for fputc
+    printf1.o(i.__0printf$1) refers to printf1.o(i._printf_core) for _printf_core
+    printf1.o(i.__0printf$1) refers to uart_helper.o(i.fputc) for fputc
+>>>>>>> Matthew
     printf1.o(i.__0printf$1) refers to stdout.o(.data) for __stdout
     printf1.o(i.__0snprintf$1) refers to printf1.o(i._printf_core) for _printf_core
     printf1.o(i.__0snprintf$1) refers to printf1.o(i._snputc) for _snputc
     printf1.o(i.__0sprintf$1) refers to printf1.o(i._printf_core) for _printf_core
     printf1.o(i.__0sprintf$1) refers to printf1.o(i._sputc) for _sputc
     printf1.o(i.__0vfprintf$1) refers to printf1.o(i._printf_core) for _printf_core
+<<<<<<< HEAD
     printf1.o(i.__0vfprintf$1) refers to fputc.o(i.fputc) for fputc
     printf1.o(i.__0vprintf$1) refers to printf1.o(i._printf_core) for _printf_core
     printf1.o(i.__0vprintf$1) refers to fputc.o(i.fputc) for fputc
+=======
+    printf1.o(i.__0vfprintf$1) refers to uart_helper.o(i.fputc) for fputc
+    printf1.o(i.__0vprintf$1) refers to printf1.o(i._printf_core) for _printf_core
+    printf1.o(i.__0vprintf$1) refers to uart_helper.o(i.fputc) for fputc
+>>>>>>> Matthew
     printf1.o(i.__0vprintf$1) refers to stdout.o(.data) for __stdout
     printf1.o(i.__0vsnprintf$1) refers to printf1.o(i._printf_core) for _printf_core
     printf1.o(i.__0vsnprintf$1) refers to printf1.o(i._snputc) for _snputc
@@ -244,36 +399,60 @@ Section Cross References
     printf1.o(i.__0vsprintf$1) refers to printf1.o(i._sputc) for _sputc
     printf1.o(i._printf_core) refers to uidiv.o(.text) for __aeabi_uidivmod
     printf2.o(i.__0fprintf$2) refers to printf2.o(i._printf_core) for _printf_core
+<<<<<<< HEAD
     printf2.o(i.__0fprintf$2) refers to fputc.o(i.fputc) for fputc
     printf2.o(i.__0printf$2) refers to printf2.o(i._printf_core) for _printf_core
     printf2.o(i.__0printf$2) refers to fputc.o(i.fputc) for fputc
+=======
+    printf2.o(i.__0fprintf$2) refers to uart_helper.o(i.fputc) for fputc
+    printf2.o(i.__0printf$2) refers to printf2.o(i._printf_core) for _printf_core
+    printf2.o(i.__0printf$2) refers to uart_helper.o(i.fputc) for fputc
+>>>>>>> Matthew
     printf2.o(i.__0printf$2) refers to stdout.o(.data) for __stdout
     printf2.o(i.__0snprintf$2) refers to printf2.o(i._printf_core) for _printf_core
     printf2.o(i.__0snprintf$2) refers to printf2.o(i._snputc) for _snputc
     printf2.o(i.__0sprintf$2) refers to printf2.o(i._printf_core) for _printf_core
     printf2.o(i.__0sprintf$2) refers to printf2.o(i._sputc) for _sputc
     printf2.o(i.__0vfprintf$2) refers to printf2.o(i._printf_core) for _printf_core
+<<<<<<< HEAD
     printf2.o(i.__0vfprintf$2) refers to fputc.o(i.fputc) for fputc
     printf2.o(i.__0vprintf$2) refers to printf2.o(i._printf_core) for _printf_core
     printf2.o(i.__0vprintf$2) refers to fputc.o(i.fputc) for fputc
+=======
+    printf2.o(i.__0vfprintf$2) refers to uart_helper.o(i.fputc) for fputc
+    printf2.o(i.__0vprintf$2) refers to printf2.o(i._printf_core) for _printf_core
+    printf2.o(i.__0vprintf$2) refers to uart_helper.o(i.fputc) for fputc
+>>>>>>> Matthew
     printf2.o(i.__0vprintf$2) refers to stdout.o(.data) for __stdout
     printf2.o(i.__0vsnprintf$2) refers to printf2.o(i._printf_core) for _printf_core
     printf2.o(i.__0vsnprintf$2) refers to printf2.o(i._snputc) for _snputc
     printf2.o(i.__0vsprintf$2) refers to printf2.o(i._printf_core) for _printf_core
     printf2.o(i.__0vsprintf$2) refers to printf2.o(i._sputc) for _sputc
     printf3.o(i.__0fprintf$3) refers to printf3.o(i._printf_core) for _printf_core
+<<<<<<< HEAD
     printf3.o(i.__0fprintf$3) refers to fputc.o(i.fputc) for fputc
     printf3.o(i.__0printf$3) refers to printf3.o(i._printf_core) for _printf_core
     printf3.o(i.__0printf$3) refers to fputc.o(i.fputc) for fputc
+=======
+    printf3.o(i.__0fprintf$3) refers to uart_helper.o(i.fputc) for fputc
+    printf3.o(i.__0printf$3) refers to printf3.o(i._printf_core) for _printf_core
+    printf3.o(i.__0printf$3) refers to uart_helper.o(i.fputc) for fputc
+>>>>>>> Matthew
     printf3.o(i.__0printf$3) refers to stdout.o(.data) for __stdout
     printf3.o(i.__0snprintf$3) refers to printf3.o(i._printf_core) for _printf_core
     printf3.o(i.__0snprintf$3) refers to printf3.o(i._snputc) for _snputc
     printf3.o(i.__0sprintf$3) refers to printf3.o(i._printf_core) for _printf_core
     printf3.o(i.__0sprintf$3) refers to printf3.o(i._sputc) for _sputc
     printf3.o(i.__0vfprintf$3) refers to printf3.o(i._printf_core) for _printf_core
+<<<<<<< HEAD
     printf3.o(i.__0vfprintf$3) refers to fputc.o(i.fputc) for fputc
     printf3.o(i.__0vprintf$3) refers to printf3.o(i._printf_core) for _printf_core
     printf3.o(i.__0vprintf$3) refers to fputc.o(i.fputc) for fputc
+=======
+    printf3.o(i.__0vfprintf$3) refers to uart_helper.o(i.fputc) for fputc
+    printf3.o(i.__0vprintf$3) refers to printf3.o(i._printf_core) for _printf_core
+    printf3.o(i.__0vprintf$3) refers to uart_helper.o(i.fputc) for fputc
+>>>>>>> Matthew
     printf3.o(i.__0vprintf$3) refers to stdout.o(.data) for __stdout
     printf3.o(i.__0vsnprintf$3) refers to printf3.o(i._printf_core) for _printf_core
     printf3.o(i.__0vsnprintf$3) refers to printf3.o(i._snputc) for _snputc
@@ -281,18 +460,30 @@ Section Cross References
     printf3.o(i.__0vsprintf$3) refers to printf3.o(i._sputc) for _sputc
     printf3.o(i._printf_core) refers to uidiv.o(.text) for __aeabi_uidivmod
     printf4.o(i.__0fprintf$4) refers to printf4.o(i._printf_core) for _printf_core
+<<<<<<< HEAD
     printf4.o(i.__0fprintf$4) refers to fputc.o(i.fputc) for fputc
     printf4.o(i.__0printf$4) refers to printf4.o(i._printf_core) for _printf_core
     printf4.o(i.__0printf$4) refers to fputc.o(i.fputc) for fputc
+=======
+    printf4.o(i.__0fprintf$4) refers to uart_helper.o(i.fputc) for fputc
+    printf4.o(i.__0printf$4) refers to printf4.o(i._printf_core) for _printf_core
+    printf4.o(i.__0printf$4) refers to uart_helper.o(i.fputc) for fputc
+>>>>>>> Matthew
     printf4.o(i.__0printf$4) refers to stdout.o(.data) for __stdout
     printf4.o(i.__0snprintf$4) refers to printf4.o(i._printf_core) for _printf_core
     printf4.o(i.__0snprintf$4) refers to printf4.o(i._snputc) for _snputc
     printf4.o(i.__0sprintf$4) refers to printf4.o(i._printf_core) for _printf_core
     printf4.o(i.__0sprintf$4) refers to printf4.o(i._sputc) for _sputc
     printf4.o(i.__0vfprintf$4) refers to printf4.o(i._printf_core) for _printf_core
+<<<<<<< HEAD
     printf4.o(i.__0vfprintf$4) refers to fputc.o(i.fputc) for fputc
     printf4.o(i.__0vprintf$4) refers to printf4.o(i._printf_core) for _printf_core
     printf4.o(i.__0vprintf$4) refers to fputc.o(i.fputc) for fputc
+=======
+    printf4.o(i.__0vfprintf$4) refers to uart_helper.o(i.fputc) for fputc
+    printf4.o(i.__0vprintf$4) refers to printf4.o(i._printf_core) for _printf_core
+    printf4.o(i.__0vprintf$4) refers to uart_helper.o(i.fputc) for fputc
+>>>>>>> Matthew
     printf4.o(i.__0vprintf$4) refers to stdout.o(.data) for __stdout
     printf4.o(i.__0vsnprintf$4) refers to printf4.o(i._printf_core) for _printf_core
     printf4.o(i.__0vsnprintf$4) refers to printf4.o(i._snputc) for _snputc
@@ -300,18 +491,30 @@ Section Cross References
     printf4.o(i.__0vsprintf$4) refers to printf4.o(i._sputc) for _sputc
     printf4.o(i._printf_core) refers to uldiv.o(.text) for __aeabi_uldivmod
     printf5.o(i.__0fprintf$5) refers to printf5.o(i._printf_core) for _printf_core
+<<<<<<< HEAD
     printf5.o(i.__0fprintf$5) refers to fputc.o(i.fputc) for fputc
     printf5.o(i.__0printf$5) refers to printf5.o(i._printf_core) for _printf_core
     printf5.o(i.__0printf$5) refers to fputc.o(i.fputc) for fputc
+=======
+    printf5.o(i.__0fprintf$5) refers to uart_helper.o(i.fputc) for fputc
+    printf5.o(i.__0printf$5) refers to printf5.o(i._printf_core) for _printf_core
+    printf5.o(i.__0printf$5) refers to uart_helper.o(i.fputc) for fputc
+>>>>>>> Matthew
     printf5.o(i.__0printf$5) refers to stdout.o(.data) for __stdout
     printf5.o(i.__0snprintf$5) refers to printf5.o(i._printf_core) for _printf_core
     printf5.o(i.__0snprintf$5) refers to printf5.o(i._snputc) for _snputc
     printf5.o(i.__0sprintf$5) refers to printf5.o(i._printf_core) for _printf_core
     printf5.o(i.__0sprintf$5) refers to printf5.o(i._sputc) for _sputc
     printf5.o(i.__0vfprintf$5) refers to printf5.o(i._printf_core) for _printf_core
+<<<<<<< HEAD
     printf5.o(i.__0vfprintf$5) refers to fputc.o(i.fputc) for fputc
     printf5.o(i.__0vprintf$5) refers to printf5.o(i._printf_core) for _printf_core
     printf5.o(i.__0vprintf$5) refers to fputc.o(i.fputc) for fputc
+=======
+    printf5.o(i.__0vfprintf$5) refers to uart_helper.o(i.fputc) for fputc
+    printf5.o(i.__0vprintf$5) refers to printf5.o(i._printf_core) for _printf_core
+    printf5.o(i.__0vprintf$5) refers to uart_helper.o(i.fputc) for fputc
+>>>>>>> Matthew
     printf5.o(i.__0vprintf$5) refers to stdout.o(.data) for __stdout
     printf5.o(i.__0vsnprintf$5) refers to printf5.o(i._printf_core) for _printf_core
     printf5.o(i.__0vsnprintf$5) refers to printf5.o(i._snputc) for _snputc
@@ -319,18 +522,30 @@ Section Cross References
     printf5.o(i.__0vsprintf$5) refers to printf5.o(i._sputc) for _sputc
     printf5.o(i._printf_core) refers to uldiv.o(.text) for __aeabi_uldivmod
     printf6.o(i.__0fprintf$6) refers to printf6.o(i._printf_core) for _printf_core
+<<<<<<< HEAD
     printf6.o(i.__0fprintf$6) refers to fputc.o(i.fputc) for fputc
     printf6.o(i.__0printf$6) refers to printf6.o(i._printf_core) for _printf_core
     printf6.o(i.__0printf$6) refers to fputc.o(i.fputc) for fputc
+=======
+    printf6.o(i.__0fprintf$6) refers to uart_helper.o(i.fputc) for fputc
+    printf6.o(i.__0printf$6) refers to printf6.o(i._printf_core) for _printf_core
+    printf6.o(i.__0printf$6) refers to uart_helper.o(i.fputc) for fputc
+>>>>>>> Matthew
     printf6.o(i.__0printf$6) refers to stdout.o(.data) for __stdout
     printf6.o(i.__0snprintf$6) refers to printf6.o(i._printf_core) for _printf_core
     printf6.o(i.__0snprintf$6) refers to printf6.o(i._snputc) for _snputc
     printf6.o(i.__0sprintf$6) refers to printf6.o(i._printf_core) for _printf_core
     printf6.o(i.__0sprintf$6) refers to printf6.o(i._sputc) for _sputc
     printf6.o(i.__0vfprintf$6) refers to printf6.o(i._printf_core) for _printf_core
+<<<<<<< HEAD
     printf6.o(i.__0vfprintf$6) refers to fputc.o(i.fputc) for fputc
     printf6.o(i.__0vprintf$6) refers to printf6.o(i._printf_core) for _printf_core
     printf6.o(i.__0vprintf$6) refers to fputc.o(i.fputc) for fputc
+=======
+    printf6.o(i.__0vfprintf$6) refers to uart_helper.o(i.fputc) for fputc
+    printf6.o(i.__0vprintf$6) refers to printf6.o(i._printf_core) for _printf_core
+    printf6.o(i.__0vprintf$6) refers to uart_helper.o(i.fputc) for fputc
+>>>>>>> Matthew
     printf6.o(i.__0vprintf$6) refers to stdout.o(.data) for __stdout
     printf6.o(i.__0vsnprintf$6) refers to printf6.o(i._printf_core) for _printf_core
     printf6.o(i.__0vsnprintf$6) refers to printf6.o(i._snputc) for _snputc
@@ -340,18 +555,30 @@ Section Cross References
     printf6.o(i._printf_core) refers to uidiv.o(.text) for __aeabi_uidivmod
     printf6.o(i._printf_core) refers to printf6.o(i._printf_post_padding) for _printf_post_padding
     printf7.o(i.__0fprintf$7) refers to printf7.o(i._printf_core) for _printf_core
+<<<<<<< HEAD
     printf7.o(i.__0fprintf$7) refers to fputc.o(i.fputc) for fputc
     printf7.o(i.__0printf$7) refers to printf7.o(i._printf_core) for _printf_core
     printf7.o(i.__0printf$7) refers to fputc.o(i.fputc) for fputc
+=======
+    printf7.o(i.__0fprintf$7) refers to uart_helper.o(i.fputc) for fputc
+    printf7.o(i.__0printf$7) refers to printf7.o(i._printf_core) for _printf_core
+    printf7.o(i.__0printf$7) refers to uart_helper.o(i.fputc) for fputc
+>>>>>>> Matthew
     printf7.o(i.__0printf$7) refers to stdout.o(.data) for __stdout
     printf7.o(i.__0snprintf$7) refers to printf7.o(i._printf_core) for _printf_core
     printf7.o(i.__0snprintf$7) refers to printf7.o(i._snputc) for _snputc
     printf7.o(i.__0sprintf$7) refers to printf7.o(i._printf_core) for _printf_core
     printf7.o(i.__0sprintf$7) refers to printf7.o(i._sputc) for _sputc
     printf7.o(i.__0vfprintf$7) refers to printf7.o(i._printf_core) for _printf_core
+<<<<<<< HEAD
     printf7.o(i.__0vfprintf$7) refers to fputc.o(i.fputc) for fputc
     printf7.o(i.__0vprintf$7) refers to printf7.o(i._printf_core) for _printf_core
     printf7.o(i.__0vprintf$7) refers to fputc.o(i.fputc) for fputc
+=======
+    printf7.o(i.__0vfprintf$7) refers to uart_helper.o(i.fputc) for fputc
+    printf7.o(i.__0vprintf$7) refers to printf7.o(i._printf_core) for _printf_core
+    printf7.o(i.__0vprintf$7) refers to uart_helper.o(i.fputc) for fputc
+>>>>>>> Matthew
     printf7.o(i.__0vprintf$7) refers to stdout.o(.data) for __stdout
     printf7.o(i.__0vsnprintf$7) refers to printf7.o(i._printf_core) for _printf_core
     printf7.o(i.__0vsnprintf$7) refers to printf7.o(i._snputc) for _snputc
@@ -361,18 +588,30 @@ Section Cross References
     printf7.o(i._printf_core) refers to uldiv.o(.text) for __aeabi_uldivmod
     printf7.o(i._printf_core) refers to printf7.o(i._printf_post_padding) for _printf_post_padding
     printf8.o(i.__0fprintf$8) refers to printf8.o(i._printf_core) for _printf_core
+<<<<<<< HEAD
     printf8.o(i.__0fprintf$8) refers to fputc.o(i.fputc) for fputc
     printf8.o(i.__0printf$8) refers to printf8.o(i._printf_core) for _printf_core
     printf8.o(i.__0printf$8) refers to fputc.o(i.fputc) for fputc
+=======
+    printf8.o(i.__0fprintf$8) refers to uart_helper.o(i.fputc) for fputc
+    printf8.o(i.__0printf$8) refers to printf8.o(i._printf_core) for _printf_core
+    printf8.o(i.__0printf$8) refers to uart_helper.o(i.fputc) for fputc
+>>>>>>> Matthew
     printf8.o(i.__0printf$8) refers to stdout.o(.data) for __stdout
     printf8.o(i.__0snprintf$8) refers to printf8.o(i._printf_core) for _printf_core
     printf8.o(i.__0snprintf$8) refers to printf8.o(i._snputc) for _snputc
     printf8.o(i.__0sprintf$8) refers to printf8.o(i._printf_core) for _printf_core
     printf8.o(i.__0sprintf$8) refers to printf8.o(i._sputc) for _sputc
     printf8.o(i.__0vfprintf$8) refers to printf8.o(i._printf_core) for _printf_core
+<<<<<<< HEAD
     printf8.o(i.__0vfprintf$8) refers to fputc.o(i.fputc) for fputc
     printf8.o(i.__0vprintf$8) refers to printf8.o(i._printf_core) for _printf_core
     printf8.o(i.__0vprintf$8) refers to fputc.o(i.fputc) for fputc
+=======
+    printf8.o(i.__0vfprintf$8) refers to uart_helper.o(i.fputc) for fputc
+    printf8.o(i.__0vprintf$8) refers to printf8.o(i._printf_core) for _printf_core
+    printf8.o(i.__0vprintf$8) refers to uart_helper.o(i.fputc) for fputc
+>>>>>>> Matthew
     printf8.o(i.__0vprintf$8) refers to stdout.o(.data) for __stdout
     printf8.o(i.__0vsnprintf$8) refers to printf8.o(i._printf_core) for _printf_core
     printf8.o(i.__0vsnprintf$8) refers to printf8.o(i._snputc) for _snputc
@@ -383,10 +622,17 @@ Section Cross References
     printf8.o(i._printf_core) refers to printf8.o(i._printf_post_padding) for _printf_post_padding
     printfa.o(i.__0fprintf) refers (Special) to iusefp.o(.text) for __I$use$fp
     printfa.o(i.__0fprintf) refers to printfa.o(i._printf_core) for _printf_core
+<<<<<<< HEAD
     printfa.o(i.__0fprintf) refers to fputc.o(i.fputc) for fputc
     printfa.o(i.__0printf) refers (Special) to iusefp.o(.text) for __I$use$fp
     printfa.o(i.__0printf) refers to printfa.o(i._printf_core) for _printf_core
     printfa.o(i.__0printf) refers to fputc.o(i.fputc) for fputc
+=======
+    printfa.o(i.__0fprintf) refers to uart_helper.o(i.fputc) for fputc
+    printfa.o(i.__0printf) refers (Special) to iusefp.o(.text) for __I$use$fp
+    printfa.o(i.__0printf) refers to printfa.o(i._printf_core) for _printf_core
+    printfa.o(i.__0printf) refers to uart_helper.o(i.fputc) for fputc
+>>>>>>> Matthew
     printfa.o(i.__0printf) refers to stdout.o(.data) for __stdout
     printfa.o(i.__0snprintf) refers (Special) to iusefp.o(.text) for __I$use$fp
     printfa.o(i.__0snprintf) refers to printfa.o(i._printf_core) for _printf_core
@@ -396,10 +642,17 @@ Section Cross References
     printfa.o(i.__0sprintf) refers to printfa.o(i._sputc) for _sputc
     printfa.o(i.__0vfprintf) refers (Special) to iusefp.o(.text) for __I$use$fp
     printfa.o(i.__0vfprintf) refers to printfa.o(i._printf_core) for _printf_core
+<<<<<<< HEAD
     printfa.o(i.__0vfprintf) refers to fputc.o(i.fputc) for fputc
     printfa.o(i.__0vprintf) refers (Special) to iusefp.o(.text) for __I$use$fp
     printfa.o(i.__0vprintf) refers to printfa.o(i._printf_core) for _printf_core
     printfa.o(i.__0vprintf) refers to fputc.o(i.fputc) for fputc
+=======
+    printfa.o(i.__0vfprintf) refers to uart_helper.o(i.fputc) for fputc
+    printfa.o(i.__0vprintf) refers (Special) to iusefp.o(.text) for __I$use$fp
+    printfa.o(i.__0vprintf) refers to printfa.o(i._printf_core) for _printf_core
+    printfa.o(i.__0vprintf) refers to uart_helper.o(i.fputc) for fputc
+>>>>>>> Matthew
     printfa.o(i.__0vprintf) refers to stdout.o(.data) for __stdout
     printfa.o(i.__0vsnprintf) refers (Special) to iusefp.o(.text) for __I$use$fp
     printfa.o(i.__0vsnprintf) refers to printfa.o(i._printf_core) for _printf_core
@@ -430,6 +683,7 @@ Section Cross References
     entry2.o(__vectab_stack_and_reset_area) refers to entry.o(.ARM.Collect$$$$00000000) for __main
     entry5.o(.ARM.Collect$$$$00000004) refers to init.o(.text) for __scatterload
     entry9a.o(.ARM.Collect$$$$0000000B) refers to project.o(i.main) for main
+<<<<<<< HEAD
     entry9a.o(.ARM.Collect$$$$0000000B) refers to pwm_helper.o(i.main) for main
     entry9b.o(.ARM.Collect$$$$0000000C) refers to project.o(i.main) for main
     entry9b.o(.ARM.Collect$$$$0000000C) refers to pwm_helper.o(i.main) for main
@@ -452,6 +706,9 @@ Section Cross References
     fgetc_ub.o(.data) refers (Special) to semi.o(.text) for __semihosting_library_function
     fputc.o(i.fputc) refers (Special) to iusesemip.o(.text) for __I$use$semihosting$fputc
     fputc.o(i.fputc) refers (Special) to semi.o(.text) for __semihosting_library_function
+=======
+    entry9b.o(.ARM.Collect$$$$0000000C) refers to project.o(i.main) for main
+>>>>>>> Matthew
     uldiv.o(.text) refers to llushr.o(.text) for __aeabi_llsr
     uldiv.o(.text) refers to llshl.o(.text) for __aeabi_llsl
     dadd.o(.text) refers to llshl.o(.text) for __aeabi_llsl
@@ -465,3 +722,316 @@ Section Cross References
     depilogue.o(.text) refers to llshl.o(.text) for __aeabi_llsl
     depilogue.o(.text) refers to llushr.o(.text) for __aeabi_llsr
 
+<<<<<<< HEAD
+=======
+
+==============================================================================
+
+Removing Unused input sections from the image.
+
+    Removing startup_rvmdk.o(HEAP), (0 bytes).
+    Removing startup_rvmdk.o(.text), (0 bytes).
+    Removing adc_helper.o(i.ReadDutyKnob), (140 bytes).
+    Removing adc_helper.o(.bss), (52 bytes).
+    Removing gpio_helper.o(i.TurnOnLEDs), (532 bytes).
+    Removing gpio_helper.o(i.TurnOnLEDs2), (352 bytes).
+    Removing gpio_helper.o(i.UpdateMyButtons), (64 bytes).
+    Removing gpio_helper.o(.data), (2 bytes).
+    Removing pwm_helper.o(i.SetUpPWM196HZ), (32 bytes).
+    Removing pwm_helper.o(i.SetUpPWM208HZ), (32 bytes).
+    Removing pwm_helper.o(i.SetUpPWM300HZ), (32 bytes).
+    Removing pwm_helper.o(i.SetUpPWM400HZ), (32 bytes).
+    Removing pwm_helper.o(i.SetUpPWM500HZ), (32 bytes).
+    Removing uart_helper.o(i.Mander), (28 bytes).
+    Removing uart_helper.o(i.UART_OutChar), (24 bytes).
+    Removing uart_helper.o(i.ferror), (6 bytes).
+    Removing uart_helper.o(i.fgetc), (10 bytes).
+    Removing uart_helper.o(i.fputc), (44 bytes).
+    Removing uart_helper.o(i.print_menu), (108 bytes).
+    Removing uart_helper.o(i.process_UART), (60 bytes).
+    Removing i2c_helper.o(i.I2C_Setup), (136 bytes).
+    Removing adc.o(i.ADCClockConfigGet), (32 bytes).
+    Removing adc.o(i.ADCClockConfigSet), (28 bytes).
+    Removing adc.o(i.ADCComparatorConfigure), (10 bytes).
+    Removing adc.o(i.ADCComparatorIntClear), (4 bytes).
+    Removing adc.o(i.ADCComparatorIntDisable), (18 bytes).
+    Removing adc.o(i.ADCComparatorIntEnable), (16 bytes).
+    Removing adc.o(i.ADCComparatorIntStatus), (4 bytes).
+    Removing adc.o(i.ADCComparatorRegionSet), (14 bytes).
+    Removing adc.o(i.ADCComparatorReset), (40 bytes).
+    Removing adc.o(i.ADCHardwareOversampleConfigure), (18 bytes).
+    Removing adc.o(i.ADCIntClear), (10 bytes).
+    Removing adc.o(i.ADCIntClearEx), (4 bytes).
+    Removing adc.o(i.ADCIntDisable), (16 bytes).
+    Removing adc.o(i.ADCIntDisableEx), (10 bytes).
+    Removing adc.o(i.ADCIntEnable), (16 bytes).
+    Removing adc.o(i.ADCIntEnableEx), (8 bytes).
+    Removing adc.o(i.ADCIntRegister), (104 bytes).
+    Removing adc.o(i.ADCIntStatus), (52 bytes).
+    Removing adc.o(i.ADCIntStatusEx), (22 bytes).
+    Removing adc.o(i.ADCIntUnregister), (108 bytes).
+    Removing adc.o(i.ADCPhaseDelayGet), (4 bytes).
+    Removing adc.o(i.ADCPhaseDelaySet), (4 bytes).
+    Removing adc.o(i.ADCReferenceGet), (8 bytes).
+    Removing adc.o(i.ADCSequenceDMADisable), (18 bytes).
+    Removing adc.o(i.ADCSequenceDMAEnable), (16 bytes).
+    Removing adc.o(i.ADCSequenceOverflow), (12 bytes).
+    Removing adc.o(i.ADCSequenceOverflowClear), (10 bytes).
+    Removing adc.o(i.ADCSequenceUnderflow), (12 bytes).
+    Removing adc.o(i.ADCSequenceUnderflowClear), (10 bytes).
+    Removing adc.o(i.ADCSoftwareOversampleConfigure), (44 bytes).
+    Removing adc.o(i.ADCSoftwareOversampleDataGet), (88 bytes).
+    Removing adc.o(i.ADCSoftwareOversampleStepConfigure), (168 bytes).
+    Removing adc.o(.data), (6 bytes).
+    Removing gpio.o(i.GPIOADCTriggerDisable), (14 bytes).
+    Removing gpio.o(i.GPIOADCTriggerEnable), (12 bytes).
+    Removing gpio.o(i.GPIODMATriggerDisable), (14 bytes).
+    Removing gpio.o(i.GPIODMATriggerEnable), (12 bytes).
+    Removing gpio.o(i.GPIODirModeGet), (34 bytes).
+    Removing gpio.o(i.GPIOIntClear), (6 bytes).
+    Removing gpio.o(i.GPIOIntDisable), (14 bytes).
+    Removing gpio.o(i.GPIOIntEnable), (12 bytes).
+    Removing gpio.o(i.GPIOIntRegister), (26 bytes).
+    Removing gpio.o(i.GPIOIntRegisterPin), (30 bytes).
+    Removing gpio.o(i.GPIOIntStatus), (14 bytes).
+    Removing gpio.o(i.GPIOIntTypeGet), (68 bytes).
+    Removing gpio.o(i.GPIOIntTypeSet), (80 bytes).
+    Removing gpio.o(i.GPIOIntUnregister), (22 bytes).
+    Removing gpio.o(i.GPIOIntUnregisterPin), (26 bytes).
+    Removing gpio.o(i.GPIOPadConfigGet), (204 bytes).
+    Removing gpio.o(i.GPIOPinRead), (6 bytes).
+    Removing gpio.o(i.GPIOPinTypeCAN), (28 bytes).
+    Removing gpio.o(i.GPIOPinTypeComparator), (28 bytes).
+    Removing gpio.o(i.GPIOPinTypeComparatorOutput), (28 bytes).
+    Removing gpio.o(i.GPIOPinTypeDIVSCLK), (28 bytes).
+    Removing gpio.o(i.GPIOPinTypeEPI), (28 bytes).
+    Removing gpio.o(i.GPIOPinTypeEthernetLED), (28 bytes).
+    Removing gpio.o(i.GPIOPinTypeEthernetMII), (28 bytes).
+    Removing gpio.o(i.GPIOPinTypeGPIOOutputOD), (28 bytes).
+    Removing gpio.o(i.GPIOPinTypeHibernateRTCCLK), (28 bytes).
+    Removing gpio.o(i.GPIOPinTypeI2C), (28 bytes).
+    Removing gpio.o(i.GPIOPinTypeI2CSCL), (28 bytes).
+    Removing gpio.o(i.GPIOPinTypeLCD), (28 bytes).
+    Removing gpio.o(i.GPIOPinTypeOneWire), (28 bytes).
+    Removing gpio.o(i.GPIOPinTypeQEI), (28 bytes).
+    Removing gpio.o(i.GPIOPinTypeSSI), (28 bytes).
+    Removing gpio.o(i.GPIOPinTypeTimer), (28 bytes).
+    Removing gpio.o(i.GPIOPinTypeTrace), (28 bytes).
+    Removing gpio.o(i.GPIOPinTypeUSBAnalog), (28 bytes).
+    Removing gpio.o(i.GPIOPinTypeUSBDigital), (28 bytes).
+    Removing gpio.o(i.GPIOPinTypeWakeHigh), (30 bytes).
+    Removing gpio.o(i.GPIOPinTypeWakeLow), (30 bytes).
+    Removing gpio.o(i.GPIOPinWakeStatus), (6 bytes).
+    Removing gpio.o(i._GPIOIntNumberGet), (80 bytes).
+    Removing i2c.o(i.I2CFIFODataGet), (16 bytes).
+    Removing i2c.o(i.I2CFIFODataGetNonBlocking), (24 bytes).
+    Removing i2c.o(i.I2CFIFODataPut), (16 bytes).
+    Removing i2c.o(i.I2CFIFODataPutNonBlocking), (20 bytes).
+    Removing i2c.o(i.I2CFIFOStatus), (6 bytes).
+    Removing i2c.o(i.I2CIntRegister), (96 bytes).
+    Removing i2c.o(i.I2CIntUnregister), (96 bytes).
+    Removing i2c.o(i.I2CLoopbackEnable), (10 bytes).
+    Removing i2c.o(i.I2CMasterBurstCountGet), (4 bytes).
+    Removing i2c.o(i.I2CMasterBurstLengthSet), (4 bytes).
+    Removing i2c.o(i.I2CMasterBusBusy), (12 bytes).
+    Removing i2c.o(i.I2CMasterBusy), (12 bytes).
+    Removing i2c.o(i.I2CMasterControl), (4 bytes).
+    Removing i2c.o(i.I2CMasterDataGet), (4 bytes).
+    Removing i2c.o(i.I2CMasterDataPut), (4 bytes).
+    Removing i2c.o(i.I2CMasterDisable), (10 bytes).
+    Removing i2c.o(i.I2CMasterEnable), (10 bytes).
+    Removing i2c.o(i.I2CMasterErr), (24 bytes).
+    Removing i2c.o(i.I2CMasterGlitchFilterConfigSet), (84 bytes).
+    Removing i2c.o(i.I2CMasterInitExpClk), (84 bytes).
+    Removing i2c.o(i.I2CMasterIntClear), (8 bytes).
+    Removing i2c.o(i.I2CMasterIntClearEx), (4 bytes).
+    Removing i2c.o(i.I2CMasterIntDisable), (6 bytes).
+    Removing i2c.o(i.I2CMasterIntDisableEx), (10 bytes).
+    Removing i2c.o(i.I2CMasterIntEnable), (6 bytes).
+    Removing i2c.o(i.I2CMasterIntEnableEx), (8 bytes).
+    Removing i2c.o(i.I2CMasterIntStatus), (24 bytes).
+    Removing i2c.o(i.I2CMasterIntStatusEx), (10 bytes).
+    Removing i2c.o(i.I2CMasterLineStateGet), (4 bytes).
+    Removing i2c.o(i.I2CMasterSlaveAddrSet), (8 bytes).
+    Removing i2c.o(i.I2CMasterTimeoutSet), (4 bytes).
+    Removing i2c.o(i.I2CRxFIFOConfigSet), (22 bytes).
+    Removing i2c.o(i.I2CRxFIFOFlush), (14 bytes).
+    Removing i2c.o(i.I2CSlaveACKOverride), (22 bytes).
+    Removing i2c.o(i.I2CSlaveACKValueSet), (22 bytes).
+    Removing i2c.o(i.I2CSlaveAddressSet), (24 bytes).
+    Removing i2c.o(i.I2CSlaveDataGet), (6 bytes).
+    Removing i2c.o(i.I2CSlaveDataPut), (6 bytes).
+    Removing i2c.o(i.I2CSlaveDisable), (16 bytes).
+    Removing i2c.o(i.I2CSlaveEnable), (16 bytes).
+    Removing i2c.o(i.I2CSlaveFIFODisable), (8 bytes).
+    Removing i2c.o(i.I2CSlaveFIFOEnable), (10 bytes).
+    Removing i2c.o(i.I2CSlaveInit), (20 bytes).
+    Removing i2c.o(i.I2CSlaveIntClear), (8 bytes).
+    Removing i2c.o(i.I2CSlaveIntClearEx), (6 bytes).
+    Removing i2c.o(i.I2CSlaveIntDisable), (14 bytes).
+    Removing i2c.o(i.I2CSlaveIntDisableEx), (14 bytes).
+    Removing i2c.o(i.I2CSlaveIntEnable), (14 bytes).
+    Removing i2c.o(i.I2CSlaveIntEnableEx), (12 bytes).
+    Removing i2c.o(i.I2CSlaveIntStatus), (28 bytes).
+    Removing i2c.o(i.I2CSlaveIntStatusEx), (14 bytes).
+    Removing i2c.o(i.I2CSlaveStatus), (6 bytes).
+    Removing i2c.o(i.I2CTxFIFOConfigSet), (24 bytes).
+    Removing i2c.o(i.I2CTxFIFOFlush), (14 bytes).
+    Removing i2c.o(.constdata), (128 bytes).
+    Removing pwm.o(i.PWMClockGet), (26 bytes).
+    Removing pwm.o(i.PWMClockSet), (20 bytes).
+    Removing pwm.o(i.PWMDeadBandDisable), (12 bytes).
+    Removing pwm.o(i.PWMDeadBandEnable), (16 bytes).
+    Removing pwm.o(i.PWMFaultIntClear), (8 bytes).
+    Removing pwm.o(i.PWMFaultIntClearExt), (4 bytes).
+    Removing pwm.o(i.PWMFaultIntRegister), (96 bytes).
+    Removing pwm.o(i.PWMFaultIntUnregister), (88 bytes).
+    Removing pwm.o(i.PWMGenDisable), (10 bytes).
+    Removing pwm.o(i.PWMGenFaultClear), (18 bytes).
+    Removing pwm.o(i.PWMGenFaultConfigure), (18 bytes).
+    Removing pwm.o(i.PWMGenFaultStatus), (18 bytes).
+    Removing pwm.o(i.PWMGenFaultTriggerGet), (12 bytes).
+    Removing pwm.o(i.PWMGenFaultTriggerSet), (12 bytes).
+    Removing pwm.o(i.PWMGenIntClear), (6 bytes).
+    Removing pwm.o(i.PWMGenIntRegister), (26 bytes).
+    Removing pwm.o(i.PWMGenIntStatus), (12 bytes).
+    Removing pwm.o(i.PWMGenIntTrigDisable), (10 bytes).
+    Removing pwm.o(i.PWMGenIntTrigEnable), (10 bytes).
+    Removing pwm.o(i.PWMGenIntUnregister), (22 bytes).
+    Removing pwm.o(i.PWMGenPeriodGet), (18 bytes).
+    Removing pwm.o(i.PWMIntDisable), (10 bytes).
+    Removing pwm.o(i.PWMIntEnable), (8 bytes).
+    Removing pwm.o(i.PWMIntStatus), (10 bytes).
+    Removing pwm.o(i.PWMOutputFault), (16 bytes).
+    Removing pwm.o(i.PWMOutputFaultLevel), (16 bytes).
+    Removing pwm.o(i.PWMOutputInvert), (16 bytes).
+    Removing pwm.o(i.PWMOutputUpdateMode), (62 bytes).
+    Removing pwm.o(i.PWMPulseWidthGet), (32 bytes).
+    Removing pwm.o(i.PWMSyncTimeBase), (4 bytes).
+    Removing pwm.o(i.PWMSyncUpdate), (4 bytes).
+    Removing pwm.o(i._PWMGenIntNumberGet), (224 bytes).
+    Removing sysctl.o(i.SysCtlAltClkConfig), (12 bytes).
+    Removing sysctl.o(i.SysCtlClockFreqSet), (748 bytes).
+    Removing sysctl.o(i.SysCtlClockOutConfig), (20 bytes).
+    Removing sysctl.o(i.SysCtlDeepSleep), (32 bytes).
+    Removing sysctl.o(i.SysCtlDeepSleepClockConfigSet), (112 bytes).
+    Removing sysctl.o(i.SysCtlDeepSleepClockSet), (12 bytes).
+    Removing sysctl.o(i.SysCtlDeepSleepPowerSet), (12 bytes).
+    Removing sysctl.o(i.SysCtlFlashSectorSizeGet), (56 bytes).
+    Removing sysctl.o(i.SysCtlFlashSizeGet), (56 bytes).
+    Removing sysctl.o(i.SysCtlGPIOAHBDisable), (28 bytes).
+    Removing sysctl.o(i.SysCtlGPIOAHBEnable), (24 bytes).
+    Removing sysctl.o(i.SysCtlIntClear), (12 bytes).
+    Removing sysctl.o(i.SysCtlIntDisable), (16 bytes).
+    Removing sysctl.o(i.SysCtlIntEnable), (16 bytes).
+    Removing sysctl.o(i.SysCtlIntRegister), (20 bytes).
+    Removing sysctl.o(i.SysCtlIntStatus), (16 bytes).
+    Removing sysctl.o(i.SysCtlIntUnregister), (18 bytes).
+    Removing sysctl.o(i.SysCtlLDODeepSleepGet), (12 bytes).
+    Removing sysctl.o(i.SysCtlLDODeepSleepSet), (12 bytes).
+    Removing sysctl.o(i.SysCtlLDOSleepGet), (12 bytes).
+    Removing sysctl.o(i.SysCtlLDOSleepSet), (12 bytes).
+    Removing sysctl.o(i.SysCtlMOSCConfigSet), (12 bytes).
+    Removing sysctl.o(i.SysCtlNMIClear), (16 bytes).
+    Removing sysctl.o(i.SysCtlNMIStatus), (12 bytes).
+    Removing sysctl.o(i.SysCtlPIOSCCalibrate), (76 bytes).
+    Removing sysctl.o(i.SysCtlPWMClockGet), (24 bytes).
+    Removing sysctl.o(i.SysCtlPeripheralClockGating), (68 bytes).
+    Removing sysctl.o(i.SysCtlPeripheralDeepSleepDisable), (40 bytes).
+    Removing sysctl.o(i.SysCtlPeripheralDeepSleepEnable), (40 bytes).
+    Removing sysctl.o(i.SysCtlPeripheralDisable), (40 bytes).
+    Removing sysctl.o(i.SysCtlPeripheralPowerOff), (40 bytes).
+    Removing sysctl.o(i.SysCtlPeripheralPowerOn), (40 bytes).
+    Removing sysctl.o(i.SysCtlPeripheralPresent), (44 bytes).
+    Removing sysctl.o(i.SysCtlPeripheralSleepDisable), (40 bytes).
+    Removing sysctl.o(i.SysCtlPeripheralSleepEnable), (40 bytes).
+    Removing sysctl.o(i.SysCtlReset), (16 bytes).
+    Removing sysctl.o(i.SysCtlResetBehaviorGet), (12 bytes).
+    Removing sysctl.o(i.SysCtlResetBehaviorSet), (12 bytes).
+    Removing sysctl.o(i.SysCtlResetCauseClear), (16 bytes).
+    Removing sysctl.o(i.SysCtlResetCauseGet), (12 bytes).
+    Removing sysctl.o(i.SysCtlSRAMSizeGet), (16 bytes).
+    Removing sysctl.o(i.SysCtlSleep), (4 bytes).
+    Removing sysctl.o(i.SysCtlSleepPowerSet), (12 bytes).
+    Removing sysctl.o(i.SysCtlUSBPLLDisable), (16 bytes).
+    Removing sysctl.o(i.SysCtlUSBPLLEnable), (16 bytes).
+    Removing sysctl.o(i.SysCtlVCOGet), (120 bytes).
+    Removing sysctl.o(i.SysCtlVoltageEventClear), (16 bytes).
+    Removing sysctl.o(i.SysCtlVoltageEventConfig), (12 bytes).
+    Removing sysctl.o(i.SysCtlVoltageEventStatus), (12 bytes).
+    Removing uart.o(i.UART9BitAddrSend), (38 bytes).
+    Removing uart.o(i.UART9BitAddrSet), (10 bytes).
+    Removing uart.o(i.UART9BitDisable), (14 bytes).
+    Removing uart.o(i.UART9BitEnable), (14 bytes).
+    Removing uart.o(i.UARTBreakCtl), (18 bytes).
+    Removing uart.o(i.UARTBusy), (8 bytes).
+    Removing uart.o(i.UARTCharGet), (12 bytes).
+    Removing uart.o(i.UARTCharGetNonBlocking), (16 bytes).
+    Removing uart.o(i.UARTCharPut), (12 bytes).
+    Removing uart.o(i.UARTCharPutNonBlocking), (16 bytes).
+    Removing uart.o(i.UARTCharsAvail), (10 bytes).
+    Removing uart.o(i.UARTClockSourceGet), (6 bytes).
+    Removing uart.o(i.UARTClockSourceSet), (6 bytes).
+    Removing uart.o(i.UARTConfigGetExpClk), (46 bytes).
+    Removing uart.o(i.UARTDMADisable), (10 bytes).
+    Removing uart.o(i.UARTDMAEnable), (8 bytes).
+    Removing uart.o(i.UARTDisable), (30 bytes).
+    Removing uart.o(i.UARTDisableSIR), (10 bytes).
+    Removing uart.o(i.UARTEnable), (20 bytes).
+    Removing uart.o(i.UARTEnableSIR), (18 bytes).
+    Removing uart.o(i.UARTFIFODisable), (10 bytes).
+    Removing uart.o(i.UARTFIFOEnable), (10 bytes).
+    Removing uart.o(i.UARTFIFOLevelGet), (16 bytes).
+    Removing uart.o(i.UARTFIFOLevelSet), (6 bytes).
+    Removing uart.o(i.UARTFlowControlGet), (8 bytes).
+    Removing uart.o(i.UARTFlowControlSet), (12 bytes).
+    Removing uart.o(i.UARTIntClear), (4 bytes).
+    Removing uart.o(i.UARTIntDisable), (10 bytes).
+    Removing uart.o(i.UARTIntEnable), (8 bytes).
+    Removing uart.o(i.UARTIntRegister), (88 bytes).
+    Removing uart.o(i.UARTIntStatus), (10 bytes).
+    Removing uart.o(i.UARTIntUnregister), (88 bytes).
+    Removing uart.o(i.UARTLoopbackEnable), (10 bytes).
+    Removing uart.o(i.UARTModemControlClear), (14 bytes).
+    Removing uart.o(i.UARTModemControlGet), (8 bytes).
+    Removing uart.o(i.UARTModemControlSet), (12 bytes).
+    Removing uart.o(i.UARTModemStatusGet), (10 bytes).
+    Removing uart.o(i.UARTParityModeGet), (8 bytes).
+    Removing uart.o(i.UARTParityModeSet), (12 bytes).
+    Removing uart.o(i.UARTRxErrorClear), (6 bytes).
+    Removing uart.o(i.UARTRxErrorGet), (8 bytes).
+    Removing uart.o(i.UARTSmartCardDisable), (10 bytes).
+    Removing uart.o(i.UARTSmartCardEnable), (22 bytes).
+    Removing uart.o(i.UARTSpaceAvail), (10 bytes).
+    Removing uart.o(i.UARTTxIntModeGet), (8 bytes).
+    Removing uart.o(i.UARTTxIntModeSet), (12 bytes).
+    Removing uart.o(.constdata), (128 bytes).
+    Removing cpu.o(.emb_text), (38 bytes).
+    Removing interrupt.o(i.IntDisable), (100 bytes).
+    Removing interrupt.o(i.IntEnable), (100 bytes).
+    Removing interrupt.o(i.IntIsEnabled), (96 bytes).
+    Removing interrupt.o(i.IntMasterDisable), (14 bytes).
+    Removing interrupt.o(i.IntMasterEnable), (14 bytes).
+    Removing interrupt.o(i.IntPendClear), (68 bytes).
+    Removing interrupt.o(i.IntPendSet), (84 bytes).
+    Removing interrupt.o(i.IntPriorityGet), (28 bytes).
+    Removing interrupt.o(i.IntPriorityGroupingGet), (36 bytes).
+    Removing interrupt.o(i.IntPriorityGroupingSet), (28 bytes).
+    Removing interrupt.o(i.IntPriorityMaskGet), (4 bytes).
+    Removing interrupt.o(i.IntPriorityMaskSet), (4 bytes).
+    Removing interrupt.o(i.IntPrioritySet), (40 bytes).
+    Removing interrupt.o(i.IntRegister), (52 bytes).
+    Removing interrupt.o(i.IntTrigger), (12 bytes).
+    Removing interrupt.o(i.IntUnregister), (20 bytes).
+    Removing interrupt.o(i._IntDefaultHandler), (2 bytes).
+    Removing interrupt.o(.constdata), (268 bytes).
+    Removing interrupt.o(vtable), (620 bytes).
+    Removing dadd.o(.text), (334 bytes).
+    Removing dmul.o(.text), (228 bytes).
+    Removing ddiv.o(.text), (222 bytes).
+    Removing dfixul.o(.text), (48 bytes).
+    Removing cdrcmple.o(.text), (48 bytes).
+    Removing depilogue.o(.text), (186 bytes).
+
+303 unused section(s) (total 11534 bytes) removed from the image.
+>>>>>>> Matthew

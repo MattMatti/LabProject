@@ -1,6 +1,7 @@
 #line 1 "src\\ADC_helper.c"
 
 #line 1 "src\\ADC_helper.h"
+#pragma once
 #line 1 "C:\\Keil_v5\\ARM\\ARMCC\\Bin\\..\\include\\stdbool.h"
  
 
@@ -19,7 +20,7 @@
 
 
 
-#line 2 "src\\ADC_helper.h"
+#line 3 "src\\ADC_helper.h"
 #line 1 "C:\\Keil_v5\\ARM\\ARMCC\\Bin\\..\\include\\stdint.h"
  
  
@@ -276,7 +277,7 @@ typedef unsigned     long long uintmax_t;
 
 
  
-#line 3 "src\\ADC_helper.h"
+#line 4 "src\\ADC_helper.h"
 #line 1 ".\\driverlib\\sysctl.h"
 
 
@@ -570,7 +571,7 @@ extern _Bool SysCtlVCOGet(uint32_t ui32Crystal, uint32_t *pui32VCOFrequency);
 
 
 
-#line 4 "src\\ADC_helper.h"
+#line 5 "src\\ADC_helper.h"
 #line 1 ".\\inc\\hw_memmap.h"
 
 
@@ -632,7 +633,7 @@ extern _Bool SysCtlVCOGet(uint32_t ui32Crystal, uint32_t *pui32VCOFrequency);
                                             
 #line 150 ".\\inc\\hw_memmap.h"
 
-#line 5 "src\\ADC_helper.h"
+#line 6 "src\\ADC_helper.h"
 #line 1 ".\\driverlib\\adc.h"
 
 
@@ -843,7 +844,7 @@ extern uint32_t ADCSampleRateGet(uint32_t ui32Base);
 
 
 
-#line 6 "src\\ADC_helper.h"
+#line 7 "src\\ADC_helper.h"
 #line 1 ".\\driverlib\\uart.h"
 
 
@@ -1074,7 +1075,7 @@ extern void UARTLoopbackEnable(uint32_t ui32Base);
 
 
 
-#line 7 "src\\ADC_helper.h"
+#line 8 "src\\ADC_helper.h"
 #line 1 ".\\inc\\tm4c123gh6pm.h"
 
 
@@ -9134,7 +9135,7 @@ extern void UARTLoopbackEnable(uint32_t ui32Base);
 
 
 
-#line 8 "src\\ADC_helper.h"
+#line 9 "src\\ADC_helper.h"
 #line 1 ".\\inc\\hw_gpio.h"
 
 
@@ -9304,7 +9305,7 @@ extern void UARTLoopbackEnable(uint32_t ui32Base);
                                             
 #line 212 ".\\inc\\hw_gpio.h"
 
-#line 9 "src\\ADC_helper.h"
+#line 10 "src\\ADC_helper.h"
 #line 1 ".\\inc\\hw_types.h"
 
 
@@ -9438,7 +9439,7 @@ extern void UARTLoopbackEnable(uint32_t ui32Base);
 
 
 
-#line 10 "src\\ADC_helper.h"
+#line 11 "src\\ADC_helper.h"
 #line 1 ".\\driverlib\\gpio.h"
 
 
@@ -9611,48 +9612,51 @@ extern void GPIOADCTriggerDisable(uint32_t ui32Port, uint8_t ui8Pins);
 
 
 
-#line 11 "src\\ADC_helper.h"
-extern uint32_t ADC_Values[13];
+#line 12 "src\\ADC_helper.h"
 
-extern uint32_t photoresistor;
-	
-struct ADC_Strings_FSRs
-{
-	uint32_t String1;
-	uint32_t String2;
-	uint32_t String3;
-	uint32_t String4;
-	uint32_t FSR1;
-	uint32_t FSR2;
-	uint32_t FSR3;
-	uint32_t FSR4;
-};
+
 	
 
+
+
+
+
+
+
+
+
+
+
+
+extern uint32_t DutyCycle;
+extern uint32_t DutyValue;
+void SetupADCPins(void);
 void SetupADC(void);
-void ADCReadChan(void);  
+void ADCReadString1(void);  
+void ADCReadString2(void);  
+void ADCReadString3(void);  
+void ADCReadString4(void);  
 
-extern struct ADC_Strings_FSRs StringAndFSR_values;
+extern struct ADC_info adcinfo;
+
 #line 3 "src\\ADC_helper.c"
 
 uint32_t ADC_Values[13];
 
 
 
-void SetupADCPins(void);
+
 
 
 void SetupADCPins()
 {
-	GPIOPinTypeADC(0x40024000,0x00000008|0x00000004|0x00000002); 
-	GPIOPinTypeADC(0x40007000,0x00000001|0x00000002|0x00000004|0x00000008); 
-	
-	
+	GPIOPinTypeADC(0x40024000,0x00000002); 
+  GPIOPinTypeADC(0x40024000,0x00000008);	
 }
 
 void SetupADC()
 {
-	
+
 	SetupADCPins(); 
 	
 	
@@ -9664,54 +9668,329 @@ void SetupADC()
 	
 	while(!SysCtlPeripheralReady(0xf0003800)) 
 	{
-	}
-	
-	ADCReferenceSet(0x40038000, 0x00000001); 
+	}	
+	ADCReferenceSet(0x40038000, 0x00000000); 
 	
 	
 	
 	
 	ADCSequenceDisable(0x40038000,0); 
 	ADCSequenceConfigure(0x40038000, 0, 0x00000000, 0); 
-	
-	ADCSequenceStepConfigure(0x40038000, 0, 0, 0x00000000 );
-  ADCSequenceStepConfigure(0x40038000, 0, 1, 0x00000001 );	
-  ADCSequenceStepConfigure(0x40038000, 0, 2, 0x00000002 );	
-	ADCSequenceStepConfigure(0x40038000, 0, 3, 0x00000004 );	
-	ADCSequenceStepConfigure(0x40038000, 0, 4, 0x00000005 );	
-	ADCSequenceStepConfigure(0x40038000, 0, 5, 0x00000006 );	
-	ADCSequenceStepConfigure(0x40038000, 0, 6, 0x00000007 | 0x00000020);	
-	
-	
-	
-	
-	
-	ADCSequenceEnable(0x40038000, 0); 
+	ADCSequenceStepConfigure(0x40038000, 0, 0, 0x00000002); 
+  ADCSequenceStepConfigure(0x40038000, 0, 1, 0x00000000 | 0x00000020);	
 
+
+
+
+
+	
+	
+	
+	
+	 __nop();
+	__nop();
+	__nop();
+	ADCSequenceEnable(0x40038000, 0); 
+  __nop();
+	__nop();
+	__nop();
 		
 }
-
-void ADCReadChan()
-{
-	int32_t light;
+void ReadDutyKnob()
 	
+{ 
+	uint32_t DutyCycle;
+	uint32_t DutyValue;
+	
+	ADCProcessorTrigger(0x40038000, 1);
+	
+	while(ADCBusy(0x40038000));
+	
+  ADCSequenceDataGet(0x40038000, 1, &DutyValue);
+
+	if ((DutyValue > 0x000) && (DutyValue < 0x333))
+	{
+		(DutyCycle = 1);
+	}
+  else 
+	{
+	}
+	
+	if ((DutyValue > 0x333) && (DutyValue < 0x666))
+	{
+		(DutyCycle = 2);
+	}
+  else
+	{
+	}
+	if ((DutyValue > 0x666) && (DutyValue < 0x999))
+	{
+		(DutyCycle = 4);
+	}
+  else
+	{
+	}
+	if ((DutyValue > 0x999) && (DutyValue < 0xC02))
+	{
+		(DutyCycle = 6);
+	}
+  else
+	{
+	}
+	if ((DutyValue > 0xC02) && (DutyValue < 0xFFF))
+	{
+		(DutyCycle = 8);
+	}
+  else
+	{
+	}
+
+}
+void ADCReadString1()
+{
+	uint32_t string1;
+	volatile uint32_t ui32Loop;
 	
 	ADCProcessorTrigger(0x40038000, 0); 
 
 	
+	while(ADCBusy(0x40038000));
 	
 	
-	while(ADCBusy(0x40038000)){};
 	
+   ADCSequenceDataGet(0x40038000, 0, &string1);
+	
+  
+	
+  if ((string1 > 0x000) && (string1 < 0x200)) 
 	{
+		SetUpPWM0HZ();
+	}
+  else
+			
+	{	         	
 	}
 	
-	
-	
-	
-	light = (ADCSequenceDataGet(0x40038000, 0, ADC_Values));
-	if (light < 13)
+	if ((string1 > 0x200) && (string1 < 0x2EE)) 
 	{
-		ADC_Values[12]=light; 
+		SetUpPWM82HZ();
+		GPIOPinWrite(0x40025000,0x00000008, 0xF);         	
+	}
+  else
+	{
+		GPIOPinWrite(0x40025000,0x00000008, 0x0);         	
+	}
+
+	if ((string1 > 0x2EE) && (string1 < 0x3DC)) 
+	{
+		SetUpPWM87HZ();
+		GPIOPinWrite(0x40025000,0x00000004, 0xF);         	
+	}
+  else
+	{
+
+		GPIOPinWrite(0x40025000,0x00000004, 0x0);         	
+	}
+	 	
+	if ((string1 > 0x3DC) && (string1 < 0x4CA)) 
+	{
+		SetUpPWM92HZ();
+		GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
+	}
+  else
+	{
+		GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
+	}
+	if ((string1 > 0x4CA) && (string1 < 0x5B8)) 
+	{
+		SetUpPWM98HZ();
+		GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
+	}
+  else
+	{
+		GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
+	}
+	if ((string1 > 0x5B8) && (string1 < 0x6A6)) 
+	{
+		SetUpPWM104HZ();
+		GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
+	}
+  else
+	{
+		GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
+	}
+	if ((string1 > 0x6A6) && (string1 < 0x794)) 
+	{
+		SetUpPWM110HZ();
+		GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
+	}
+  else
+	{
+		GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
+	}
+	if ((string1 > 0x794) && (string1 < 0x882)) 
+	{
+		SetUpPWM117HZ();
+		GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
+	}
+  else
+	{
+		GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
+	}
+	if ((string1 > 0x882) && (string1 < 0x970)) 
+	{
+		SetUpPWM123HZ();
+		GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
+	}
+  else
+	{
+		GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
+	}
+	if ((string1 > 0x970) && (string1 < 0xA5E)) 
+	{
+		SetUpPWM131HZ();
+		GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
+	}
+  else
+	{
+		GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
+	}
+	if ((string1 > 0xA5E) && (string1 < 0xB4C)) 
+	{
+		SetUpPWM139HZ();
+		GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
+	}
+  else
+	{
+		GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
+	}
+	if ((string1 > 0xB4C) && (string1 < 0xC3A)) 
+	{
+		SetUpPWM147HZ();
+		GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
+	}
+  else
+	{
+		GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
+	}
+	if ((string1 > 0xC3A) && (string1 < 0xD28)) 
+	{
+		SetUpPWM156HZ();
+		GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
+	}
+  else
+	{
+		GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
+	}
+	if ((string1 > 0xD28) && (string1 < 0xE16)) 
+	{
+		SetUpPWM165HZ();
+		GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
+	}
+  else
+	{
+		GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
+	}
+	if ((string1 > 0xE16) && (string1 < 0xF04)) 
+	{
+		SetUpPWM175HZ();
+		GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
+	}
+  else
+	{
+		GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
+	}
+	if ((string1 > 0xF04) && (string1 < 0xFFF)) 
+	{
+		SetUpPWM185HZ();
+		GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
+	}
+  else
+	{
+		GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
 	}
 }
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
