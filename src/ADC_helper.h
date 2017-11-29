@@ -9,13 +9,13 @@
 #include "hw_gpio.h"
 #include "hw_types.h"
 #include "gpio.h"
+#include "PWM_helper.h"
 
-
-	
-//struct ADC_Strings_FSRs
+//uint32_t DutyCycle;
+//struct ADC_strings
 //{
-//	uint32_t String1;
-//	uint32_t String2;
+//	uint32_t string1;
+//	uint32_t DutyValue;
 //	uint32_t String3;
 //	uint32_t String4;
 //	uint32_t FSR1;
@@ -24,14 +24,16 @@
 //	uint32_t FSR4;
 //};
 
-extern uint32_t DutyCycle;
 extern uint32_t DutyValue;
+extern uint32_t FSR1I2C;
 void SetupADCPins(void);
 void SetupADC(void);
 void ADCReadString1(void);  
 void ADCReadString2(void);  
 void ADCReadString3(void);  
 void ADCReadString4(void);  
-
-extern struct ADC_info adcinfo;
+void ReadDutyKnob(void);
+void ReadFSR1(void);
+void read_adc(void);
+//extern struct ADC_info adcinfo;
 //extern struct ADC_Strings_FSRs StringAndFSR_values;

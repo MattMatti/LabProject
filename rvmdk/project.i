@@ -3538,7 +3538,7 @@ extern void HibernateClockConfig(uint32_t ui32Config);
 extern void HibernateBatCheckStart(void);
 extern uint32_t HibernateBatCheckDone(void);
 extern void HibernateCounterMode(uint32_t ui32Config);
-extern void HibernateCalendarSet(struct tm *psTime);
+extern void HibernateCalendarSet(struct tm *psTime); 
 extern int HibernateCalendarGet(struct tm *psTime);
 extern void HibernateCalendarMatchSet(uint32_t ui32Index, struct tm *psTime);
 extern void HibernateCalendarMatchGet(uint32_t ui32Index, struct tm *psTime);
@@ -17266,10 +17266,7 @@ void UpdateMyButtons(void);
 #line 10 "./src/ADC_Helper.h"
 #line 11 "./src/ADC_Helper.h"
 #line 12 "./src/ADC_Helper.h"
-
-
-	
-
+#line 13 "./src/ADC_Helper.h"
 
 
 
@@ -17281,16 +17278,21 @@ void UpdateMyButtons(void);
 
 
 
-extern uint32_t DutyCycle;
+
+
+
 extern uint32_t DutyValue;
+extern uint32_t FSR1I2C;
 void SetupADCPins(void);
 void SetupADC(void);
 void ADCReadString1(void);  
 void ADCReadString2(void);  
 void ADCReadString3(void);  
 void ADCReadString4(void);  
+void ReadDutyKnob(void);
+void ReadFSR1(void);
+void read_adc(void);
 
-extern struct ADC_info adcinfo;
 
 #line 16 "./src/PWM_helper.h"
 
@@ -17320,6 +17322,7 @@ void SetUpPWM700HZ(void);
 void SetUpPWM800HZ(void);
 void SetUpPWM900HZ(void);
 void SetupPWM(void);
+extern uint32_t DutyCycle;
 #line 48 "project.h"
 #line 49 "project.h"
 #line 1 "./src/uart_helper.h"
@@ -18266,7 +18269,7 @@ int  main(void)
     SysCtlPeripheralReset(0xf0003800); 
 	  
 	  GPIOSetup();
-		UART_setup();
+		
 	  SetupADCPins();
 		SetupADC();
 	  SetupPWM();
@@ -18274,10 +18277,14 @@ int  main(void)
     while(!SysCtlPeripheralReady(0xf0000804))
     {
 		}   
-    while(1)
-		{	
-		
+  while(1)
+	{
+		read_adc();
+		ReadFSR1();
 		ADCReadString1();
-			
-			}
-		}
+		ReadDutyKnob();
+		
+		
+	}
+		} 
+	

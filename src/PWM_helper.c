@@ -13,14 +13,14 @@
 #define Note_B3 2032
 #define Note_C3 1908
 #define Note_Db3 1798
-#define Note_Eb3 1700
-#define Note_E3 1602
-#define Note_F3 1516
-#define Note_Gb3 1428
-#define Note_G3 1352
-#define Note_Ab4 1276
+#define Note_D3 1700
+#define Note_Eb3 1602
+#define Note_E3 1516
+#define Note_F3 1428
+#define Note_Gb3 1352
+#define Note_G3 1276
 
-extern uint32_t DutyCycle; 
+uint32_t DutyCycle; 
 
 
  void SetupPWM()
@@ -87,140 +87,140 @@ void SetUpPWM87HZ()
 void SetUpPWM92HZ()
 {
     //this Sets the Period (expressed in clock ticks 250,000 Hz / Freq = period)
-    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 2718);
+    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, Note_Gb2);
     
     // this is setting the PWM duty-50% (Period /2)
-		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5, 1359);																									
+		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5, Note_Gb2/DutyCycle);																									
 
 }
  void SetUpPWM98HZ()
 {
     //this Sets the Period (expressed in clock ticks)
-    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 2552);
+    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, Note_G2);
     
 
     // this is setting the PWM duty-50% (Period /2)
-		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,1276);																									
+		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5, Note_G2/DutyCycle);																									
 
 } 
  void SetUpPWM104HZ()
 {
     //this Sets the Period (expressed in clock ticks)
-    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 2404);
+    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, Note_Ab2);
     
 
     // this is setting the PWM duty-50% (Period /2)
-		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,1202);																									
+		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,Note_Ab2/DutyCycle);																									
 
 }
 void SetUpPWM110HZ()
 {
     //this Sets the Period (expressed in clock ticks)
-    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 2272);
+    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, Note_A3);
     
 
     // this is setting the PWM duty-50% (Period /2)
-		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,1136);																									
+		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,Note_A3/DutyCycle);																									
 
 }
 void SetUpPWM117HZ()
 {
     //this Sets the Period (expressed in clock ticks)
-    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 2136);
+    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, Note_Bb3);
     
 
     // this is setting the PWM duty-50% (Period /2)
-		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5, 1068);																									
+		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5, Note_Bb3/DutyCycle);																									
 
 }
 void SetUpPWM123HZ()
 {
     //this Sets the Period (expressed in clock ticks)
-    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 2032);
+    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, Note_B3);
     
 
     // this is setting the PWM duty-50% (Period /2)
-		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,1016);																									
+		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5, Note_B3/DutyCycle);																									
 
 }
 void SetUpPWM131HZ()
 {
     //this Sets the Period (expressed in clock ticks)
-    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 1908);
+    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, Note_C3);
     
 
     // this is setting the PWM duty-50% (Period /2)
-		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5, 954);																									
+		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5, Note_C3/DutyCycle);																									
 
 }
 void SetUpPWM139HZ()
 {
     //this Sets the Period (expressed in clock ticks)
-    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 1798);
+    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, Note_Db3);
     
 
     // this is setting the PWM duty-50% (Period /2)
-		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,899);																									
+		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,Note_Db3/DutyCycle);																									
 
 }
 void SetUpPWM147HZ()
 {
     //this Sets the Period (expressed in clock ticks)
-    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 1700);
+    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, Note_D3);
     
 
     // this is setting the PWM duty-50% (Period /2)
-		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,850);																									
+		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,Note_D3/DutyCycle);																									
 
 }
 void SetUpPWM156HZ()
 {
     //this Sets the Period (expressed in clock ticks)
-    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 1602);
+    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, Note_Eb3);
     
 
     // this is setting the PWM duty-50% (Period /2)
-		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,801);																									
+		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,Note_Eb3/DutyCycle);																									
 
 }
 void SetUpPWM165HZ()
 {
     //this Sets the Period (expressed in clock ticks)
-    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 1516);
+    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, Note_E3);
     
 
     // this is setting the PWM duty-50% (Period /2)
-		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,758);																									
+		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,Note_E3/DutyCycle);																									
 
 }
 void SetUpPWM175HZ()
 {
     //this Sets the Period (expressed in clock ticks)
-    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 1428);
+    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, Note_F3);
     
 
     // this is setting the PWM duty-50% (Period /2)
-		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,714);																									
+		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,Note_F3/DutyCycle);																									
 
 }
 void SetUpPWM185HZ()
 {
     //this Sets the Period (expressed in clock ticks)
-    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 1352);
+    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, Note_Gb3);
     
 
     // this is setting the PWM duty-50% (Period /2)
-		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,676);																									
+		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,Note_Gb3/DutyCycle);																									
 
 }
 void SetUpPWM196HZ()
 {
     //this Sets the Period (expressed in clock ticks)
-    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 1276);
+    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, Note_G3);
     
 
     // this is setting the PWM duty-50% (Period /2)
-		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,638);																									
+		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,Note_G3/DutyCycle);																									
 
 }
 void SetUpPWM208HZ()

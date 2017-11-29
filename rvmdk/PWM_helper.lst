@@ -36792,13 +36792,13 @@ N#include "tm4c123gh6pm.h"
 N#include "hw_gpio.h"
 N#include "hw_types.h"
 N#include "gpio.h"
+N#include "PWM_helper.h"
 N
-N
-N	
-N//struct ADC_Strings_FSRs
+N//uint32_t DutyCycle;
+N//struct ADC_strings
 N//{
-N//	uint32_t String1;
-N//	uint32_t String2;
+N//	uint32_t string1;
+N//	uint32_t DutyValue;
 N//	uint32_t String3;
 N//	uint32_t String4;
 N//	uint32_t FSR1;
@@ -36807,17 +36807,18 @@ N//	uint32_t FSR3;
 N//	uint32_t FSR4;
 N//};
 N
-Nextern uint32_t DutyCycle;
 Nextern uint32_t DutyValue;
+Nextern uint32_t FSR1I2C;
 Nvoid SetupADCPins(void);
 Nvoid SetupADC(void);
 Nvoid ADCReadString1(void);  
 Nvoid ADCReadString2(void);  
 Nvoid ADCReadString3(void);  
 Nvoid ADCReadString4(void);  
-N
-Nextern struct ADC_info adcinfo;
-W "src\ADC_Helper.h" 37 54 last line of file ends without a newline
+Nvoid ReadDutyKnob(void);
+Nvoid ReadFSR1(void);
+Nvoid read_adc(void);
+N//extern struct ADC_info adcinfo;
 N//extern struct ADC_Strings_FSRs StringAndFSR_values;
 L 16 "src\PWM_helper.h" 2
 N
@@ -36847,6 +36848,7 @@ Nvoid SetUpPWM700HZ(void);
 Nvoid SetUpPWM800HZ(void);
 Nvoid SetUpPWM900HZ(void);
 Nvoid SetupPWM(void);
+Nextern uint32_t DutyCycle;
 L 2 "src\PWM_helper.c" 2
 N#include "ADC_helper.h"
 N
@@ -36862,14 +36864,14 @@ N#define Note_Bb3 2136
 N#define Note_B3 2032
 N#define Note_C3 1908
 N#define Note_Db3 1798
-N#define Note_Eb3 1700
-N#define Note_E3 1602
-N#define Note_F3 1516
-N#define Note_Gb3 1428
-N#define Note_G3 1352
-N#define Note_Ab4 1276
+N#define Note_D3 1700
+N#define Note_Eb3 1602
+N#define Note_E3 1516
+N#define Note_F3 1428
+N#define Note_Gb3 1352
+N#define Note_G3 1276
 N
-Nextern uint32_t DutyCycle; 
+Nuint32_t DutyCycle; 
 N
 N
 N void SetupPWM()
@@ -36951,168 +36953,168 @@ N}
 Nvoid SetUpPWM92HZ()
 N{
 N    //this Sets the Period (expressed in clock ticks 250,000 Hz / Freq = period)
-N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 2718);
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, Note_Gb2);
 X    PWMGenPeriodSet(0x40028000, 0x000000C0, 2718);
 N    
 N    // this is setting the PWM duty-50% (Period /2)
-N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5, 1359);																									
-X		PWMPulseWidthSet(0x40028000, 0x000000C5, 1359);																									
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5, Note_Gb2/DutyCycle);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5, 2718/DutyCycle);																									
 N
 N}
 N void SetUpPWM98HZ()
 N{
 N    //this Sets the Period (expressed in clock ticks)
-N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 2552);
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, Note_G2);
 X    PWMGenPeriodSet(0x40028000, 0x000000C0, 2552);
 N    
 N
 N    // this is setting the PWM duty-50% (Period /2)
-N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,1276);																									
-X		PWMPulseWidthSet(0x40028000, 0x000000C5,1276);																									
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5, Note_G2/DutyCycle);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5, 2552/DutyCycle);																									
 N
 N} 
 N void SetUpPWM104HZ()
 N{
 N    //this Sets the Period (expressed in clock ticks)
-N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 2404);
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, Note_Ab2);
 X    PWMGenPeriodSet(0x40028000, 0x000000C0, 2404);
 N    
 N
 N    // this is setting the PWM duty-50% (Period /2)
-N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,1202);																									
-X		PWMPulseWidthSet(0x40028000, 0x000000C5,1202);																									
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,Note_Ab2/DutyCycle);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5,2404/DutyCycle);																									
 N
 N}
 Nvoid SetUpPWM110HZ()
 N{
 N    //this Sets the Period (expressed in clock ticks)
-N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 2272);
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, Note_A3);
 X    PWMGenPeriodSet(0x40028000, 0x000000C0, 2272);
 N    
 N
 N    // this is setting the PWM duty-50% (Period /2)
-N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,1136);																									
-X		PWMPulseWidthSet(0x40028000, 0x000000C5,1136);																									
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,Note_A3/DutyCycle);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5,2272/DutyCycle);																									
 N
 N}
 Nvoid SetUpPWM117HZ()
 N{
 N    //this Sets the Period (expressed in clock ticks)
-N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 2136);
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, Note_Bb3);
 X    PWMGenPeriodSet(0x40028000, 0x000000C0, 2136);
 N    
 N
 N    // this is setting the PWM duty-50% (Period /2)
-N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5, 1068);																									
-X		PWMPulseWidthSet(0x40028000, 0x000000C5, 1068);																									
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5, Note_Bb3/DutyCycle);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5, 2136/DutyCycle);																									
 N
 N}
 Nvoid SetUpPWM123HZ()
 N{
 N    //this Sets the Period (expressed in clock ticks)
-N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 2032);
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, Note_B3);
 X    PWMGenPeriodSet(0x40028000, 0x000000C0, 2032);
 N    
 N
 N    // this is setting the PWM duty-50% (Period /2)
-N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,1016);																									
-X		PWMPulseWidthSet(0x40028000, 0x000000C5,1016);																									
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5, Note_B3/DutyCycle);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5, 2032/DutyCycle);																									
 N
 N}
 Nvoid SetUpPWM131HZ()
 N{
 N    //this Sets the Period (expressed in clock ticks)
-N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 1908);
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, Note_C3);
 X    PWMGenPeriodSet(0x40028000, 0x000000C0, 1908);
 N    
 N
 N    // this is setting the PWM duty-50% (Period /2)
-N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5, 954);																									
-X		PWMPulseWidthSet(0x40028000, 0x000000C5, 954);																									
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5, Note_C3/DutyCycle);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5, 1908/DutyCycle);																									
 N
 N}
 Nvoid SetUpPWM139HZ()
 N{
 N    //this Sets the Period (expressed in clock ticks)
-N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 1798);
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, Note_Db3);
 X    PWMGenPeriodSet(0x40028000, 0x000000C0, 1798);
 N    
 N
 N    // this is setting the PWM duty-50% (Period /2)
-N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,899);																									
-X		PWMPulseWidthSet(0x40028000, 0x000000C5,899);																									
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,Note_Db3/DutyCycle);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5,1798/DutyCycle);																									
 N
 N}
 Nvoid SetUpPWM147HZ()
 N{
 N    //this Sets the Period (expressed in clock ticks)
-N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 1700);
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, Note_D3);
 X    PWMGenPeriodSet(0x40028000, 0x000000C0, 1700);
 N    
 N
 N    // this is setting the PWM duty-50% (Period /2)
-N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,850);																									
-X		PWMPulseWidthSet(0x40028000, 0x000000C5,850);																									
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,Note_D3/DutyCycle);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5,1700/DutyCycle);																									
 N
 N}
 Nvoid SetUpPWM156HZ()
 N{
 N    //this Sets the Period (expressed in clock ticks)
-N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 1602);
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, Note_Eb3);
 X    PWMGenPeriodSet(0x40028000, 0x000000C0, 1602);
 N    
 N
 N    // this is setting the PWM duty-50% (Period /2)
-N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,801);																									
-X		PWMPulseWidthSet(0x40028000, 0x000000C5,801);																									
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,Note_Eb3/DutyCycle);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5,1602/DutyCycle);																									
 N
 N}
 Nvoid SetUpPWM165HZ()
 N{
 N    //this Sets the Period (expressed in clock ticks)
-N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 1516);
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, Note_E3);
 X    PWMGenPeriodSet(0x40028000, 0x000000C0, 1516);
 N    
 N
 N    // this is setting the PWM duty-50% (Period /2)
-N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,758);																									
-X		PWMPulseWidthSet(0x40028000, 0x000000C5,758);																									
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,Note_E3/DutyCycle);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5,1516/DutyCycle);																									
 N
 N}
 Nvoid SetUpPWM175HZ()
 N{
 N    //this Sets the Period (expressed in clock ticks)
-N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 1428);
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, Note_F3);
 X    PWMGenPeriodSet(0x40028000, 0x000000C0, 1428);
 N    
 N
 N    // this is setting the PWM duty-50% (Period /2)
-N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,714);																									
-X		PWMPulseWidthSet(0x40028000, 0x000000C5,714);																									
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,Note_F3/DutyCycle);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5,1428/DutyCycle);																									
 N
 N}
 Nvoid SetUpPWM185HZ()
 N{
 N    //this Sets the Period (expressed in clock ticks)
-N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 1352);
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, Note_Gb3);
 X    PWMGenPeriodSet(0x40028000, 0x000000C0, 1352);
 N    
 N
 N    // this is setting the PWM duty-50% (Period /2)
-N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,676);																									
-X		PWMPulseWidthSet(0x40028000, 0x000000C5,676);																									
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,Note_Gb3/DutyCycle);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5,1352/DutyCycle);																									
 N
 N}
 Nvoid SetUpPWM196HZ()
 N{
 N    //this Sets the Period (expressed in clock ticks)
-N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 1276);
+N    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, Note_G3);
 X    PWMGenPeriodSet(0x40028000, 0x000000C0, 1276);
 N    
 N
 N    // this is setting the PWM duty-50% (Period /2)
-N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,638);																									
-X		PWMPulseWidthSet(0x40028000, 0x000000C5,638);																									
+N		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5,Note_G3/DutyCycle);																									
+X		PWMPulseWidthSet(0x40028000, 0x000000C5,1276/DutyCycle);																									
 N
 N}
 Nvoid SetUpPWM208HZ()

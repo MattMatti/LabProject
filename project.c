@@ -23,7 +23,7 @@ int  main(void)
     SysCtlPeripheralReset(SYSCTL_PERIPH_ADC0); // resets ADC module 0 
 	  
 	  GPIOSetup();
-		UART_setup();
+		//UART_setup();
 	  SetupADCPins();
 		SetupADC();
 	  SetupPWM();
@@ -31,50 +31,14 @@ int  main(void)
     while(!SysCtlPeripheralReady(SYSCTL_PERIPH_GPIOE))
     {
 		}   
-    while(1)
-<<<<<<< HEAD
-		{
-		if (string1 < 0xFFF);
-    {
-			SetUpPWM200HZ();
-		}			
-    else
-		{
+  while(1)
+	{
+		read_adc();
+		ReadFSR1();
+		ADCReadString1();
+		ReadDutyKnob();
+		
+		
+	}
 		} 
 	
-		
-
-//GPIO
-	
-
-//	GPIOSetup();
-//	
-//  UpdateMYButtons();
-//	
-//	if(MyButtons.SW1==0)
-//				{
-//				}
-//				else
-//				{				
-//		
-//			TurnOnLEDs();
-//	
-//	}
-//	if(MyButtons.SW2==0)
-//				{
-//				}
-//				else
-//				{	
-
-//				TurnOnLEDs2();
-//		
-//}
-//			
-=======
-		{	
-		
-		ADCReadString1();
-			
->>>>>>> Matthew
-			}
-		}

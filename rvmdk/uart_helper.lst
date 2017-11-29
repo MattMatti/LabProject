@@ -36964,5 +36964,4 @@ N
 N	// maybe create an array and have the value printed/sent to the uart port?
 N	//Uart must be initialized first.
 N	//code here.
-W "src\uart_helper.c" 123 2 last line of file ends without a newline
 N}

@@ -4804,7 +4804,7 @@ Nextern void HibernateBatCheckStart(void);
 Nextern uint32_t HibernateBatCheckDone(void);
 Nextern void HibernateCounterMode(uint32_t ui32Config);
 W "driverlib/hibernate.h" 229 41 declaration is not visible outside of function
-Nextern void HibernateCalendarSet(struct tm *psTime);
+Nextern void HibernateCalendarSet(struct tm *psTime); 
 W "driverlib/hibernate.h" 230 40 declaration is not visible outside of function
 Nextern int HibernateCalendarGet(struct tm *psTime);
 W "driverlib/hibernate.h" 231 66 declaration is not visible outside of function
@@ -63400,7 +63400,6 @@ N
 N  extern struct MyButtons MyButtons;
 N  void GPIOSetup(void);
 N  void TurnOnLEDs(void);
-W "./src/GPIO_helper.h" 30 26 last line of file ends without a newline
 N  void TurnOnLEDs2(void);
 L 47 "project.h" 2
 N#include "./src/PWM_helper.h"
@@ -63432,13 +63431,13 @@ N#include "tm4c123gh6pm.h"
 N#include "hw_gpio.h"
 N#include "hw_types.h"
 N#include "gpio.h"
+N#include "PWM_helper.h"
 N
-N
-N	
-N//struct ADC_Strings_FSRs
+N//uint32_t DutyCycle;
+N//struct ADC_strings
 N//{
-N//	uint32_t String1;
-N//	uint32_t String2;
+N//	uint32_t string1;
+N//	uint32_t DutyValue;
 N//	uint32_t String3;
 N//	uint32_t String4;
 N//	uint32_t FSR1;
@@ -63447,17 +63446,18 @@ N//	uint32_t FSR3;
 N//	uint32_t FSR4;
 N//};
 N
-Nextern uint32_t DutyCycle;
 Nextern uint32_t DutyValue;
+Nextern uint32_t FSR1I2C;
 Nvoid SetupADCPins(void);
 Nvoid SetupADC(void);
 Nvoid ADCReadString1(void);  
 Nvoid ADCReadString2(void);  
 Nvoid ADCReadString3(void);  
 Nvoid ADCReadString4(void);  
-N
-Nextern struct ADC_info adcinfo;
-W "./src/ADC_Helper.h" 37 54 last line of file ends without a newline
+Nvoid ReadDutyKnob(void);
+Nvoid ReadFSR1(void);
+Nvoid read_adc(void);
+N//extern struct ADC_info adcinfo;
 N//extern struct ADC_Strings_FSRs StringAndFSR_values;
 L 16 "./src/PWM_helper.h" 2
 N
@@ -63487,6 +63487,7 @@ Nvoid SetUpPWM700HZ(void);
 Nvoid SetUpPWM800HZ(void);
 Nvoid SetUpPWM900HZ(void);
 Nvoid SetupPWM(void);
+Nextern uint32_t DutyCycle;
 L 48 "project.h" 2
 N#include "./src/ADC_helper.h"
 N#include "./src/uart_helper.h"
@@ -64630,37 +64631,32 @@ N
 N
 L 2 "I2C_helper.h" 2
 N
-W "I2C_helper.h" 3 22 last line of file ends without a newline
 Nvoid I2C_Setup(void);
+N
 L 2 "I2C_helper.c" 2
 N
 Nvoid I2C_Setup(void)
 N{
+N	SysCtlPeripheralEnable(SYSCTL_PERIPH_I2C0); // Enables I2C Module 0 
+X	SysCtlPeripheralEnable(0xf0002000); 
 N
-N	SYSCTL_RCGCI2C_R |= (1<<0); // Using I2C0 module
-X	(*((volatile uint32_t *)0x400FE620)) |= (1<<0); 
-N	SYSCTL_RCGCGPIO_R |= (1<<1); // Enable clock to PortB
-X	(*((volatile uint32_t *)0x400FE608)) |= (1<<1); 
-N	GPIO_PORTB_AFSEL_R |= (0x06<<1); //enable alt function on pins 2 and 3
-X	(*((volatile uint32_t *)0x40005420)) |= (0x06<<1); 
-N		
-N	GPIO_PORTB_AFSEL_R |= (0x06<<1); //enable alt function on pins 2 and 3
-X	(*((volatile uint32_t *)0x40005420)) |= (0x06<<1); 
-N	
-N	
-N	GPIO_PORTB_ODR_R |= (1<<3); // Open drain on pb3
-X	(*((volatile uint32_t *)0x4000550C)) |= (1<<3); 
-N	GPIO_PORTB_PCTL_R |= GPIO_PCTL_PB2_I2C0SCL; //PIN 2 is now serial clock 
-X	(*((volatile uint32_t *)0x4000552C)) |= 0x00000300; 
-N	GPIO_PORTB_PCTL_R |= GPIO_PCTL_PB3_I2C0SDA; //PIN 3 is now serial data
-X	(*((volatile uint32_t *)0x4000552C)) |= 0x00003000; 
-N	GPIO_PORTB_CR_R |= (0x06<<1);
-X	(*((volatile uint32_t *)0x40005524)) |= (0x06<<1);
-N	I2CMasterEnable(I2C0_BASE);  //Initialize master to do work and stuff
-X	I2CMasterEnable(0x40020000);  
-N   
-N	I2C0_MTPR_R = 0x07; //Correct clock speed for normal speed
-X	(*((volatile uint32_t *)0x4002000C)) = 0x07; 
+N	SysCtlPeripheralReset(SYSCTL_PERIPH_I2C0); // resets module 0
+X	SysCtlPeripheralReset(0xf0002000); 
+N	SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOB); // enables port B
+X	SysCtlPeripheralEnable(0xf0000801); 
 N
-W "I2C_helper.c" 21 2 last line of file ends without a newline
+N	GPIOPinConfigure(GPIO_PB2_I2C0SCL); //configures port B pin2 to module clock
+X	GPIOPinConfigure(0x00010803); 
+N	GPIOPinConfigure(GPIO_PB3_I2C0SDA); // configures port B pin 3 to module data
+X	GPIOPinConfigure(0x00010C03); 
+N	
+N	GPIOPinTypeI2CSCL(GPIO_PORTB_BASE, GPIO_PIN_2); //Sets pin type as I2C clock
+X	GPIOPinTypeI2CSCL(0x40005000, 0x00000004); 
+N	GPIOPinTypeI2C(GPIO_PORTB_BASE, GPIO_PIN_3); //Sets Pin Type as I2C as Data
+X	GPIOPinTypeI2C(0x40005000, 0x00000008); 
+N
+N	I2CMasterInitExpClk(I2C0_BASE, SysCtlClockGet(), false); //data rate is set to 100 kbps	
+X	I2CMasterInitExpClk(0x40020000, SysCtlClockGet(), 0); 
 N}
+N
+N

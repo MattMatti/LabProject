@@ -15493,7 +15493,6 @@ N
 N  extern struct MyButtons MyButtons;
 N  void GPIOSetup(void);
 N  void TurnOnLEDs(void);
-W "src\GPIO_helper.h" 30 26 last line of file ends without a newline
 N  void TurnOnLEDs2(void);
 L 2 "src\GPIO_helper.c" 2
 N
@@ -15763,6 +15762,6 @@ N				for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
 N
 N        {
 N        }
-N			}
-W "src\GPIO_helper.c" 213 4 last line of file ends without a newline
-N			
+N}
+W "src\GPIO_helper.c" 213 2 last line of file ends without a newline
+N	

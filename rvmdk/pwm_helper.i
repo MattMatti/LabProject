@@ -10566,10 +10566,7 @@ extern void GPIOADCTriggerDisable(uint32_t ui32Port, uint8_t ui8Pins);
 #line 10 "src\\ADC_Helper.h"
 #line 11 "src\\ADC_Helper.h"
 #line 12 "src\\ADC_Helper.h"
-
-
-	
-
+#line 13 "src\\ADC_Helper.h"
 
 
 
@@ -10581,16 +10578,21 @@ extern void GPIOADCTriggerDisable(uint32_t ui32Port, uint8_t ui8Pins);
 
 
 
-extern uint32_t DutyCycle;
+
+
+
 extern uint32_t DutyValue;
+extern uint32_t FSR1I2C;
 void SetupADCPins(void);
 void SetupADC(void);
 void ADCReadString1(void);  
 void ADCReadString2(void);  
 void ADCReadString3(void);  
 void ADCReadString4(void);  
+void ReadDutyKnob(void);
+void ReadFSR1(void);
+void read_adc(void);
 
-extern struct ADC_info adcinfo;
 
 #line 16 "src\\PWM_helper.h"
 
@@ -10620,6 +10622,7 @@ void SetUpPWM700HZ(void);
 void SetUpPWM800HZ(void);
 void SetUpPWM900HZ(void);
 void SetupPWM(void);
+extern uint32_t DutyCycle;
 #line 2 "src\\PWM_helper.c"
 #line 3 "src\\PWM_helper.c"
 
@@ -10627,7 +10630,7 @@ void SetupPWM(void);
 
 #line 22 "src\\PWM_helper.c"
 
-extern uint32_t DutyCycle; 
+uint32_t DutyCycle; 
 
 
  void SetupPWM()
@@ -10697,7 +10700,7 @@ void SetUpPWM92HZ()
     PWMGenPeriodSet(0x40028000, 0x000000C0, 2718);
     
     
-		PWMPulseWidthSet(0x40028000, 0x000000C5, 1359);																									
+		PWMPulseWidthSet(0x40028000, 0x000000C5, 2718/DutyCycle);																									
 
 }
  void SetUpPWM98HZ()
@@ -10707,7 +10710,7 @@ void SetUpPWM92HZ()
     
 
     
-		PWMPulseWidthSet(0x40028000, 0x000000C5,1276);																									
+		PWMPulseWidthSet(0x40028000, 0x000000C5, 2552/DutyCycle);																									
 
 } 
  void SetUpPWM104HZ()
@@ -10717,7 +10720,7 @@ void SetUpPWM92HZ()
     
 
     
-		PWMPulseWidthSet(0x40028000, 0x000000C5,1202);																									
+		PWMPulseWidthSet(0x40028000, 0x000000C5,2404/DutyCycle);																									
 
 }
 void SetUpPWM110HZ()
@@ -10727,7 +10730,7 @@ void SetUpPWM110HZ()
     
 
     
-		PWMPulseWidthSet(0x40028000, 0x000000C5,1136);																									
+		PWMPulseWidthSet(0x40028000, 0x000000C5,2272/DutyCycle);																									
 
 }
 void SetUpPWM117HZ()
@@ -10737,7 +10740,7 @@ void SetUpPWM117HZ()
     
 
     
-		PWMPulseWidthSet(0x40028000, 0x000000C5, 1068);																									
+		PWMPulseWidthSet(0x40028000, 0x000000C5, 2136/DutyCycle);																									
 
 }
 void SetUpPWM123HZ()
@@ -10747,7 +10750,7 @@ void SetUpPWM123HZ()
     
 
     
-		PWMPulseWidthSet(0x40028000, 0x000000C5,1016);																									
+		PWMPulseWidthSet(0x40028000, 0x000000C5, 2032/DutyCycle);																									
 
 }
 void SetUpPWM131HZ()
@@ -10757,7 +10760,7 @@ void SetUpPWM131HZ()
     
 
     
-		PWMPulseWidthSet(0x40028000, 0x000000C5, 954);																									
+		PWMPulseWidthSet(0x40028000, 0x000000C5, 1908/DutyCycle);																									
 
 }
 void SetUpPWM139HZ()
@@ -10767,7 +10770,7 @@ void SetUpPWM139HZ()
     
 
     
-		PWMPulseWidthSet(0x40028000, 0x000000C5,899);																									
+		PWMPulseWidthSet(0x40028000, 0x000000C5,1798/DutyCycle);																									
 
 }
 void SetUpPWM147HZ()
@@ -10777,7 +10780,7 @@ void SetUpPWM147HZ()
     
 
     
-		PWMPulseWidthSet(0x40028000, 0x000000C5,850);																									
+		PWMPulseWidthSet(0x40028000, 0x000000C5,1700/DutyCycle);																									
 
 }
 void SetUpPWM156HZ()
@@ -10787,7 +10790,7 @@ void SetUpPWM156HZ()
     
 
     
-		PWMPulseWidthSet(0x40028000, 0x000000C5,801);																									
+		PWMPulseWidthSet(0x40028000, 0x000000C5,1602/DutyCycle);																									
 
 }
 void SetUpPWM165HZ()
@@ -10797,7 +10800,7 @@ void SetUpPWM165HZ()
     
 
     
-		PWMPulseWidthSet(0x40028000, 0x000000C5,758);																									
+		PWMPulseWidthSet(0x40028000, 0x000000C5,1516/DutyCycle);																									
 
 }
 void SetUpPWM175HZ()
@@ -10807,7 +10810,7 @@ void SetUpPWM175HZ()
     
 
     
-		PWMPulseWidthSet(0x40028000, 0x000000C5,714);																									
+		PWMPulseWidthSet(0x40028000, 0x000000C5,1428/DutyCycle);																									
 
 }
 void SetUpPWM185HZ()
@@ -10817,7 +10820,7 @@ void SetUpPWM185HZ()
     
 
     
-		PWMPulseWidthSet(0x40028000, 0x000000C5,676);																									
+		PWMPulseWidthSet(0x40028000, 0x000000C5,1352/DutyCycle);																									
 
 }
 void SetUpPWM196HZ()
@@ -10827,7 +10830,7 @@ void SetUpPWM196HZ()
     
 
     
-		PWMPulseWidthSet(0x40028000, 0x000000C5,638);																									
+		PWMPulseWidthSet(0x40028000, 0x000000C5,1276/DutyCycle);																									
 
 }
 void SetUpPWM208HZ()

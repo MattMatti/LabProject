@@ -40,3 +40,4 @@ void SetUpPWM700HZ(void);
 void SetUpPWM800HZ(void);
 void SetUpPWM900HZ(void);
 void SetupPWM(void);
+extern uint32_t DutyCycle;
