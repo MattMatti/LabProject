@@ -117,12 +117,9 @@ void ReadFSR1()
 	//while(!ADCIntStatus(ADC0_BASE, 0, false))
 	
 	// Read the value from the ADC.
-  //How_many2 = (ADCSequenceDataGet(ADC0_BASE, 0, &ADC_Values[0]));
-	
-	//if (How_many2 == 3)
-	//{
+
 		FSR1 = ADC_Values[1];
-	//}
+
 	
 	if (FSR1 > 0x700)
 	{

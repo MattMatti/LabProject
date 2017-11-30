@@ -154,9 +154,9 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>123</LineNumber>
+          <LineNumber>124</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>2618</Address>
+          <Address>2616</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -165,27 +165,28 @@
           <BreakIfRCount>1</BreakIfRCount>
           <Filename>.\src\ADC_helper.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\project\src/ADC_helper.c\123</Expression>
+          <Expression>\\project\src/ADC_helper.c\124</Expression>
+        </Bp>
+        <Bp>
+          <Number>1</Number>
+          <Type>0</Type>
+          <LineNumber>121</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>0</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>0</BreakIfRCount>
+          <Filename>.\src\ADC_helper.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression></Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
         <Ww>
           <count>0</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>FSR1</ItemText>
-        </Ww>
-        <Ww>
-          <count>1</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>DutyValue</ItemText>
-        </Ww>
-        <Ww>
-          <count>2</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>string1</ItemText>
-        </Ww>
-        <Ww>
-          <count>3</count>
           <WinNumber>1</WinNumber>
           <ItemText>ADCBuffer</ItemText>
         </Ww>
