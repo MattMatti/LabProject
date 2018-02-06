@@ -36794,6 +36794,7 @@ N#include "hw_types.h"
 N#include "gpio.h"
 N#include "PWM_helper.h"
 N
+N
 N//uint32_t DutyCycle;
 N//struct ADC_strings
 N//{

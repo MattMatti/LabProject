@@ -36824,6 +36824,7 @@ Nvoid SetupPWM(void);
 Nextern uint32_t DutyCycle;
 L 13 "src\ADC_helper.h" 2
 N
+N
 N//uint32_t DutyCycle;
 N//struct ADC_strings
 N//{
@@ -36851,9 +36852,18 @@ Nvoid read_adc(void);
 N//extern struct ADC_info adcinfo;
 N//extern struct ADC_Strings_FSRs StringAndFSR_values;
 L 3 "src\ADC_helper.c" 2
-N
 Nuint32_t ADC_Values[8];
 Nuint32_t ADCBuffer[13];
+N
+Nfloat one = 1.1000;
+Nfloat two = 1.2000;
+Nfloat three = 1.3000;
+Nfloat four = 1.4000;
+Nfloat five = 1.5000;
+Nfloat six = 1.60000;
+Nfloat seven = 1.7000;
+Nfloat eight = 1.8000;
+Nfloat nine = 1.9000;
 N
 N
 N//struct ADC_strings myguitarproject;
@@ -36872,7 +36882,7 @@ N  GPIOPinTypeADC(GPIO_PORTE_BASE,GPIO_PIN_2);
 X  GPIOPinTypeADC(0x40024000,0x00000004);	
 N  GPIOPinTypeADC(GPIO_PORTE_BASE,GPIO_PIN_4);	
 X  GPIOPinTypeADC(0x40024000,0x00000010);	
-N
+N 
 N}
 N
 Nvoid SetupADC()
@@ -36927,13 +36937,9 @@ N}
 N
 Nvoid ReadDutyKnob()	
 N{ 
-N	
+N	//uint32_t DutyCycle; 
 N	uint32_t DutyValue;
-N	//uint32_t How_many;
-N	//ADCProcessorTrigger(ADC0_BASE, 0);
-N	
-N	
-N	//while(ADCBusy(ADC0_BASE));
+N	 
 N	
 N  //How_many = (ADCSequenceDataGet(ADC0_BASE, 0, &ADC_Values[0]));
 N  //if (How_many == 3)
@@ -36941,29 +36947,29 @@ N	//{
 N		DutyValue = ADC_Values[0];
 N//	}
 N	
-N	if ((DutyValue > 0x000) && (DutyValue < 0x333))
-N	{
-N		(DutyCycle = 1);
-N	}
-N	
-N	if ((DutyValue > 0x333) && (DutyValue < 0x666))
+N	if ((DutyValue > 0x000) && (DutyValue < 0x222))
 N	{
 N		(DutyCycle = 2);
 N	}
-N
-N	if ((DutyValue > 0x666) && (DutyValue < 0x999))
+N	
+N	if ((DutyValue > 0x222) && (DutyValue < 0x444))
 N	{
 N		(DutyCycle = 4);
 N	}
-N  
-N	if ((DutyValue > 0x999) && (DutyValue < 0xC02))
+N
+N	if ((DutyValue > 0x444) && (DutyValue < 0x666))
 N	{
 N		(DutyCycle = 6);
 N	}
-N	
-N	if ((DutyValue > 0xC02) && (DutyValue < 0xFFF))
+N  
+N	if ((DutyValue > 0x666) && (DutyValue < 0x888))
 N	{
 N		(DutyCycle = 8);
+N	}
+N	
+N	if ((DutyValue > 0x888) && (DutyValue < 0xFFF))
+N	{
+N		(DutyCycle = 10);
 N	}
 N
 N}
@@ -36980,12 +36986,9 @@ N	//while(ADCBusy(ADC0_BASE));
 N	//while(!ADCIntStatus(ADC0_BASE, 0, false))
 N	
 N	// Read the value from the ADC.
-N  //How_many2 = (ADCSequenceDataGet(ADC0_BASE, 0, &ADC_Values[0]));
-N	
-N	//if (How_many2 == 3)
-N	//{
+N
 N		FSR1 = ADC_Values[1];
-N	//}
+N
 N	
 N	if (FSR1 > 0x700)
 N	{
@@ -37035,6 +37038,13 @@ N	//printf("This is the value of string1 %d\n\r", string1);
 N	//if (How_many1 == 3)
 N	//{
 N	string1 = ADC_Values[2];
+N	
+N		//this Sets the Period (expressed in clock ticks 250,000 Hz / Freq = period)
+N//	PWMGenPeriodSet(PWM0_BASE, PWM_GEN_2, 4095 - ADC_Values[2]);
+N    
+N   // this is setting the PWM duty-50% (Period /2)
+N//	PWMPulseWidthSet(PWM0_BASE, PWM_OUT_5, ADC_Values[2]%10);
+N	
 N	//}
 N  if ((string1 > 0x000) && (string1 < 0x200)) // less than or equal to this voltage range
 N	{
@@ -37079,24 +37089,24 @@ N	}
 N	if ((string1 > 0x4CA) && (string1 < 0x5B8)) // less than or equal to this voltage range
 N	{
 N		SetUpPWM98HZ();
-N		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1, 0xF);         	
-X		GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
+N		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_3, 0xF);         	
+X		GPIOPinWrite(0x40025000,0x00000008, 0xF);         	
 N	}
 N  else
 N	{
-N		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1, 0x0);         	
-X		GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
+N		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_3, 0x0);         	
+X		GPIOPinWrite(0x40025000,0x00000008, 0x0);         	
 N	}
 N	if ((string1 > 0x5B8) && (string1 < 0x6A6)) // less than or equal to this voltage range
 N	{
 N		SetUpPWM104HZ();
-N		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1, 0xF);         	
-X		GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
+N		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_2, 0xF);         	
+X		GPIOPinWrite(0x40025000,0x00000004, 0xF);         	
 N	}
 N  else
 N	{
-N		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1, 0x0);         	
-X		GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
+N		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_2, 0x0);         	
+X		GPIOPinWrite(0x40025000,0x00000004, 0x0);         	
 N	}
 N	if ((string1 > 0x6A6) && (string1 < 0x794)) // less than or equal to this voltage range
 N	{
@@ -37112,24 +37122,24 @@ N	}
 N	if ((string1 > 0x794) && (string1 < 0x882)) // less than or equal to this voltage range
 N	{
 N		SetUpPWM117HZ();
-N		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1, 0xF);         	
-X		GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
+N		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_2, 0xF);         	
+X		GPIOPinWrite(0x40025000,0x00000004, 0xF);         	
 N	}
 N  else
 N	{
-N		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1, 0x0);         	
-X		GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
+N		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_2, 0x0);         	
+X		GPIOPinWrite(0x40025000,0x00000004, 0x0);         	
 N	}
 N	if ((string1 > 0x882) && (string1 < 0x970)) // less than or equal to this voltage range
 N	{
 N		SetUpPWM123HZ();
-N		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1, 0xF);         	
-X		GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
+N		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_3, 0xF);         	
+X		GPIOPinWrite(0x40025000,0x00000008, 0xF);         	
 N	}
 N  else
 N	{
-N		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1, 0x0);         	
-X		GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
+N		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_3, 0x0);         	
+X		GPIOPinWrite(0x40025000,0x00000008, 0x0);         	
 N	}
 N	if ((string1 > 0x970) && (string1 < 0xA5E)) // less than or equal to this voltage range
 N	{
@@ -37145,35 +37155,35 @@ N	}
 N	if ((string1 > 0xA5E) && (string1 < 0xB4C)) // less than or equal to this voltage range
 N	{
 N		SetUpPWM139HZ();
-N		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1, 0xF);         	
-X		GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
+N		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_2, 0xF);         	
+X		GPIOPinWrite(0x40025000,0x00000004, 0xF);         	
 N	}
 N  else
 N	{
-N		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1, 0x0);         	
-X		GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
+N		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_2, 0x0);         	
+X		GPIOPinWrite(0x40025000,0x00000004, 0x0);         	
 N	}
 N	if ((string1 > 0xB4C) && (string1 < 0xC3A)) // less than or equal to this voltage range
 N	{
 N		SetUpPWM147HZ();
-N		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1, 0xF);         	
-X		GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
+N		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_3, 0xF);         	
+X		GPIOPinWrite(0x40025000,0x00000008, 0xF);         	
 N	}
 N  else
 N	{
-N		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1, 0x0);         	
-X		GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
+N		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_3, 0x0);         	
+X		GPIOPinWrite(0x40025000,0x00000008, 0x0);         	
 N	}
 N	if ((string1 > 0xC3A) && (string1 < 0xD28)) // less than or equal to this voltage range
 N	{
 N		SetUpPWM156HZ();
-N		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1, 0xF);         	
-X		GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
+N		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_2, 0xF);         	
+X		GPIOPinWrite(0x40025000,0x00000004, 0xF);         	
 N	}
 N  else
 N	{
-N		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1, 0x0);         	
-X		GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
+N		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_2, 0x0);         	
+X		GPIOPinWrite(0x40025000,0x00000004, 0x0);         	
 N	}
 N	if ((string1 > 0xD28) && (string1 < 0xE16)) // less than or equal to this voltage range
 N	{
@@ -37189,24 +37199,24 @@ N	}
 N	if ((string1 > 0xE16) && (string1 < 0xF04)) // less than or equal to this voltage range
 N	{
 N		SetUpPWM175HZ();
-N		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1, 0xF);         	
-X		GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
+N		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_2, 0xF);         	
+X		GPIOPinWrite(0x40025000,0x00000004, 0xF);         	
 N	}
 N  else
 N	{
-N		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1, 0x0);         	
-X		GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
+N		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_2, 0x0);         	
+X		GPIOPinWrite(0x40025000,0x00000004, 0x0);         	
 N	}
 N	if ((string1 > 0xF04) && (string1 < 0xFFF)) // less than or equal to this voltage range
 N	{
 N		SetUpPWM185HZ();
-N		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1, 0xF);         	
-X		GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
+N		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_3, 0xF);         	
+X		GPIOPinWrite(0x40025000,0x00000008, 0xF);         	
 N	}
 N  else
 N	{
-N		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1, 0x0);         	
-X		GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
+N		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_3, 0x0);         	
+X		GPIOPinWrite(0x40025000,0x00000008, 0x0);         	
 N	}
 N}
 N

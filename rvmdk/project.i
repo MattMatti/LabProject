@@ -17281,6 +17281,7 @@ void UpdateMyButtons(void);
 
 
 
+
 extern uint32_t DutyValue;
 extern uint32_t FSR1I2C;
 void SetupADCPins(void);
@@ -18273,6 +18274,8 @@ int  main(void)
 	  SetupADCPins();
 		SetupADC();
 	  SetupPWM();
+	
+	  
 		
     while(!SysCtlPeripheralReady(0xf0000804))
     {

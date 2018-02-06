@@ -27,6 +27,10 @@ int  main(void)
 	  SetupADCPins();
 		SetupADC();
 	  SetupPWM();
+		FPUEnable();
+		FPULazyStackingEnable();
+	
+	  
 		// Check if the peripheral access is enabled.
     while(!SysCtlPeripheralReady(SYSCTL_PERIPH_GPIOE))
     {
@@ -36,6 +40,7 @@ int  main(void)
 		read_adc();
 		ReadFSR1();
 		ADCReadString1();
+		ADCReadString2();
 		ReadDutyKnob();
 		
 		

@@ -453,6 +453,21 @@
               <FileType>5</FileType>
               <FilePath>.\I2C_helper.h</FilePath>
             </File>
+            <File>
+              <FileName>LCDDisplay.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\LCDDisplay.c</FilePath>
+            </File>
+            <File>
+              <FileName>LCDDisplay.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\LCDDisplay.h</FilePath>
+            </File>
+            <File>
+              <FileName>LCD_1.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\LCD_1.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

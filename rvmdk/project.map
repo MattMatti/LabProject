@@ -146,6 +146,35 @@ Section Cross References
     i2c_helper.o(i.I2C_Setup) refers to gpio.o(i.GPIOPinTypeI2C) for GPIOPinTypeI2C
     i2c_helper.o(i.I2C_Setup) refers to sysctl.o(i.SysCtlClockGet) for SysCtlClockGet
     i2c_helper.o(i.I2C_Setup) refers to i2c.o(i.I2CMasterInitExpClk) for I2CMasterInitExpClk
+    lcddisplay.o(i.clearLCD) refers to lcddisplay.o(i.sendByte) for sendByte
+    lcddisplay.o(i.clearLCD) refers to sysctl.o(.emb_text) for SysCtlDelay
+    lcddisplay.o(i.cursorOffLCD) refers to lcddisplay.o(i.sendByte) for sendByte
+    lcddisplay.o(i.cursorOnLCD) refers to lcddisplay.o(i.sendByte) for sendByte
+    lcddisplay.o(i.displayOffLCD) refers to lcddisplay.o(i.sendByte) for sendByte
+    lcddisplay.o(i.displayOnLCD) refers to lcddisplay.o(i.sendByte) for sendByte
+    lcddisplay.o(i.homeLCD) refers to lcddisplay.o(i.sendByte) for sendByte
+    lcddisplay.o(i.homeLCD) refers to sysctl.o(.emb_text) for SysCtlDelay
+    lcddisplay.o(i.initLCD) refers to sysctl.o(i.SysCtlPeripheralEnable) for SysCtlPeripheralEnable
+    lcddisplay.o(i.initLCD) refers to gpio.o(i.GPIOPinTypeGPIOOutput) for GPIOPinTypeGPIOOutput
+    lcddisplay.o(i.initLCD) refers to gpio.o(i.GPIOPinWrite) for GPIOPinWrite
+    lcddisplay.o(i.initLCD) refers to sysctl.o(.emb_text) for SysCtlDelay
+    lcddisplay.o(i.initLCD) refers to lcddisplay.o(i.setCmd) for setCmd
+    lcddisplay.o(i.initLCD) refers to lcddisplay.o(i.pulseLCD) for pulseLCD
+    lcddisplay.o(i.initLCD) refers to lcddisplay.o(i.sendByte) for sendByte
+    lcddisplay.o(i.initLCD) refers to lcddisplay.o(i.cursorOffLCD) for cursorOffLCD
+    lcddisplay.o(i.initLCD) refers to lcddisplay.o(i.clearLCD) for clearLCD
+    lcddisplay.o(i.printLCD) refers to lcddisplay.o(i.sendByte) for sendByte
+    lcddisplay.o(i.pulseLCD) refers to gpio.o(i.GPIOPinWrite) for GPIOPinWrite
+    lcddisplay.o(i.sendByte) refers to lcddisplay.o(i.setData) for setData
+    lcddisplay.o(i.sendByte) refers to lcddisplay.o(i.setCmd) for setCmd
+    lcddisplay.o(i.sendByte) refers to sysctl.o(.emb_text) for SysCtlDelay
+    lcddisplay.o(i.sendByte) refers to gpio.o(i.GPIOPinWrite) for GPIOPinWrite
+    lcddisplay.o(i.sendByte) refers to lcddisplay.o(i.pulseLCD) for pulseLCD
+    lcddisplay.o(i.setBlockCursorLCD) refers to lcddisplay.o(i.sendByte) for sendByte
+    lcddisplay.o(i.setCmd) refers to gpio.o(i.GPIOPinWrite) for GPIOPinWrite
+    lcddisplay.o(i.setCursorPositionLCD) refers to lcddisplay.o(i.sendByte) for sendByte
+    lcddisplay.o(i.setData) refers to gpio.o(i.GPIOPinWrite) for GPIOPinWrite
+    lcddisplay.o(i.setLineCursorLCD) refers to lcddisplay.o(i.sendByte) for sendByte
     adc.o(i.ADCIntRegister) refers to interrupt.o(i.IntRegister) for IntRegister
     adc.o(i.ADCIntRegister) refers to interrupt.o(i.IntEnable) for IntEnable
     adc.o(i.ADCIntUnregister) refers to interrupt.o(i.IntDisable) for IntDisable
@@ -537,6 +566,7 @@ Removing Unused input sections from the image.
 
     Removing startup_rvmdk.o(HEAP), (0 bytes).
     Removing startup_rvmdk.o(.text), (0 bytes).
+    Removing adc_helper.o(.data), (36 bytes).
     Removing gpio_helper.o(i.TurnOnLEDs), (532 bytes).
     Removing gpio_helper.o(i.TurnOnLEDs2), (352 bytes).
     Removing gpio_helper.o(i.UpdateMyButtons), (64 bytes).
@@ -556,6 +586,21 @@ Removing Unused input sections from the image.
     Removing uart_helper.o(i.print_menu), (108 bytes).
     Removing uart_helper.o(i.process_UART), (60 bytes).
     Removing i2c_helper.o(i.I2C_Setup), (92 bytes).
+    Removing lcddisplay.o(i.clearLCD), (28 bytes).
+    Removing lcddisplay.o(i.cursorOffLCD), (12 bytes).
+    Removing lcddisplay.o(i.cursorOnLCD), (12 bytes).
+    Removing lcddisplay.o(i.displayOffLCD), (12 bytes).
+    Removing lcddisplay.o(i.displayOnLCD), (12 bytes).
+    Removing lcddisplay.o(i.homeLCD), (20 bytes).
+    Removing lcddisplay.o(i.initLCD), (140 bytes).
+    Removing lcddisplay.o(i.printLCD), (28 bytes).
+    Removing lcddisplay.o(i.pulseLCD), (40 bytes).
+    Removing lcddisplay.o(i.sendByte), (60 bytes).
+    Removing lcddisplay.o(i.setBlockCursorLCD), (12 bytes).
+    Removing lcddisplay.o(i.setCmd), (16 bytes).
+    Removing lcddisplay.o(i.setCursorPositionLCD), (52 bytes).
+    Removing lcddisplay.o(i.setData), (16 bytes).
+    Removing lcddisplay.o(i.setLineCursorLCD), (12 bytes).
     Removing adc.o(i.ADCClockConfigGet), (32 bytes).
     Removing adc.o(i.ADCClockConfigSet), (28 bytes).
     Removing adc.o(i.ADCComparatorConfigure), (10 bytes).
@@ -843,7 +888,7 @@ Removing Unused input sections from the image.
     Removing cdrcmple.o(.text), (48 bytes).
     Removing depilogue.o(.text), (186 bytes).
 
-307 unused section(s) (total 12480 bytes) removed from the image.
+323 unused section(s) (total 12988 bytes) removed from the image.
 
 ==============================================================================
 
@@ -854,35 +899,35 @@ Image Symbol Table
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
     RESET                                    0x00000000   Section      648  startup_rvmdk.o(RESET)
-    ../clib/microlib/division.c              0x00000000   Number         0  uldiv.o ABSOLUTE
     ../clib/microlib/division.c              0x00000000   Number         0  uidiv.o ABSOLUTE
+    ../clib/microlib/division.c              0x00000000   Number         0  uldiv.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llshl.o ABSOLUTE
-    ../clib/microlib/longlong.c              0x00000000   Number         0  llsshr.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf4.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf3.o ABSOLUTE
+    ../clib/microlib/longlong.c              0x00000000   Number         0  llsshr.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf2.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfb.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf1.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf0.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfb.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfa.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf8.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf7.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf6.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf5.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf4.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf3.o ABSOLUTE
     ../clib/microlib/printf/stubs.s          0x00000000   Number         0  stubs.o ABSOLUTE
     ../clib/microlib/stdio/streams.c         0x00000000   Number         0  stdout.o ABSOLUTE
     ../clib/microlib/stubs.s                 0x00000000   Number         0  iusefp.o ABSOLUTE
@@ -893,6 +938,7 @@ Image Symbol Table
     ../fplib/microlib/fpmul.c                0x00000000   Number         0  dmul.o ABSOLUTE
     FSR2I2C.c                                0x00000000   Number         0  fsr2i2c.o ABSOLUTE
     I2C_helper.c                             0x00000000   Number         0  i2c_helper.o ABSOLUTE
+    LCDDisplay.c                             0x00000000   Number         0  lcddisplay.o ABSOLUTE
     adc.c                                    0x00000000   Number         0  adc.o ABSOLUTE
     cdrcmple.s                               0x00000000   Number         0  cdrcmple.o ABSOLUTE
     cpu.c                                    0x00000000   Number         0  cpu.o ABSOLUTE
@@ -1135,85 +1181,85 @@ Memory Map of the image
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x00000000   0x00000000   0x00000288   Code   RO          169  * RESET               startup_rvmdk.o
-    0x00000288   0x00000288   0x00000000   Code   RO         2443  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
-    0x00000288   0x00000288   0x00000004   Code   RO         2707    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
-    0x0000028c   0x0000028c   0x00000004   Code   RO         2710    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
-    0x00000290   0x00000290   0x00000000   Code   RO         2712    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
-    0x00000290   0x00000290   0x00000000   Code   RO         2714    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
-    0x00000290   0x00000290   0x00000008   Code   RO         2715    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
-    0x00000298   0x00000298   0x00000000   Code   RO         2717    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
-    0x00000298   0x00000298   0x00000000   Code   RO         2719    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
-    0x00000298   0x00000298   0x00000004   Code   RO         2708    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
-    0x0000029c   0x0000029c   0x00000006   Code   RO         1674    .emb_text           driverlib.lib(sysctl.o)
+    0x00000288   0x00000288   0x00000000   Code   RO         2546  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
+    0x00000288   0x00000288   0x00000004   Code   RO         2810    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
+    0x0000028c   0x0000028c   0x00000004   Code   RO         2813    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
+    0x00000290   0x00000290   0x00000000   Code   RO         2815    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
+    0x00000290   0x00000290   0x00000000   Code   RO         2817    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
+    0x00000290   0x00000290   0x00000008   Code   RO         2818    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
+    0x00000298   0x00000298   0x00000000   Code   RO         2820    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
+    0x00000298   0x00000298   0x00000000   Code   RO         2822    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
+    0x00000298   0x00000298   0x00000004   Code   RO         2811    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
+    0x0000029c   0x0000029c   0x00000006   Code   RO         1777    .emb_text           driverlib.lib(sysctl.o)
     0x000002a2   0x000002a2   0x00000002   PAD
-    0x000002a4   0x000002a4   0x00000024   Code   RO         2737    .text               mc_w.l(init.o)
-    0x000002c8   0x000002c8   0x00000008   Code   RO          519    i.ADCBusy           driverlib.lib(adc.o)
-    0x000002d0   0x000002d0   0x0000001a   Code   RO          542    i.ADCProcessorTrigger  driverlib.lib(adc.o)
+    0x000002a4   0x000002a4   0x00000024   Code   RO         2840    .text               mc_w.l(init.o)
+    0x000002c8   0x000002c8   0x00000008   Code   RO          622    i.ADCBusy           driverlib.lib(adc.o)
+    0x000002d0   0x000002d0   0x0000001a   Code   RO          645    i.ADCProcessorTrigger  driverlib.lib(adc.o)
     0x000002ea   0x000002ea   0x00000002   PAD
     0x000002ec   0x000002ec   0x00000284   Code   RO          174    i.ADCReadString1    adc_helper.o
-    0x00000570   0x00000570   0x0000000c   Code   RO          544    i.ADCReferenceSet   driverlib.lib(adc.o)
-    0x0000057c   0x0000057c   0x00000060   Code   RO          545    i.ADCSequenceConfigure  driverlib.lib(adc.o)
-    0x000005dc   0x000005dc   0x00000024   Code   RO          548    i.ADCSequenceDataGet  driverlib.lib(adc.o)
-    0x00000600   0x00000600   0x00000010   Code   RO          549    i.ADCSequenceDisable  driverlib.lib(adc.o)
-    0x00000610   0x00000610   0x0000000e   Code   RO          550    i.ADCSequenceEnable  driverlib.lib(adc.o)
-    0x0000061e   0x0000061e   0x0000009a   Code   RO          553    i.ADCSequenceStepConfigure  driverlib.lib(adc.o)
-    0x000006b8   0x000006b8   0x00000028   Code   RO          802    i.GPIODirModeSet    driverlib.lib(gpio.o)
-    0x000006e0   0x000006e0   0x00000138   Code   RO          814    i.GPIOPadConfigSet  driverlib.lib(gpio.o)
-    0x00000818   0x00000818   0x00000044   Code   RO          815    i.GPIOPinConfigure  driverlib.lib(gpio.o)
-    0x0000085c   0x0000085c   0x0000001c   Code   RO          817    i.GPIOPinTypeADC    driverlib.lib(gpio.o)
-    0x00000878   0x00000878   0x0000001c   Code   RO          825    i.GPIOPinTypeGPIOInput  driverlib.lib(gpio.o)
-    0x00000894   0x00000894   0x0000001c   Code   RO          826    i.GPIOPinTypeGPIOOutput  driverlib.lib(gpio.o)
-    0x000008b0   0x000008b0   0x0000001c   Code   RO          833    i.GPIOPinTypePWM    driverlib.lib(gpio.o)
-    0x000008cc   0x000008cc   0x00000006   Code   RO          844    i.GPIOPinWrite      driverlib.lib(gpio.o)
+    0x00000570   0x00000570   0x0000000c   Code   RO          647    i.ADCReferenceSet   driverlib.lib(adc.o)
+    0x0000057c   0x0000057c   0x00000060   Code   RO          648    i.ADCSequenceConfigure  driverlib.lib(adc.o)
+    0x000005dc   0x000005dc   0x00000024   Code   RO          651    i.ADCSequenceDataGet  driverlib.lib(adc.o)
+    0x00000600   0x00000600   0x00000010   Code   RO          652    i.ADCSequenceDisable  driverlib.lib(adc.o)
+    0x00000610   0x00000610   0x0000000e   Code   RO          653    i.ADCSequenceEnable  driverlib.lib(adc.o)
+    0x0000061e   0x0000061e   0x0000009a   Code   RO          656    i.ADCSequenceStepConfigure  driverlib.lib(adc.o)
+    0x000006b8   0x000006b8   0x00000028   Code   RO          905    i.GPIODirModeSet    driverlib.lib(gpio.o)
+    0x000006e0   0x000006e0   0x00000138   Code   RO          917    i.GPIOPadConfigSet  driverlib.lib(gpio.o)
+    0x00000818   0x00000818   0x00000044   Code   RO          918    i.GPIOPinConfigure  driverlib.lib(gpio.o)
+    0x0000085c   0x0000085c   0x0000001c   Code   RO          920    i.GPIOPinTypeADC    driverlib.lib(gpio.o)
+    0x00000878   0x00000878   0x0000001c   Code   RO          928    i.GPIOPinTypeGPIOInput  driverlib.lib(gpio.o)
+    0x00000894   0x00000894   0x0000001c   Code   RO          929    i.GPIOPinTypeGPIOOutput  driverlib.lib(gpio.o)
+    0x000008b0   0x000008b0   0x0000001c   Code   RO          936    i.GPIOPinTypePWM    driverlib.lib(gpio.o)
+    0x000008cc   0x000008cc   0x00000006   Code   RO          947    i.GPIOPinWrite      driverlib.lib(gpio.o)
     0x000008d2   0x000008d2   0x00000002   PAD
-    0x000008d4   0x000008d4   0x0000007c   Code   RO          245    i.GPIOSetup         gpio_helper.o
-    0x00000950   0x00000950   0x00000026   Code   RO         1449    i.PWMGenConfigure   driverlib.lib(pwm.o)
-    0x00000976   0x00000976   0x0000000a   Code   RO         1451    i.PWMGenEnable      driverlib.lib(pwm.o)
-    0x00000980   0x00000980   0x00000012   Code   RO         1464    i.PWMGenPeriodSet   driverlib.lib(pwm.o)
-    0x00000992   0x00000992   0x00000010   Code   RO         1471    i.PWMOutputState    driverlib.lib(pwm.o)
-    0x000009a2   0x000009a2   0x00000020   Code   RO         1474    i.PWMPulseWidthSet  driverlib.lib(pwm.o)
+    0x000008d4   0x000008d4   0x0000007c   Code   RO          246    i.GPIOSetup         gpio_helper.o
+    0x00000950   0x00000950   0x00000026   Code   RO         1552    i.PWMGenConfigure   driverlib.lib(pwm.o)
+    0x00000976   0x00000976   0x0000000a   Code   RO         1554    i.PWMGenEnable      driverlib.lib(pwm.o)
+    0x00000980   0x00000980   0x00000012   Code   RO         1567    i.PWMGenPeriodSet   driverlib.lib(pwm.o)
+    0x00000992   0x00000992   0x00000010   Code   RO         1574    i.PWMOutputState    driverlib.lib(pwm.o)
+    0x000009a2   0x000009a2   0x00000020   Code   RO         1577    i.PWMPulseWidthSet  driverlib.lib(pwm.o)
     0x000009c2   0x000009c2   0x00000002   PAD
     0x000009c4   0x000009c4   0x00000074   Code   RO          175    i.ReadDutyKnob      adc_helper.o
     0x00000a38   0x00000a38   0x00000018   Code   RO          176    i.ReadFSR1          adc_helper.o
-    0x00000a50   0x00000a50   0x00000024   Code   RO          281    i.SetUpPWM0HZ       pwm_helper.o
-    0x00000a74   0x00000a74   0x00000030   Code   RO          282    i.SetUpPWM104HZ     pwm_helper.o
-    0x00000aa4   0x00000aa4   0x00000030   Code   RO          283    i.SetUpPWM110HZ     pwm_helper.o
-    0x00000ad4   0x00000ad4   0x00000030   Code   RO          284    i.SetUpPWM117HZ     pwm_helper.o
-    0x00000b04   0x00000b04   0x00000030   Code   RO          285    i.SetUpPWM123HZ     pwm_helper.o
-    0x00000b34   0x00000b34   0x00000030   Code   RO          286    i.SetUpPWM131HZ     pwm_helper.o
-    0x00000b64   0x00000b64   0x00000030   Code   RO          287    i.SetUpPWM139HZ     pwm_helper.o
-    0x00000b94   0x00000b94   0x00000030   Code   RO          288    i.SetUpPWM147HZ     pwm_helper.o
-    0x00000bc4   0x00000bc4   0x00000030   Code   RO          289    i.SetUpPWM156HZ     pwm_helper.o
-    0x00000bf4   0x00000bf4   0x00000030   Code   RO          290    i.SetUpPWM165HZ     pwm_helper.o
-    0x00000c24   0x00000c24   0x00000030   Code   RO          291    i.SetUpPWM175HZ     pwm_helper.o
-    0x00000c54   0x00000c54   0x00000030   Code   RO          292    i.SetUpPWM185HZ     pwm_helper.o
-    0x00000c84   0x00000c84   0x00000030   Code   RO          298    i.SetUpPWM82HZ      pwm_helper.o
-    0x00000cb4   0x00000cb4   0x00000030   Code   RO          299    i.SetUpPWM87HZ      pwm_helper.o
-    0x00000ce4   0x00000ce4   0x00000030   Code   RO          300    i.SetUpPWM92HZ      pwm_helper.o
-    0x00000d14   0x00000d14   0x00000030   Code   RO          301    i.SetUpPWM98HZ      pwm_helper.o
+    0x00000a50   0x00000a50   0x00000024   Code   RO          282    i.SetUpPWM0HZ       pwm_helper.o
+    0x00000a74   0x00000a74   0x00000030   Code   RO          283    i.SetUpPWM104HZ     pwm_helper.o
+    0x00000aa4   0x00000aa4   0x00000030   Code   RO          284    i.SetUpPWM110HZ     pwm_helper.o
+    0x00000ad4   0x00000ad4   0x00000030   Code   RO          285    i.SetUpPWM117HZ     pwm_helper.o
+    0x00000b04   0x00000b04   0x00000030   Code   RO          286    i.SetUpPWM123HZ     pwm_helper.o
+    0x00000b34   0x00000b34   0x00000030   Code   RO          287    i.SetUpPWM131HZ     pwm_helper.o
+    0x00000b64   0x00000b64   0x00000030   Code   RO          288    i.SetUpPWM139HZ     pwm_helper.o
+    0x00000b94   0x00000b94   0x00000030   Code   RO          289    i.SetUpPWM147HZ     pwm_helper.o
+    0x00000bc4   0x00000bc4   0x00000030   Code   RO          290    i.SetUpPWM156HZ     pwm_helper.o
+    0x00000bf4   0x00000bf4   0x00000030   Code   RO          291    i.SetUpPWM165HZ     pwm_helper.o
+    0x00000c24   0x00000c24   0x00000030   Code   RO          292    i.SetUpPWM175HZ     pwm_helper.o
+    0x00000c54   0x00000c54   0x00000030   Code   RO          293    i.SetUpPWM185HZ     pwm_helper.o
+    0x00000c84   0x00000c84   0x00000030   Code   RO          299    i.SetUpPWM82HZ      pwm_helper.o
+    0x00000cb4   0x00000cb4   0x00000030   Code   RO          300    i.SetUpPWM87HZ      pwm_helper.o
+    0x00000ce4   0x00000ce4   0x00000030   Code   RO          301    i.SetUpPWM92HZ      pwm_helper.o
+    0x00000d14   0x00000d14   0x00000030   Code   RO          302    i.SetUpPWM98HZ      pwm_helper.o
     0x00000d44   0x00000d44   0x00000078   Code   RO          177    i.SetupADC          adc_helper.o
     0x00000dbc   0x00000dbc   0x00000020   Code   RO          178    i.SetupADCPins      adc_helper.o
-    0x00000ddc   0x00000ddc   0x00000064   Code   RO          302    i.SetupPWM          pwm_helper.o
-    0x00000e40   0x00000e40   0x00000120   Code   RO         1679    i.SysCtlClockSet    driverlib.lib(sysctl.o)
-    0x00000f60   0x00000f60   0x00000014   Code   RO         1703    i.SysCtlPWMClockSet  driverlib.lib(sysctl.o)
-    0x00000f74   0x00000f74   0x00000028   Code   RO         1708    i.SysCtlPeripheralEnable  driverlib.lib(sysctl.o)
-    0x00000f9c   0x00000f9c   0x0000002c   Code   RO         1712    i.SysCtlPeripheralReady  driverlib.lib(sysctl.o)
-    0x00000fc8   0x00000fc8   0x0000003c   Code   RO         1713    i.SysCtlPeripheralReset  driverlib.lib(sysctl.o)
-    0x00001004   0x00001004   0x0000000e   Code   RO         2749    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x00001012   0x00001012   0x00000002   Code   RO         2750    i.__scatterload_null  mc_w.l(handlers.o)
-    0x00001014   0x00001014   0x0000000e   Code   RO         2751    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x00000ddc   0x00000ddc   0x00000064   Code   RO          303    i.SetupPWM          pwm_helper.o
+    0x00000e40   0x00000e40   0x00000120   Code   RO         1782    i.SysCtlClockSet    driverlib.lib(sysctl.o)
+    0x00000f60   0x00000f60   0x00000014   Code   RO         1806    i.SysCtlPWMClockSet  driverlib.lib(sysctl.o)
+    0x00000f74   0x00000f74   0x00000028   Code   RO         1811    i.SysCtlPeripheralEnable  driverlib.lib(sysctl.o)
+    0x00000f9c   0x00000f9c   0x0000002c   Code   RO         1815    i.SysCtlPeripheralReady  driverlib.lib(sysctl.o)
+    0x00000fc8   0x00000fc8   0x0000003c   Code   RO         1816    i.SysCtlPeripheralReset  driverlib.lib(sysctl.o)
+    0x00001004   0x00001004   0x0000000e   Code   RO         2852    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x00001012   0x00001012   0x00000002   Code   RO         2853    i.__scatterload_null  mc_w.l(handlers.o)
+    0x00001014   0x00001014   0x0000000e   Code   RO         2854    i.__scatterload_zeroinit  mc_w.l(handlers.o)
     0x00001022   0x00001022   0x00000002   PAD
     0x00001024   0x00001024   0x00000050   Code   RO            1    i.main              project.o
     0x00001074   0x00001074   0x00000048   Code   RO          179    i.read_adc          adc_helper.o
-    0x000010bc   0x000010bc   0x00000228   Data   RO          846    .constdata          driverlib.lib(gpio.o)
-    0x000012e4   0x000012e4   0x00000020   Data   RO         2747    Region$$Table       anon$$obj.o
+    0x000010bc   0x000010bc   0x00000228   Data   RO          949    .constdata          driverlib.lib(gpio.o)
+    0x000012e4   0x000012e4   0x00000020   Data   RO         2850    Region$$Table       anon$$obj.o
 
 
     Execution Region RW_IRAM (Exec base: 0x20000000, Load base: 0x00001304, Size: 0x00000158, Max: 0x00008000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x00001304   0x00000004   Data   RW          303    .data               pwm_helper.o
+    0x20000000   0x00001304   0x00000004   Data   RW          304    .data               pwm_helper.o
     0x20000004        -       0x00000054   Zero   RW          180    .bss                adc_helper.o
     0x20000058        -       0x00000100   Zero   RW          167    STACK               startup_rvmdk.o
 
@@ -1225,14 +1271,14 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-      1008         48          0          0         84       4039   adc_helper.o
+      1008         48          0          0         84       4280   adc_helper.o
        124         18          0          0          0        512   gpio_helper.o
         80         14          0          0          0       5007   project.o
        856        184          0          4          0       8249   pwm_helper.o
        648        622          0          0        256        272   startup_rvmdk.o
 
     ----------------------------------------------------------------------
-      2716        886         32          4        340      18079   Object Totals
+      2716        886         32          4        340      18320   Object Totals
          0          0         32          0          0          0   (incl. Generated)
          0          0          0          0          0          0   (incl. Padding)
 
@@ -1276,8 +1322,8 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      4284        946        584          4        340      36553   Grand Totals
-      4284        946        584          4        340      36553   ELF Image Totals
+      4284        946        584          4        340      36794   Grand Totals
+      4284        946        584          4        340      36794   ELF Image Totals
       4284        946        584          4          0          0   ROM Totals
 
 ==============================================================================

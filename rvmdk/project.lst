@@ -63432,6 +63432,7 @@ N#include "hw_types.h"
 N#include "gpio.h"
 N#include "PWM_helper.h"
 N
+N
 N//uint32_t DutyCycle;
 N//struct ADC_strings
 N//{
@@ -64626,7 +64627,7 @@ N
 Nint fgetc(FILE *f);
 N
 L 50 "project.h" 2
-N
+N//#include "LCDDisplay.h"
 N
 L 3 "project.c" 2
 N
@@ -64659,6 +64660,8 @@ N		//UART_setup();
 N	  SetupADCPins();
 N		SetupADC();
 N	  SetupPWM();
+N	
+N	  
 N		// Check if the peripheral access is enabled.
 N    while(!SysCtlPeripheralReady(SYSCTL_PERIPH_GPIOE))
 X    while(!SysCtlPeripheralReady(0xf0000804))
