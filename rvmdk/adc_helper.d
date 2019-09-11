@@ -10,3 +10,6 @@
 .\rvmdk\adc_helper.o: .\inc\hw_gpio.h
 .\rvmdk\adc_helper.o: .\inc\hw_types.h
 .\rvmdk\adc_helper.o: .\driverlib\gpio.h
+.\rvmdk\adc_helper.o: src\PWM_helper.h
+.\rvmdk\adc_helper.o: .\driverlib\pwm.h
+.\rvmdk\adc_helper.o: .\driverlib\pin_map.h

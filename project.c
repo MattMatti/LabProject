@@ -23,18 +23,27 @@ int  main(void)
     SysCtlPeripheralReset(SYSCTL_PERIPH_ADC0); // resets ADC module 0 
 	  
 	  GPIOSetup();
-		UART_setup();
+		//UART_setup();
 	  SetupADCPins();
 		SetupADC();
 	  SetupPWM();
+		FPUEnable();
+		FPULazyStackingEnable();
+	
+	  
 		// Check if the peripheral access is enabled.
     while(!SysCtlPeripheralReady(SYSCTL_PERIPH_GPIOE))
     {
 		}   
-    while(1)
-		{	
-		
+  while(1)
+	{
+		read_adc();
+		ReadFSR1();
 		ADCReadString1();
-			
-			}
-		}
+		ADCReadString2();
+		ReadDutyKnob();
+		
+		
+	}
+		} 
+	

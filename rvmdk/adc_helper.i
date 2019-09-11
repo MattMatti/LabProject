@@ -9613,9 +9613,21 @@ extern void GPIOADCTriggerDisable(uint32_t ui32Port, uint8_t ui8Pins);
 
 
 #line 12 "src\\ADC_helper.h"
+#line 1 "src\\PWM_helper.h"
+#pragma once
+
+#line 4 "src\\PWM_helper.h"
+#line 5 "src\\PWM_helper.h"
+#line 6 "src\\PWM_helper.h"
+#line 7 "src\\PWM_helper.h"
+#line 8 "src\\PWM_helper.h"
+#line 9 "src\\PWM_helper.h"
+#line 10 "src\\PWM_helper.h"
+#line 11 "src\\PWM_helper.h"
+#line 12 "src\\PWM_helper.h"
+#line 1 ".\\driverlib\\pwm.h"
 
 
-	
 
 
 
@@ -9628,20 +9640,1008 @@ extern void GPIOADCTriggerDisable(uint32_t ui32Port, uint8_t ui8Pins);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#line 78 ".\\driverlib\\pwm.h"
+                                            
+
+
+                                            
+
+
+                                            
+
+
+                                            
+
+
+                                            
+
+
+                                            
+
+
+
+
+
+
+
+#line 113 ".\\driverlib\\pwm.h"
+
+
+
+
+
+
+#line 128 ".\\driverlib\\pwm.h"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#line 162 ".\\driverlib\\pwm.h"
+
+#line 171 ".\\driverlib\\pwm.h"
+
+
+
+
+
+
+
+
+
+#line 187 ".\\driverlib\\pwm.h"
+
+
+
+
+
+
+
+
+
+#line 204 ".\\driverlib\\pwm.h"
+
+
+
+
+
+
+#line 218 ".\\driverlib\\pwm.h"
+
+
+
+
+
+
+
+#line 232 ".\\driverlib\\pwm.h"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+extern void PWMGenConfigure(uint32_t ui32Base, uint32_t ui32Gen,
+                            uint32_t ui32Config);
+extern void PWMGenPeriodSet(uint32_t ui32Base, uint32_t ui32Gen,
+                            uint32_t ui32Period);
+extern uint32_t PWMGenPeriodGet(uint32_t ui32Base,
+                                uint32_t ui32Gen);
+extern void PWMGenEnable(uint32_t ui32Base, uint32_t ui32Gen);
+extern void PWMGenDisable(uint32_t ui32Base, uint32_t ui32Gen);
+extern void PWMPulseWidthSet(uint32_t ui32Base, uint32_t ui32PWMOut,
+                             uint32_t ui32Width);
+extern uint32_t PWMPulseWidthGet(uint32_t ui32Base,
+                                 uint32_t ui32PWMOut);
+extern void PWMDeadBandEnable(uint32_t ui32Base, uint32_t ui32Gen,
+                              uint16_t ui16Rise, uint16_t ui16Fall);
+extern void PWMDeadBandDisable(uint32_t ui32Base, uint32_t ui32Gen);
+extern void PWMSyncUpdate(uint32_t ui32Base, uint32_t ui32GenBits);
+extern void PWMSyncTimeBase(uint32_t ui32Base, uint32_t ui32GenBits);
+extern void PWMOutputState(uint32_t ui32Base, uint32_t ui32PWMOutBits,
+                           _Bool bEnable);
+extern void PWMOutputInvert(uint32_t ui32Base, uint32_t ui32PWMOutBits,
+                            _Bool bInvert);
+extern void PWMOutputFaultLevel(uint32_t ui32Base,
+                                uint32_t ui32PWMOutBits,
+                                _Bool bDriveHigh);
+extern void PWMOutputFault(uint32_t ui32Base, uint32_t ui32PWMOutBits,
+                           _Bool bFaultSuppress);
+extern void PWMGenIntRegister(uint32_t ui32Base, uint32_t ui32Gen,
+                              void (*pfnIntHandler)(void));
+extern void PWMGenIntUnregister(uint32_t ui32Base, uint32_t ui32Gen);
+extern void PWMFaultIntRegister(uint32_t ui32Base,
+                                void (*pfnIntHandler)(void));
+extern void PWMFaultIntUnregister(uint32_t ui32Base);
+extern void PWMGenIntTrigEnable(uint32_t ui32Base, uint32_t ui32Gen,
+                                uint32_t ui32IntTrig);
+extern void PWMGenIntTrigDisable(uint32_t ui32Base, uint32_t ui32Gen,
+                                 uint32_t ui32IntTrig);
+extern uint32_t PWMGenIntStatus(uint32_t ui32Base, uint32_t ui32Gen,
+                                _Bool bMasked);
+extern void PWMGenIntClear(uint32_t ui32Base, uint32_t ui32Gen,
+                           uint32_t ui32Ints);
+extern void PWMIntEnable(uint32_t ui32Base, uint32_t ui32GenFault);
+extern void PWMIntDisable(uint32_t ui32Base, uint32_t ui32GenFault);
+extern void PWMFaultIntClear(uint32_t ui32Base);
+extern uint32_t PWMIntStatus(uint32_t ui32Base, _Bool bMasked);
+extern void PWMFaultIntClearExt(uint32_t ui32Base,
+                                uint32_t ui32FaultInts);
+extern void PWMGenFaultConfigure(uint32_t ui32Base, uint32_t ui32Gen,
+                                 uint32_t ui32MinFaultPeriod,
+                                 uint32_t ui32FaultSenses);
+extern void PWMGenFaultTriggerSet(uint32_t ui32Base, uint32_t ui32Gen,
+                                  uint32_t ui32Group,
+                                  uint32_t ui32FaultTriggers);
+extern uint32_t PWMGenFaultTriggerGet(uint32_t ui32Base,
+                                      uint32_t ui32Gen,
+                                      uint32_t ui32Group);
+extern uint32_t PWMGenFaultStatus(uint32_t ui32Base,
+                                  uint32_t ui32Gen,
+                                  uint32_t ui32Group);
+extern void PWMGenFaultClear(uint32_t ui32Base, uint32_t ui32Gen,
+                             uint32_t ui32Group,
+                             uint32_t ui32FaultTriggers);
+extern void PWMClockSet(uint32_t ui32Base, uint32_t ui32Config);
+extern uint32_t PWMClockGet(uint32_t ui32Base);
+extern void PWMOutputUpdateMode(uint32_t ui32Base,
+                                uint32_t ui32PWMOutBits,
+                                uint32_t ui32Mode);
+
+
+
+
+
+
+
+
+
+
+#line 13 "src\\PWM_helper.h"
+#line 14 "src\\PWM_helper.h"
+#line 1 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#line 213 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 384 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 555 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 726 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 875 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 1024 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 1250 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 1399 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 1625 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 1774 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 2000 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 2171 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 2342 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 2513 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 2684 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 2833 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 2982 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 3208 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 3357 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 3583 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 3732 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 3958 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 4136 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 4314 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 4492 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 4646 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 4880 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 5034 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 5268 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 5422 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 5656 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 5880 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 6104 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 6288 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 6593 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 6777 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 7082 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 7313 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 7544 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 7733 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 8046 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#line 8125 ".\\driverlib\\pin_map.h"
+
+#line 8132 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+
+
+
+
+#line 8148 ".\\driverlib\\pin_map.h"
+
+#line 8155 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#line 8208 ".\\driverlib\\pin_map.h"
+
+#line 8216 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#line 8548 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 8857 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 9166 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 9483 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 9886 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 10338 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 10749 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 11209 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 11669 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 12041 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 12536 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 12930 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 13455 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 13811 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 14167 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 14671 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 15197 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 15732 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 16267 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 16639 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 17134 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 17528 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 18053 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 18409 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 18765 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 19269 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 19804 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 20378 ".\\driverlib\\pin_map.h"
+
+
+
+
+
+
+#line 20952 ".\\driverlib\\pin_map.h"
+
+#line 15 "src\\PWM_helper.h"
+#line 16 "src\\PWM_helper.h"
+
+void SetUpPWM0HZ(void);
+void SetUpPWM82HZ(void);
+void SetUpPWM87HZ(void);
+void SetUpPWM92HZ(void);
+void SetUpPWM98HZ(void);
+void SetUpPWM104HZ(void);
+void SetUpPWM110HZ(void);
+void SetUpPWM117HZ(void);
+void SetUpPWM123HZ(void);
+void SetUpPWM131HZ(void);
+void SetUpPWM139HZ(void);
+void SetUpPWM147HZ(void);
+void SetUpPWM156HZ(void);
+void SetUpPWM165HZ(void);
+void SetUpPWM175HZ(void);
+void SetUpPWM185HZ(void);
+void SetUpPWM196HZ(void);
+void SetUpPWM208HZ(void);
+void SetUpPWM300HZ(void);
+void SetUpPWM400HZ(void);
+void SetUpPWM500HZ(void);
+void SetUpPWM600HZ(void);
+void SetUpPWM700HZ(void);
+void SetUpPWM800HZ(void);
+void SetUpPWM900HZ(void);
+void SetupPWM(void);
 extern uint32_t DutyCycle;
+#line 13 "src\\ADC_helper.h"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 extern uint32_t DutyValue;
+extern uint32_t FSR1I2C;
 void SetupADCPins(void);
 void SetupADC(void);
 void ADCReadString1(void);  
 void ADCReadString2(void);  
 void ADCReadString3(void);  
 void ADCReadString4(void);  
+void ReadDutyKnob(void);
+void ReadFSR1(void);
+void read_adc(void);
 
-extern struct ADC_info adcinfo;
 
 #line 3 "src\\ADC_helper.c"
+uint32_t ADC_Values[8];
+uint32_t ADCBuffer[13];
 
-uint32_t ADC_Values[13];
+float one = 1.1000;
+float two = 1.2000;
+float three = 1.3000;
+float four = 1.4000;
+float five = 1.5000;
+float six = 1.60000;
+float seven = 1.7000;
+float eight = 1.8000;
+float nine = 1.9000;
+
+
+
+
 
 
 
@@ -9651,7 +10651,9 @@ uint32_t ADC_Values[13];
 void SetupADCPins()
 {
 	GPIOPinTypeADC(0x40024000,0x00000002); 
-  GPIOPinTypeADC(0x40024000,0x00000008);	
+  GPIOPinTypeADC(0x40024000,0x00000004);	
+  GPIOPinTypeADC(0x40024000,0x00000010);	
+ 
 }
 
 void SetupADC()
@@ -9661,9 +10663,7 @@ void SetupADC()
 	
 	
 	
-	
 	SysCtlPeripheralEnable(0xf0003800); 
-	
 	
 	
 	while(!SysCtlPeripheralReady(0xf0003800)) 
@@ -9673,12 +10673,12 @@ void SetupADC()
 	
 	
 	
-	
 	ADCSequenceDisable(0x40038000,0); 
+	                                 
 	ADCSequenceConfigure(0x40038000, 0, 0x00000000, 0); 
-	ADCSequenceStepConfigure(0x40038000, 0, 0, 0x00000002); 
-  ADCSequenceStepConfigure(0x40038000, 0, 1, 0x00000000 | 0x00000020);	
-
+	ADCSequenceStepConfigure(0x40038000, 0, 0, 0x00000009); 
+  ADCSequenceStepConfigure(0x40038000, 0, 1, 0x00000001);	
+  ADCSequenceStepConfigure(0x40038000, 0, 2, 0x00000002 | 0x00000020); 
 
 
 
@@ -9696,79 +10696,118 @@ void SetupADC()
 	__nop();
 		
 }
-void ReadDutyKnob()
-	
-{ 
-	uint32_t DutyCycle;
-	uint32_t DutyValue;
-	
-	ADCProcessorTrigger(0x40038000, 1);
-	
-	while(ADCBusy(0x40038000));
-	
-  ADCSequenceDataGet(0x40038000, 1, &DutyValue);
 
-	if ((DutyValue > 0x000) && (DutyValue < 0x333))
-	{
-		(DutyCycle = 1);
-	}
-  else 
-	{
-	}
+void ReadDutyKnob()	
+{ 
 	
-	if ((DutyValue > 0x333) && (DutyValue < 0x666))
+	uint32_t DutyValue;
+	 
+	
+  
+  
+	
+		DutyValue = ADC_Values[0];
+
+	
+	if ((DutyValue > 0x000) && (DutyValue < 0x222))
 	{
 		(DutyCycle = 2);
 	}
-  else
-	{
-	}
-	if ((DutyValue > 0x666) && (DutyValue < 0x999))
+	
+	if ((DutyValue > 0x222) && (DutyValue < 0x444))
 	{
 		(DutyCycle = 4);
 	}
-  else
-	{
-	}
-	if ((DutyValue > 0x999) && (DutyValue < 0xC02))
+
+	if ((DutyValue > 0x444) && (DutyValue < 0x666))
 	{
 		(DutyCycle = 6);
 	}
-  else
-	{
-	}
-	if ((DutyValue > 0xC02) && (DutyValue < 0xFFF))
+  
+	if ((DutyValue > 0x666) && (DutyValue < 0x888))
 	{
 		(DutyCycle = 8);
 	}
-  else
+	
+	if ((DutyValue > 0x888) && (DutyValue < 0xFFF))
 	{
+		(DutyCycle = 10);
 	}
 
 }
+void ReadFSR1()
+{
+	uint32_t FSR1;
+	uint32_t FSRI2C;
+
+	
+	
+
+	
+	
+	
+	
+	
+
+		FSR1 = ADC_Values[1];
+
+	
+	if (FSR1 > 0x700)
+	{
+	FSR1 = FSRI2C;	
+	}
+	else 
+	{
+   __nop();
+	}
+}
+
+void read_adc()
+{
+	uint32_t How_many1;
+
+	ADCProcessorTrigger(0x40038000, 0); 
+
+	while(ADCBusy(0x40038000));
+
+  How_many1 = (ADCSequenceDataGet(0x40038000, 0, &ADC_Values[0]));
+	if (How_many1 == 3)
+	{
+		ADCBuffer[0]=ADC_Values[0];
+		ADCBuffer[1]=ADC_Values[1];
+		ADCBuffer[2]=ADC_Values[2];
+	}
+}
+
 void ADCReadString1()
 {
 	uint32_t string1;
-	volatile uint32_t ui32Loop;
 	
-	ADCProcessorTrigger(0x40038000, 0); 
+	
+	
 
 	
-	while(ADCBusy(0x40038000));
 	
 	
 	
-   ADCSequenceDataGet(0x40038000, 0, &string1);
 	
   
+  
+	
+	
+	
+	string1 = ADC_Values[2];
+	
+		
+
+    
+   
+
+	
 	
   if ((string1 > 0x000) && (string1 < 0x200)) 
 	{
 		SetUpPWM0HZ();
-	}
-  else
-			
-	{	         	
 	}
 	
 	if ((string1 > 0x200) && (string1 < 0x2EE)) 
@@ -9788,7 +10827,6 @@ void ADCReadString1()
 	}
   else
 	{
-
 		GPIOPinWrite(0x40025000,0x00000004, 0x0);         	
 	}
 	 	
@@ -9804,20 +10842,20 @@ void ADCReadString1()
 	if ((string1 > 0x4CA) && (string1 < 0x5B8)) 
 	{
 		SetUpPWM98HZ();
-		GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
+		GPIOPinWrite(0x40025000,0x00000008, 0xF);         	
 	}
   else
 	{
-		GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
+		GPIOPinWrite(0x40025000,0x00000008, 0x0);         	
 	}
 	if ((string1 > 0x5B8) && (string1 < 0x6A6)) 
 	{
 		SetUpPWM104HZ();
-		GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
+		GPIOPinWrite(0x40025000,0x00000004, 0xF);         	
 	}
   else
 	{
-		GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
+		GPIOPinWrite(0x40025000,0x00000004, 0x0);         	
 	}
 	if ((string1 > 0x6A6) && (string1 < 0x794)) 
 	{
@@ -9831,20 +10869,20 @@ void ADCReadString1()
 	if ((string1 > 0x794) && (string1 < 0x882)) 
 	{
 		SetUpPWM117HZ();
-		GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
+		GPIOPinWrite(0x40025000,0x00000004, 0xF);         	
 	}
   else
 	{
-		GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
+		GPIOPinWrite(0x40025000,0x00000004, 0x0);         	
 	}
 	if ((string1 > 0x882) && (string1 < 0x970)) 
 	{
 		SetUpPWM123HZ();
-		GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
+		GPIOPinWrite(0x40025000,0x00000008, 0xF);         	
 	}
   else
 	{
-		GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
+		GPIOPinWrite(0x40025000,0x00000008, 0x0);         	
 	}
 	if ((string1 > 0x970) && (string1 < 0xA5E)) 
 	{
@@ -9858,29 +10896,29 @@ void ADCReadString1()
 	if ((string1 > 0xA5E) && (string1 < 0xB4C)) 
 	{
 		SetUpPWM139HZ();
-		GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
+		GPIOPinWrite(0x40025000,0x00000004, 0xF);         	
 	}
   else
 	{
-		GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
+		GPIOPinWrite(0x40025000,0x00000004, 0x0);         	
 	}
 	if ((string1 > 0xB4C) && (string1 < 0xC3A)) 
 	{
 		SetUpPWM147HZ();
-		GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
+		GPIOPinWrite(0x40025000,0x00000008, 0xF);         	
 	}
   else
 	{
-		GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
+		GPIOPinWrite(0x40025000,0x00000008, 0x0);         	
 	}
 	if ((string1 > 0xC3A) && (string1 < 0xD28)) 
 	{
 		SetUpPWM156HZ();
-		GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
+		GPIOPinWrite(0x40025000,0x00000004, 0xF);         	
 	}
   else
 	{
-		GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
+		GPIOPinWrite(0x40025000,0x00000004, 0x0);         	
 	}
 	if ((string1 > 0xD28) && (string1 < 0xE16)) 
 	{
@@ -9894,103 +10932,29 @@ void ADCReadString1()
 	if ((string1 > 0xE16) && (string1 < 0xF04)) 
 	{
 		SetUpPWM175HZ();
-		GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
+		GPIOPinWrite(0x40025000,0x00000004, 0xF);         	
 	}
   else
 	{
-		GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
+		GPIOPinWrite(0x40025000,0x00000004, 0x0);         	
 	}
 	if ((string1 > 0xF04) && (string1 < 0xFFF)) 
 	{
 		SetUpPWM185HZ();
-		GPIOPinWrite(0x40025000,0x00000002, 0xF);         	
+		GPIOPinWrite(0x40025000,0x00000008, 0xF);         	
 	}
   else
 	{
-		GPIOPinWrite(0x40025000,0x00000002, 0x0);         	
+		GPIOPinWrite(0x40025000,0x00000008, 0x0);         	
 	}
 }
 
 
 
-	
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
 
 

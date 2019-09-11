@@ -22,7 +22,7 @@ Dialog DLL:      TCM.DLL V1.32.0.0
  
 <h2>Project:</h2>
 C:\Users\mmatti\Documents\GitHub\LabProject\project.uvprojx
-Project File Date:  11/08/2017
+Project File Date:  12/06/2017
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
@@ -32,102 +32,58 @@ assembling startup_rvmdk.S...
 creating preprocessor file for ADC_helper.c...
 creating preprocessor file for GPIO_helper.c...
 compiling ADC_helper.c...
-src\ADC_helper.h(37): warning:  #1-D: last line of file ends without a newline
-  //extern struct ADC_Strings_FSRs StringAndFSR_values;
-src\ADC_helper.c(62): warning:  #550-D: variable "DutyCycle"  was set but never used
-  	uint32_t DutyCycle;
-src\ADC_helper.c(127): warning:  #223-D: function "SetUpPWM0HZ" declared implicitly
-  		SetUpPWM0HZ();
-src\ADC_helper.c(136): warning:  #223-D: function "SetUpPWM82HZ" declared implicitly
-  		SetUpPWM82HZ();
-src\ADC_helper.c(146): warning:  #223-D: function "SetUpPWM87HZ" declared implicitly
-  		SetUpPWM87HZ();
-src\ADC_helper.c(157): warning:  #223-D: function "SetUpPWM92HZ" declared implicitly
-  		SetUpPWM92HZ();
-src\ADC_helper.c(166): warning:  #223-D: function "SetUpPWM98HZ" declared implicitly
-  		SetUpPWM98HZ();
-src\ADC_helper.c(175): warning:  #223-D: function "SetUpPWM104HZ" declared implicitly
-  		SetUpPWM104HZ();
-src\ADC_helper.c(184): warning:  #223-D: function "SetUpPWM110HZ" declared implicitly
-  		SetUpPWM110HZ();
-src\ADC_helper.c(193): warning:  #223-D: function "SetUpPWM117HZ" declared implicitly
-  		SetUpPWM117HZ();
-src\ADC_helper.c(202): warning:  #223-D: function "SetUpPWM123HZ" declared implicitly
-  		SetUpPWM123HZ();
-src\ADC_helper.c(211): warning:  #223-D: function "SetUpPWM131HZ" declared implicitly
-  		SetUpPWM131HZ();
-src\ADC_helper.c(220): warning:  #223-D: function "SetUpPWM139HZ" declared implicitly
-  		SetUpPWM139HZ();
-src\ADC_helper.c(229): warning:  #223-D: function "SetUpPWM147HZ" declared implicitly
-  		SetUpPWM147HZ();
-src\ADC_helper.c(238): warning:  #223-D: function "SetUpPWM156HZ" declared implicitly
-  		SetUpPWM156HZ();
-src\ADC_helper.c(247): warning:  #223-D: function "SetUpPWM165HZ" declared implicitly
-  		SetUpPWM165HZ();
-src\ADC_helper.c(256): warning:  #223-D: function "SetUpPWM175HZ" declared implicitly
-  		SetUpPWM175HZ();
-src\ADC_helper.c(265): warning:  #223-D: function "SetUpPWM185HZ" declared implicitly
-  		SetUpPWM185HZ();
-src\ADC_helper.c: 18 warnings, 0 errors
 compiling GPIO_helper.c...
-src\GPIO_helper.h(30): warning:  #1-D: last line of file ends without a newline
-    void TurnOnLEDs2(void);
 src\GPIO_helper.c(213): warning:  #1-D: last line of file ends without a newline
-  			
-src\GPIO_helper.c: 2 warnings, 0 errors
+  	
+src\GPIO_helper.c: 1 warning, 0 errors
 creating preprocessor file for PWM_helper.c...
 creating preprocessor file for FSR2I2C.c...
-compiling FSR2I2C.c...
 compiling project.c...
 driverlib/hibernate.h(229): warning:  #231-D: declaration is not visible outside of function
-  extern void HibernateCalendarSet(struct tm *psTime);
+  extern void HibernateCalendarSet(struct tm *psTime); 
 driverlib/hibernate.h(230): warning:  #231-D: declaration is not visible outside of function
   extern int HibernateCalendarGet(struct tm *psTime);
 driverlib/hibernate.h(231): warning:  #231-D: declaration is not visible outside of function
   extern void HibernateCalendarMatchSet(uint32_t ui32Index, struct tm *psTime);
 driverlib/hibernate.h(232): warning:  #231-D: declaration is not visible outside of function
   extern void HibernateCalendarMatchGet(uint32_t ui32Index, struct tm *psTime);
-./src/GPIO_helper.h(30): warning:  #1-D: last line of file ends without a newline
-    void TurnOnLEDs2(void);
-./src/ADC_Helper.h(37): warning:  #1-D: last line of file ends without a newline
-  //extern struct ADC_Strings_FSRs StringAndFSR_values;
-project.c(40): warning:  #1-D: last line of file ends without a newline
-  		}
-project.c: 7 warnings, 0 errors
+project.c: 4 warnings, 0 errors
 creating preprocessor file for uart_helper.c...
-creating preprocessor file for I2C_helper.c...
 compiling PWM_helper.c...
-src\ADC_Helper.h(37): warning:  #1-D: last line of file ends without a newline
-  //extern struct ADC_Strings_FSRs StringAndFSR_values;
-src\PWM_helper.c: 1 warning, 0 errors
+creating preprocessor file for I2C_helper.c...
 compiling uart_helper.c...
-src\uart_helper.c(123): warning:  #1-D: last line of file ends without a newline
+creating preprocessor file for LCDDisplay.c...
+compiling LCDDisplay.c...
+LCDDisplay.h(58): warning:  #1-D: last line of file ends without a newline
+  #endif /* LIB_DISPLAY_H_ */
+LCDDisplay.c(214): warning:  #1-D: last line of file ends without a newline
   }
-src\uart_helper.c: 1 warning, 0 errors
+LCDDisplay.c: 2 warnings, 0 errors
+compiling FSR2I2C.c...
+driverlib/hibernate.h(229): warning:  #231-D: declaration is not visible outside of function
+  extern void HibernateCalendarSet(struct tm *psTime); 
+driverlib/hibernate.h(230): warning:  #231-D: declaration is not visible outside of function
+  extern int HibernateCalendarGet(struct tm *psTime);
+driverlib/hibernate.h(231): warning:  #231-D: declaration is not visible outside of function
+  extern void HibernateCalendarMatchSet(uint32_t ui32Index, struct tm *psTime);
+driverlib/hibernate.h(232): warning:  #231-D: declaration is not visible outside of function
+  extern void HibernateCalendarMatchGet(uint32_t ui32Index, struct tm *psTime);
+FSR2I2C.c: 4 warnings, 0 errors
 compiling I2C_helper.c...
 driverlib/hibernate.h(229): warning:  #231-D: declaration is not visible outside of function
-  extern void HibernateCalendarSet(struct tm *psTime);
+  extern void HibernateCalendarSet(struct tm *psTime); 
 driverlib/hibernate.h(230): warning:  #231-D: declaration is not visible outside of function
   extern int HibernateCalendarGet(struct tm *psTime);
 driverlib/hibernate.h(231): warning:  #231-D: declaration is not visible outside of function
   extern void HibernateCalendarMatchSet(uint32_t ui32Index, struct tm *psTime);
 driverlib/hibernate.h(232): warning:  #231-D: declaration is not visible outside of function
   extern void HibernateCalendarMatchGet(uint32_t ui32Index, struct tm *psTime);
-./src/GPIO_helper.h(30): warning:  #1-D: last line of file ends without a newline
-    void TurnOnLEDs2(void);
-./src/ADC_Helper.h(37): warning:  #1-D: last line of file ends without a newline
-  //extern struct ADC_Strings_FSRs StringAndFSR_values;
-I2C_helper.h(3): warning:  #1-D: last line of file ends without a newline
-  void I2C_Setup(void);
-I2C_helper.c(21): warning:  #1-D: last line of file ends without a newline
-  }
-I2C_helper.c: 8 warnings, 0 errors
+I2C_helper.c: 4 warnings, 0 errors
 linking...
-.\rvmdk\project.axf: Error: L6218E: Undefined symbol DutyCycle (referred from pwm_helper.o).
-Not enough information to list image symbols.
-Not enough information to list load addresses in the image map.
-Finished: 2 information, 0 warning and 1 error messages.
-".\rvmdk\project.axf" - 1 Error(s), 37 Warning(s).
+Program Size: Code=4284 RO-data=584 RW-data=4 ZI-data=340  
+FromELF: creating hex file...
+After Build - User command #1: fromelf --bin --output .\rvmdk\project.bin .\rvmdk\project.axf
+".\rvmdk\project.axf" - 0 Error(s), 15 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -150,8 +106,7 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.0.1
-Target not created.
-Build Time Elapsed:  00:00:03
+Build Time Elapsed:  00:00:07
 </pre>
 </body>
 </html>

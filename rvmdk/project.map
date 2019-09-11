@@ -8,17 +8,16 @@ Section Cross References
     project.o(i.main) refers to sysctl.o(i.SysCtlPeripheralEnable) for SysCtlPeripheralEnable
     project.o(i.main) refers to sysctl.o(i.SysCtlPeripheralReset) for SysCtlPeripheralReset
     project.o(i.main) refers to gpio_helper.o(i.GPIOSetup) for GPIOSetup
-    project.o(i.main) refers to uart_helper.o(i.UART_setup) for UART_setup
     project.o(i.main) refers to adc_helper.o(i.SetupADCPins) for SetupADCPins
     project.o(i.main) refers to adc_helper.o(i.SetupADC) for SetupADC
     project.o(i.main) refers to pwm_helper.o(i.SetupPWM) for SetupPWM
     project.o(i.main) refers to sysctl.o(i.SysCtlPeripheralReady) for SysCtlPeripheralReady
+    project.o(i.main) refers to adc_helper.o(i.read_adc) for read_adc
+    project.o(i.main) refers to adc_helper.o(i.ReadFSR1) for ReadFSR1
     project.o(i.main) refers to adc_helper.o(i.ADCReadString1) for ADCReadString1
+    project.o(i.main) refers to adc_helper.o(i.ReadDutyKnob) for ReadDutyKnob
     startup_rvmdk.o(RESET) refers to startup_rvmdk.o(STACK) for StackMem
     startup_rvmdk.o(RESET) refers to entry.o(.ARM.Collect$$$$00000000) for __main
-    adc_helper.o(i.ADCReadString1) refers to adc.o(i.ADCProcessorTrigger) for ADCProcessorTrigger
-    adc_helper.o(i.ADCReadString1) refers to adc.o(i.ADCBusy) for ADCBusy
-    adc_helper.o(i.ADCReadString1) refers to adc.o(i.ADCSequenceDataGet) for ADCSequenceDataGet
     adc_helper.o(i.ADCReadString1) refers to pwm_helper.o(i.SetUpPWM0HZ) for SetUpPWM0HZ
     adc_helper.o(i.ADCReadString1) refers to pwm_helper.o(i.SetUpPWM82HZ) for SetUpPWM82HZ
     adc_helper.o(i.ADCReadString1) refers to gpio.o(i.GPIOPinWrite) for GPIOPinWrite
@@ -36,9 +35,10 @@ Section Cross References
     adc_helper.o(i.ADCReadString1) refers to pwm_helper.o(i.SetUpPWM165HZ) for SetUpPWM165HZ
     adc_helper.o(i.ADCReadString1) refers to pwm_helper.o(i.SetUpPWM175HZ) for SetUpPWM175HZ
     adc_helper.o(i.ADCReadString1) refers to pwm_helper.o(i.SetUpPWM185HZ) for SetUpPWM185HZ
-    adc_helper.o(i.ReadDutyKnob) refers to adc.o(i.ADCProcessorTrigger) for ADCProcessorTrigger
-    adc_helper.o(i.ReadDutyKnob) refers to adc.o(i.ADCBusy) for ADCBusy
-    adc_helper.o(i.ReadDutyKnob) refers to adc.o(i.ADCSequenceDataGet) for ADCSequenceDataGet
+    adc_helper.o(i.ADCReadString1) refers to adc_helper.o(.bss) for ADC_Values
+    adc_helper.o(i.ReadDutyKnob) refers to adc_helper.o(.bss) for ADC_Values
+    adc_helper.o(i.ReadDutyKnob) refers to pwm_helper.o(.data) for DutyCycle
+    adc_helper.o(i.ReadFSR1) refers to adc_helper.o(.bss) for ADC_Values
     adc_helper.o(i.SetupADC) refers to adc_helper.o(i.SetupADCPins) for SetupADCPins
     adc_helper.o(i.SetupADC) refers to sysctl.o(i.SysCtlPeripheralEnable) for SysCtlPeripheralEnable
     adc_helper.o(i.SetupADC) refers to sysctl.o(i.SysCtlPeripheralReady) for SysCtlPeripheralReady
@@ -48,6 +48,10 @@ Section Cross References
     adc_helper.o(i.SetupADC) refers to adc.o(i.ADCSequenceStepConfigure) for ADCSequenceStepConfigure
     adc_helper.o(i.SetupADC) refers to adc.o(i.ADCSequenceEnable) for ADCSequenceEnable
     adc_helper.o(i.SetupADCPins) refers to gpio.o(i.GPIOPinTypeADC) for GPIOPinTypeADC
+    adc_helper.o(i.read_adc) refers to adc.o(i.ADCProcessorTrigger) for ADCProcessorTrigger
+    adc_helper.o(i.read_adc) refers to adc.o(i.ADCBusy) for ADCBusy
+    adc_helper.o(i.read_adc) refers to adc.o(i.ADCSequenceDataGet) for ADCSequenceDataGet
+    adc_helper.o(i.read_adc) refers to adc_helper.o(.bss) for ADC_Values
     gpio_helper.o(i.GPIOSetup) refers to sysctl.o(i.SysCtlPeripheralEnable) for SysCtlPeripheralEnable
     gpio_helper.o(i.GPIOSetup) refers to gpio.o(i.GPIOPinTypeGPIOOutput) for GPIOPinTypeGPIOOutput
     gpio_helper.o(i.GPIOSetup) refers to gpio.o(i.GPIOPinTypeGPIOInput) for GPIOPinTypeGPIOInput
@@ -61,28 +65,40 @@ Section Cross References
     pwm_helper.o(i.SetUpPWM0HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
     pwm_helper.o(i.SetUpPWM104HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
     pwm_helper.o(i.SetUpPWM104HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM104HZ) refers to pwm_helper.o(.data) for DutyCycle
     pwm_helper.o(i.SetUpPWM110HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
     pwm_helper.o(i.SetUpPWM110HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM110HZ) refers to pwm_helper.o(.data) for DutyCycle
     pwm_helper.o(i.SetUpPWM117HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
     pwm_helper.o(i.SetUpPWM117HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM117HZ) refers to pwm_helper.o(.data) for DutyCycle
     pwm_helper.o(i.SetUpPWM123HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
     pwm_helper.o(i.SetUpPWM123HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM123HZ) refers to pwm_helper.o(.data) for DutyCycle
     pwm_helper.o(i.SetUpPWM131HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
     pwm_helper.o(i.SetUpPWM131HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM131HZ) refers to pwm_helper.o(.data) for DutyCycle
     pwm_helper.o(i.SetUpPWM139HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
     pwm_helper.o(i.SetUpPWM139HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM139HZ) refers to pwm_helper.o(.data) for DutyCycle
     pwm_helper.o(i.SetUpPWM147HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
     pwm_helper.o(i.SetUpPWM147HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM147HZ) refers to pwm_helper.o(.data) for DutyCycle
     pwm_helper.o(i.SetUpPWM156HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
     pwm_helper.o(i.SetUpPWM156HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM156HZ) refers to pwm_helper.o(.data) for DutyCycle
     pwm_helper.o(i.SetUpPWM165HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
     pwm_helper.o(i.SetUpPWM165HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM165HZ) refers to pwm_helper.o(.data) for DutyCycle
     pwm_helper.o(i.SetUpPWM175HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
     pwm_helper.o(i.SetUpPWM175HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM175HZ) refers to pwm_helper.o(.data) for DutyCycle
     pwm_helper.o(i.SetUpPWM185HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
     pwm_helper.o(i.SetUpPWM185HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM185HZ) refers to pwm_helper.o(.data) for DutyCycle
     pwm_helper.o(i.SetUpPWM196HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
     pwm_helper.o(i.SetUpPWM196HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM196HZ) refers to pwm_helper.o(.data) for DutyCycle
     pwm_helper.o(i.SetUpPWM208HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
     pwm_helper.o(i.SetUpPWM208HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
     pwm_helper.o(i.SetUpPWM300HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
@@ -93,12 +109,16 @@ Section Cross References
     pwm_helper.o(i.SetUpPWM500HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
     pwm_helper.o(i.SetUpPWM82HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
     pwm_helper.o(i.SetUpPWM82HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM82HZ) refers to pwm_helper.o(.data) for DutyCycle
     pwm_helper.o(i.SetUpPWM87HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
     pwm_helper.o(i.SetUpPWM87HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM87HZ) refers to pwm_helper.o(.data) for DutyCycle
     pwm_helper.o(i.SetUpPWM92HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
     pwm_helper.o(i.SetUpPWM92HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM92HZ) refers to pwm_helper.o(.data) for DutyCycle
     pwm_helper.o(i.SetUpPWM98HZ) refers to pwm.o(i.PWMGenPeriodSet) for PWMGenPeriodSet
     pwm_helper.o(i.SetUpPWM98HZ) refers to pwm.o(i.PWMPulseWidthSet) for PWMPulseWidthSet
+    pwm_helper.o(i.SetUpPWM98HZ) refers to pwm_helper.o(.data) for DutyCycle
     pwm_helper.o(i.SetupPWM) refers to sysctl.o(i.SysCtlPWMClockSet) for SysCtlPWMClockSet
     pwm_helper.o(i.SetupPWM) refers to sysctl.o(i.SysCtlPeripheralEnable) for SysCtlPeripheralEnable
     pwm_helper.o(i.SetupPWM) refers to sysctl.o(i.SysCtlPeripheralReady) for SysCtlPeripheralReady
@@ -107,6 +127,8 @@ Section Cross References
     pwm_helper.o(i.SetupPWM) refers to pwm.o(i.PWMGenConfigure) for PWMGenConfigure
     pwm_helper.o(i.SetupPWM) refers to pwm.o(i.PWMGenEnable) for PWMGenEnable
     pwm_helper.o(i.SetupPWM) refers to pwm.o(i.PWMOutputState) for PWMOutputState
+    fsr2i2c.o(i.I2CSendFSR1) refers to i2c.o(i.I2CMasterSlaveAddrSet) for I2CMasterSlaveAddrSet
+    fsr2i2c.o(i.I2CSendFSR1) refers to i2c.o(i.I2CMasterDataPut) for I2CMasterDataPut
     uart_helper.o(i.UART_setup) refers to sysctl.o(i.SysCtlPeripheralEnable) for SysCtlPeripheralEnable
     uart_helper.o(i.UART_setup) refers to gpio.o(i.GPIOPinTypeUART) for GPIOPinTypeUART
     uart_helper.o(i.UART_setup) refers to gpio.o(i.GPIOPinConfigure) for GPIOPinConfigure
@@ -117,7 +139,42 @@ Section Cross References
     uart_helper.o(i.print_menu) refers to printf2.o(i.__0printf$2) for __2printf
     uart_helper.o(i.process_UART) refers to uart.o(i.UARTCharGet) for UARTCharGet
     uart_helper.o(i.process_UART) refers to printf2.o(i.__0printf$2) for __2printf
-    i2c_helper.o(i.I2C_Setup) refers to i2c.o(i.I2CMasterEnable) for I2CMasterEnable
+    i2c_helper.o(i.I2C_Setup) refers to sysctl.o(i.SysCtlPeripheralEnable) for SysCtlPeripheralEnable
+    i2c_helper.o(i.I2C_Setup) refers to sysctl.o(i.SysCtlPeripheralReset) for SysCtlPeripheralReset
+    i2c_helper.o(i.I2C_Setup) refers to gpio.o(i.GPIOPinConfigure) for GPIOPinConfigure
+    i2c_helper.o(i.I2C_Setup) refers to gpio.o(i.GPIOPinTypeI2CSCL) for GPIOPinTypeI2CSCL
+    i2c_helper.o(i.I2C_Setup) refers to gpio.o(i.GPIOPinTypeI2C) for GPIOPinTypeI2C
+    i2c_helper.o(i.I2C_Setup) refers to sysctl.o(i.SysCtlClockGet) for SysCtlClockGet
+    i2c_helper.o(i.I2C_Setup) refers to i2c.o(i.I2CMasterInitExpClk) for I2CMasterInitExpClk
+    lcddisplay.o(i.clearLCD) refers to lcddisplay.o(i.sendByte) for sendByte
+    lcddisplay.o(i.clearLCD) refers to sysctl.o(.emb_text) for SysCtlDelay
+    lcddisplay.o(i.cursorOffLCD) refers to lcddisplay.o(i.sendByte) for sendByte
+    lcddisplay.o(i.cursorOnLCD) refers to lcddisplay.o(i.sendByte) for sendByte
+    lcddisplay.o(i.displayOffLCD) refers to lcddisplay.o(i.sendByte) for sendByte
+    lcddisplay.o(i.displayOnLCD) refers to lcddisplay.o(i.sendByte) for sendByte
+    lcddisplay.o(i.homeLCD) refers to lcddisplay.o(i.sendByte) for sendByte
+    lcddisplay.o(i.homeLCD) refers to sysctl.o(.emb_text) for SysCtlDelay
+    lcddisplay.o(i.initLCD) refers to sysctl.o(i.SysCtlPeripheralEnable) for SysCtlPeripheralEnable
+    lcddisplay.o(i.initLCD) refers to gpio.o(i.GPIOPinTypeGPIOOutput) for GPIOPinTypeGPIOOutput
+    lcddisplay.o(i.initLCD) refers to gpio.o(i.GPIOPinWrite) for GPIOPinWrite
+    lcddisplay.o(i.initLCD) refers to sysctl.o(.emb_text) for SysCtlDelay
+    lcddisplay.o(i.initLCD) refers to lcddisplay.o(i.setCmd) for setCmd
+    lcddisplay.o(i.initLCD) refers to lcddisplay.o(i.pulseLCD) for pulseLCD
+    lcddisplay.o(i.initLCD) refers to lcddisplay.o(i.sendByte) for sendByte
+    lcddisplay.o(i.initLCD) refers to lcddisplay.o(i.cursorOffLCD) for cursorOffLCD
+    lcddisplay.o(i.initLCD) refers to lcddisplay.o(i.clearLCD) for clearLCD
+    lcddisplay.o(i.printLCD) refers to lcddisplay.o(i.sendByte) for sendByte
+    lcddisplay.o(i.pulseLCD) refers to gpio.o(i.GPIOPinWrite) for GPIOPinWrite
+    lcddisplay.o(i.sendByte) refers to lcddisplay.o(i.setData) for setData
+    lcddisplay.o(i.sendByte) refers to lcddisplay.o(i.setCmd) for setCmd
+    lcddisplay.o(i.sendByte) refers to sysctl.o(.emb_text) for SysCtlDelay
+    lcddisplay.o(i.sendByte) refers to gpio.o(i.GPIOPinWrite) for GPIOPinWrite
+    lcddisplay.o(i.sendByte) refers to lcddisplay.o(i.pulseLCD) for pulseLCD
+    lcddisplay.o(i.setBlockCursorLCD) refers to lcddisplay.o(i.sendByte) for sendByte
+    lcddisplay.o(i.setCmd) refers to gpio.o(i.GPIOPinWrite) for GPIOPinWrite
+    lcddisplay.o(i.setCursorPositionLCD) refers to lcddisplay.o(i.sendByte) for sendByte
+    lcddisplay.o(i.setData) refers to gpio.o(i.GPIOPinWrite) for GPIOPinWrite
+    lcddisplay.o(i.setLineCursorLCD) refers to lcddisplay.o(i.sendByte) for sendByte
     adc.o(i.ADCIntRegister) refers to interrupt.o(i.IntRegister) for IntRegister
     adc.o(i.ADCIntRegister) refers to interrupt.o(i.IntEnable) for IntEnable
     adc.o(i.ADCIntUnregister) refers to interrupt.o(i.IntDisable) for IntDisable
@@ -509,25 +566,41 @@ Removing Unused input sections from the image.
 
     Removing startup_rvmdk.o(HEAP), (0 bytes).
     Removing startup_rvmdk.o(.text), (0 bytes).
-    Removing adc_helper.o(i.ReadDutyKnob), (140 bytes).
-    Removing adc_helper.o(.bss), (52 bytes).
+    Removing adc_helper.o(.data), (36 bytes).
     Removing gpio_helper.o(i.TurnOnLEDs), (532 bytes).
     Removing gpio_helper.o(i.TurnOnLEDs2), (352 bytes).
     Removing gpio_helper.o(i.UpdateMyButtons), (64 bytes).
     Removing gpio_helper.o(.data), (2 bytes).
-    Removing pwm_helper.o(i.SetUpPWM196HZ), (32 bytes).
+    Removing pwm_helper.o(i.SetUpPWM196HZ), (48 bytes).
     Removing pwm_helper.o(i.SetUpPWM208HZ), (32 bytes).
     Removing pwm_helper.o(i.SetUpPWM300HZ), (32 bytes).
     Removing pwm_helper.o(i.SetUpPWM400HZ), (32 bytes).
     Removing pwm_helper.o(i.SetUpPWM500HZ), (32 bytes).
+    Removing fsr2i2c.o(i.I2CSendFSR1), (28 bytes).
     Removing uart_helper.o(i.Mander), (28 bytes).
     Removing uart_helper.o(i.UART_OutChar), (24 bytes).
+    Removing uart_helper.o(i.UART_setup), (64 bytes).
     Removing uart_helper.o(i.ferror), (6 bytes).
     Removing uart_helper.o(i.fgetc), (10 bytes).
     Removing uart_helper.o(i.fputc), (44 bytes).
     Removing uart_helper.o(i.print_menu), (108 bytes).
     Removing uart_helper.o(i.process_UART), (60 bytes).
-    Removing i2c_helper.o(i.I2C_Setup), (136 bytes).
+    Removing i2c_helper.o(i.I2C_Setup), (92 bytes).
+    Removing lcddisplay.o(i.clearLCD), (28 bytes).
+    Removing lcddisplay.o(i.cursorOffLCD), (12 bytes).
+    Removing lcddisplay.o(i.cursorOnLCD), (12 bytes).
+    Removing lcddisplay.o(i.displayOffLCD), (12 bytes).
+    Removing lcddisplay.o(i.displayOnLCD), (12 bytes).
+    Removing lcddisplay.o(i.homeLCD), (20 bytes).
+    Removing lcddisplay.o(i.initLCD), (140 bytes).
+    Removing lcddisplay.o(i.printLCD), (28 bytes).
+    Removing lcddisplay.o(i.pulseLCD), (40 bytes).
+    Removing lcddisplay.o(i.sendByte), (60 bytes).
+    Removing lcddisplay.o(i.setBlockCursorLCD), (12 bytes).
+    Removing lcddisplay.o(i.setCmd), (16 bytes).
+    Removing lcddisplay.o(i.setCursorPositionLCD), (52 bytes).
+    Removing lcddisplay.o(i.setData), (16 bytes).
+    Removing lcddisplay.o(i.setLineCursorLCD), (12 bytes).
     Removing adc.o(i.ADCClockConfigGet), (32 bytes).
     Removing adc.o(i.ADCClockConfigSet), (28 bytes).
     Removing adc.o(i.ADCComparatorConfigure), (10 bytes).
@@ -595,6 +668,7 @@ Removing Unused input sections from the image.
     Removing gpio.o(i.GPIOPinTypeSSI), (28 bytes).
     Removing gpio.o(i.GPIOPinTypeTimer), (28 bytes).
     Removing gpio.o(i.GPIOPinTypeTrace), (28 bytes).
+    Removing gpio.o(i.GPIOPinTypeUART), (28 bytes).
     Removing gpio.o(i.GPIOPinTypeUSBAnalog), (28 bytes).
     Removing gpio.o(i.GPIOPinTypeUSBDigital), (28 bytes).
     Removing gpio.o(i.GPIOPinTypeWakeHigh), (30 bytes).
@@ -690,6 +764,7 @@ Removing Unused input sections from the image.
     Removing pwm.o(i._PWMGenIntNumberGet), (224 bytes).
     Removing sysctl.o(i.SysCtlAltClkConfig), (12 bytes).
     Removing sysctl.o(i.SysCtlClockFreqSet), (748 bytes).
+    Removing sysctl.o(i.SysCtlClockGet), (340 bytes).
     Removing sysctl.o(i.SysCtlClockOutConfig), (20 bytes).
     Removing sysctl.o(i.SysCtlDeepSleep), (32 bytes).
     Removing sysctl.o(i.SysCtlDeepSleepClockConfigSet), (112 bytes).
@@ -737,6 +812,7 @@ Removing Unused input sections from the image.
     Removing sysctl.o(i.SysCtlVoltageEventClear), (16 bytes).
     Removing sysctl.o(i.SysCtlVoltageEventConfig), (12 bytes).
     Removing sysctl.o(i.SysCtlVoltageEventStatus), (12 bytes).
+    Removing sysctl.o(.constdata), (596 bytes).
     Removing uart.o(i.UART9BitAddrSend), (38 bytes).
     Removing uart.o(i.UART9BitAddrSet), (10 bytes).
     Removing uart.o(i.UART9BitDisable), (14 bytes).
@@ -751,6 +827,7 @@ Removing Unused input sections from the image.
     Removing uart.o(i.UARTClockSourceGet), (6 bytes).
     Removing uart.o(i.UARTClockSourceSet), (6 bytes).
     Removing uart.o(i.UARTConfigGetExpClk), (46 bytes).
+    Removing uart.o(i.UARTConfigSetExpClk), (110 bytes).
     Removing uart.o(i.UARTDMADisable), (10 bytes).
     Removing uart.o(i.UARTDMAEnable), (8 bytes).
     Removing uart.o(i.UARTDisable), (30 bytes).
@@ -811,4 +888,449 @@ Removing Unused input sections from the image.
     Removing cdrcmple.o(.text), (48 bytes).
     Removing depilogue.o(.text), (186 bytes).
 
-303 unused section(s) (total 11534 bytes) removed from the image.
+323 unused section(s) (total 12988 bytes) removed from the image.
+
+==============================================================================
+
+Image Symbol Table
+
+    Local Symbols
+
+    Symbol Name                              Value     Ov Type        Size  Object(Section)
+
+    RESET                                    0x00000000   Section      648  startup_rvmdk.o(RESET)
+    ../clib/microlib/division.c              0x00000000   Number         0  uidiv.o ABSOLUTE
+    ../clib/microlib/division.c              0x00000000   Number         0  uldiv.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
+    ../clib/microlib/longlong.c              0x00000000   Number         0  llshl.o ABSOLUTE
+    ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
+    ../clib/microlib/longlong.c              0x00000000   Number         0  llsshr.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf2.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf1.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf0.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfb.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfa.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf8.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf7.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf6.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf5.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf4.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf3.o ABSOLUTE
+    ../clib/microlib/printf/stubs.s          0x00000000   Number         0  stubs.o ABSOLUTE
+    ../clib/microlib/stdio/streams.c         0x00000000   Number         0  stdout.o ABSOLUTE
+    ../clib/microlib/stubs.s                 0x00000000   Number         0  iusefp.o ABSOLUTE
+    ../fplib/microlib/fpadd.c                0x00000000   Number         0  dadd.o ABSOLUTE
+    ../fplib/microlib/fpdiv.c                0x00000000   Number         0  ddiv.o ABSOLUTE
+    ../fplib/microlib/fpepilogue.c           0x00000000   Number         0  depilogue.o ABSOLUTE
+    ../fplib/microlib/fpfix.c                0x00000000   Number         0  dfixul.o ABSOLUTE
+    ../fplib/microlib/fpmul.c                0x00000000   Number         0  dmul.o ABSOLUTE
+    FSR2I2C.c                                0x00000000   Number         0  fsr2i2c.o ABSOLUTE
+    I2C_helper.c                             0x00000000   Number         0  i2c_helper.o ABSOLUTE
+    LCDDisplay.c                             0x00000000   Number         0  lcddisplay.o ABSOLUTE
+    adc.c                                    0x00000000   Number         0  adc.o ABSOLUTE
+    cdrcmple.s                               0x00000000   Number         0  cdrcmple.o ABSOLUTE
+    cpu.c                                    0x00000000   Number         0  cpu.o ABSOLUTE
+    cpu.c                                    0x00000000   Number         0  cpu.o ABSOLUTE
+    dc.s                                     0x00000000   Number         0  dc.o ABSOLUTE
+    gpio.c                                   0x00000000   Number         0  gpio.o ABSOLUTE
+    handlers.s                               0x00000000   Number         0  handlers.o ABSOLUTE
+    i2c.c                                    0x00000000   Number         0  i2c.o ABSOLUTE
+    init.s                                   0x00000000   Number         0  init.o ABSOLUTE
+    interrupt.c                              0x00000000   Number         0  interrupt.o ABSOLUTE
+    project.c                                0x00000000   Number         0  project.o ABSOLUTE
+    pwm.c                                    0x00000000   Number         0  pwm.o ABSOLUTE
+    src\ADC_helper.c                         0x00000000   Number         0  adc_helper.o ABSOLUTE
+    src\GPIO_helper.c                        0x00000000   Number         0  gpio_helper.o ABSOLUTE
+    src\PWM_helper.c                         0x00000000   Number         0  pwm_helper.o ABSOLUTE
+    src\uart_helper.c                        0x00000000   Number         0  uart_helper.o ABSOLUTE
+    startup_rvmdk.S                          0x00000000   Number         0  startup_rvmdk.o ABSOLUTE
+    sysctl.c                                 0x00000000   Number         0  sysctl.o ABSOLUTE
+    sysctl.c                                 0x00000000   Number         0  sysctl.o ABSOLUTE
+    uart.c                                   0x00000000   Number         0  uart.o ABSOLUTE
+    $v0                                      0x0000026c   Number         0  startup_rvmdk.o(RESET)
+    NmiSR                                    0x00000281   Thumb Code     0  startup_rvmdk.o(RESET)
+    FaultISR                                 0x00000283   Thumb Code     0  startup_rvmdk.o(RESET)
+    IntDefaultHandler                        0x00000285   Thumb Code     0  startup_rvmdk.o(RESET)
+    .ARM.Collect$$$$00000000                 0x00000288   Section        0  entry.o(.ARM.Collect$$$$00000000)
+    .ARM.Collect$$$$00000001                 0x00000288   Section        4  entry2.o(.ARM.Collect$$$$00000001)
+    .ARM.Collect$$$$00000004                 0x0000028c   Section        4  entry5.o(.ARM.Collect$$$$00000004)
+    .ARM.Collect$$$$00000008                 0x00000290   Section        0  entry7b.o(.ARM.Collect$$$$00000008)
+    .ARM.Collect$$$$0000000A                 0x00000290   Section        0  entry8b.o(.ARM.Collect$$$$0000000A)
+    .ARM.Collect$$$$0000000B                 0x00000290   Section        8  entry9a.o(.ARM.Collect$$$$0000000B)
+    .ARM.Collect$$$$0000000D                 0x00000298   Section        0  entry10a.o(.ARM.Collect$$$$0000000D)
+    .ARM.Collect$$$$0000000F                 0x00000298   Section        0  entry11a.o(.ARM.Collect$$$$0000000F)
+    .ARM.Collect$$$$00002712                 0x00000298   Section        4  entry2.o(.ARM.Collect$$$$00002712)
+    __lit__00000000                          0x00000298   Data           4  entry2.o(.ARM.Collect$$$$00002712)
+    .emb_text                                0x0000029c   Section        6  sysctl.o(.emb_text)
+    $v0                                      0x0000029c   Number         0  sysctl.o(.emb_text)
+    .text                                    0x000002a4   Section       36  init.o(.text)
+    i.ADCBusy                                0x000002c8   Section        0  adc.o(i.ADCBusy)
+    i.ADCProcessorTrigger                    0x000002d0   Section        0  adc.o(i.ADCProcessorTrigger)
+    i.ADCReadString1                         0x000002ec   Section        0  adc_helper.o(i.ADCReadString1)
+    i.ADCReferenceSet                        0x00000570   Section        0  adc.o(i.ADCReferenceSet)
+    i.ADCSequenceConfigure                   0x0000057c   Section        0  adc.o(i.ADCSequenceConfigure)
+    i.ADCSequenceDataGet                     0x000005dc   Section        0  adc.o(i.ADCSequenceDataGet)
+    i.ADCSequenceDisable                     0x00000600   Section        0  adc.o(i.ADCSequenceDisable)
+    i.ADCSequenceEnable                      0x00000610   Section        0  adc.o(i.ADCSequenceEnable)
+    i.ADCSequenceStepConfigure               0x0000061e   Section        0  adc.o(i.ADCSequenceStepConfigure)
+    i.GPIODirModeSet                         0x000006b8   Section        0  gpio.o(i.GPIODirModeSet)
+    i.GPIOPadConfigSet                       0x000006e0   Section        0  gpio.o(i.GPIOPadConfigSet)
+    i.GPIOPinConfigure                       0x00000818   Section        0  gpio.o(i.GPIOPinConfigure)
+    i.GPIOPinTypeADC                         0x0000085c   Section        0  gpio.o(i.GPIOPinTypeADC)
+    i.GPIOPinTypeGPIOInput                   0x00000878   Section        0  gpio.o(i.GPIOPinTypeGPIOInput)
+    i.GPIOPinTypeGPIOOutput                  0x00000894   Section        0  gpio.o(i.GPIOPinTypeGPIOOutput)
+    i.GPIOPinTypePWM                         0x000008b0   Section        0  gpio.o(i.GPIOPinTypePWM)
+    i.GPIOPinWrite                           0x000008cc   Section        0  gpio.o(i.GPIOPinWrite)
+    i.GPIOSetup                              0x000008d4   Section        0  gpio_helper.o(i.GPIOSetup)
+    i.PWMGenConfigure                        0x00000950   Section        0  pwm.o(i.PWMGenConfigure)
+    i.PWMGenEnable                           0x00000976   Section        0  pwm.o(i.PWMGenEnable)
+    i.PWMGenPeriodSet                        0x00000980   Section        0  pwm.o(i.PWMGenPeriodSet)
+    i.PWMOutputState                         0x00000992   Section        0  pwm.o(i.PWMOutputState)
+    i.PWMPulseWidthSet                       0x000009a2   Section        0  pwm.o(i.PWMPulseWidthSet)
+    i.ReadDutyKnob                           0x000009c4   Section        0  adc_helper.o(i.ReadDutyKnob)
+    i.ReadFSR1                               0x00000a38   Section        0  adc_helper.o(i.ReadFSR1)
+    i.SetUpPWM0HZ                            0x00000a50   Section        0  pwm_helper.o(i.SetUpPWM0HZ)
+    i.SetUpPWM104HZ                          0x00000a74   Section        0  pwm_helper.o(i.SetUpPWM104HZ)
+    i.SetUpPWM110HZ                          0x00000aa4   Section        0  pwm_helper.o(i.SetUpPWM110HZ)
+    i.SetUpPWM117HZ                          0x00000ad4   Section        0  pwm_helper.o(i.SetUpPWM117HZ)
+    i.SetUpPWM123HZ                          0x00000b04   Section        0  pwm_helper.o(i.SetUpPWM123HZ)
+    i.SetUpPWM131HZ                          0x00000b34   Section        0  pwm_helper.o(i.SetUpPWM131HZ)
+    i.SetUpPWM139HZ                          0x00000b64   Section        0  pwm_helper.o(i.SetUpPWM139HZ)
+    i.SetUpPWM147HZ                          0x00000b94   Section        0  pwm_helper.o(i.SetUpPWM147HZ)
+    i.SetUpPWM156HZ                          0x00000bc4   Section        0  pwm_helper.o(i.SetUpPWM156HZ)
+    i.SetUpPWM165HZ                          0x00000bf4   Section        0  pwm_helper.o(i.SetUpPWM165HZ)
+    i.SetUpPWM175HZ                          0x00000c24   Section        0  pwm_helper.o(i.SetUpPWM175HZ)
+    i.SetUpPWM185HZ                          0x00000c54   Section        0  pwm_helper.o(i.SetUpPWM185HZ)
+    i.SetUpPWM82HZ                           0x00000c84   Section        0  pwm_helper.o(i.SetUpPWM82HZ)
+    i.SetUpPWM87HZ                           0x00000cb4   Section        0  pwm_helper.o(i.SetUpPWM87HZ)
+    i.SetUpPWM92HZ                           0x00000ce4   Section        0  pwm_helper.o(i.SetUpPWM92HZ)
+    i.SetUpPWM98HZ                           0x00000d14   Section        0  pwm_helper.o(i.SetUpPWM98HZ)
+    i.SetupADC                               0x00000d44   Section        0  adc_helper.o(i.SetupADC)
+    i.SetupADCPins                           0x00000dbc   Section        0  adc_helper.o(i.SetupADCPins)
+    i.SetupPWM                               0x00000ddc   Section        0  pwm_helper.o(i.SetupPWM)
+    i.SysCtlClockSet                         0x00000e40   Section        0  sysctl.o(i.SysCtlClockSet)
+    i.SysCtlPWMClockSet                      0x00000f60   Section        0  sysctl.o(i.SysCtlPWMClockSet)
+    i.SysCtlPeripheralEnable                 0x00000f74   Section        0  sysctl.o(i.SysCtlPeripheralEnable)
+    i.SysCtlPeripheralReady                  0x00000f9c   Section        0  sysctl.o(i.SysCtlPeripheralReady)
+    i.SysCtlPeripheralReset                  0x00000fc8   Section        0  sysctl.o(i.SysCtlPeripheralReset)
+    i.__scatterload_copy                     0x00001004   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x00001012   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x00001014   Section       14  handlers.o(i.__scatterload_zeroinit)
+    i.main                                   0x00001024   Section        0  project.o(i.main)
+    i.read_adc                               0x00001074   Section        0  adc_helper.o(i.read_adc)
+    .constdata                               0x000010bc   Section      552  gpio.o(.constdata)
+    g_ppui32GPIOIntMapBlizzard               0x000010bc   Data         192  gpio.o(.constdata)
+    g_ppui32GPIOIntMapSnowflake              0x0000117c   Data         216  gpio.o(.constdata)
+    g_pui32GPIOBaseAddrs                     0x00001254   Data         144  gpio.o(.constdata)
+    .data                                    0x20000000   Section        4  pwm_helper.o(.data)
+    .bss                                     0x20000004   Section       84  adc_helper.o(.bss)
+    STACK                                    0x20000058   Section      256  startup_rvmdk.o(STACK)
+    StackMem                                 0x20000058   Data           0  startup_rvmdk.o(STACK)
+
+    Global Symbols
+
+    Symbol Name                              Value     Ov Type        Size  Object(Section)
+
+    BuildAttributes$$THM_ISAv4$E$P$D$K$B$S$7EM$VFPi3$EXTD16$VFPS$VFMA$PE$A:L22UL41UL21$X:L11$S22US41US21$IEEE1$IW$USESV6$~STKCKD$USESV7$~SHL$OTIME$ROPI$EBA8$MICROLIB$REQ8$PRES8$EABIv2 0x00000000   Number         0  anon$$obj.o ABSOLUTE
+    __ARM_use_no_argv                        0x00000000   Number         0  project.o ABSOLUTE
+    __Vectors                                0x00000000   Data           0  startup_rvmdk.o(RESET)
+    _printf_a                                0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_c                                0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_charcount                        0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_d                                0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_e                                0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_f                                0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_flags                            0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_fp_dec                           0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_fp_hex                           0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_g                                0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_i                                0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_int_dec                          0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_l                                0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_lc                               0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_ll                               0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_lld                              0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_lli                              0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_llo                              0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_llu                              0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_llx                              0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_longlong_dec                     0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_longlong_hex                     0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_longlong_oct                     0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_ls                               0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_mbtowc                           0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_n                                0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_o                                0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_p                                0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_percent                          0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_pre_padding                      0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_return_value                     0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_s                                0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_sizespec                         0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_str                              0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_truncate_signed                  0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_truncate_unsigned                0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_u                                0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_wc                               0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_wctomb                           0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_widthprec                        0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_x                                0x00000000   Number         0  stubs.o ABSOLUTE
+    __cpp_initialize__aeabi_                  - Undefined Weak Reference
+    __cxa_finalize                            - Undefined Weak Reference
+    __decompress                              - Undefined Weak Reference
+    _clock_init                               - Undefined Weak Reference
+    _microlib_exit                            - Undefined Weak Reference
+    Reset_Handler                            0x0000026d   Thumb Code     0  startup_rvmdk.o(RESET)
+    __main                                   0x00000289   Thumb Code     0  entry.o(.ARM.Collect$$$$00000000)
+    _main_stk                                0x00000289   Thumb Code     0  entry2.o(.ARM.Collect$$$$00000001)
+    _main_scatterload                        0x0000028d   Thumb Code     0  entry5.o(.ARM.Collect$$$$00000004)
+    __main_after_scatterload                 0x00000291   Thumb Code     0  entry5.o(.ARM.Collect$$$$00000004)
+    _main_clock                              0x00000291   Thumb Code     0  entry7b.o(.ARM.Collect$$$$00000008)
+    _main_cpp_init                           0x00000291   Thumb Code     0  entry8b.o(.ARM.Collect$$$$0000000A)
+    _main_init                               0x00000291   Thumb Code     0  entry9a.o(.ARM.Collect$$$$0000000B)
+    __rt_final_cpp                           0x00000299   Thumb Code     0  entry10a.o(.ARM.Collect$$$$0000000D)
+    __rt_final_exit                          0x00000299   Thumb Code     0  entry11a.o(.ARM.Collect$$$$0000000F)
+    SysCtlDelay                              0x0000029d   Thumb Code     6  sysctl.o(.emb_text)
+    __scatterload                            0x000002a5   Thumb Code    28  init.o(.text)
+    __scatterload_rt2                        0x000002a5   Thumb Code     0  init.o(.text)
+    ADCBusy                                  0x000002c9   Thumb Code     8  adc.o(i.ADCBusy)
+    ADCProcessorTrigger                      0x000002d1   Thumb Code    26  adc.o(i.ADCProcessorTrigger)
+    ADCReadString1                           0x000002ed   Thumb Code   636  adc_helper.o(i.ADCReadString1)
+    ADCReferenceSet                          0x00000571   Thumb Code    12  adc.o(i.ADCReferenceSet)
+    ADCSequenceConfigure                     0x0000057d   Thumb Code    96  adc.o(i.ADCSequenceConfigure)
+    ADCSequenceDataGet                       0x000005dd   Thumb Code    36  adc.o(i.ADCSequenceDataGet)
+    ADCSequenceDisable                       0x00000601   Thumb Code    16  adc.o(i.ADCSequenceDisable)
+    ADCSequenceEnable                        0x00000611   Thumb Code    14  adc.o(i.ADCSequenceEnable)
+    ADCSequenceStepConfigure                 0x0000061f   Thumb Code   154  adc.o(i.ADCSequenceStepConfigure)
+    GPIODirModeSet                           0x000006b9   Thumb Code    40  gpio.o(i.GPIODirModeSet)
+    GPIOPadConfigSet                         0x000006e1   Thumb Code   312  gpio.o(i.GPIOPadConfigSet)
+    GPIOPinConfigure                         0x00000819   Thumb Code    60  gpio.o(i.GPIOPinConfigure)
+    GPIOPinTypeADC                           0x0000085d   Thumb Code    28  gpio.o(i.GPIOPinTypeADC)
+    GPIOPinTypeGPIOInput                     0x00000879   Thumb Code    28  gpio.o(i.GPIOPinTypeGPIOInput)
+    GPIOPinTypeGPIOOutput                    0x00000895   Thumb Code    28  gpio.o(i.GPIOPinTypeGPIOOutput)
+    GPIOPinTypePWM                           0x000008b1   Thumb Code    28  gpio.o(i.GPIOPinTypePWM)
+    GPIOPinWrite                             0x000008cd   Thumb Code     6  gpio.o(i.GPIOPinWrite)
+    GPIOSetup                                0x000008d5   Thumb Code   106  gpio_helper.o(i.GPIOSetup)
+    PWMGenConfigure                          0x00000951   Thumb Code    38  pwm.o(i.PWMGenConfigure)
+    PWMGenEnable                             0x00000977   Thumb Code    10  pwm.o(i.PWMGenEnable)
+    PWMGenPeriodSet                          0x00000981   Thumb Code    18  pwm.o(i.PWMGenPeriodSet)
+    PWMOutputState                           0x00000993   Thumb Code    16  pwm.o(i.PWMOutputState)
+    PWMPulseWidthSet                         0x000009a3   Thumb Code    32  pwm.o(i.PWMPulseWidthSet)
+    ReadDutyKnob                             0x000009c5   Thumb Code   108  adc_helper.o(i.ReadDutyKnob)
+    ReadFSR1                                 0x00000a39   Thumb Code    18  adc_helper.o(i.ReadFSR1)
+    SetUpPWM0HZ                              0x00000a51   Thumb Code    24  pwm_helper.o(i.SetUpPWM0HZ)
+    SetUpPWM104HZ                            0x00000a75   Thumb Code    38  pwm_helper.o(i.SetUpPWM104HZ)
+    SetUpPWM110HZ                            0x00000aa5   Thumb Code    38  pwm_helper.o(i.SetUpPWM110HZ)
+    SetUpPWM117HZ                            0x00000ad5   Thumb Code    38  pwm_helper.o(i.SetUpPWM117HZ)
+    SetUpPWM123HZ                            0x00000b05   Thumb Code    38  pwm_helper.o(i.SetUpPWM123HZ)
+    SetUpPWM131HZ                            0x00000b35   Thumb Code    38  pwm_helper.o(i.SetUpPWM131HZ)
+    SetUpPWM139HZ                            0x00000b65   Thumb Code    38  pwm_helper.o(i.SetUpPWM139HZ)
+    SetUpPWM147HZ                            0x00000b95   Thumb Code    38  pwm_helper.o(i.SetUpPWM147HZ)
+    SetUpPWM156HZ                            0x00000bc5   Thumb Code    38  pwm_helper.o(i.SetUpPWM156HZ)
+    SetUpPWM165HZ                            0x00000bf5   Thumb Code    38  pwm_helper.o(i.SetUpPWM165HZ)
+    SetUpPWM175HZ                            0x00000c25   Thumb Code    38  pwm_helper.o(i.SetUpPWM175HZ)
+    SetUpPWM185HZ                            0x00000c55   Thumb Code    38  pwm_helper.o(i.SetUpPWM185HZ)
+    SetUpPWM82HZ                             0x00000c85   Thumb Code    38  pwm_helper.o(i.SetUpPWM82HZ)
+    SetUpPWM87HZ                             0x00000cb5   Thumb Code    38  pwm_helper.o(i.SetUpPWM87HZ)
+    SetUpPWM92HZ                             0x00000ce5   Thumb Code    38  pwm_helper.o(i.SetUpPWM92HZ)
+    SetUpPWM98HZ                             0x00000d15   Thumb Code    38  pwm_helper.o(i.SetUpPWM98HZ)
+    SetupADC                                 0x00000d45   Thumb Code   110  adc_helper.o(i.SetupADC)
+    SetupADCPins                             0x00000dbd   Thumb Code    28  adc_helper.o(i.SetupADCPins)
+    SetupPWM                                 0x00000ddd   Thumb Code    78  pwm_helper.o(i.SetupPWM)
+    SysCtlClockSet                           0x00000e41   Thumb Code   270  sysctl.o(i.SysCtlClockSet)
+    SysCtlPWMClockSet                        0x00000f61   Thumb Code    14  sysctl.o(i.SysCtlPWMClockSet)
+    SysCtlPeripheralEnable                   0x00000f75   Thumb Code    36  sysctl.o(i.SysCtlPeripheralEnable)
+    SysCtlPeripheralReady                    0x00000f9d   Thumb Code    40  sysctl.o(i.SysCtlPeripheralReady)
+    SysCtlPeripheralReset                    0x00000fc9   Thumb Code    56  sysctl.o(i.SysCtlPeripheralReset)
+    __scatterload_copy                       0x00001005   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x00001013   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x00001015   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    main                                     0x00001025   Thumb Code    66  project.o(i.main)
+    read_adc                                 0x00001075   Thumb Code    60  adc_helper.o(i.read_adc)
+    Region$$Table$$Base                      0x000012e4   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00001304   Number         0  anon$$obj.o(Region$$Table)
+    DutyCycle                                0x20000000   Data           4  pwm_helper.o(.data)
+    ADC_Values                               0x20000004   Data          32  adc_helper.o(.bss)
+    ADCBuffer                                0x20000024   Data          52  adc_helper.o(.bss)
+    __initial_sp                             0x20000158   Data           0  startup_rvmdk.o(STACK)
+
+
+
+==============================================================================
+
+Memory Map of the image
+
+  Image Entry point : 0x0000026d
+
+  Load Region LR_IROM (Base: 0x00000000, Size: 0x00001308, Max: 0x00040000, ABSOLUTE)
+
+    Execution Region ER_IROM (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x00001304, Max: 0x00040000, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x00000000   0x00000000   0x00000288   Code   RO          169  * RESET               startup_rvmdk.o
+    0x00000288   0x00000288   0x00000000   Code   RO         2546  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
+    0x00000288   0x00000288   0x00000004   Code   RO         2810    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
+    0x0000028c   0x0000028c   0x00000004   Code   RO         2813    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
+    0x00000290   0x00000290   0x00000000   Code   RO         2815    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
+    0x00000290   0x00000290   0x00000000   Code   RO         2817    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
+    0x00000290   0x00000290   0x00000008   Code   RO         2818    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
+    0x00000298   0x00000298   0x00000000   Code   RO         2820    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
+    0x00000298   0x00000298   0x00000000   Code   RO         2822    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
+    0x00000298   0x00000298   0x00000004   Code   RO         2811    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
+    0x0000029c   0x0000029c   0x00000006   Code   RO         1777    .emb_text           driverlib.lib(sysctl.o)
+    0x000002a2   0x000002a2   0x00000002   PAD
+    0x000002a4   0x000002a4   0x00000024   Code   RO         2840    .text               mc_w.l(init.o)
+    0x000002c8   0x000002c8   0x00000008   Code   RO          622    i.ADCBusy           driverlib.lib(adc.o)
+    0x000002d0   0x000002d0   0x0000001a   Code   RO          645    i.ADCProcessorTrigger  driverlib.lib(adc.o)
+    0x000002ea   0x000002ea   0x00000002   PAD
+    0x000002ec   0x000002ec   0x00000284   Code   RO          174    i.ADCReadString1    adc_helper.o
+    0x00000570   0x00000570   0x0000000c   Code   RO          647    i.ADCReferenceSet   driverlib.lib(adc.o)
+    0x0000057c   0x0000057c   0x00000060   Code   RO          648    i.ADCSequenceConfigure  driverlib.lib(adc.o)
+    0x000005dc   0x000005dc   0x00000024   Code   RO          651    i.ADCSequenceDataGet  driverlib.lib(adc.o)
+    0x00000600   0x00000600   0x00000010   Code   RO          652    i.ADCSequenceDisable  driverlib.lib(adc.o)
+    0x00000610   0x00000610   0x0000000e   Code   RO          653    i.ADCSequenceEnable  driverlib.lib(adc.o)
+    0x0000061e   0x0000061e   0x0000009a   Code   RO          656    i.ADCSequenceStepConfigure  driverlib.lib(adc.o)
+    0x000006b8   0x000006b8   0x00000028   Code   RO          905    i.GPIODirModeSet    driverlib.lib(gpio.o)
+    0x000006e0   0x000006e0   0x00000138   Code   RO          917    i.GPIOPadConfigSet  driverlib.lib(gpio.o)
+    0x00000818   0x00000818   0x00000044   Code   RO          918    i.GPIOPinConfigure  driverlib.lib(gpio.o)
+    0x0000085c   0x0000085c   0x0000001c   Code   RO          920    i.GPIOPinTypeADC    driverlib.lib(gpio.o)
+    0x00000878   0x00000878   0x0000001c   Code   RO          928    i.GPIOPinTypeGPIOInput  driverlib.lib(gpio.o)
+    0x00000894   0x00000894   0x0000001c   Code   RO          929    i.GPIOPinTypeGPIOOutput  driverlib.lib(gpio.o)
+    0x000008b0   0x000008b0   0x0000001c   Code   RO          936    i.GPIOPinTypePWM    driverlib.lib(gpio.o)
+    0x000008cc   0x000008cc   0x00000006   Code   RO          947    i.GPIOPinWrite      driverlib.lib(gpio.o)
+    0x000008d2   0x000008d2   0x00000002   PAD
+    0x000008d4   0x000008d4   0x0000007c   Code   RO          246    i.GPIOSetup         gpio_helper.o
+    0x00000950   0x00000950   0x00000026   Code   RO         1552    i.PWMGenConfigure   driverlib.lib(pwm.o)
+    0x00000976   0x00000976   0x0000000a   Code   RO         1554    i.PWMGenEnable      driverlib.lib(pwm.o)
+    0x00000980   0x00000980   0x00000012   Code   RO         1567    i.PWMGenPeriodSet   driverlib.lib(pwm.o)
+    0x00000992   0x00000992   0x00000010   Code   RO         1574    i.PWMOutputState    driverlib.lib(pwm.o)
+    0x000009a2   0x000009a2   0x00000020   Code   RO         1577    i.PWMPulseWidthSet  driverlib.lib(pwm.o)
+    0x000009c2   0x000009c2   0x00000002   PAD
+    0x000009c4   0x000009c4   0x00000074   Code   RO          175    i.ReadDutyKnob      adc_helper.o
+    0x00000a38   0x00000a38   0x00000018   Code   RO          176    i.ReadFSR1          adc_helper.o
+    0x00000a50   0x00000a50   0x00000024   Code   RO          282    i.SetUpPWM0HZ       pwm_helper.o
+    0x00000a74   0x00000a74   0x00000030   Code   RO          283    i.SetUpPWM104HZ     pwm_helper.o
+    0x00000aa4   0x00000aa4   0x00000030   Code   RO          284    i.SetUpPWM110HZ     pwm_helper.o
+    0x00000ad4   0x00000ad4   0x00000030   Code   RO          285    i.SetUpPWM117HZ     pwm_helper.o
+    0x00000b04   0x00000b04   0x00000030   Code   RO          286    i.SetUpPWM123HZ     pwm_helper.o
+    0x00000b34   0x00000b34   0x00000030   Code   RO          287    i.SetUpPWM131HZ     pwm_helper.o
+    0x00000b64   0x00000b64   0x00000030   Code   RO          288    i.SetUpPWM139HZ     pwm_helper.o
+    0x00000b94   0x00000b94   0x00000030   Code   RO          289    i.SetUpPWM147HZ     pwm_helper.o
+    0x00000bc4   0x00000bc4   0x00000030   Code   RO          290    i.SetUpPWM156HZ     pwm_helper.o
+    0x00000bf4   0x00000bf4   0x00000030   Code   RO          291    i.SetUpPWM165HZ     pwm_helper.o
+    0x00000c24   0x00000c24   0x00000030   Code   RO          292    i.SetUpPWM175HZ     pwm_helper.o
+    0x00000c54   0x00000c54   0x00000030   Code   RO          293    i.SetUpPWM185HZ     pwm_helper.o
+    0x00000c84   0x00000c84   0x00000030   Code   RO          299    i.SetUpPWM82HZ      pwm_helper.o
+    0x00000cb4   0x00000cb4   0x00000030   Code   RO          300    i.SetUpPWM87HZ      pwm_helper.o
+    0x00000ce4   0x00000ce4   0x00000030   Code   RO          301    i.SetUpPWM92HZ      pwm_helper.o
+    0x00000d14   0x00000d14   0x00000030   Code   RO          302    i.SetUpPWM98HZ      pwm_helper.o
+    0x00000d44   0x00000d44   0x00000078   Code   RO          177    i.SetupADC          adc_helper.o
+    0x00000dbc   0x00000dbc   0x00000020   Code   RO          178    i.SetupADCPins      adc_helper.o
+    0x00000ddc   0x00000ddc   0x00000064   Code   RO          303    i.SetupPWM          pwm_helper.o
+    0x00000e40   0x00000e40   0x00000120   Code   RO         1782    i.SysCtlClockSet    driverlib.lib(sysctl.o)
+    0x00000f60   0x00000f60   0x00000014   Code   RO         1806    i.SysCtlPWMClockSet  driverlib.lib(sysctl.o)
+    0x00000f74   0x00000f74   0x00000028   Code   RO         1811    i.SysCtlPeripheralEnable  driverlib.lib(sysctl.o)
+    0x00000f9c   0x00000f9c   0x0000002c   Code   RO         1815    i.SysCtlPeripheralReady  driverlib.lib(sysctl.o)
+    0x00000fc8   0x00000fc8   0x0000003c   Code   RO         1816    i.SysCtlPeripheralReset  driverlib.lib(sysctl.o)
+    0x00001004   0x00001004   0x0000000e   Code   RO         2852    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x00001012   0x00001012   0x00000002   Code   RO         2853    i.__scatterload_null  mc_w.l(handlers.o)
+    0x00001014   0x00001014   0x0000000e   Code   RO         2854    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x00001022   0x00001022   0x00000002   PAD
+    0x00001024   0x00001024   0x00000050   Code   RO            1    i.main              project.o
+    0x00001074   0x00001074   0x00000048   Code   RO          179    i.read_adc          adc_helper.o
+    0x000010bc   0x000010bc   0x00000228   Data   RO          949    .constdata          driverlib.lib(gpio.o)
+    0x000012e4   0x000012e4   0x00000020   Data   RO         2850    Region$$Table       anon$$obj.o
+
+
+    Execution Region RW_IRAM (Exec base: 0x20000000, Load base: 0x00001304, Size: 0x00000158, Max: 0x00008000, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x20000000   0x00001304   0x00000004   Data   RW          304    .data               pwm_helper.o
+    0x20000004        -       0x00000054   Zero   RW          180    .bss                adc_helper.o
+    0x20000058        -       0x00000100   Zero   RW          167    STACK               startup_rvmdk.o
+
+
+==============================================================================
+
+Image component sizes
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
+
+      1008         48          0          0         84       4280   adc_helper.o
+       124         18          0          0          0        512   gpio_helper.o
+        80         14          0          0          0       5007   project.o
+       856        184          0          4          0       8249   pwm_helper.o
+       648        622          0          0        256        272   startup_rvmdk.o
+
+    ----------------------------------------------------------------------
+      2716        886         32          4        340      18320   Object Totals
+         0          0         32          0          0          0   (incl. Generated)
+         0          0          0          0          0          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Member Name
+
+       362          0          0          0          0       8802   adc.o
+       538          8        552          0          0       6119   gpio.o
+       114          0          0          0          0       2815   pwm.o
+       458         36          0          0          0       4866   sysctl.o
+         0          0          0          0          0          0   entry.o
+         0          0          0          0          0          0   entry10a.o
+         0          0          0          0          0          0   entry11a.o
+         8          4          0          0          0          0   entry2.o
+         4          0          0          0          0          0   entry5.o
+         0          0          0          0          0          0   entry7b.o
+         0          0          0          0          0          0   entry8b.o
+         8          4          0          0          0          0   entry9a.o
+        30          0          0          0          0          0   handlers.o
+        36          8          0          0          0         68   init.o
+
+    ----------------------------------------------------------------------
+      1568         60        552          0          0      22670   Library Totals
+        10          0          0          0          0          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Name
+
+      1472         44        552          0          0      22602   driverlib.lib
+        86         16          0          0          0         68   mc_w.l
+
+    ----------------------------------------------------------------------
+      1568         60        552          0          0      22670   Library Totals
+
+    ----------------------------------------------------------------------
+
+==============================================================================
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
+
+      4284        946        584          4        340      36794   Grand Totals
+      4284        946        584          4        340      36794   ELF Image Totals
+      4284        946        584          4          0          0   ROM Totals
+
+==============================================================================
+
+    Total RO  Size (Code + RO Data)                 4868 (   4.75kB)
+    Total RW  Size (RW Data + ZI Data)               344 (   0.34kB)
+    Total ROM Size (Code + RO Data + RW Data)       4872 (   4.76kB)
+
+==============================================================================
+

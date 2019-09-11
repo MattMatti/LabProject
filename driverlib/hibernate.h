@@ -226,7 +226,7 @@ extern void HibernateClockConfig(uint32_t ui32Config);
 extern void HibernateBatCheckStart(void);
 extern uint32_t HibernateBatCheckDone(void);
 extern void HibernateCounterMode(uint32_t ui32Config);
-extern void HibernateCalendarSet(struct tm *psTime);
+extern void HibernateCalendarSet(struct tm *psTime); 
 extern int HibernateCalendarGet(struct tm *psTime);
 extern void HibernateCalendarMatchSet(uint32_t ui32Index, struct tm *psTime);
 extern void HibernateCalendarMatchGet(uint32_t ui32Index, struct tm *psTime);

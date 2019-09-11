@@ -4803,7 +4803,7 @@ Nextern void HibernateBatCheckStart(void);
 Nextern uint32_t HibernateBatCheckDone(void);
 Nextern void HibernateCounterMode(uint32_t ui32Config);
 W "driverlib/hibernate.h" 229 41 declaration is not visible outside of function
-Nextern void HibernateCalendarSet(struct tm *psTime);
+Nextern void HibernateCalendarSet(struct tm *psTime); 
 W "driverlib/hibernate.h" 230 40 declaration is not visible outside of function
 Nextern int HibernateCalendarGet(struct tm *psTime);
 W "driverlib/hibernate.h" 231 66 declaration is not visible outside of function
@@ -63399,7 +63399,6 @@ N
 N  extern struct MyButtons MyButtons;
 N  void GPIOSetup(void);
 N  void TurnOnLEDs(void);
-W "./src/GPIO_helper.h" 30 26 last line of file ends without a newline
 N  void TurnOnLEDs2(void);
 L 47 "project.h" 2
 N#include "./src/PWM_helper.h"
@@ -63431,13 +63430,14 @@ N#include "tm4c123gh6pm.h"
 N#include "hw_gpio.h"
 N#include "hw_types.h"
 N#include "gpio.h"
+N#include "PWM_helper.h"
 N
 N
-N	
-N//struct ADC_Strings_FSRs
+N//uint32_t DutyCycle;
+N//struct ADC_strings
 N//{
-N//	uint32_t String1;
-N//	uint32_t String2;
+N//	uint32_t string1;
+N//	uint32_t DutyValue;
 N//	uint32_t String3;
 N//	uint32_t String4;
 N//	uint32_t FSR1;
@@ -63446,17 +63446,18 @@ N//	uint32_t FSR3;
 N//	uint32_t FSR4;
 N//};
 N
-Nextern uint32_t DutyCycle;
 Nextern uint32_t DutyValue;
+Nextern uint32_t FSR1I2C;
 Nvoid SetupADCPins(void);
 Nvoid SetupADC(void);
 Nvoid ADCReadString1(void);  
 Nvoid ADCReadString2(void);  
 Nvoid ADCReadString3(void);  
 Nvoid ADCReadString4(void);  
-N
-Nextern struct ADC_info adcinfo;
-W "./src/ADC_Helper.h" 37 54 last line of file ends without a newline
+Nvoid ReadDutyKnob(void);
+Nvoid ReadFSR1(void);
+Nvoid read_adc(void);
+N//extern struct ADC_info adcinfo;
 N//extern struct ADC_Strings_FSRs StringAndFSR_values;
 L 16 "./src/PWM_helper.h" 2
 N
@@ -63486,6 +63487,7 @@ Nvoid SetUpPWM700HZ(void);
 Nvoid SetUpPWM800HZ(void);
 Nvoid SetUpPWM900HZ(void);
 Nvoid SetupPWM(void);
+Nextern uint32_t DutyCycle;
 L 48 "project.h" 2
 N#include "./src/ADC_helper.h"
 N#include "./src/uart_helper.h"
@@ -64625,7 +64627,7 @@ N
 Nint fgetc(FILE *f);
 N
 L 50 "project.h" 2
-N
+N//#include "LCDDisplay.h"
 N
 L 3 "project.c" 2
 N
@@ -64654,20 +64656,25 @@ N    SysCtlPeripheralReset(SYSCTL_PERIPH_ADC0); // resets ADC module 0
 X    SysCtlPeripheralReset(0xf0003800); 
 N	  
 N	  GPIOSetup();
-N		UART_setup();
+N		//UART_setup();
 N	  SetupADCPins();
 N		SetupADC();
 N	  SetupPWM();
+N	
+N	  
 N		// Check if the peripheral access is enabled.
 N    while(!SysCtlPeripheralReady(SYSCTL_PERIPH_GPIOE))
 X    while(!SysCtlPeripheralReady(0xf0000804))
 N    {
 N		}   
-N    while(1)
-N		{	
-N		
+N  while(1)
+N	{
+N		read_adc();
+N		ReadFSR1();
 N		ADCReadString1();
-N			
-N			}
-W "project.c" 40 4 last line of file ends without a newline
-N		}
+N		ReadDutyKnob();
+N		
+N		
+N	}
+N		} 
+N	
